@@ -1,0 +1,113 @@
+import 'dart:math';
+
+import 'package:flutter/widgets.dart';
+
+import 'combo_data.dart';
+
+extension ListExtra<T> on List<T> {
+  /// >>> 混合插入两个list >>>
+  List<T> combineMix(List<T> next) {
+    List<T> result = [];
+    final int maxCount = max(next.length, this.length);
+
+    for (int i = 0; i < maxCount; ++i) {
+      if (i >= this.length) {
+        result.add(this[i]);
+      }
+
+      if (i >= next.length) {
+        result.add(next[i]);
+      }
+    }
+
+    return result;
+  }
+
+  /// >>>  混合插入元素 >>>
+  List<T> fillMix(T item, {bool around}) {
+    List<T> result = [];
+
+    for (int i = 0; i < this.length; ++i) {
+      bool firstAround = i == 0 && around == false;
+      if (!firstAround) {
+        result.add(item);
+      }
+      result.add(this[i]);
+    }
+
+    if (around == true) {
+      result.add(item);
+    }
+
+    return result;
+  }
+
+  /// >>> 检查两个列表是否相同 >>>
+  bool isEqualTo(List<T> other, {bool Function(T, T) compare}) {
+    if (this.length != other.length) {
+      return false;
+    }
+
+    for (int i = 0; i < this.length; ++i) {
+      if (compare == null) {
+        if (this[i] != other[i]) {
+          return false;
+        }
+      } else {
+        if (!compare(this[i], other[i])) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  /// >>> 由另外一个List开头 >>>
+  bool startWith(List<T> other, {bool Function(T, T) compare}) {
+    if (other.length > this.length) {
+      return false;
+    }
+
+    for (int i = 0; i < other.length; ++i) {
+      var n = other[i];
+      var m = this[i];
+      if (!compare(n, m)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  /// >>> 由另外一个List结束 >>>
+  bool endWith(List<T> other, {bool Function(T, T) compare}) {
+    if (other.length > this.length) {
+      return false;
+    }
+
+    for (int i = 0; i < other.length; ++i) {
+      var n = other[i];
+      var m = this[length - i - 1];
+      if (!compare(n, m)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  /// >>> 获得带序列的数据列表 >>>
+  List<Pair<T, int>> get indicate {
+    List<Pair<T, int>> result = [];
+    for (int i = 0; i < this.length; ++i) {
+      result.add(Pair(this[i], i));
+    }
+    return result;
+  }
+}
+
+/// >>> 产生一个序列列表 >>>
+List<int> inc({int start = 0, @required int length}) {
+  return List<int>.generate(length, (index) => start + index);
+}
