@@ -57,7 +57,7 @@ class DialogAction {
 }
 
 extension ContextExtra on BuildContext {
-  /// >>> 现实对话框 >>>
+  /// >>> 实现对话框 >>>
   Future<T> showAlert<T>({
     @required String title,
     String subTitle,
@@ -111,5 +111,13 @@ extension ContextExtra on BuildContext {
       content: child,
       backgroundColor: color,
     ));
+  }
+
+  /// >>> 显示提示条文本 >>>
+  showSnackTitle(String title, {Color color}) async {
+    showSnack(
+      Text(title, style: TextStyle(color: Colors.white, fontSize: 16)),
+      color: color,
+    );
   }
 }

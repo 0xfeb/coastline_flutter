@@ -6,18 +6,20 @@ class Control {
   static Widget bar(
     String text, {
     Color color = Colors.blue,
+    Color textColor = Colors.white,
     double fontSize = 14,
   }) {
     return Container(
       padding: EdgeInsets.fromLTRB(
           fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
-      child: Text(text, style: TextStyle(color: color, fontSize: fontSize)),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(4), color: color),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: fontSize)),
     );
   }
 
   /// >>> 带有文本的图标 >>>
-  static Widget icon({
+  static Widget textIcon({
     @required IconData icon,
     @required String text,
     Color iconColor = Colors.white,
