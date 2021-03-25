@@ -104,6 +104,95 @@ rrect `[生成]`  获得圆角矩形边框.
 ## structure
 数据结构集合
 
+
+### Combo Data  
+组合数据集合
+
+> 类 Pair  
+
+组合两个数据   
+
+
+> 类 Triple  
+
+组合三个数据   
+
+
+> 类 Quad  
+
+组合四个数据   
+
+
+
+### List Extra   
+数组扩展  
+
+
+> 扩展  List<T>   
+
+combineMix `[函数]` 将两个数组进行交叉组合, `next [List<T>]`为接下去的数组. 返回一个组合后的新数组.  
+
+fillMix `[函数]` 将数据交叉插入数组中, `item [T]`为插入到数组中的数据, `around [bool]`指定数据是否包含到数组之外. 返回一个组合后的新数组.   
+
+isEqualTo `[函数]` 判断本数组是否与另外一个数组相同.   
+
+startWith `[函数]` 判断本数组是否由另外一个数组开头.   
+
+endWith `[函数]` 判断本数组是否另外一个数组结束.   
+
+indicate `[属性]` 产生一个带有序列号的数组.   
+
+
+> 函数 inc   
+
+产生一个序列数组, `length [int]`数组的长度, `start [int]`数组的起始数据.  
+
+
+### Map Extra   
+Map扩展   
+
+> 扩展  Map  
+
+findByValue `函数` 通过Value元素进行数据搜索, `byValue`为数据对比函数, 返回一个带有Key和Value的MapEntry数据.   
+
+
+
+### Number Extra  
+数字类型的扩展  
+
+> 扩展 num  
+
+between `函数` 通过`min[num]`和`max[num]`限制本数字的上下限, 返回一个新的数据. 相当于max(min(max, X), min)的结果.  
+
+
+### Number Parser  
+数字分析功能
+
+> 扩展 String  
+
+chineseNumber `属性` 通过字符串中的中文文本, 得到一个数值.   
+
+
+### String Extra  
+字符串扩展 
+
+> 扩展 String  
+
+apartBy `函数` 通过`gap[String]`分割一个字符串, 得到两个字符串.   
+
+apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.   
+
+
+
+### Value
+数据判断
+
+> 类 Value
+
+isEmpty `函数` 判断数据`l [dynamic]`是否为空.   
+
+
+
 ## system
 系统功能集合
 
