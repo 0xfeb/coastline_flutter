@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// >>> 方向指定, 一共8个方向 >>>
 enum Direction {
   toDown,
   toUp,

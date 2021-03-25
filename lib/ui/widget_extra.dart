@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension WidgetExtra on Widget {
+  /// >>> 点击控件 >>>
   InkWell onTap(Function() onTap) {
     return InkWell(
       child: this,
@@ -8,6 +9,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 按下/释放控件 >>>
   Widget onPress(
       {Function() onHold, Function() onRelease, Function() onFocusRelease}) {
     return GestureDetector(
@@ -23,6 +25,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 尺寸控件 >>>
   SizedBox sized({double width, double height}) {
     return SizedBox(
       width: width,
@@ -31,6 +34,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 圆角矩形控件 >>>
   Container rrect(double radius) {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius)),
@@ -38,6 +42,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
   RotatedBox rotated({int quarter}) {
     return RotatedBox(
       quarterTurns: quarter,
@@ -45,16 +50,19 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 扩大控件 >>>
   Expanded expanded() {
     return Expanded(child: this);
   }
 
+  /// >>> 将控件Sliver化 >>>
   Widget sliver() {
     return SliverToBoxAdapter(
       child: this,
     );
   }
 
+  /// >>> 半透明控件(0为透明, 1为不透明) >>>
   Opacity opacity(double opacity) {
     return Opacity(
       opacity: opacity,
@@ -62,6 +70,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 指定控件的位置, 适用于Stack >>>
   Positioned positioned(
       {double left,
       double right,
@@ -96,14 +105,17 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 宽高比(1为正方形) >>>
   AspectRatio apsect({double ratio = 1}) {
     return AspectRatio(aspectRatio: ratio, child: this);
   }
 
+  /// >>> 居中控件 >>>
   Center get center {
     return Center(child: this);
   }
 
+  /// >>> 居左 >>>
   Align get left {
     return Align(
       alignment: Alignment(-1, 0),
@@ -111,6 +123,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 居右 >>>
   Align get right {
     return Align(
       alignment: Alignment(1, 0),
@@ -118,6 +131,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 居上 >>>
   Align get top {
     return Align(
       alignment: Alignment(0, -1),
@@ -125,6 +139,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 居下 >>>
   Align get bottom {
     return Align(
       alignment: Alignment(0, 1),
@@ -132,6 +147,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 左上 >>>
   Align get leftTop {
     return Align(
       alignment: Alignment(-1, -1),
@@ -139,6 +155,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 右上 >>>
   Align get rightTop {
     return Align(
       alignment: Alignment(1, -1),
@@ -146,6 +163,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 左下 >>>
   Align get leftBottom {
     return Align(
       alignment: Alignment(-1, 1),
@@ -153,6 +171,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 右下 >>>
   Align get rightBottom {
     return Align(
       alignment: Alignment(1, 1),
@@ -160,6 +179,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 按比例配置位置(0为左或上, 1为右或下) >>>
   Align align({double fx = 0, double fy = 0}) {
     return Align(
       alignment: Alignment(fx, fy),

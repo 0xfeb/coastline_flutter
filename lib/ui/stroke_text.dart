@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+/// >>> 绘制文本的边框 >>>
 class StrokeText extends StatelessWidget {
   final StrokeCap strokeCap;
   final StrokeJoin strokeJoin;

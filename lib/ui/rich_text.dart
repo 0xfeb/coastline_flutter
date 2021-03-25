@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 extension RichTextExtra on RichText {
-  static formList(List<TextSpan> list,
+  /// >>> 从TextSpan列表生成RichText >>>
+  static RichText formList(List<TextSpan> list,
       {TextAlign textAlign = TextAlign.start,
       TextDirection textDirection,
       bool softWrap = true,

@@ -5,17 +5,20 @@ import 'path.dart';
 import 'package:uuid/uuid.dart';
 
 extension ImageExtra on FileImage {
+  /// >>> 文件图像, 从Storage ID获取图像 >>>
   static FileImage fromStorageId(String storageId) {
     String destPath = Path().imageFilename(main: storageId);
     print('load image from -> $destPath');
     return FileImage(File(destPath));
   }
 
+  /// >>> 文件图像, 从Storage ID获取图像, 同步 >>>
   static Future<FileImage> fromStorageIdAsync(String storageId) async {
     await Path().setup();
     return fromStorageId(storageId);
   }
 
+  /// >>> 存储图像, 自动返回一个Storage ID >>>
   String save() {
     String uuid = Uuid().v4();
     String destFile = Path().imageFilename(main: uuid);
@@ -26,11 +29,13 @@ extension ImageExtra on FileImage {
     return uuid;
   }
 
+  /// >>> 存储图像, 自动返回一个Storage ID, 同步 >>>
   Future<String> saveAsync() async {
     await Path().setup();
     return save();
   }
 
+  /// >>> 拷贝一个文件到Storage ID >>>
   static copyToStorage(String sourcePath) {
     String uuid = Uuid().v4();
     String destFile = Path().imageFilename(main: uuid);
@@ -38,6 +43,7 @@ extension ImageExtra on FileImage {
     return uuid;
   }
 
+  /// >>> 拷贝一个文件到Storage ID, 同步 >>>
   static copyToStorageAsync(String sourcePath) async {
     await Path().setup();
     copyToStorage(sourcePath);

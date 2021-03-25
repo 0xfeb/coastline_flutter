@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widget_extra.dart';
 
+/// >>> 数字输入框 >>>
 class NumberField extends StatelessWidget {
   final Color color;
   final int min;

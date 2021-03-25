@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// >>> 对话框边框 >>>
 class ChatPopBorder extends ShapeBorder {
   final double offset;
   final Size arrowSize;
@@ -59,7 +60,9 @@ class ChatPopBorder extends ShapeBorder {
   }
 }
 
+/// >>> 形状边框 >>>
 extension ShapeBorderExtra on ShapeBorder {
+  /// >>> 对话框边框 >>>
   static ChatPopBorder chatPop({
     Color color = Colors.grey,
     double offset = 0.8,
@@ -68,6 +71,7 @@ extension ShapeBorderExtra on ShapeBorder {
     return ChatPopBorder(color: color, offset: offset, arrowSize: arrowSize);
   }
 
+  /// >>> 圆形矩形边框 >>>
   static RoundedRectangleBorder rrect({double radius = 4}) {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }

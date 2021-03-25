@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// >>> 显示格式列表控件 >>>
 class GridList extends StatelessWidget {
   final int rowNumber;
   final int selectedIndex;
