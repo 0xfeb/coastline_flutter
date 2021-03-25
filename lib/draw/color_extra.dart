@@ -51,7 +51,7 @@ extension ColorExtra on Color {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
-      (_hueOfColor(color) + offset).between(min: 0, max: 1.0),
+      (_hueOfColor(color) + offset).between(min: 0, max: 360.0),
       hsvColor.saturation,
       hsvColor.value,
     ).toColor();
