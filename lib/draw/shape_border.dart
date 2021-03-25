@@ -71,7 +71,7 @@ extension ShapeBorderExtra on ShapeBorder {
     return ChatPopBorder(color: color, offset: offset, arrowSize: arrowSize);
   }
 
-  /// >>> 圆形矩形边框 >>>
+  /// >>> 圆角矩形边框 >>>
   static RoundedRectangleBorder rrect({double radius = 4}) {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }

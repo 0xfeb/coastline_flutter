@@ -3,7 +3,7 @@ import '../structure/number_extra.dart';
 import '../structure/list_extra.dart';
 
 /// >>> 几种常用色彩 >>>
-enum ColorName { red, orange, yello, green, cyan, blue, puple, pink }
+enum ColorName { red, orange, yellow, green, cyan, blue, puple, pink }
 
 double _hueOfColor(ColorName color) {
   switch (color) {
@@ -11,7 +11,7 @@ double _hueOfColor(ColorName color) {
       return 0;
     case ColorName.orange:
       return 30;
-    case ColorName.yello:
+    case ColorName.yellow:
       return 60;
     case ColorName.green:
       return 120;
@@ -51,7 +51,7 @@ extension ColorExtra on Color {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
-      _hueOfColor(color) + offset,
+      (_hueOfColor(color) + offset).between(min: 0, max: 1.0),
       hsvColor.saturation,
       hsvColor.value,
     ).toColor();

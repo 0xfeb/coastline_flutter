@@ -15,12 +15,9 @@ enum Direction {
 extension GradientExtra on LinearGradient {
   /// >>> 生成渐变图形 >>>
   static LinearGradient fromList(
-      {List<Color> colors,
+      {@required List<Color> colors,
       List<double> stops,
-      Direction direction = Direction.toRight,
-      TileMode tileMode = TileMode.clamp,
-      double rotate = 0}) {
-    GradientRotation gr = GradientRotation(rotate);
+      Direction direction = Direction.toRight}) {
     AlignmentGeometry begin;
     AlignmentGeometry end;
     switch (direction) {
@@ -58,7 +55,6 @@ extension GradientExtra on LinearGradient {
         break;
     }
 
-    return LinearGradient(
-        colors: colors, stops: stops, transform: gr, begin: begin, end: end);
+    return LinearGradient(colors: colors, stops: stops, begin: begin, end: end);
   }
 }
