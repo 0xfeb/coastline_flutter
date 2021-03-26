@@ -32,8 +32,13 @@ extension IconDataExtra on IconData {
 }
 
 extension ImageProviderExtra on ImageProvider {
-  /// >>> 图形 >>>
+  /// >>> 图形, 宽高比等比例填充 >>>
   Image get image {
     return Image(image: this, fit: BoxFit.cover);
+  }
+
+  /// >>> 图形, 宽高比失衡填充  >>>
+  Image get imageFill {
+    return Image(image: this, fit: BoxFit.fill);
   }
 }
