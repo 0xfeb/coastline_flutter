@@ -60,19 +60,16 @@ class ChatPopBorder extends ShapeBorder {
   }
 }
 
-/// >>> 形状边框 >>>
-extension ShapeBorderExtra on ShapeBorder {
-  /// >>> 对话框边框 >>>
-  static ChatPopBorder chatPop({
-    Color color = Colors.grey,
-    double offset = 0.8,
-    Size arrowSize = const Size(10, 10),
-  }) {
-    return ChatPopBorder(color: color, offset: offset, arrowSize: arrowSize);
-  }
+/// >>> 对话框边框 >>>
+ChatPopBorder chatPopBorder({
+  Color color = Colors.grey,
+  double offset = 0.8,
+  Size arrowSize = const Size(10, 10),
+}) {
+  return ChatPopBorder(color: color, offset: offset, arrowSize: arrowSize);
+}
 
-  /// >>> 圆角矩形边框 >>>
-  static RoundedRectangleBorder rrect({double radius = 4}) {
-    return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
-  }
+/// >>> 圆角矩形边框 >>>
+RoundedRectangleBorder rrectBorder({double radius = 4}) {
+  return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
 }
