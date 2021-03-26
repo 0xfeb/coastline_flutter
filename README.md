@@ -94,11 +94,13 @@ arrowSize `[属性]` 三角形的尺寸.
 color `[属性]`  边框的色彩.  
 
 
-> 扩展  ShapeBorder  
+> 函数  chatPopBorder  
 
 chatPop `[生成]` 获得ChatPopBorder.   
 
-rrect `[生成]`  获得圆角矩形边框.   
+> 函数 rrectBorder   
+
+rrectBorder `[生成]`  获得圆角矩形边框.   
 
 
 
