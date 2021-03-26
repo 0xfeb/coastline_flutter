@@ -52,9 +52,9 @@ toBottomLeft 朝向左下
 toBottomRight 朝向右下  
 
 
-> 扩展  LinearGradient  
+> 函数  gradient  
 
-fromList `[生成]` 产生一个直线渐变色, `colors [List<Color>]`指定色彩列表, 用于渐变的色彩指定. `stops[List<double>: 0-1]`指定色彩位置. `direction [Direction]`指定色彩方向, 如果未指定, 则是从左到右. 
+gradient `[函数]` 产生一个直线渐变色, `colors [List<Color>]`指定色彩列表, 用于渐变的色彩指定. `stops[List<double>: 0-1]`指定色彩位置. `direction [Direction]`指定色彩方向, 如果未指定, 则是从左到右. 
 
 
 ### Resource
