@@ -96,7 +96,7 @@ color `[属性]`  边框的色彩.
 
 > 函数  chatPopBorder  
 
-chatPop `[生成]` 获得ChatPopBorder.   
+chatPopBorder `[生成]` 获得ChatPopBorder.   
 
 > 函数 rrectBorder   
 
