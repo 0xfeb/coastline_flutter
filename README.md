@@ -75,7 +75,9 @@ iconDarkGrey `[函数]` 产生一个深灰色的Icon元素.
 
 > 扩展 ImageProvider  
 
-image `[属性]` 从Provider产生Image控件.  
+image `[属性]` 从Provider产生Image控件, 支持高宽比等比例伸缩.  
+
+imageFill `[属性]` 从Provider产生Image控件, 支持高宽比失衡伸缩.  
 
 
 ### ShapeBorder
