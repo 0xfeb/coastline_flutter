@@ -25,6 +25,32 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 容器控件 >>>
+  Container bar(
+      {double width,
+      double height,
+      Color color,
+      EdgeInsets padding,
+      double cornerRadius}) {
+    if (cornerRadius == null) {
+      return Container(
+        child: this,
+        width: width,
+        height: height,
+        padding: padding,
+        decoration: BoxDecoration(color: color),
+      );
+    }
+    return Container(
+      child: this,
+      width: width,
+      height: height,
+      padding: padding,
+      decoration: BoxDecoration(
+          color: color, borderRadius: BorderRadius.circular(cornerRadius)),
+    );
+  }
+
   /// >>> 尺寸控件 >>>
   SizedBox sized({double width, double height}) {
     return SizedBox(

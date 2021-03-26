@@ -68,14 +68,16 @@ iconWhite `[函数]` 产生一个白色的Icon元素.
 
 iconBlack `[函数]` 产生一个黑色的Icon元素.  
 
-iconGrey `[函数]` 产生一个灰色的Icon元素.  
+iconGray `[函数]` 产生一个灰色的Icon元素.  
 
-iconDarkGrey `[函数]` 产生一个深灰色的Icon元素.  
+iconDarkGray `[函数]` 产生一个深灰色的Icon元素.  
 
 
 > 扩展 ImageProvider  
 
-image `[属性]` 从Provider产生Image控件.  
+image `[属性]` 从Provider产生Image控件, 支持高宽比等比例伸缩.  
+
+imageFill `[属性]` 从Provider产生Image控件, 支持高宽比失衡伸缩.  
 
 
 ### ShapeBorder
