@@ -21,12 +21,12 @@ extension IconDataExtra on IconData {
   }
 
   /// >>> 图标灰色 >>>
-  Icon iconGrey({double size = 20}) {
+  Icon iconGray({double size = 20}) {
     return icon(size: size, color: Colors.grey);
   }
 
   /// >>> 图标深灰色 >>>
-  Icon iconDarkGrey({double size = 20}) {
+  Icon iconDarkGray({double size = 20}) {
     return icon(size: size, color: Colors.grey[800]);
   }
 }
