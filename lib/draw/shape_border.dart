@@ -27,18 +27,19 @@ class ChatPopBorder extends ShapeBorder {
     Path a = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
-          Rect.fromLTWH(
-              0, 0, rect.size.width, rect.size.height - arrowSize.height),
+          Rect.fromLTWH(rect.left, rect.top, rect.size.width,
+              rect.size.height - arrowSize.height),
           Radius.circular(4),
         ),
       );
 
-    Offset p1 =
-        Offset(rect.size.width * offset, rect.size.height - arrowSize.height);
+    Offset p1 = Offset(rect.size.width * offset + rect.left,
+        rect.size.height - arrowSize.height + rect.top);
     Offset p2 = Offset(
-        rect.size.width * offset - arrowSize.width / 2, rect.size.height);
-    Offset p3 = Offset(rect.size.width * offset - arrowSize.width,
-        rect.size.height - arrowSize.height);
+        rect.size.width * offset - arrowSize.width / 2 + rect.left,
+        rect.size.height + rect.top);
+    Offset p3 = Offset(rect.size.width * offset - arrowSize.width + rect.left,
+        rect.size.height - arrowSize.height + rect.top);
     Path b = Path()..addPolygon([p1, p2, p3], true);
 
     return Path.combine(PathOperation.xor, a, b);
@@ -56,7 +57,7 @@ class ChatPopBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return this;
+    return null;
   }
 }
 
