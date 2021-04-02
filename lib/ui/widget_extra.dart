@@ -26,7 +26,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 容器控件 >>>
-  Container bar(
+  Container box(
       {double width,
       double height,
       Color color,
