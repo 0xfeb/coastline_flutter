@@ -3,6 +3,7 @@ library coastline2;
 export './draw/color_extra.dart';
 export './draw/gradient.dart';
 export './draw/resource.dart';
+export './draw/path_extra.dart';
 export './draw/shape_border.dart';
 
 export './structure/combo_data.dart';

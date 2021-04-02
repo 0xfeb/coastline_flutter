@@ -104,6 +104,26 @@ rrectBorder `[生成]`  获得圆角矩形边框.
 
 
 
+### PathExtra
+
+> 扩展 Path
+
+union `[函数]` 合并两个Path.   
+
+hole `[函数]` 在Path上挖洞.   
+
+
+
+> 函数
+
+rectPath `[函数]` 生成矩形Path.   
+
+rrectPath  `[函数]` 生成圆角矩形Path.   
+
+cyclePath `[函数]` 生成圆形Path.   
+
+
+
 
 ## structure
 数据结构集合
