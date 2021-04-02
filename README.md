@@ -123,6 +123,19 @@ triplePath `[函数]` 生成三角形Path.
 angleTriplePath `[函数]` 生成直角三角形Path.   
 
 
+### Paint View
+
+> 类 PaintView
+
+path `[属性]` 绘图的形状   
+
+paint `[属性]`  绘图的模式   
+
+size  `[属性]`  绘图控件的尺寸   
+
+child  `[属性]`  子控件    
+
+
 ## structure
 数据结构集合
 
