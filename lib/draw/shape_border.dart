@@ -19,7 +19,14 @@ class ChatPopBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    return Path()..addRRect(RRect.fromRectAndRadius(rect, Radius.circular(4)));
+    return Path()
+      ..addRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromLTWH(rect.left, rect.top, rect.size.width,
+              rect.size.height - arrowSize.height),
+          Radius.circular(4),
+        ),
+      );
   }
 
   @override
@@ -43,6 +50,199 @@ class ChatPopBorder extends ShapeBorder {
     Path b = Path()..addPolygon([p1, p2, p3], true);
 
     return Path.combine(PathOperation.xor, a, b);
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+    Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    Path path = getOuterPath(rect, textDirection: textDirection);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    return null;
+  }
+}
+
+// todo: tagBorder
+class TagBorder extends ShapeBorder {
+  final Color color;
+
+  TagBorder({this.color});
+
+  @override
+  EdgeInsetsGeometry get dimensions {
+    return EdgeInsets.all(1);
+  }
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getInnerPath
+    throw UnimplementedError();
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getOuterPath
+    throw UnimplementedError();
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+    Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    Path path = getOuterPath(rect, textDirection: textDirection);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    return null;
+  }
+}
+
+// todo: ticketBorder
+class TicketBorder extends ShapeBorder {
+  final Color color;
+
+  TicketBorder({this.color});
+
+  @override
+  EdgeInsetsGeometry get dimensions {
+    return EdgeInsets.all(1);
+  }
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getInnerPath
+    throw UnimplementedError();
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getOuterPath
+    throw UnimplementedError();
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+    Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    Path path = getOuterPath(rect, textDirection: textDirection);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    return null;
+  }
+}
+
+// todo: receiptBoder
+class FullReceiptBorder extends ShapeBorder {
+  final Color color;
+
+  FullReceiptBorder({this.color});
+
+  @override
+  EdgeInsetsGeometry get dimensions {
+    return EdgeInsets.all(1);
+  }
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getInnerPath
+    throw UnimplementedError();
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getOuterPath
+    throw UnimplementedError();
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+    Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    Path path = getOuterPath(rect, textDirection: textDirection);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    return null;
+  }
+}
+
+class TopReceiptBorder extends ShapeBorder {
+  final Color color;
+
+  TopReceiptBorder({this.color});
+
+  @override
+  EdgeInsetsGeometry get dimensions {
+    return EdgeInsets.all(1);
+  }
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getInnerPath
+    throw UnimplementedError();
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getOuterPath
+    throw UnimplementedError();
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+    Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    Path path = getOuterPath(rect, textDirection: textDirection);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    return null;
+  }
+}
+
+class BottomReceiptBorder extends ShapeBorder {
+  final Color color;
+
+  BottomReceiptBorder({this.color});
+
+  @override
+  EdgeInsetsGeometry get dimensions {
+    return EdgeInsets.all(1);
+  }
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getInnerPath
+    throw UnimplementedError();
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // TODO: implement getOuterPath
+    throw UnimplementedError();
   }
 
   @override
