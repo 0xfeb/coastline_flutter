@@ -4,12 +4,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
 /// >>> 文件路径类 >>>
-class Path {
-  static final Path _instance = Path._internal();
-  factory Path() {
+class FilePath {
+  static final FilePath _instance = FilePath._internal();
+  factory FilePath() {
     return _instance;
   }
-  Path._internal();
+  FilePath._internal();
 
   String _db;
   String _image;
