@@ -122,7 +122,9 @@ rrectPath  `[函数]` 生成圆角矩形Path.
 
 cyclePath `[函数]` 生成圆形Path.   
 
+triplePath `[函数]` 生成三角形Path.  
 
+angleTriplePath `[函数]` 生成直角三角形Path.   
 
 
 ## structure
