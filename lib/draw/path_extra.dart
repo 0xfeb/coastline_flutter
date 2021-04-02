@@ -1,17 +1,13 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-extension PathExtra on Path {
-  /// >>> 组合Path >>>
-  Path union(Path path) {
-    return Path.combine(PathOperation.union, this, path);
-  }
+/// >>> 组合Path >>>
+Path pathUnion(Path path1, Path path2) {
+  return Path.combine(PathOperation.union, path1, path2);
+}
 
-  /// >>> 在Path上挖洞 >>>
-  Path hole(Path path) {
-    return Path.combine(PathOperation.difference, this, path);
-  }
+/// >>> 在Path上挖洞 >>>
+Path pathHole(Path path1, Path path2) {
+  return Path.combine(PathOperation.difference, path1, path2);
 }
 
 /// >>> 矩形Path >>>
