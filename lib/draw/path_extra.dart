@@ -135,3 +135,55 @@ Path angleTriplePath(Offset anglePoint, double x, double y) {
 //   final h = sqrt(3) * l / 2;
 //   return isoTriplePath(point1, point2, h);
 // }
+
+/// >>> 线中取一个偏移点(从0.0到1.0) >>>
+Offset offsetOfLine(Offset point1, Offset point2, double offset) {
+  final x = (point2.dx - point1.dx) * offset + point1.dx;
+  final y = (point2.dy - point1.dy) * offset + point1.dy;
+  return Offset(x, y);
+}
+
+/// >>> 线中取一个偏移点(大于0, 是point1这边偏移, 小于0, 是point2这边偏移) >>>
+Offset positionOfLine(Offset point1, Offset point2, double position) {
+  final distance = (point2 - point1).distance;
+  double offset = 0;
+  if (position >= 0) {
+    offset = position / distance;
+  } else {
+    offset = (distance + position) / distance;
+  }
+  return offsetOfLine(point1, point2, offset);
+}
+
+/// >>> 多个点形成一个封闭的形状, 并且支持圆角功能 >>>
+Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
+  Path path = Path();
+  Offset a;
+  Offset b;
+  Offset ap;
+  Offset bp;
+  Offset first;
+  Offset firstP;
+  for (int i = 0; i < points.length; ++i) {
+    a = points[i];
+    b = (i == points.length - 1) ? points[0] : points[i + 1];
+    bp = positionOfLine(a, b, -cornerRadius);
+    ap = positionOfLine(a, b, cornerRadius);
+
+    if (i == 0) {
+      path.moveTo(ap.dx, ap.dy);
+      first = a;
+      firstP = ap;
+    } else {
+      path.quadraticBezierTo(a.dx, a.dy, ap.dx, ap.dy);
+    }
+
+    path.lineTo(bp.dx, bp.dy);
+  }
+
+  Offset lastP = positionOfLine(a, first, -cornerRadius);
+  path.lineTo(lastP.dx, lastP.dy);
+  path.quadraticBezierTo(first.dx, first.dy, firstP.dx, firstP.dy);
+
+  return path;
+}
