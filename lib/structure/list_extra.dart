@@ -24,12 +24,15 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>>  混合插入元素 >>>
-  List<T> fillMix(T item, {bool around}) {
+  List<T> fillMix(T item, {bool around = false}) {
     List<T> result = [];
 
     for (int i = 0; i < this.length; ++i) {
-      bool firstAround = i == 0 && around == false;
-      if (!firstAround) {
+      if (i == 0) {
+        if (around) {
+          result.add(item);
+        }
+      } else {
         result.add(item);
       }
       result.add(this[i]);
