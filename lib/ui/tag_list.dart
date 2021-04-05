@@ -30,12 +30,12 @@ class TagList extends StatelessWidget {
       children: texts.indicate.map((e) {
         return InkWell(
           child: Chip(
-            label: Text(e.a),
+            label: Text(e.value),
             labelStyle: TextStyle(color: textColor, fontSize: fontSize),
             backgroundColor:
-                selectedTag == e.b ? selectedColor : unselectedColor,
+                selectedTag == e.key ? selectedColor : unselectedColor,
           ),
-          onTap: onSelectTag(e.b),
+          onTap: onSelectTag(e.key),
         );
       }).toList(),
     );

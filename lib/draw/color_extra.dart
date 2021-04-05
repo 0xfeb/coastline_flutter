@@ -51,7 +51,7 @@ extension ColorExtra on Color {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
-      (_hueOfColor(color) + offset).between(min: 0, max: 360.0),
+      (_hueOfColor(color) + offset).between(0, 360.0),
       hsvColor.saturation,
       hsvColor.value,
     ).toColor();
@@ -60,7 +60,7 @@ extension ColorExtra on Color {
   /// >>> 获得增加亮度的色彩 >>>
   Color bright({double offset = 0.3}) {
     final hsvColor = HSVColor.fromColor(this);
-    final v = (hsvColor.value + offset).between(min: 0, max: 1.0);
+    final v = (hsvColor.value + offset).between(0, 1.0);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
       hsvColor.hue,

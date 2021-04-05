@@ -11,11 +11,11 @@ extension ListExtra<T> on List<T> {
     final int maxCount = max(next.length, this.length);
 
     for (int i = 0; i < maxCount; ++i) {
-      if (i >= this.length) {
+      if (i < this.length) {
         result.add(this[i]);
       }
 
-      if (i >= next.length) {
+      if (i < next.length) {
         result.add(next[i]);
       }
     }
@@ -24,12 +24,15 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>>  混合插入元素 >>>
-  List<T> fillMix(T item, {bool around}) {
+  List<T> fillMix(T item, {bool around = false}) {
     List<T> result = [];
 
     for (int i = 0; i < this.length; ++i) {
-      bool firstAround = i == 0 && around == false;
-      if (!firstAround) {
+      if (i == 0) {
+        if (around) {
+          result.add(item);
+        }
+      } else {
         result.add(item);
       }
       result.add(this[i]);
@@ -87,7 +90,7 @@ extension ListExtra<T> on List<T> {
     }
 
     for (int i = 0; i < other.length; ++i) {
-      var n = other[i];
+      var n = other[other.length - i - 1];
       var m = this[length - i - 1];
       if (!compare(n, m)) {
         return false;
@@ -98,10 +101,10 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 获得带序列的数据列表 >>>
-  List<Pair<T, int>> get indicate {
-    List<Pair<T, int>> result = [];
+  List<MapEntry<int, T>> get indicate {
+    List<MapEntry<int, T>> result = [];
     for (int i = 0; i < this.length; ++i) {
-      result.add(Pair(this[i], i));
+      result.add(MapEntry(i, this[i]));
     }
     return result;
   }
