@@ -254,11 +254,10 @@ apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.
 
 
 ### Value
-数据判断
+数据判断    
 
-> 类 Value
-
-isEmpty `函数` 判断数据`l [dynamic]`是否为空.   
+> 函数 isEmpty   
+判断数据`l [dynamic]`是否为空.   
 
 
 
