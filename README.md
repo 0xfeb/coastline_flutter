@@ -282,7 +282,7 @@ copyToStorage  `函数` 拷贝一个图片文件`sourcePath [String]`到Storage,
 copyToStorageAsync `函数`, 与copyToStorage相同, 异步.  
 
 
-### Path  
+### File Path  
 系统路径   
 
 > 类 Path  
