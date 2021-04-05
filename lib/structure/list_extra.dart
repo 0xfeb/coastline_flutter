@@ -11,11 +11,11 @@ extension ListExtra<T> on List<T> {
     final int maxCount = max(next.length, this.length);
 
     for (int i = 0; i < maxCount; ++i) {
-      if (i >= this.length) {
+      if (i < this.length) {
         result.add(this[i]);
       }
 
-      if (i >= next.length) {
+      if (i < next.length) {
         result.add(next[i]);
       }
     }
