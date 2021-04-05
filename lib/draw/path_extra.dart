@@ -170,8 +170,6 @@ Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
     bp = positionOfLine(a, b, -cornerRadius);
     ap = positionOfLine(a, b, cornerRadius);
 
-    print('a $a , ap $ap , bp $bp , b $b');
-
     if (i == 0) {
       path.moveTo(ap.dx, ap.dy);
       first = a;
