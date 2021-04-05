@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'path_extra.dart';
@@ -56,7 +58,8 @@ class ChatPopBorder extends ShapeBorder {
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
@@ -107,7 +110,8 @@ class TagBorder extends ShapeBorder {
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
@@ -152,7 +156,8 @@ class TicketBorder extends ShapeBorder {
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
@@ -163,11 +168,38 @@ class TicketBorder extends ShapeBorder {
   }
 }
 
+List<double> _randomList(double limit, int count) {
+  Random r = Random();
+  List<double> result = [0];
+  double unit = limit / count.toDouble();
+  for (int i = 1; i < count; ++i) {
+    final c = i * unit;
+    if (result.contains(c)) {
+      i -= 1;
+      continue;
+    }
+    result.add(c);
+  }
+  result.add(limit);
+  return result;
+}
+
+List<Offset> _randomPoints({double limit, int count, double height = 10}) {
+  List<double> points = _randomList(limit, count);
+  List<Offset> result = [];
+  for (int i = 0; i < points.length; ++i) {
+    if (i % 2 == 0) {
+      result.add(Offset(points[i], 0));
+    } else {
+      result.add(Offset(points[i], height));
+    }
+  }
+  return result;
+}
+
 // todo: receiptBoder
 class FullReceiptBorder extends ShapeBorder {
-  final Color color;
-
-  FullReceiptBorder({this.color});
+  FullReceiptBorder();
 
   @override
   EdgeInsetsGeometry get dimensions {
@@ -176,22 +208,26 @@ class FullReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
-    throw UnimplementedError();
+    return rectPath(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    List<Offset> points = _randomPoints(limit: rect.width, count: 30);
+    List<Offset> bottomPoints = _randomPoints(limit: rect.width, count: 30)
+        .reversed
+        .map((e) => e.translate(0, rect.height - 10))
+        .toList();
+    points.addAll(bottomPoints);
+    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
-      ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
@@ -203,9 +239,7 @@ class FullReceiptBorder extends ShapeBorder {
 }
 
 class TopReceiptBorder extends ShapeBorder {
-  final Color color;
-
-  TopReceiptBorder({this.color});
+  TopReceiptBorder();
 
   @override
   EdgeInsetsGeometry get dimensions {
@@ -214,22 +248,23 @@ class TopReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
-    throw UnimplementedError();
+    return rectPath(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    List<Offset> points = _randomPoints(limit: rect.width, count: 30);
+    points.add(Offset(rect.width, rect.height));
+    points.add(Offset(0, rect.height));
+    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
-      ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
@@ -241,9 +276,7 @@ class TopReceiptBorder extends ShapeBorder {
 }
 
 class BottomReceiptBorder extends ShapeBorder {
-  final Color color;
-
-  BottomReceiptBorder({this.color});
+  BottomReceiptBorder();
 
   @override
   EdgeInsetsGeometry get dimensions {
@@ -252,22 +285,26 @@ class BottomReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
-    throw UnimplementedError();
+    return rectPath(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    List<Offset> points = _randomPoints(limit: rect.width, count: 30)
+        .reversed
+        .map((e) => e.translate(0, rect.height - 10))
+        .toList();
+    points.add(Offset(0, 0));
+    points.add(Offset(rect.width, 0));
+    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
-      ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..color = Colors.transparent
+      ..strokeWidth = 0;
     Path path = getOuterPath(rect, textDirection: textDirection);
     canvas.drawPath(path, paint);
   }
