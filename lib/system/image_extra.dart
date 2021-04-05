@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
-import 'path.dart';
+import 'file_path.dart';
 import 'package:uuid/uuid.dart';
 
 extension ImageExtra on FileImage {

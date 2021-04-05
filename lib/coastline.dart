@@ -16,7 +16,7 @@ export './structure/string_extra.dart';
 export './structure/value.dart';
 
 export './system/image_extra.dart';
-export './system/path.dart';
+export './system/file_path.dart';
 
 export './ui/context_extra.dart';
 export './ui/control.dart';
