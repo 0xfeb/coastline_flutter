@@ -94,6 +94,29 @@ arrowSize `[属性]` 三角形的尺寸.
 color `[属性]`  边框的色彩.  
 
 
+> 类 TagBorder   
+
+购物标签样式边框   
+
+>  类  TicketBorder   
+
+电影票样式边框  
+
+> 类  FullReceiptBorder   
+
+票据边框, 上下都带有锯齿  
+
+> 类  TopReceiptBorder  
+
+票据边框, 上方带有锯齿   
+
+> 类  BottomReceiptBorder  
+
+票据边框, 下方带有锯齿   
+
+
+
+
 > 函数  chatPopBorder  
 
 chatPopBorder `[生成]` 获得ChatPopBorder.   
@@ -122,10 +145,19 @@ triplePath `[函数]` 生成三角形Path.
 
 angleTriplePath `[函数]` 生成直角三角形Path.   
 
+offsetOfLine `[函数]`  在两点中根据偏移获得一个点, 偏移从0到1.0.  
+
+positionOfLine  `[函数]`   在两点中根据差值获得一个点, 差值就是具体的像素值, 从左边开始为正数, 从右边开始为负数.   
+
+closedPath  `[函数]`  获得一个每个角都支持贝塞尔曲线的多边形Path.   
+
+closedSharpPath  `[函数]`   获得一个多边形Path.   
+
 
 ### Paint View
 
-> 类 PaintView
+> 类 PaintView     
+快捷绘制Path的组件   
 
 path `[属性]` 绘图的形状   
 
