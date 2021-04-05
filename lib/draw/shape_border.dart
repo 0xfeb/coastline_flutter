@@ -122,7 +122,7 @@ class TagBorder extends ShapeBorder {
   }
 }
 
-// todo: ticketBorder
+/// >>> 电影票据类型的边框 >>>
 class TicketBorder extends ShapeBorder {
   final double cutSize;
 
@@ -197,7 +197,7 @@ List<Offset> _randomPoints({double limit, int count, double height = 10}) {
   return result;
 }
 
-// todo: receiptBoder
+/// >>> 单据边框, 上下都带有锯齿 >>>
 class FullReceiptBorder extends ShapeBorder {
   FullReceiptBorder();
 
@@ -238,6 +238,7 @@ class FullReceiptBorder extends ShapeBorder {
   }
 }
 
+/// >>> 票据边框, 上部带有锯齿 >>>
 class TopReceiptBorder extends ShapeBorder {
   TopReceiptBorder();
 
@@ -275,6 +276,7 @@ class TopReceiptBorder extends ShapeBorder {
   }
 }
 
+/// >>> 票据边框, 下方带有锯齿 >>>
 class BottomReceiptBorder extends ShapeBorder {
   BottomReceiptBorder();
 
