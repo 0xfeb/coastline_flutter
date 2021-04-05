@@ -171,8 +171,9 @@ class TicketBorder extends ShapeBorder {
 List<double> _randomList(double limit, int count) {
   Random r = Random();
   List<double> result = [0];
-  for (int i = 0; i < count; ++i) {
-    final c = r.nextDouble() * limit;
+  double unit = limit / count.toDouble();
+  for (int i = 1; i < count; ++i) {
+    final c = i * unit;
     if (result.contains(c)) {
       i -= 1;
       continue;
@@ -180,7 +181,6 @@ List<double> _randomList(double limit, int count) {
     result.add(c);
   }
   result.add(limit);
-  result.sort();
   return result;
 }
 
@@ -219,7 +219,6 @@ class FullReceiptBorder extends ShapeBorder {
         .map((e) => e.translate(0, rect.height - 10))
         .toList();
     points.addAll(bottomPoints);
-    print('points --> $points');
     return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
@@ -254,8 +253,10 @@ class TopReceiptBorder extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    List<Offset> points = _randomPoints(limit: rect.width, count: 30);
+    points.add(Offset(rect.width, rect.height));
+    points.add(Offset(0, rect.height));
+    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
@@ -284,14 +285,18 @@ class BottomReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
-    throw UnimplementedError();
+    return rectPath(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    List<Offset> points = _randomPoints(limit: rect.width, count: 30)
+        .reversed
+        .map((e) => e.translate(0, rect.height - 10))
+        .toList();
+    points.add(Offset(0, 0));
+    points.add(Offset(rect.width, 0));
+    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
