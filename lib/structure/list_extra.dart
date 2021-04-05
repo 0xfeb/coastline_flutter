@@ -101,10 +101,10 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 获得带序列的数据列表 >>>
-  List<Pair<T, int>> get indicate {
-    List<Pair<T, int>> result = [];
+  List<MapEntry<int, T>> get indicate {
+    List<MapEntry<int, T>> result = [];
     for (int i = 0; i < this.length; ++i) {
-      result.add(Pair(this[i], i));
+      result.add(MapEntry(i, this[i]));
     }
     return result;
   }
