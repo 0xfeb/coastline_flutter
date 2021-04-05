@@ -120,9 +120,9 @@ class TagBorder extends ShapeBorder {
 
 // todo: ticketBorder
 class TicketBorder extends ShapeBorder {
-  final Color color;
+  final double cutSize;
 
-  TicketBorder({this.color});
+  TicketBorder({this.cutSize = 10.0});
 
   @override
   EdgeInsetsGeometry get dimensions {
@@ -131,20 +131,26 @@ class TicketBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
-    throw UnimplementedError();
+    return rectPath(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
-    throw UnimplementedError();
+    Path path1 = rectPath(Rect.fromLTWH(0, 0, rect.width, rect.height));
+    double n = (rect.height - cutSize / 2) / (3 * cutSize / 2);
+    int np = n.toInt();
+    for (int i = 1; i <= np; ++i) {
+      Path oPath1 = cyclePath(Offset(0, cutSize * 1.5 * i), cutSize);
+      path1 = pathHole(path1, oPath1);
+      Path oPath2 = cyclePath(Offset(rect.width, cutSize * 1.5 * i), cutSize);
+      path1 = pathHole(path1, oPath2);
+    }
+    return path1.shift(Offset(rect.left, rect.top));
   }
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
     Paint paint = Paint()
-      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
     Path path = getOuterPath(rect, textDirection: textDirection);
