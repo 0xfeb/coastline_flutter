@@ -187,3 +187,14 @@ Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
 
   return path;
 }
+
+/// >>> 多个点形成一个封闭的形状, 不支持圆角功能 >>>
+Path closedSharpPath(List<Offset> points) {
+  Path path = Path();
+  path.moveTo(points.first.dx, points.first.dy);
+  for (Offset point in points) {
+    path.lineTo(point.dx, point.dy);
+  }
+  path.close();
+  return path;
+}
