@@ -90,7 +90,7 @@ extension ListExtra<T> on List<T> {
     }
 
     for (int i = 0; i < other.length; ++i) {
-      var n = other[i];
+      var n = other[other.length - i - 1];
       var m = this[length - i - 1];
       if (!compare(n, m)) {
         return false;
