@@ -239,6 +239,8 @@ between `函数` 通过`min[num]`和`max[num]`限制本数字的上下限, 返�
 
 chineseNumber `属性` 通过字符串中的中文文本, 得到一个数值.   
 
+mixChineseNumber `属性` 通过字符串中的中文文本, 得到一个数值, 包含阿拉伯数字.  
+
 
 ### String Extra  
 字符串扩展 
