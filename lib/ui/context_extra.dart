@@ -60,7 +60,7 @@ extension ContextExtra on BuildContext {
   /// >>> 实现对话框 >>>
   Future<T> showAlert<T>({
     @required String title,
-    String subTitle,
+    String subTitle = '',
     Color titleColor = Colors.black,
     Color subTitleColor = Colors.grey,
     double titleFontSize = 20,
