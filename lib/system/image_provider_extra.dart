@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 
 import 'file_path.dart';
 
-extension ImageProviderExtra on ImageProvider {
+extension ImageProviderFileExtra on ImageProvider {
   Future<ui.Image> _toImage() async {
     Completer<ui.Image> completer = Completer<ui.Image>();
     ImageStreamListener listener;
@@ -23,7 +23,7 @@ extension ImageProviderExtra on ImageProvider {
   }
 
   /// >>> 存储到文件中去 >>>
-  Future save(String filePath) async {
+  Future saveToFile(String filePath) async {
     ui.Image image = await _toImage();
     var bytes = await image.toByteData(format: ui.ImageByteFormat.png);
     Uint8List ul = bytes.buffer.asUint8List();
@@ -37,7 +37,7 @@ extension ImageProviderExtra on ImageProvider {
     await FilePath().setup();
     String uuid = storageId ?? Uuid().v4();
     String destFile = FilePath().imageFilename(uuid);
-    await save(destFile);
+    await saveToFile(destFile);
 
     return uuid;
   }
