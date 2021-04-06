@@ -65,7 +65,7 @@ class FilePath {
   }
 
   /// >>> 获得图片的文件名 >>>
-  String imageFilename({String main}) {
+  String imageFilename(String main) {
     if (_library == null) {
       throw Exception('Need run setup at first or use imageFilenameAsync');
     }
@@ -75,8 +75,8 @@ class FilePath {
   }
 
   /// >>> 获得图片的文件名, 如果未初始化, 会初始化 >>>
-  Future<String> imageFilenameAsync({String main}) async {
+  Future<String> imageFilenameAsync(String main) async {
     await setup();
-    return imageFilename(main: main);
+    return imageFilename(main);
   }
 }
