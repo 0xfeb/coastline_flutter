@@ -7,7 +7,7 @@ import 'package:uuid/uuid.dart';
 extension ImageExtra on FileImage {
   /// >>> 文件图像, 从Storage ID获取图像 >>>
   static FileImage fromStorageId(String storageId) {
-    String destPath = FilePath().imageFilename(main: storageId);
+    String destPath = FilePath().imageFilename(storageId);
     print('load image from -> $destPath');
     return FileImage(File(destPath));
   }
@@ -21,7 +21,7 @@ extension ImageExtra on FileImage {
   /// >>> 存储图像, 自动返回一个Storage ID >>>
   String save() {
     String uuid = Uuid().v4();
-    String destFile = FilePath().imageFilename(main: uuid);
+    String destFile = FilePath().imageFilename(uuid);
     if (!File(destFile).existsSync()) {
       File(destFile).createSync(recursive: true);
     }
@@ -38,7 +38,7 @@ extension ImageExtra on FileImage {
   /// >>> 拷贝一个文件到Storage ID >>>
   static copyToStorage(String sourcePath) {
     String uuid = Uuid().v4();
-    String destFile = FilePath().imageFilename(main: uuid);
+    String destFile = FilePath().imageFilename(uuid);
     File(sourcePath).copySync(destFile);
     return uuid;
   }
