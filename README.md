@@ -267,19 +267,29 @@ apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.
 ### Image Extra  
 自动存储的图片扩展   
 
+> 函数 loadStorageImage  
+
+通过Storage Id得到一个File Image. Storage ID由FileImage::Save 或者FileImage::SaveSync, FileImage::copyToStorage, FileImage::copyToStorageAsync得到.  
+
+> 函数 loadStorageImageAsync  
+
+与loadStorageImage相同, 不过, 这个是异步的.  
+
+> 函数 loadPathCopyToStorageImage  
+
+拷贝一个图片文件`sourcePath [String]`到Storage, 并且得到一个Storage ID.    
+
+> 函数 loadPathCopyToStorageImageAsync  
+
+与loadPathCopyToStorageImage相同, 异步.  
+
 > 扩展 FileImage  
 
-fromStorageId `生成` 通过Storage Id得到一个File Image. Storage ID由FileImage::Save 或者FileImage::SaveSync, FileImage::copyToStorage, FileImage::copyToStorageAsync得到.  
-
-fromStorageIdAsync `生成` 与fromStorageId相同, 不过, 这个是异步的.  
 
 save `函数` 保存图片, 保存之后, 会得到一个Storage ID.  
 
 saveAsync `函数` 保存图片, 与save相同, 异步.  
 
-copyToStorage  `函数` 拷贝一个图片文件`sourcePath [String]`到Storage, 并且得到一个Storage ID.  
-
-copyToStorageAsync `函数`, 与copyToStorage相同, 异步.  
 
 
 ### File Path  
