@@ -303,6 +303,16 @@ imageFilename `函数` 通过`main[String]`得到图像文件路径.
 imageFilenameAsync `函数`, 与imageFilename相同, 异步.   
 
 
+### ImageProviderExtra   
+图片提供器的存储功能   
+
+> 扩展  ImageProvider   
+
+save `[函数]` 存储图片到特定的文件中去   
+
+saveToStorage `[函数]`  存储图片到storage库中去   
+
+
 
 ## ui
 界面控件封装
