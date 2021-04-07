@@ -4,54 +4,43 @@ import 'package:flutter/widgets.dart';
 class DialogAction {
   final String title;
   final Color color;
-  final Function(BuildContext context) action;
+  final Function() action;
+  final bool popout;
 
   /// >>> 对话框按钮 >>>
-  DialogAction({@required this.title, this.color, this.action});
+  DialogAction(
+      {this.popout = false, @required this.title, this.color, this.action});
 
   /// >>> 删除按钮 >>>
   static DialogAction destroy(
-      {@required String title, Function(BuildContext context) action}) {
+      {@required String title, Function() action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.red,
-      action: (context) {
-        if (action != null) {
-          action(context);
-        }
-        Navigator.of(context).pop();
-      },
+      action: action,
+      popout: popout,
     );
   }
 
   /// >>> 确认按钮 >>>
   static DialogAction accept(
-      {@required String title,
-      @required Function(BuildContext context) action}) {
+      {@required String title, Function() action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.green,
-      action: (context) {
-        if (action != null) {
-          action(context);
-        }
-        Navigator.of(context).pop();
-      },
+      action: action,
+      popout: popout,
     );
   }
 
   /// >>> 取消按钮 >>>
   static DialogAction cancel(
-      {@required String title, Function(BuildContext context) action}) {
+      {@required String title, Function() action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.grey,
-      action: (context) {
-        if (action != null) {
-          action(context);
-        }
-        Navigator.of(context).pop();
-      },
+      action: action,
+      popout: popout,
     );
   }
 }
@@ -70,7 +59,7 @@ extension ContextExtra on BuildContext {
   }) async {
     return showDialog(
         context: this,
-        builder: (context) {
+        builder: (ctx) {
           return AlertDialog(
             title: Text(
               title,
@@ -83,22 +72,29 @@ extension ContextExtra on BuildContext {
             ),
             actions: actions.map((e) {
               return InkWell(
-                child: Container(
-                  height: 35,
-                  width: 110,
-                  padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: e.color,
-                    borderRadius: BorderRadius.circular(4),
+                  child: Container(
+                    height: 35,
+                    width: 110,
+                    padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: e.color,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      e.title,
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    margin: EdgeInsets.all(8),
                   ),
-                  child: Text(
-                    e.title,
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                ),
-                onTap: e.action(context),
-              );
+                  onTap: () {
+                    if (e.action != null) {
+                      e.action();
+                    }
+                    if (e.popout) {
+                      Navigator.of(ctx).pop();
+                    }
+                  });
             }).toList(),
           );
         },
