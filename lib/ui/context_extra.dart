@@ -102,7 +102,7 @@ extension ContextExtra on BuildContext {
   }
 
   /// >>> 显示提示条 >>>
-  showSnack(Widget child, {Color color}) async {
+  showSnack(Widget child, {Color color = Colors.grey}) async {
     ScaffoldMessenger.of(this).showSnackBar(SnackBar(
       content: child,
       backgroundColor: color,
@@ -110,7 +110,7 @@ extension ContextExtra on BuildContext {
   }
 
   /// >>> 显示提示条文本 >>>
-  showSnackTitle(String title, {Color color}) async {
+  showSnackTitle(String title, {Color color = Colors.grey}) async {
     showSnack(
       Text(title, style: TextStyle(color: Colors.white, fontSize: 16)),
       color: color,
