@@ -361,21 +361,23 @@ showSnackTitle `函数` 显示文本的SnackBar, `title[String]`SnackBar中的�
 组合的控件  
 
 
-> 类 Control  
-
-bar `函数` 文本显示条. `text [String]` 文本内容, `color [Color]` 文本框的背景色, `fontSize [double]` 文本大小, `textColor [Color]` 文本色彩.   
-
-
-textIcon `函数` 文本和图标的上下组合体. `icon [IconData]` 图标素材, `text [String]` 文本内容, `iconColor [Color]` 图标色彩, `textColor [Color]` 文本色彩, `iconSize [double]` 图标尺寸, `fontSize [double]` 文本尺寸.    
+> textBar `[函数]`   
+文本显示条. `text [String]` 文本内容, `color [Color]` 文本框的背景色, `fontSize [double]` 文本大小, `textColor [Color]` 文本色彩.   
 
 
-capsule `函数` 左右的药丸结构组合. `mainText [String]` 主文本内容, `subText [String]` 副文本内容, `fontSize [double]` 文本的尺寸, `mainColor [Color]` 药丸的主色彩, `subColor [Color]` 药丸的副色彩.    
+> textIcon `函数`    
+文本和图标的上下组合体. `icon [IconData]` 图标素材, `text [String]` 文本内容, `iconColor [Color]` 图标色彩, `textColor [Color]` 文本色彩, `iconSize [double]` 图标尺寸, `fontSize [double]` 文本尺寸.    
 
 
-frame `函数` 相框结构, 显示图片, 边框, 以及提示图标. `picture [ImageProvider]` 图片内容, `icon [IconData]` 图标内容, `iconSize [double]` 图标尺寸, `iconColor [Color]` 图标色彩, `borderColor [Color]` 边框色彩, `borderWidth [double]` 边框宽度.   
+> capsule `函数`     
+左右的药丸结构组合. `mainText [String]` 主文本内容, `subText [String]` 副文本内容, `fontSize [double]` 文本的尺寸, `mainColor [Color]` 药丸的主色彩, `subColor [Color]` 药丸的副色彩.    
 
 
-tab `函数` 色彩Tab控件. `tabs [List<Pair<String, Color>>]` 标题和色彩的列表, `selectedIndex [int]` 当前选中的Tab, `textColor [Color]` 标题色彩, `fontSize [double]` 标题文本尺寸, `onSelectTab` 点击某个Tab后, 产生的事件.   
+> imageFrame `函数`    
+相框结构, 显示图片, 边框, 以及提示图标. `picture [ImageProvider]` 图片内容, `icon [IconData]` 图标内容, `iconSize [double]` 图标尺寸, `iconColor [Color]` 图标色彩, `borderColor [Color]` 边框色彩, `borderWidth [double]` 边框宽度.   
+
+> colorTabs `函数`   
+色彩Tab控件. `tabs [List<Pair<String, Color>>]` 标题和色彩的列表, `selectedIndex [int]` 当前选中的Tab, `textColor [Color]` 标题色彩, `fontSize [double]` 标题文本尺寸, `onSelectTab` 点击某个Tab后, 产生的事件.   
 
 
 ### GridList   
