@@ -9,8 +9,8 @@ Widget textBar(
   double fontSize = 14,
 }) {
   return Container(
-    padding: EdgeInsets.fromLTRB(
-        fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+    padding:
+        EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
     decoration:
         BoxDecoration(borderRadius: BorderRadius.circular(4), color: color),
     child: Text(text, style: TextStyle(color: textColor, fontSize: fontSize)),
@@ -18,11 +18,11 @@ Widget textBar(
 }
 
 /// >>> 带有文本的图标 >>>
-Widget textIcon({
-  @required IconData icon,
+Widget textIcon(
   @required String text,
-  Color iconColor = Colors.white,
-  Color textColor = Colors.white,
+  @required IconData icon, {
+  Color iconColor = Colors.blue,
+  Color textColor = Colors.blue,
   double iconSize = 20,
   double fontSize = 14,
 }) {
@@ -37,31 +37,37 @@ Widget textIcon({
 }
 
 /// >>> 药丸结构(双文本) >>>>
-Widget capsule({
+Widget capsule(
   @required String mainText,
-  @required String subText,
+  @required String subText, {
   double fontSize = 14,
-  @required Color mainColor,
+  Color mainColor = Colors.blue,
   Color subColor = Colors.white,
+  double cornerRadius = 4,
 }) {
   return Row(
+    mainAxisSize: MainAxisSize.min,
     children: [
       Container(
-        padding: EdgeInsets.fromLTRB(
-            fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+        padding:
+            EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
         decoration: BoxDecoration(
           color: mainColor,
-          borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
+          borderRadius:
+              BorderRadius.horizontal(left: Radius.circular(cornerRadius)),
+          border: Border.all(color: mainColor),
         ),
         child: Text(mainText,
             style: TextStyle(fontSize: fontSize, color: subColor)),
       ),
       Container(
-        padding: EdgeInsets.fromLTRB(
-            fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+        padding:
+            EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
         decoration: BoxDecoration(
           color: subColor,
-          borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
+          borderRadius:
+              BorderRadius.horizontal(right: Radius.circular(cornerRadius)),
+          border: Border.all(color: mainColor),
         ),
         child: Text(mainText,
             style: TextStyle(fontSize: fontSize, color: mainColor)),
@@ -71,8 +77,8 @@ Widget capsule({
 }
 
 /// >>> 相框图片(带图标提示) >>>
-Widget imageFrame({
-  @required ImageProvider picture,
+Widget imageFrame(
+  @required ImageProvider picture, {
   @required IconData icon,
   double iconSize = 16,
   Color iconColor = Colors.grey,
