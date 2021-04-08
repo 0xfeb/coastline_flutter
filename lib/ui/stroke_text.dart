@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 /// >>> 绘制文本的边框 >>>
 class StrokeText extends StatelessWidget {
@@ -18,10 +18,10 @@ class StrokeText extends StatelessWidget {
 
   const StrokeText(this.text,
       {Key key,
-      this.strokeCap,
-      this.strokeJoin,
-      this.strokeWidth,
-      this.strokeColor,
+      this.strokeCap = StrokeCap.round,
+      this.strokeJoin = StrokeJoin.round,
+      this.strokeWidth = 1.0,
+      this.strokeColor = Colors.grey,
       this.style,
       this.textAlign,
       this.textDirection,
@@ -36,9 +36,9 @@ class StrokeText extends StatelessWidget {
   Widget build(BuildContext context) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeCap = strokeCap
       ..strokeJoin = strokeJoin
       ..strokeWidth = strokeWidth
+      ..strokeCap = strokeCap
       ..color = strokeColor;
 
     TextStyle currentStyle = style == null
