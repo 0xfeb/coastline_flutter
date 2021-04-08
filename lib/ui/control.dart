@@ -133,13 +133,13 @@ Widget colorTabs({
       padding:
           EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
       decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.horizontal(
-          left: Radius.circular(leftRadius),
-          right: Radius.circular(rightRadius),
-        ),
-        border: Border.all(color: tabs[i].b, width: selectedIndex == i ? 1 : 0)
-      ),
+          color: color,
+          borderRadius: BorderRadius.horizontal(
+            left: Radius.circular(leftRadius),
+            right: Radius.circular(rightRadius),
+          ),
+          border:
+              Border.all(color: tabs[i].b, width: selectedIndex == i ? 1 : 0)),
     ).onTap(() {
       onSelectTab(i);
     });
