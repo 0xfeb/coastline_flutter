@@ -436,9 +436,8 @@ pad `函数`, 指定一个控件的前后左右, 或者全部, 或者上下/左�
 
 ### RichText   
 
-> 扩展  RichText   
-
-formList `生成`, 从TextSpan列表获取富文本控件. `list [List<TextSpan>]`文本列表, `textAlign [TextAlign]` 文本的对齐模式, `textDirection [TextDirection]` 文本的方向, `softWrap [bool]` 软换行, `overflow [TextOverflow]` 文本溢出的处理方式, `textScaleFactor [double]` 文本放大倍数, `maxLines [int]` 最大的文本行数, `locale [Locale]` 文本所属的地区设置.   
+> 函数  richTextFormList   
+从TextSpan列表获取富文本控件. `list [List<TextSpan>]`文本列表, `textAlign [TextAlign]` 文本的对齐模式, `textDirection [TextDirection]` 文本的方向, `softWrap [bool]` 软换行, `overflow [TextOverflow]` 文本溢出的处理方式, `textScaleFactor [double]` 文本放大倍数, `maxLines [int]` 最大的文本行数, `locale [Locale]` 文本所属的地区设置.   
 
 
 
