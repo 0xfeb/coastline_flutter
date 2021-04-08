@@ -1,5 +1,7 @@
-import '../structure/combo_data.dart';
 import 'package:flutter/material.dart';
+import '../structure/combo_data.dart';
+import 'widget_extra.dart';
+import '../draw/color_extra.dart';
 
 /// >>> 文本条 >>>
 Widget textBar(
@@ -19,8 +21,8 @@ Widget textBar(
 
 /// >>> 带有文本的图标 >>>
 Widget textIcon(
-  @required String text,
-  @required IconData icon, {
+  String text,
+  IconData icon, {
   Color iconColor = Colors.blue,
   Color textColor = Colors.blue,
   double iconSize = 20,
@@ -38,8 +40,8 @@ Widget textIcon(
 
 /// >>> 药丸结构(双文本) >>>>
 Widget capsule(
-  @required String mainText,
-  @required String subText, {
+  String mainText,
+  String subText, {
   double fontSize = 14,
   Color mainColor = Colors.blue,
   Color subColor = Colors.white,
@@ -77,8 +79,9 @@ Widget capsule(
 }
 
 /// >>> 相框图片(带图标提示) >>>
+// todo: 以后改成icon镂空, 研究怎么镂空文本, 怎么镂空Image, 怎么镂空Icon
 Widget imageFrame(
-  @required ImageProvider picture, {
+  ImageProvider picture, {
   @required IconData icon,
   double iconSize = 16,
   Color iconColor = Colors.grey,
@@ -89,7 +92,7 @@ Widget imageFrame(
     decoration: BoxDecoration(
       image: DecorationImage(
         image: picture,
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
       ),
       color: borderColor,
       borderRadius: BorderRadius.circular(8),
@@ -98,9 +101,8 @@ Widget imageFrame(
     alignment: Alignment.bottomRight,
     child: Container(
       decoration: BoxDecoration(
-        color: borderColor,
-        borderRadius: BorderRadius.circular(8),
-      ),
+          color: borderColor,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(8))),
       padding: EdgeInsets.all(4),
       child: Icon(icon, color: iconColor, size: iconSize),
     ),
@@ -112,28 +114,35 @@ Widget colorTabs({
   @required List<Pair<String, Color>> tabs,
   int selectedIndex = 0,
   Color textColor = Colors.white,
-  double fontSize = 18,
+  double fontSize = 14,
   @required Function(int index) onSelectTab,
 }) {
   List<Widget> list = [];
   for (int i = 0; i < tabs.length; ++i) {
     String title = tabs[i].a;
-    Color color = tabs[i].b;
+    Color color = selectedIndex == i
+        ? tabs[i].b
+        : Color.lerp(tabs[i].b, Colors.white, 0.3);
     double leftRadius = i == 0 ? 8 : 0;
     double rightRadius = i == tabs.length - 1 ? 8 : 0;
     Widget tab = Container(
-      child:
-          Text(title, style: TextStyle(color: textColor, fontSize: fontSize)),
-      padding: EdgeInsets.fromLTRB(
-          fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+      child: Center(
+        child:
+            Text(title, style: TextStyle(color: textColor, fontSize: fontSize)),
+      ),
+      padding:
+          EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(leftRadius),
           right: Radius.circular(rightRadius),
         ),
+        border: Border.all(color: tabs[i].b, width: selectedIndex == i ? 1 : 0)
       ),
-    );
+    ).onTap(() {
+      onSelectTab(i);
+    });
     list.add(Expanded(child: tab));
   }
   return Row(children: list);
