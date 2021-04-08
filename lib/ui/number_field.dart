@@ -12,17 +12,19 @@ class NumberField extends StatelessWidget {
 
   const NumberField(
       {Key key,
-      this.color,
+      this.color = Colors.blue,
       this.min = 0,
       this.max = 10000,
       this.controller,
       this.focus,
-      this.style})
+      this.style = const TextStyle(fontSize: 30)})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enableInteractiveSelection: false,
+      toolbarOptions: ToolbarOptions(),
       controller: controller,
       focusNode: focus,
       textAlign: TextAlign.center,
@@ -32,6 +34,7 @@ class NumberField extends StatelessWidget {
         prefixIcon: AspectRatio(
           aspectRatio: 1,
           child: Container(
+            margin: EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: color,
@@ -47,12 +50,17 @@ class NumberField extends StatelessWidget {
                 number = min;
               }
             }
-            controller.text = '$number';
+            if (controller != null) {
+              controller.text = '$number';
+              controller.selection =
+                  TextSelection(baseOffset: 0, extentOffset: 0);
+            }
           }),
         ),
         suffixIcon: AspectRatio(
           aspectRatio: 1,
           child: Container(
+            margin: EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: color,
@@ -68,7 +76,11 @@ class NumberField extends StatelessWidget {
                 number = max;
               }
             }
-            controller.text = '$number';
+            if (controller != null) {
+              controller.text = '$number';
+              controller.selection =
+                  TextSelection(baseOffset: 0, extentOffset: 0);
+            }
           }),
         ),
       ),
