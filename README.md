@@ -550,8 +550,6 @@ box   `[函数]`, 生成一个Container控件.
 
 sized   `函数`, 设置尺寸大小的控件.   
 
-rrect   `函数`, 圆角矩形控件.   
-
 rotated   `函数`, 旋转控件.   
 
 expanded  `函数`, 扩大化控件.   
