@@ -552,6 +552,8 @@ sized   `函数`, 设置尺寸大小的控件.
 
 rotated   `函数`, 旋转控件.   
 
+fitted `函数`, 自适应内部元素的伸缩.   
+
 expanded  `函数`, 扩大化控件.   
 
 sliver  `函数`, 将当前控件Sliver化.   

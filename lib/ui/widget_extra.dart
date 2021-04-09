@@ -68,6 +68,20 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 伸缩内部控件 >>>
+  Container fitted(BoxFit fit,
+      {Color color, double width, double height, double cornerRadius = 0.0}) {
+    return Container(
+      child: FittedBox(
+        child: this,
+      ),
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(cornerRadius), color: color),
+    );
+  }
+
   /// >>> 扩大控件 >>>
   Expanded expanded() {
     return Expanded(child: this);
