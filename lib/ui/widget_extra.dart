@@ -52,10 +52,10 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 尺寸控件 >>>
-  SizedBox sized({double width, double height}) {
+  SizedBox sized(Size size) {
     return SizedBox(
-      width: width,
-      height: height,
+      width: size.width,
+      height: size.height,
       child: this,
     );
   }
@@ -198,7 +198,9 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 按比例配置位置(0为左或上, 1为右或下) >>>
-  Align align({double fx = 0, double fy = 0}) {
+  Align offset({double x, double y}) {
+    double fx = x * 2 - 1;
+    double fy = y * 2 - 1;
     return Align(
       alignment: Alignment(fx, fy),
       child: this,
