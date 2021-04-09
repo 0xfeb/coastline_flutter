@@ -495,6 +495,26 @@ unselectedColor   `属性` 未选中的Tag元素背景色.
 textColor   `属性` 文本的色彩.   
 
 
+### MultiTagList  
+
+> 类  MultiTagList   
+支持自动换行的Tag列表控件, 多选.   
+
+texts  `属性` 文本列表.   
+
+selectedTags  `属性` 当前选中的Tag列表.   
+
+fontSize  `属性` 文本大小.   
+
+onSelectTags  `属性`  选中某个Tag之后产生的事件.   
+
+selectedColor   `属性`  选中的Tag元素背景色.   
+
+unselectedColor   `属性` 未选中的Tag元素背景色.   
+
+textColor   `属性` 文本的色彩.   
+
+
 
 ### TextDisplay   
 
