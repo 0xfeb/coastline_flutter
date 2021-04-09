@@ -124,8 +124,8 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 宽高比(1为正方形) >>>
-  AspectRatio apsect({double ratio = 1}) {
-    return AspectRatio(aspectRatio: ratio, child: this);
+  AspectRatio apsect(double whRate) {
+    return AspectRatio(aspectRatio: whRate, child: this);
   }
 
   /// >>> 居中控件 >>>
