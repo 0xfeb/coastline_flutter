@@ -361,21 +361,23 @@ showSnackTitle `函数` 显示文本的SnackBar, `title[String]`SnackBar中的�
 组合的控件  
 
 
-> 类 Control  
-
-bar `函数` 文本显示条. `text [String]` 文本内容, `color [Color]` 文本框的背景色, `fontSize [double]` 文本大小, `textColor [Color]` 文本色彩.   
-
-
-textIcon `函数` 文本和图标的上下组合体. `icon [IconData]` 图标素材, `text [String]` 文本内容, `iconColor [Color]` 图标色彩, `textColor [Color]` 文本色彩, `iconSize [double]` 图标尺寸, `fontSize [double]` 文本尺寸.    
+> textBar `[函数]`   
+文本显示条. `text [String]` 文本内容, `color [Color]` 文本框的背景色, `fontSize [double]` 文本大小, `textColor [Color]` 文本色彩.   
 
 
-capsule `函数` 左右的药丸结构组合. `mainText [String]` 主文本内容, `subText [String]` 副文本内容, `fontSize [double]` 文本的尺寸, `mainColor [Color]` 药丸的主色彩, `subColor [Color]` 药丸的副色彩.    
+> textIcon `函数`    
+文本和图标的上下组合体. `icon [IconData]` 图标素材, `text [String]` 文本内容, `iconColor [Color]` 图标色彩, `textColor [Color]` 文本色彩, `iconSize [double]` 图标尺寸, `fontSize [double]` 文本尺寸.    
 
 
-frame `函数` 相框结构, 显示图片, 边框, 以及提示图标. `picture [ImageProvider]` 图片内容, `icon [IconData]` 图标内容, `iconSize [double]` 图标尺寸, `iconColor [Color]` 图标色彩, `borderColor [Color]` 边框色彩, `borderWidth [double]` 边框宽度.   
+> capsule `函数`     
+左右的药丸结构组合. `mainText [String]` 主文本内容, `subText [String]` 副文本内容, `fontSize [double]` 文本的尺寸, `mainColor [Color]` 药丸的主色彩, `subColor [Color]` 药丸的副色彩.    
 
 
-tab `函数` 色彩Tab控件. `tabs [List<Pair<String, Color>>]` 标题和色彩的列表, `selectedIndex [int]` 当前选中的Tab, `textColor [Color]` 标题色彩, `fontSize [double]` 标题文本尺寸, `onSelectTab` 点击某个Tab后, 产生的事件.   
+> imageFrame `函数`    
+相框结构, 显示图片, 边框, 以及提示图标. `picture [ImageProvider]` 图片内容, `icon [IconData]` 图标内容, `iconSize [double]` 图标尺寸, `iconColor [Color]` 图标色彩, `borderColor [Color]` 边框色彩, `borderWidth [double]` 边框宽度.   
+
+> colorTabs `函数`   
+色彩Tab控件. `tabs [List<Pair<String, Color>>]` 标题和色彩的列表, `selectedIndex [int]` 当前选中的Tab, `textColor [Color]` 标题色彩, `fontSize [double]` 标题文本尺寸, `onSelectTab` 点击某个Tab后, 产生的事件.   
 
 
 ### GridList   
@@ -434,9 +436,8 @@ pad `函数`, 指定一个控件的前后左右, 或者全部, 或者上下/左�
 
 ### RichText   
 
-> 扩展  RichText   
-
-formList `生成`, 从TextSpan列表获取富文本控件. `list [List<TextSpan>]`文本列表, `textAlign [TextAlign]` 文本的对齐模式, `textDirection [TextDirection]` 文本的方向, `softWrap [bool]` 软换行, `overflow [TextOverflow]` 文本溢出的处理方式, `textScaleFactor [double]` 文本放大倍数, `maxLines [int]` 最大的文本行数, `locale [Locale]` 文本所属的地区设置.   
+> 函数  richTextFormList   
+从TextSpan列表获取富文本控件. `list [List<TextSpan>]`文本列表, `textAlign [TextAlign]` 文本的对齐模式, `textDirection [TextDirection]` 文本的方向, `softWrap [bool]` 软换行, `overflow [TextOverflow]` 文本溢出的处理方式, `textScaleFactor [double]` 文本放大倍数, `maxLines [int]` 最大的文本行数, `locale [Locale]` 文本所属的地区设置.   
 
 
 
@@ -494,6 +495,26 @@ unselectedColor   `属性` 未选中的Tag元素背景色.
 textColor   `属性` 文本的色彩.   
 
 
+### MultiTagList  
+
+> 类  MultiTagList   
+支持自动换行的Tag列表控件, 多选.   
+
+texts  `属性` 文本列表.   
+
+selectedTags  `属性` 当前选中的Tag列表.   
+
+fontSize  `属性` 文本大小.   
+
+onSelectTags  `属性`  选中某个Tag之后产生的事件.   
+
+selectedColor   `属性`  选中的Tag元素背景色.   
+
+unselectedColor   `属性` 未选中的Tag元素背景色.   
+
+textColor   `属性` 文本的色彩.   
+
+
 
 ### TextDisplay   
 
@@ -528,8 +549,6 @@ onPress   `函数`,  按下/释放事件的控件.
 box   `[函数]`, 生成一个Container控件.   
 
 sized   `函数`, 设置尺寸大小的控件.   
-
-rrect   `函数`, 圆角矩形控件.   
 
 rotated   `函数`, 旋转控件.   
 

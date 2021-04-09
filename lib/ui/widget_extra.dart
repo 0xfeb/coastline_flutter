@@ -60,14 +60,6 @@ extension WidgetExtra on Widget {
     );
   }
 
-  /// >>> 圆角矩形控件 >>>
-  Container rrect(double radius) {
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius)),
-      child: this,
-    );
-  }
-
   /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
   RotatedBox rotated({int quarter}) {
     return RotatedBox(
@@ -132,8 +124,8 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 宽高比(1为正方形) >>>
-  AspectRatio apsect({double ratio = 1}) {
-    return AspectRatio(aspectRatio: ratio, child: this);
+  AspectRatio apsect(double whRate) {
+    return AspectRatio(aspectRatio: whRate, child: this);
   }
 
   /// >>> 居中控件 >>>

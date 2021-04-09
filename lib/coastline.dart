@@ -28,5 +28,6 @@ export './ui/pad.dart';
 export './ui/rich_text.dart';
 export './ui/stroke_text.dart';
 export './ui/tag_list.dart';
+export './ui/multi_tag_list.dart';
 export './ui/text_display.dart';
 export './ui/widget_extra.dart';

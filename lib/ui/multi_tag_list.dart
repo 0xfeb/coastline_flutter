@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import '../structure/list_extra.dart';
 
-/// >>> Tag列表, 支持自动换行 >>>
-class TagList extends StatelessWidget {
+/// >>> 多选Tag列表, 支持自动换行 >>>
+class MultiTagList extends StatelessWidget {
   final List<String> texts;
-  final int selectedTag;
+  final List<int> selectedTags;
   final double fontSize;
-  final Function(int) onSelectTag;
+  final Function(List<int>) onSelectTags;
   final Color selectedColor;
   final Color unselectedColor;
   final Color textColor;
 
-  const TagList(
+  const MultiTagList(
       {Key key,
       this.texts,
-      this.selectedTag = 0,
+      this.selectedTags = const [],
       this.fontSize = 16,
-      @required this.onSelectTag,
+      @required this.onSelectTags,
       this.selectedColor = Colors.blue,
       this.unselectedColor = Colors.grey,
       this.textColor = Colors.white})
@@ -33,10 +33,16 @@ class TagList extends StatelessWidget {
             label: Text(e.value),
             labelStyle: TextStyle(color: textColor, fontSize: fontSize),
             backgroundColor:
-                selectedTag == e.key ? selectedColor : unselectedColor,
+                selectedTags.contains(e.key) ? selectedColor : unselectedColor,
           ),
           onTap: () {
-            onSelectTag(e.key);
+            List<int> tags = selectedTags;
+            if (tags.contains(e.key)) {
+              tags.remove(e.key);
+            } else {
+              tags.add(e.key);
+            }
+            onSelectTags(tags);
           },
         );
       }).toList(),

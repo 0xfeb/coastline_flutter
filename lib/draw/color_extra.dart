@@ -58,6 +58,7 @@ extension ColorExtra on Color {
   }
 
   /// >>> 获得增加亮度的色彩 >>>
+  // todo: 红绿蓝黄分别测试一下
   Color bright({double offset = 0.3}) {
     final hsvColor = HSVColor.fromColor(this);
     final v = (hsvColor.value + offset).between(0, 1.0);
