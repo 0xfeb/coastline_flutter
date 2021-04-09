@@ -16,7 +16,7 @@ class TagList extends StatelessWidget {
       this.texts,
       this.selectedTag = 0,
       this.fontSize = 16,
-      this.onSelectTag,
+      @required this.onSelectTag,
       this.selectedColor = Colors.blue,
       this.unselectedColor = Colors.grey,
       this.textColor = Colors.white})
@@ -35,7 +35,9 @@ class TagList extends StatelessWidget {
             backgroundColor:
                 selectedTag == e.key ? selectedColor : unselectedColor,
           ),
-          onTap: onSelectTag(e.key),
+          onTap: () {
+            onSelectTag(e.key);
+          },
         );
       }).toList(),
     );
