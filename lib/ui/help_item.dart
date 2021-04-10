@@ -22,6 +22,8 @@ extension CanvasHelp on Canvas {
       ..color = item.color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
+
+    // 绘制箭头
     bool upArrow = item.endPoint.dy < item.arrowPoint.dy;
     Offset arrowPoint1 = Offset(item.arrowPoint.dx - 5,
         upArrow ? item.arrowPoint.dy - 5 : item.arrowPoint.dy + 5);
@@ -30,17 +32,18 @@ extension CanvasHelp on Canvas {
     this.drawLine(arrowPoint1, item.arrowPoint, paint);
     this.drawLine(arrowPoint2, item.arrowPoint, paint);
 
+    // 绘制曲线
     Offset center1 =
         Offset(item.endPoint.dx, (item.endPoint.dy + item.arrowPoint.dy) / 2);
     Offset center2 =
         Offset(item.arrowPoint.dx, (item.endPoint.dy + item.arrowPoint.dy) / 2);
-
     Line line =
         Line(points: [item.endPoint, center1, center2, item.arrowPoint]);
     Path path = linePath(line);
 
     this.drawPath(path, paint);
 
+    // 绘制文本
     ui.ParagraphBuilder pb =
         ui.ParagraphBuilder(ui.ParagraphStyle(fontSize: 18));
     pb.pushStyle(ui.TextStyle(color: Colors.white));
