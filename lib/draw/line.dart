@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 class Line {
-  List<Offset> points;
-  double smoothLevel;
+  final List<Offset> points;
+  final double smoothLevel;
+
+  Line({this.points, this.smoothLevel = 10});
 }
