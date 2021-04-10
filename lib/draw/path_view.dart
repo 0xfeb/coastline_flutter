@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 
 /// >>> 绘图组件 >>>
-class PaintView extends StatelessWidget {
+class PathView extends StatelessWidget {
   final Path path;
   final Paint paint;
   final Size size;
   final Widget child;
 
-  const PaintView({Key key, this.path, this.paint, this.size, this.child})
+  const PathView({Key key, this.path, this.paint, this.size, this.child})
       : super(key: key);
 
   @override
@@ -15,17 +15,17 @@ class PaintView extends StatelessWidget {
     return CustomPaint(
       child: child,
       size: size,
-      painter: _PaintViewPainter((Canvas canvas, Size size) {
+      painter: _PathViewPainter((Canvas canvas, Size size) {
         canvas.drawPath(path, paint);
       }),
     );
   }
 }
 
-class _PaintViewPainter extends CustomPainter {
+class _PathViewPainter extends CustomPainter {
   final Function(Canvas canvas, Size size) runPaint;
 
-  _PaintViewPainter(this.runPaint);
+  _PathViewPainter(this.runPaint);
 
   @override
   void paint(Canvas canvas, Size size) {
