@@ -168,6 +168,20 @@ size  `[属性]`  绘图控件的尺寸
 child  `[属性]`  子控件    
 
 
+### Canvas View
+
+> 类 CanvasView     
+快捷绘图板控件   
+
+onPaint `[属性]` 绘图函数   
+
+paint `[属性]`  绘图的模式   
+
+size  `[属性]`  绘图控件的尺寸   
+
+child  `[属性]`  子控件    
+
+
 ## structure
 数据结构集合
 
