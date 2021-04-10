@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'line.dart';
+
 /// >>> 组合Path >>>
 Path pathUnion(Path path1, Path path2) {
   return Path.combine(PathOperation.union, path1, path2);
@@ -196,5 +198,38 @@ Path closedSharpPath(List<Offset> points) {
     path.lineTo(point.dx, point.dy);
   }
   path.close();
+  return path;
+}
+
+/// >>> 多个点形成一个线条, 并且支持圆角功能 >>>
+Path linePath(Line line) {
+  Path path = Path();
+  Offset a;
+  Offset b;
+  Offset ap;
+  Offset bp;
+  // Offset first;
+  // Offset firstP;
+  for (int i = 0; i < line.points.length; ++i) {
+    a = line.points[i];
+    b = (i == line.points.length - 1) ? line.points[0] : line.points[i + 1];
+    bp = positionOfLine(a, b, -line.smoothLevel);
+    ap = positionOfLine(a, b, line.smoothLevel);
+
+    if (i == 0) {
+      path.moveTo(ap.dx, ap.dy);
+      // first = a;
+      // firstP = ap;
+    } else {
+      path.quadraticBezierTo(a.dx, a.dy, ap.dx, ap.dy);
+    }
+
+    path.lineTo(bp.dx, bp.dy);
+  }
+
+  // Offset lastP = positionOfLine(a, first, -line.smoothLevel);
+  // path.lineTo(lastP.dx, lastP.dy);
+  // path.quadraticBezierTo(first.dx, first.dy, firstP.dx, firstP.dy);
+
   return path;
 }
