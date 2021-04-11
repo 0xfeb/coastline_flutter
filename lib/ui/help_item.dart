@@ -44,14 +44,17 @@ extension CanvasHelp on Canvas {
     this.drawPath(path, paint);
 
     // 绘制文本
-    ui.ParagraphBuilder pb =
-        ui.ParagraphBuilder(ui.ParagraphStyle(fontSize: 18));
-    pb.pushStyle(ui.TextStyle(color: Colors.white));
+    ui.ParagraphBuilder pb = ui.ParagraphBuilder(ui.ParagraphStyle());
+    pb.pushStyle(ui.TextStyle(color: Colors.white, fontSize: 22));
     pb.addText(item.text);
-    this.drawParagraph(
-        pb.build(),
-        upArrow
-            ? Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy + 20)
-            : Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy - 20));
+    pb.pop();
+    ui.Paragraph pg = pb.build();
+    pg.layout(ui.ParagraphConstraints(width: 200));
+    print('item ${item.text} ${pg.width}');
+    final textOffset = upArrow
+        ? Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy - 20)
+        : Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy + 20);
+    print('text offset $textOffset');
+    this.drawParagraph(pg, textOffset);
   }
 }
