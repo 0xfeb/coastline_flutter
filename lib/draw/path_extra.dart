@@ -204,32 +204,28 @@ Path closedSharpPath(List<Offset> points) {
 /// >>> 多个点形成一个线条, 并且支持圆角功能 >>>
 Path linePath(Line line) {
   Path path = Path();
-  Offset a;
-  Offset b;
-  Offset ap;
-  Offset bp;
-  // Offset first;
-  // Offset firstP;
-  for (int i = 0; i < line.points.length; ++i) {
-    a = line.points[i];
-    b = (i == line.points.length - 1) ? line.points[0] : line.points[i + 1];
-    bp = positionOfLine(a, b, -line.smoothLevel);
-    ap = positionOfLine(a, b, line.smoothLevel);
+  Offset start = line.points.first;
+  Offset startP;
+  Offset nextP;
+  Offset next;
 
-    if (i == 0) {
-      path.moveTo(ap.dx, ap.dy);
-      // first = a;
-      // firstP = ap;
+  path.moveTo(start.dx, start.dy);
+
+  for (int i = 1; i < line.points.length; ++i) {
+    next = line.points[i];
+    startP = positionOfLine(start, next, -line.smoothLevel);
+    nextP = positionOfLine(start, next, line.smoothLevel);
+
+    path.quadraticBezierTo(start.dx, start.dy, nextP.dx, nextP.dy);
+
+    if (i == line.points.length - 1) {
+      path.lineTo(next.dx, next.dy);
     } else {
-      path.quadraticBezierTo(a.dx, a.dy, ap.dx, ap.dy);
+      path.lineTo(nextP.dx, nextP.dy);
     }
 
-    path.lineTo(bp.dx, bp.dy);
+    start = next;
   }
-
-  // Offset lastP = positionOfLine(a, first, -line.smoothLevel);
-  // path.lineTo(lastP.dx, lastP.dy);
-  // path.quadraticBezierTo(first.dx, first.dy, firstP.dx, firstP.dy);
 
   return path;
 }
