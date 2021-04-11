@@ -11,21 +11,26 @@ class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return Expanded(
+    return SizedBox(
+        width: screenSize.width,
+        height: screenSize.height,
         child: Stack(
-      children: items.map((e) {
-        HelpItem item = HelpItem(
-          color: e.color,
-          text: e.text,
-          arrowPoint: Offset(e.arrowPoint.dx * screenSize.width,
-              e.arrowPoint.dy * screenSize.height),
-          endPoint: Offset(e.endPoint.dx * screenSize.width,
-              e.endPoint.dy * screenSize.height),
-        );
-        return Positioned(child: CanvasView(onPaint: (canvas, size) {
-          canvas.drawHelpItem(item);
-        }));
-      }).toList(),
-    ));
+          children: items.map((e) {
+            HelpItem item = HelpItem(
+              color: e.color,
+              text: e.text,
+              arrowPoint: Offset(e.arrowPoint.dx * screenSize.width,
+                  e.arrowPoint.dy * screenSize.height),
+              endPoint: Offset(e.endPoint.dx * screenSize.width,
+                  e.endPoint.dy * screenSize.height),
+            );
+            return Positioned(
+                child: CanvasView(
+                    size: screenSize,
+                    onPaint: (canvas, size) {
+                      canvas.drawHelpItem(item);
+                    }));
+          }).toList(),
+        ));
   }
 }
