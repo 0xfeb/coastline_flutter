@@ -53,7 +53,7 @@ extension CanvasHelp on Canvas {
     print('item ${item.text} ${pg.width}');
     final textOffset = upArrow
         ? Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy - 20)
-        : Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy + 20);
+        : Offset(max(10, item.endPoint.dx - 10), item.endPoint.dy);
     print('text offset $textOffset');
     this.drawParagraph(pg, textOffset);
   }
