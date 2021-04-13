@@ -40,7 +40,6 @@ extension CanvasHelp on Canvas {
     Line line = Line(
         points: [item.endPoint, center1, center2, item.arrowPoint],
         smoothLevel: 20);
-    print('line -> ${item.endPoint} $center1 $center2 ${item.arrowPoint}');
     Path path = linePath(line);
 
     this.drawPath(path, paint);

@@ -215,10 +215,6 @@ Path linePath(Line line) {
     next = line.points[i];
     startP = positionOfLine(start, next, line.smoothLevel);
     nextP = positionOfLine(start, next, -line.smoothLevel);
-    print('start $start');
-    print('startP $startP');
-    print('nextP $nextP');
-    print('next $next');
 
     path.quadraticBezierTo(start.dx, start.dy, startP.dx, startP.dy);
 
