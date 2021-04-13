@@ -213,10 +213,14 @@ Path linePath(Line line) {
 
   for (int i = 1; i < line.points.length; ++i) {
     next = line.points[i];
-    startP = positionOfLine(start, next, -line.smoothLevel);
-    nextP = positionOfLine(start, next, line.smoothLevel);
+    startP = positionOfLine(start, next, line.smoothLevel);
+    nextP = positionOfLine(start, next, -line.smoothLevel);
+    print('start $start');
+    print('startP $startP');
+    print('nextP $nextP');
+    print('next $next');
 
-    path.quadraticBezierTo(start.dx, start.dy, nextP.dx, nextP.dy);
+    path.quadraticBezierTo(start.dx, start.dy, startP.dx, startP.dy);
 
     if (i == line.points.length - 1) {
       path.lineTo(next.dx, next.dy);

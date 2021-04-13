@@ -37,8 +37,10 @@ extension CanvasHelp on Canvas {
         Offset(item.endPoint.dx, (item.endPoint.dy + item.arrowPoint.dy) / 2);
     Offset center2 =
         Offset(item.arrowPoint.dx, (item.endPoint.dy + item.arrowPoint.dy) / 2);
-    Line line =
-        Line(points: [item.endPoint, center1, center2, item.arrowPoint]);
+    Line line = Line(
+        points: [item.endPoint, center1, center2, item.arrowPoint],
+        smoothLevel: 20);
+    print('line -> ${item.endPoint} $center1 $center2 ${item.arrowPoint}');
     Path path = linePath(line);
 
     this.drawPath(path, paint);
