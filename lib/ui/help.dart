@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import './help_item.dart';
 import './widget_extra.dart';
 
-showHelp({BuildContext context, List<HelpItem> items, Size size}) {
+showHelp({BuildContext context, List<HelpItem> items}) {
+  Size size = MediaQuery.of(context).size;
   List<Widget> children = [
     Positioned(
       child: CircleAvatar(
