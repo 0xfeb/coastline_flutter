@@ -580,3 +580,12 @@ center / left / right / top / bottom / leftTop / rightTop / leftBottom / rightBo
 
 align  `函数` 按照比例配置的位置控件.   
 
+
+### Help
+显示帮助页面
+
+> 函数 showHelp
+
+context `参数` 绘制对象   
+
+items `参数` 各个帮助的元素, 包括文本, 带箭头的线条(两个点)   
