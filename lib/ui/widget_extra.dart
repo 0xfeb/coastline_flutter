@@ -60,6 +60,22 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 尺寸控件(宽度) >>>
+  SizedBox widthed(double width) {
+    return SizedBox(
+      width: width,
+      child: this,
+    );
+  }
+
+  /// >>> 尺寸控件(高度) >>>
+  SizedBox heighted(double height) {
+    return SizedBox(
+      height: height,
+      child: this,
+    );
+  }
+
   /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
   RotatedBox rotated({int quarter}) {
     return RotatedBox(
