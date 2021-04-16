@@ -8,10 +8,12 @@ import 'path_extra.dart';
 class ChatPopBorder extends ShapeBorder {
   final double offset;
   final Size arrowSize;
+  final double position;
 
   ChatPopBorder({
     this.offset = 0.8,
     this.arrowSize = const Size(10, 10),
+    this.position,
   });
 
   @override
@@ -41,6 +43,15 @@ class ChatPopBorder extends ShapeBorder {
           Radius.circular(4),
         ),
       );
+
+    double offset = this.offset;
+    if (position != null) {
+      if (position >= 0) {
+        offset = position / rect.size.width;
+      } else {
+        offset = (rect.size.width - position) / rect.size.width;
+      }
+    }
 
     Offset p1 = Offset(rect.size.width * offset + rect.left,
         rect.size.height - arrowSize.height + rect.top);
