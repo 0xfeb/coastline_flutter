@@ -49,7 +49,7 @@ class ChatPopBorder extends ShapeBorder {
       if (position >= 0) {
         offset = position / rect.size.width;
       } else {
-        offset = (rect.size.width - position) / rect.size.width;
+        offset = (rect.size.width + position) / rect.size.width;
       }
     }
 
