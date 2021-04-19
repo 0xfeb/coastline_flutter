@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../structure/number_extra.dart';
 import '../structure/list_extra.dart';
@@ -28,6 +30,13 @@ double _hueOfColor(ColorName color) {
   return 0;
 }
 
+/// >>> 生成随机颜色 >>>
+Color randomColor({double saturation = 0.5, double value = 0.5}) {
+  double hue = Random().nextDouble() * 360.0;
+
+  return HSVColor.fromAHSV(1, hue, saturation, value).toColor();
+}
+
 extension ColorExtra on Color {
   /// >>> 获取当前颜色的相对色 >>>
   Color get opsiteHSV {
@@ -38,6 +47,15 @@ extension ColorExtra on Color {
       hsvColor.saturation,
       hsvColor.value,
     ).toColor();
+  }
+
+  /// >>> 获得当前颜色对应的随机色 >>>
+  Color get random {
+    final hsvColor = HSVColor.fromColor(this);
+    double hue = Random().nextDouble() * 360.0;
+    return HSVColor.fromAHSV(
+            hsvColor.alpha, hue, hsvColor.saturation, hsvColor.value)
+        .toColor();
   }
 
   /// >>> 获取当前颜色的相对色 >>>

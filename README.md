@@ -22,10 +22,15 @@ puple -- 紫色
 pink -- 粉色  
 
 
+> 函数 randomColor   
+生成随机颜色   
+
 
 > 扩展  Color  
 
 opsiteHSV / opsiteRGB  `[属性]` 相对于当前色彩的反向色彩, 获得一个新的色彩  
+
+random `[属性]` 根据当前颜色的特性, 获得一个随机颜色  
 
 changeHue `[函数]` 在保持亮度和明度的情况下, 修改色彩, 指定一个基本色彩`color[ColorName]`以及色彩偏移`offset[int:0-360]`, 获得一个新的色彩  
 
