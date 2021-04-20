@@ -115,14 +115,17 @@ Widget colorTabs({
   int selectedIndex = 0,
   Color textColor = Colors.white,
   double fontSize = 14,
+  bool colorReverse = false,
   @required Function(int index) onSelectTab,
 }) {
   List<Widget> list = [];
   for (int i = 0; i < tabs.length; ++i) {
     String title = tabs[i].a;
-    Color color = selectedIndex == i
-        ? tabs[i].b
-        : Color.lerp(tabs[i].b, Colors.white, 0.3);
+    Color colorSelect =
+        colorReverse ? Color.lerp(tabs[i].b, Colors.white, 0.3) : tabs[i].b;
+    Color colorUnSelect =
+        colorReverse ? tabs[i].b : Color.lerp(tabs[i].b, Colors.white, 0.3);
+    Color color = selectedIndex == i ? colorSelect : colorUnSelect;
     double leftRadius = i == 0 ? 8 : 0;
     double rightRadius = i == tabs.length - 1 ? 8 : 0;
     Widget tab = Container(
