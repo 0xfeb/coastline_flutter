@@ -15,6 +15,7 @@ export './structure/number_extra.dart';
 export './structure/number_parser.dart';
 export './structure/string_extra.dart';
 export './structure/value.dart';
+export './structure/time.dart';
 
 export './system/image_extra.dart';
 export './system/file_path.dart';

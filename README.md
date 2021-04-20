@@ -283,6 +283,19 @@ apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.
 judge `函数` 判断后续的系列语句是否正确, 然后返回可选.    
 
 
+### Time
+时间处理
+
+> 扩展 DateTime  
+
+> dateTimeString `属性` 日期时间的全部显示  
+
+> dateString `属性` 日期显示  
+
+> timeString `属性` 时间显示   
+
+> simpleString `属性` 简化版显示日期时间   
+
 
 ## system
 系统功能集合
