@@ -278,6 +278,10 @@ apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.
 > 函数 isEmpty   
 判断数据`l [dynamic]`是否为空.   
 
+> 扩展 PairJudge   
+
+judge `函数` 判断后续的系列语句是否正确, 然后返回可选.    
+
 
 
 ## system

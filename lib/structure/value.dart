@@ -10,3 +10,15 @@ bool isEmpty(dynamic l) {
 
   return false;
 }
+
+/// >>> 从组合数据中判断取得的数据 >>>
+extension PairJudge<T> on List<T> {
+  T judge(List<bool> line) {
+    for (int i = 0; i < line.length; ++i) {
+      if (line[i]) {
+        return this[i];
+      }
+    }
+    return null;
+  }
+}
