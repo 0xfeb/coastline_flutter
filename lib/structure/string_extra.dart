@@ -1,5 +1,7 @@
 //import 'package:flutter/material.dart';
 
+import 'dart:io';
+
 import 'combo_data.dart';
 
 extension StringExtra on String {
@@ -23,5 +25,10 @@ extension StringExtra on String {
     final String first = this.substring(0, pos);
     final String last = this.substring(pos + gap.length);
     return Pair(first, last);
+  }
+
+  /// >>> 判断文件是否存在 >>>
+  bool get fileExists {
+    return File(this).existsSync();
   }
 }

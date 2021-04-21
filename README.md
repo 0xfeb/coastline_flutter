@@ -270,7 +270,7 @@ apartBy `函数` 通过`gap[String]`分割一个字符串, 得到两个字符串
 
 apartReverseBy `函数`, 等同于apartBy, 但是是通过倒序分析.   
 
-
+fileExits `属性` 判断文件是否存在.   
 
 ### Value
 数据判断    
