@@ -8,7 +8,13 @@ import 'package:uuid/uuid.dart';
 FileImage loadStorageImage(String storageId) {
   String destPath = FilePath().imageFilename(storageId);
   print('load image from -> $destPath');
-  return FileImage(File(destPath));
+  File file = File(destPath);
+  if (file.existsSync()) {
+    return FileImage(file);
+  } else {
+    print('image file not exists!');
+    return null;
+  }
 }
 
 /// >>> 文件图像, 从Storage ID获取图像, 同步 >>>
@@ -21,8 +27,13 @@ Future<FileImage> loadStorageImageAsync(String storageId) async {
 String loadPathCopyToStorageImage(String sourcePath) {
   String uuid = Uuid().v4();
   String destFile = FilePath().imageFilename(uuid);
-  File(sourcePath).copySync(destFile);
-  return uuid;
+  File file = File(sourcePath);
+  if (file.existsSync()) {
+    file.copySync(destFile);
+    return uuid;
+  } else {
+    return null;
+  }
 }
 
 /// >>> 拷贝一个文件到Storage ID, 同步 >>>
