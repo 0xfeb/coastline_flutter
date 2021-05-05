@@ -19,6 +19,9 @@ extension PairJudge<T> on List<T> {
         return this[i];
       }
     }
+    if (length > line.length) {
+      return this.last;
+    }
     return null;
   }
 }
