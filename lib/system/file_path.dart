@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
+import 'package:package_info/package_info.dart';
 
 /// >>> 文件路径类 >>>
 class FilePath {
@@ -21,8 +22,15 @@ class FilePath {
       return;
     }
 
-    var dir = await getLibraryDirectory();
-    _library = dir.path;
+    if (Platform.isIOS || Platform.isMacOS) {
+      var dir = await getLibraryDirectory();
+      _library = dir.path;
+    } else if (Platform.isAndroid) {
+      //PackageInfo packageInfo = await PackageInfo.fromPlatform();
+      //var pkgName = packageInfo.packageName;
+      var dir = await getApplicationDocumentsDirectory();
+      _library = dir.path;
+    }
 
     _db = _library + '/storage.db';
     _image = _library + '/image/';
