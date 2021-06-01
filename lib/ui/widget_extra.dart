@@ -222,4 +222,14 @@ extension WidgetExtra on Widget {
       child: this,
     );
   }
+
+  NotificationListener<T> onListen<T extends Notification>(
+      NotificationListenerCallback<T> onNotification,
+      {Key key}) {
+    return NotificationListener<T>(
+      key: key,
+      child: this,
+      onNotification: onNotification,
+    );
+  }
 }
