@@ -11,7 +11,7 @@ import 'file_path.dart';
 extension ImageProviderFileExtra on ImageProvider {
   Future<ui.Image> _toImage() async {
     Completer<ui.Image> completer = Completer<ui.Image>();
-    ImageStreamListener listener;
+    late ImageStreamListener listener;
     ImageStream stream = this.resolve(ImageConfiguration.empty);
     listener = ImageStreamListener((ImageInfo frame, bool sync) {
       final ui.Image image = frame.image;
@@ -25,7 +25,7 @@ extension ImageProviderFileExtra on ImageProvider {
   /// >>> 存储到文件中去 >>>
   Future saveToFile(String filePath) async {
     ui.Image image = await _toImage();
-    var bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+    var bytes = await (image.toByteData(format: ui.ImageByteFormat.png) as FutureOr<ByteData>);
     Uint8List ul = bytes.buffer.asUint8List();
     File file = File(filePath);
     file.openWrite();
@@ -33,7 +33,7 @@ extension ImageProviderFileExtra on ImageProvider {
   }
 
   /// >>> 存储到特定Storage库中去 >>>
-  Future<String> saveToStorage({String storageId}) async {
+  Future<String> saveToStorage({String? storageId}) async {
     await FilePath().setup();
     String uuid = storageId ?? Uuid().v4();
     String destFile = FilePath().imageFilename(uuid);

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import './help_item.dart';
 import './widget_extra.dart';
 
-showHelp({BuildContext context, List<HelpItem> items}) {
+showHelp({required BuildContext context, required List<HelpItem> items}) {
   Size size = MediaQuery.of(context).size;
   List<Widget> children = [
     Positioned(
@@ -27,8 +27,8 @@ showHelp({BuildContext context, List<HelpItem> items}) {
       color: e.color,
       text: e.text,
       arrowPoint:
-          Offset(e.arrowPoint.dx * size.width, e.arrowPoint.dy * size.height),
-      endPoint: Offset(e.endPoint.dx * size.width, e.endPoint.dy * size.height),
+          Offset(e.arrowPoint!.dx * size.width, e.arrowPoint!.dy * size.height),
+      endPoint: Offset(e.endPoint!.dx * size.width, e.endPoint!.dy * size.height),
     );
     children.insert(
       0,

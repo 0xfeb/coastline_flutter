@@ -14,11 +14,11 @@ enum Direction {
 
 /// >>> 生成渐变 >>>
 LinearGradient gradient(
-    {@required List<Color> colors,
-    List<double> stops,
+    {required List<Color> colors,
+    List<double>? stops,
     Direction direction = Direction.toRight}) {
-  AlignmentGeometry begin;
-  AlignmentGeometry end;
+  late AlignmentGeometry begin;
+  late AlignmentGeometry end;
   switch (direction) {
     case Direction.toDown:
       begin = Alignment.topLeft;

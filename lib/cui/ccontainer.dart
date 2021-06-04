@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
 BorderRadiusGeometry borderRadius(
-    {double all,
-    double top,
-    double bottom,
-    double left,
-    double right,
-    double leftTop,
-    double leftBottom,
-    double rightTop,
-    double rightBottom}) {
+    {double? all,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+    double? leftTop,
+    double? leftBottom,
+    double? rightTop,
+    double? rightBottom}) {
   Radius topLeft = Radius.circular(leftTop ?? left ?? top ?? all ?? 0);
   Radius topRight = Radius.circular(rightTop ?? right ?? top ?? all ?? 0);
   Radius bottomLeft = Radius.circular(leftBottom ?? left ?? bottom ?? all ?? 0);
@@ -23,28 +23,28 @@ BorderRadiusGeometry borderRadius(
 }
 
 class CContainer {
-  Decoration _decoration;
-  Decoration _forgroundDecoration;
-  Key _key;
-  AlignmentGeometry _alignmentGeometry;
-  EdgeInsetsGeometry _edgeInsetsGeometry;
-  double _width;
-  double _height;
-  BoxConstraints _boxConstraints;
-  EdgeInsetsGeometry _margin;
-  Matrix4 _transform;
-  AlignmentGeometry _transformAlignment;
-  Clip _clip;
+  Decoration? _decoration;
+  Decoration? _forgroundDecoration;
+  Key? _key;
+  AlignmentGeometry? _alignmentGeometry;
+  EdgeInsetsGeometry? _edgeInsetsGeometry;
+  double? _width;
+  double? _height;
+  BoxConstraints? _boxConstraints;
+  EdgeInsetsGeometry? _margin;
+  Matrix4? _transform;
+  AlignmentGeometry? _transformAlignment;
+  Clip? _clip;
 
   CContainer decorationBox(
-      {Color color,
-      DecorationImage image,
-      BoxBorder border,
-      BorderRadiusGeometry borderRadius,
-      List<BoxShadow> boxShadow,
-      Gradient gradient,
-      BlendMode backgroundBlendMode,
-      BoxShape shape}) {
+      {Color? color,
+      DecorationImage? image,
+      BoxBorder? border,
+      BorderRadiusGeometry? borderRadius,
+      List<BoxShadow>? boxShadow,
+      Gradient? gradient,
+      BlendMode? backgroundBlendMode,
+      required BoxShape shape}) {
     _decoration = BoxDecoration(
         color: color,
         image: image,
@@ -58,11 +58,11 @@ class CContainer {
   }
 
   CContainer decorationShape(
-      {Color color,
-      DecorationImage image,
-      Gradient gradient,
-      List<BoxShadow> shadows,
-      ShapeBorder shape}) {
+      {Color? color,
+      DecorationImage? image,
+      Gradient? gradient,
+      List<BoxShadow>? shadows,
+      required ShapeBorder shape}) {
     _decoration = ShapeDecoration(
         shape: shape,
         color: color,
@@ -73,14 +73,14 @@ class CContainer {
   }
 
   CContainer decorationBoxForground(
-      {Color color,
-      DecorationImage image,
-      BoxBorder border,
-      BorderRadiusGeometry borderRadius,
-      List<BoxShadow> boxShadow,
-      Gradient gradient,
-      BlendMode backgroundBlendMode,
-      BoxShape shape}) {
+      {Color? color,
+      DecorationImage? image,
+      BoxBorder? border,
+      BorderRadiusGeometry? borderRadius,
+      List<BoxShadow>? boxShadow,
+      Gradient? gradient,
+      BlendMode? backgroundBlendMode,
+      required BoxShape shape}) {
     _forgroundDecoration = BoxDecoration(
         color: color,
         image: image,
@@ -94,11 +94,11 @@ class CContainer {
   }
 
   CContainer decorationShapeForground(
-      {Color color,
-      DecorationImage image,
-      Gradient gradient,
-      List<BoxShadow> shadows,
-      ShapeBorder shape}) {
+      {Color? color,
+      DecorationImage? image,
+      Gradient? gradient,
+      List<BoxShadow>? shadows,
+      required ShapeBorder shape}) {
     _forgroundDecoration = ShapeDecoration(
         shape: shape,
         color: color,

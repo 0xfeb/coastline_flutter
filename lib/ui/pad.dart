@@ -7,9 +7,9 @@ extension WidgetPadded on Widget {
       double right = 0,
       double top = 0,
       double bottom = 0,
-      double vertical,
-      double all,
-      double horizon}) {
+      double? vertical,
+      double? all,
+      double? horizon}) {
     EdgeInsets insets;
     if (all != null) {
       insets = EdgeInsets.all(all);
@@ -34,9 +34,9 @@ extension SliverPadded on SliverWithKeepAliveWidget {
       double right = 0,
       double top = 0,
       double bottom = 0,
-      double vertical,
-      double all,
-      double horizon}) {
+      double? vertical,
+      double? all,
+      double? horizon}) {
     EdgeInsets insets;
     if (all != null) {
       insets = EdgeInsets.all(all);

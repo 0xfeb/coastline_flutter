@@ -6,18 +6,18 @@ class StrokeText extends StatelessWidget {
   final StrokeJoin strokeJoin;
   final double strokeWidth;
   final Color strokeColor;
-  final TextStyle style;
+  final TextStyle? style;
   final String text;
-  final TextAlign textAlign;
-  final TextDirection textDirection;
-  final Locale locale;
-  final bool softWrap;
-  final TextOverflow overflow;
-  final double textScaleFactor;
-  final int maxLines;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final Locale? locale;
+  final bool? softWrap;
+  final TextOverflow? overflow;
+  final double? textScaleFactor;
+  final int? maxLines;
 
   const StrokeText(this.text,
-      {Key key,
+      {Key? key,
       this.strokeCap = StrokeCap.round,
       this.strokeJoin = StrokeJoin.round,
       this.strokeWidth = 1.0,
@@ -43,7 +43,7 @@ class StrokeText extends StatelessWidget {
 
     TextStyle currentStyle = style == null
         ? TextStyle(foreground: paint)
-        : style.copyWith(foreground: paint);
+        : style!.copyWith(foreground: paint);
 
     return Text(
       text,

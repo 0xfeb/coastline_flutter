@@ -3,7 +3,7 @@ import '../structure/list_extra.dart';
 
 /// >>> 多选Tag列表, 支持自动换行 >>>
 class MultiTagList extends StatelessWidget {
-  final List<String> texts;
+  final List<String>? texts;
   final List<int> selectedTags;
   final double fontSize;
   final Function(List<int>) onSelectTags;
@@ -12,11 +12,11 @@ class MultiTagList extends StatelessWidget {
   final Color textColor;
 
   const MultiTagList(
-      {Key key,
+      {Key? key,
       this.texts,
       this.selectedTags = const [],
       this.fontSize = 16,
-      @required this.onSelectTags,
+      required this.onSelectTags,
       this.selectedColor = Colors.blue,
       this.unselectedColor = Colors.grey,
       this.textColor = Colors.white})
@@ -27,7 +27,7 @@ class MultiTagList extends StatelessWidget {
     return Wrap(
       spacing: 4,
       runSpacing: 4,
-      children: texts.indicate.map((e) {
+      children: texts!.indicate.map((e) {
         return InkWell(
           child: Chip(
             label: Text(e.value),

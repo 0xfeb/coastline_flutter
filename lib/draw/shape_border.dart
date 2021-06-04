@@ -8,7 +8,7 @@ import 'path_extra.dart';
 class ChatPopBorder extends ShapeBorder {
   final double offset;
   final Size arrowSize;
-  final double position;
+  final double? position;
 
   ChatPopBorder({
     this.offset = 0.8,
@@ -22,7 +22,7 @@ class ChatPopBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return Path()
       ..addRRect(
         RRect.fromRectAndRadius(
@@ -34,7 +34,7 @@ class ChatPopBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path a = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
@@ -46,10 +46,10 @@ class ChatPopBorder extends ShapeBorder {
 
     double offset = this.offset;
     if (position != null) {
-      if (position >= 0) {
-        offset = position / rect.size.width;
+      if (position! >= 0) {
+        offset = position! / rect.size.width;
       } else {
-        offset = (rect.size.width + position) / rect.size.width;
+        offset = (rect.size.width + position!) / rect.size.width;
       }
     }
 
@@ -66,7 +66,7 @@ class ChatPopBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -77,7 +77,7 @@ class ChatPopBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 
@@ -91,7 +91,7 @@ class TagBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> pointList = [
       Offset(rect.height, 0),
       Offset(rect.width, 0),
@@ -102,7 +102,7 @@ class TagBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> pointList = [
       Offset(0, rect.height / 2),
       Offset(rect.height / 2, 0),
@@ -118,7 +118,7 @@ class TagBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -129,7 +129,7 @@ class TagBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 
@@ -145,12 +145,12 @@ class TicketBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return rectPath(rect);
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path path1 = rectPath(Rect.fromLTWH(0, 0, rect.width, rect.height));
     double n = (rect.height - cutSize / 2) / (3 * cutSize / 2);
     int np = n.toInt();
@@ -164,7 +164,7 @@ class TicketBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -175,7 +175,7 @@ class TicketBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 
@@ -195,7 +195,8 @@ List<double> _randomList(double limit, int count) {
   return result;
 }
 
-List<Offset> _randomPoints({double limit, int count, double height = 10}) {
+List<Offset> _randomPoints(
+    {required double limit, required int count, double height = 10}) {
   List<double> points = _randomList(limit, count);
   List<Offset> result = [];
   for (int i = 0; i < points.length; ++i) {
@@ -218,12 +219,12 @@ class FullReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return rectPath(rect);
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     List<Offset> bottomPoints = _randomPoints(limit: rect.width, count: 30)
         .reversed
@@ -234,7 +235,7 @@ class FullReceiptBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -245,7 +246,7 @@ class FullReceiptBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 
@@ -259,12 +260,12 @@ class TopReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return rectPath(rect);
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     points.add(Offset(rect.width, rect.height));
     points.add(Offset(0, rect.height));
@@ -272,7 +273,7 @@ class TopReceiptBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -283,7 +284,7 @@ class TopReceiptBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 
@@ -297,12 +298,12 @@ class BottomReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return rectPath(rect);
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30)
         .reversed
         .map((e) => e.translate(0, rect.height - 10))
@@ -313,7 +314,7 @@ class BottomReceiptBorder extends ShapeBorder {
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.transparent
@@ -324,7 +325,7 @@ class BottomReceiptBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return null;
+    return this;
   }
 }
 

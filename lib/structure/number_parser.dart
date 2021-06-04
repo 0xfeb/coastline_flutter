@@ -28,13 +28,13 @@ extension NumberParser on String {
 
   /// >>> 根据中文文本获得具体的数值 >>>
   int get chineseNumber {
-    final Pair<String, String> wp = this.apartBy('万');
+    final Pair<String?, String> wp = this.apartBy('万');
     final String w = wp.a ?? '零';
-    final Pair<String, String> qp = wp.b.apartBy('千');
+    final Pair<String?, String> qp = wp.b.apartBy('千');
     final String q = qp.a ?? '零';
-    final Pair<String, String> bp = qp.b.apartBy('百');
+    final Pair<String?, String> bp = qp.b.apartBy('百');
     final String b = bp.a ?? '零';
-    final Pair<String, String> sp = bp.b.apartBy('十');
+    final Pair<String?, String> sp = bp.b.apartBy('十');
     final String s = sp.a ?? '零';
     final String g = sp.b ?? '零';
     return w._singleChineseNumber * 10000 +

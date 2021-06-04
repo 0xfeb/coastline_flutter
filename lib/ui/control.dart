@@ -82,7 +82,7 @@ Widget capsule(
 // todo: 以后改成icon镂空, 研究怎么镂空文本, 怎么镂空Image, 怎么镂空Icon
 Widget imageFrame(
   ImageProvider picture, {
-  @required IconData icon,
+  required IconData icon,
   double iconSize = 16,
   Color iconColor = Colors.grey,
   Color borderColor = Colors.white,
@@ -111,21 +111,21 @@ Widget imageFrame(
 
 /// >>> 色彩Tab >>>
 Widget colorTabs({
-  @required List<Pair<String, Color>> tabs,
+  required List<Pair<String, Color>> tabs,
   int selectedIndex = 0,
   Color textColor = Colors.white,
   double fontSize = 14,
   bool colorReverse = false,
-  @required Function(int index) onSelectTab,
+  required Function(int index) onSelectTab,
 }) {
   List<Widget> list = [];
   for (int i = 0; i < tabs.length; ++i) {
     String title = tabs[i].a;
-    Color colorSelect =
+    Color? colorSelect =
         colorReverse ? Color.lerp(tabs[i].b, Colors.white, 0.3) : tabs[i].b;
-    Color colorUnSelect =
+    Color? colorUnSelect =
         colorReverse ? tabs[i].b : Color.lerp(tabs[i].b, Colors.white, 0.3);
-    Color color = selectedIndex == i ? colorSelect : colorUnSelect;
+    Color? color = selectedIndex == i ? colorSelect : colorUnSelect;
     double leftRadius = i == 0 ? 8 : 0;
     double rightRadius = i == tabs.length - 1 ? 8 : 0;
     Widget tab = Container(

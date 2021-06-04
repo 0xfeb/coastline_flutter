@@ -5,7 +5,7 @@ import 'file_path.dart';
 import 'package:uuid/uuid.dart';
 
 /// >>> 文件图像, 从Storage ID获取图像 >>>
-FileImage loadStorageImage(String storageId) {
+FileImage? loadStorageImage(String storageId) {
   String destPath = FilePath().imageFilename(storageId);
   print('load image from -> $destPath');
   File file = File(destPath);
@@ -18,13 +18,13 @@ FileImage loadStorageImage(String storageId) {
 }
 
 /// >>> 文件图像, 从Storage ID获取图像, 同步 >>>
-Future<FileImage> loadStorageImageAsync(String storageId) async {
+Future<FileImage?> loadStorageImageAsync(String storageId) async {
   await FilePath().setup();
   return loadStorageImage(storageId);
 }
 
 /// >>> 拷贝一个文件到Storage ID >>>
-String loadPathCopyToStorageImage(String sourcePath) {
+String? loadPathCopyToStorageImage(String sourcePath) {
   String uuid = Uuid().v4();
   String destFile = FilePath().imageFilename(uuid);
   File file = File(sourcePath);
@@ -37,7 +37,7 @@ String loadPathCopyToStorageImage(String sourcePath) {
 }
 
 /// >>> 拷贝一个文件到Storage ID, 同步 >>>
-Future<String> loadPathCopyToStorageImageAsync(String sourcePath) async {
+Future<String?> loadPathCopyToStorageImageAsync(String sourcePath) async {
   await FilePath().setup();
   return loadPathCopyToStorageImage(sourcePath);
 }

@@ -19,15 +19,15 @@ Path rectPath(Rect rect) {
 
 /// >>> 圆角矩形Path >>>
 Path rrectPath(Rect rect,
-    {double topLeftCorner,
-    double topRightCorner,
-    double bottomLeftCorner,
-    double bottomRightCorner,
-    double allCorners,
-    double leftCorners,
-    double rightCorners,
-    double topCorners,
-    double bottomCorners}) {
+    {double? topLeftCorner,
+    double? topRightCorner,
+    double? bottomLeftCorner,
+    double? bottomRightCorner,
+    double? allCorners,
+    double? leftCorners,
+    double? rightCorners,
+    double? topCorners,
+    double? bottomCorners}) {
   Radius tl = Radius.zero;
   Radius tr = Radius.zero;
   Radius bl = Radius.zero;
@@ -160,12 +160,12 @@ Offset positionOfLine(Offset point1, Offset point2, double position) {
 /// >>> 多个点形成一个封闭的形状, 并且支持圆角功能 >>>
 Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
   Path path = Path();
-  Offset a;
+  Offset? a;
   Offset b;
   Offset ap;
   Offset bp;
-  Offset first;
-  Offset firstP;
+  Offset? first;
+  late Offset firstP;
   for (int i = 0; i < points.length; ++i) {
     a = points[i];
     b = (i == points.length - 1) ? points[0] : points[i + 1];
@@ -183,7 +183,7 @@ Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
     path.lineTo(bp.dx, bp.dy);
   }
 
-  Offset lastP = positionOfLine(a, first, -cornerRadius);
+  Offset lastP = positionOfLine(a!, first!, -cornerRadius);
   path.lineTo(lastP.dx, lastP.dy);
   path.quadraticBezierTo(first.dx, first.dy, firstP.dx, firstP.dy);
 
@@ -204,21 +204,21 @@ Path closedSharpPath(List<Offset> points) {
 /// >>> 多个点形成一个线条, 并且支持圆角功能 >>>
 Path linePath(Line line) {
   Path path = Path();
-  Offset start = line.points.first;
+  Offset start = line.points!.first!;
   Offset startP;
   Offset nextP;
-  Offset next;
+  Offset? next;
 
   path.moveTo(start.dx, start.dy);
 
-  for (int i = 1; i < line.points.length; ++i) {
-    next = line.points[i];
-    startP = positionOfLine(start, next, line.smoothLevel);
+  for (int i = 1; i < line.points!.length; ++i) {
+    next = line.points![i];
+    startP = positionOfLine(start, next!, line.smoothLevel);
     nextP = positionOfLine(start, next, -line.smoothLevel);
 
     path.quadraticBezierTo(start.dx, start.dy, startP.dx, startP.dy);
 
-    if (i == line.points.length - 1) {
+    if (i == line.points!.length - 1) {
       path.lineTo(next.dx, next.dy);
     } else {
       path.lineTo(nextP.dx, nextP.dy);

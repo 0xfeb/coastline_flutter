@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 
 /// >>> 绘图板控件 >>>
 class CanvasView extends StatelessWidget {
-  final Paint paint;
-  final Size size;
-  final Widget child;
+  final Paint? paint;
+  final Size? size;
+  final Widget? child;
   final Function(Canvas canvas, Size size) onPaint;
 
   const CanvasView({
-    Key key,
+    Key? key,
     this.paint,
     this.size,
-    @required this.onPaint,
+    required this.onPaint,
     this.child,
   }) : super(key: key);
 
@@ -19,7 +19,7 @@ class CanvasView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       child: child,
-      size: size,
+      size: size!,
       painter: _CanvasViewPainter((Canvas canvas, Size size) {
         onPaint(canvas, size);
       }),

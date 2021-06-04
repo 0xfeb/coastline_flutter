@@ -11,27 +11,27 @@ extension WidgetExtra on Widget {
 
   /// >>> 按下/释放控件 >>>
   Widget onPress(
-      {Function() onHold, Function() onRelease, Function() onFocusRelease}) {
+      {Function()? onHold, Function()? onRelease, Function()? onFocusRelease}) {
     return GestureDetector(
       child: this,
-      onTapDown: (_) => onHold(),
+      onTapDown: (_) => onHold!(),
       onTapUp: (_) {
         if (onFocusRelease != null) {
           onFocusRelease();
         }
-        onRelease();
+        onRelease!();
       },
-      onTapCancel: () => onRelease(),
+      onTapCancel: () => onRelease!(),
     );
   }
 
   /// >>> 容器控件 >>>
   Container box(
-      {double width,
-      double height,
-      Color color,
-      EdgeInsets padding,
-      double cornerRadius}) {
+      {double? width,
+      double? height,
+      Color? color,
+      EdgeInsets? padding,
+      double? cornerRadius}) {
     if (cornerRadius == null) {
       return Container(
         child: this,
@@ -77,7 +77,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
-  RotatedBox rotated({int quarter}) {
+  RotatedBox rotated({required int quarter}) {
     return RotatedBox(
       quarterTurns: quarter,
       child: this,
@@ -106,15 +106,15 @@ extension WidgetExtra on Widget {
 
   /// >>> 指定控件的位置, 适用于Stack >>>
   Positioned positioned(
-      {double left,
-      double right,
-      double top,
-      double bottom,
-      double width,
-      double height,
-      double all,
-      double horizon,
-      double vertical}) {
+      {double? left,
+      double? right,
+      double? top,
+      double? bottom,
+      double? width,
+      double? height,
+      double? all,
+      double? horizon,
+      double? vertical}) {
     if (all != null) {
       return Positioned(
         child: this,
@@ -124,10 +124,10 @@ extension WidgetExtra on Widget {
         bottom: all,
       );
     }
-    double _left = horizon ?? left;
-    double _right = horizon ?? right;
-    double _top = horizon ?? top;
-    double _bottom = horizon ?? bottom;
+    double? _left = horizon ?? left;
+    double? _right = horizon ?? right;
+    double? _top = horizon ?? top;
+    double? _bottom = horizon ?? bottom;
     return Positioned(
       child: this,
       left: _left,
@@ -214,7 +214,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 按比例配置位置(0为左或上, 1为右或下) >>>
-  Align offset({double x, double y}) {
+  Align offset({required double x, required double y}) {
     double fx = x * 2 - 1;
     double fy = y * 2 - 1;
     return Align(
@@ -225,7 +225,7 @@ extension WidgetExtra on Widget {
 
   NotificationListener<T> onListen<T extends Notification>(
       NotificationListenerCallback<T> onNotification,
-      {Key key}) {
+      {Key? key}) {
     return NotificationListener<T>(
       key: key,
       child: this,

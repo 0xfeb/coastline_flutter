@@ -12,9 +12,9 @@ class FilePath {
   }
   FilePath._internal();
 
-  String _db;
-  String _image;
-  String _library;
+  String? _db;
+  late String _image;
+  String? _library;
 
   /// >>> 初始化路径的环境 >>>
   setup() async {
@@ -32,8 +32,8 @@ class FilePath {
       _library = dir.path;
     }
 
-    _db = _library + '/storage.db';
-    _image = _library + '/image/';
+    _db = _library! + '/storage.db';
+    _image = _library! + '/image/';
 
     Directory imageDir = Directory(_image);
     if (!imageDir.existsSync()) {
@@ -48,7 +48,7 @@ class FilePath {
     }
 
     final String uuid = Uuid().v4();
-    return _library + '/$uuid';
+    return _library! + '/$uuid';
   }
 
   /// >>> 获得临时路径, 如果未初始化, 会先初始化 >>>
@@ -58,7 +58,7 @@ class FilePath {
   }
 
   /// >>> 获得存储数据库目录 >>>
-  String get db {
+  String? get db {
     if (_library == null) {
       throw Exception('Need run setup at first or use dbAsync');
     }
@@ -67,7 +67,7 @@ class FilePath {
   }
 
   /// >>> 获得存储数据库目录, 如果未初始化, 会先初始化 >>>
-  Future<String> get dbAsync async {
+  Future<String?> get dbAsync async {
     await setup();
     return _db;
   }

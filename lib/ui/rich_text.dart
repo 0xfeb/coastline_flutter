@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 RichText richTextFormList(
   List<TextSpan> list, {
   TextAlign textAlign = TextAlign.start,
-  TextDirection textDirection,
+  TextDirection? textDirection,
   bool softWrap = true,
   TextOverflow overflow = TextOverflow.clip,
   double textScaleFactor = 1.0,
-  int maxLines,
-  Locale locale,
+  int? maxLines,
+  Locale? locale,
 }) {
   return RichText(
     text: TextSpan(text: '', children: list),

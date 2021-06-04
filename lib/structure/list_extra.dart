@@ -46,7 +46,7 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 检查两个列表是否相同 >>>
-  bool isEqualTo(List<T> other, {bool Function(T, T) compare}) {
+  bool isEqualTo(List<T> other, {bool Function(T, T)? compare}) {
     if (this.length != other.length) {
       return false;
     }
@@ -67,7 +67,7 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 由另外一个List开头 >>>
-  bool startWith(List<T> other, {bool Function(T, T) compare}) {
+  bool startWith(List<T> other, {bool Function(T, T)? compare}) {
     if (other.length > this.length) {
       return false;
     }
@@ -75,7 +75,7 @@ extension ListExtra<T> on List<T> {
     for (int i = 0; i < other.length; ++i) {
       var n = other[i];
       var m = this[i];
-      if (!compare(n, m)) {
+      if (!compare!(n, m)) {
         return false;
       }
     }
@@ -84,7 +84,7 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 由另外一个List结束 >>>
-  bool endWith(List<T> other, {bool Function(T, T) compare}) {
+  bool endWith(List<T> other, {bool Function(T, T)? compare}) {
     if (other.length > this.length) {
       return false;
     }
@@ -92,7 +92,7 @@ extension ListExtra<T> on List<T> {
     for (int i = 0; i < other.length; ++i) {
       var n = other[other.length - i - 1];
       var m = this[length - i - 1];
-      if (!compare(n, m)) {
+      if (!compare!(n, m)) {
         return false;
       }
     }
@@ -111,6 +111,6 @@ extension ListExtra<T> on List<T> {
 }
 
 /// >>> 产生一个序列列表 >>>
-List<int> inc({int start = 0, @required int length}) {
+List<int> inc({int start = 0, required int length}) {
   return List<int>.generate(length, (index) => start + index);
 }

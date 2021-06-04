@@ -6,12 +6,12 @@ class NumberField extends StatelessWidget {
   final Color color;
   final int min;
   final int max;
-  final TextEditingController controller;
-  final FocusNode focus;
+  final TextEditingController? controller;
+  final FocusNode? focus;
   final TextStyle style;
 
   const NumberField(
-      {Key key,
+      {Key? key,
       this.color = Colors.blue,
       this.min = 0,
       this.max = 10000,
@@ -43,16 +43,16 @@ class NumberField extends StatelessWidget {
           ).onTap(() {
             int number = min;
             if (controller != null &&
-                controller.text != null &&
-                controller.text.length > 0) {
-              number = int.parse(controller.text) - 1;
+                controller!.text != null &&
+                controller!.text.length > 0) {
+              number = int.parse(controller!.text) - 1;
               if (number < min) {
                 number = min;
               }
             }
             if (controller != null) {
-              controller.text = '$number';
-              controller.selection =
+              controller!.text = '$number';
+              controller!.selection =
                   TextSelection(baseOffset: 0, extentOffset: 0);
             }
           }),
@@ -69,16 +69,16 @@ class NumberField extends StatelessWidget {
           ).onTap(() {
             int number = max;
             if (controller != null &&
-                controller.text != null &&
-                controller.text.length > 0) {
-              number = int.parse(controller.text) + 1;
+                controller!.text != null &&
+                controller!.text.length > 0) {
+              number = int.parse(controller!.text) + 1;
               if (number > max) {
                 number = max;
               }
             }
             if (controller != null) {
-              controller.text = '$number';
-              controller.selection =
+              controller!.text = '$number';
+              controller!.selection =
                   TextSelection(baseOffset: 0, extentOffset: 0);
             }
           }),

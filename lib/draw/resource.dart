@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 extension IconDataExtra on IconData {
   /// >>> 图标 >>>
-  Icon icon({@required Color color, double size = 20}) {
+  Icon icon({required Color? color, double size = 20}) {
     return Icon(
       this,
       color: color,

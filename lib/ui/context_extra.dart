@@ -3,17 +3,17 @@ import 'package:flutter/widgets.dart';
 
 class DialogAction {
   final String title;
-  final Color color;
-  final Function() action;
+  final Color? color;
+  final Function()? action;
   final bool popout;
 
   /// >>> 对话框按钮 >>>
   DialogAction(
-      {this.popout = false, @required this.title, this.color, this.action});
+      {this.popout = false, required this.title, this.color, this.action});
 
   /// >>> 删除按钮 >>>
   static DialogAction destroy(
-      {@required String title, Function() action, bool popout = true}) {
+      {required String title, Function()? action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.red,
@@ -24,7 +24,7 @@ class DialogAction {
 
   /// >>> 确认按钮 >>>
   static DialogAction accept(
-      {@required String title, Function() action, bool popout = true}) {
+      {required String title, Function()? action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.green,
@@ -35,7 +35,7 @@ class DialogAction {
 
   /// >>> 取消按钮 >>>
   static DialogAction cancel(
-      {@required String title, Function() action, bool popout = true}) {
+      {required String title, Function()? action, bool popout = true}) {
     return DialogAction(
       title: title,
       color: Colors.grey,
@@ -47,14 +47,14 @@ class DialogAction {
 
 extension ContextExtra on BuildContext {
   /// >>> 实现对话框 >>>
-  Future<T> showAlert<T>({
-    @required String title,
+  Future<T?> showAlert<T>({
+    required String title,
     String subTitle = '',
     Color titleColor = Colors.black,
     Color subTitleColor = Colors.grey,
     double titleFontSize = 20,
     double subTitleFontSize = 16,
-    @required List<DialogAction> actions,
+    required List<DialogAction> actions,
     bool barrierDismissible = true,
   }) async {
     return showDialog(
@@ -89,7 +89,7 @@ extension ContextExtra on BuildContext {
                   ),
                   onTap: () {
                     if (e.action != null) {
-                      e.action();
+                      e.action!();
                     }
                     if (e.popout) {
                       Navigator.of(ctx).pop();
