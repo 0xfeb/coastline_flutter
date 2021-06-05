@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../structure/combo_data.dart';
 import 'widget_extra.dart';
-import '../draw/color_extra.dart';
 
 /// >>> 文本条 >>>
 Widget textBar(

@@ -42,9 +42,8 @@ class NumberField extends StatelessWidget {
             child: Icon(Icons.remove, color: Colors.white),
           ).onTap(() {
             int number = min;
-            if (controller != null &&
-                controller!.text != null &&
-                controller!.text.length > 0) {
+            bool? textNotEmpty = controller?.text.isNotEmpty;
+            if (textNotEmpty == true) {
               number = int.parse(controller!.text) - 1;
               if (number < min) {
                 number = min;
@@ -68,9 +67,8 @@ class NumberField extends StatelessWidget {
             child: Icon(Icons.add, color: Colors.white),
           ).onTap(() {
             int number = max;
-            if (controller != null &&
-                controller!.text != null &&
-                controller!.text.length > 0) {
+            bool? textNotEmpty = controller?.text.isNotEmpty;
+            if (textNotEmpty == true) {
               number = int.parse(controller!.text) + 1;
               if (number > max) {
                 number = max;

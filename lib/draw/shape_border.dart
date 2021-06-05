@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'path_extra.dart';
@@ -180,7 +178,7 @@ class TicketBorder extends ShapeBorder {
 }
 
 List<double> _randomList(double limit, int count) {
-  Random r = Random();
+  //Random r = Random();
   List<double> result = [0];
   double unit = limit / count.toDouble();
   for (int i = 1; i < count; ++i) {

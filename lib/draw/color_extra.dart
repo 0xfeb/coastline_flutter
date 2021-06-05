@@ -26,8 +26,6 @@ double _hueOfColor(ColorName color) {
     case ColorName.pink:
       return 300;
   }
-
-  return 0;
 }
 
 /// >>> 生成随机颜色 >>>

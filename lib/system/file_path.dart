@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:package_info/package_info.dart';
 
 /// >>> 文件路径类 >>>
 class FilePath {
@@ -73,7 +72,7 @@ class FilePath {
   }
 
   /// >>> 获得图片的文件名 >>>
-  String imageFilename(String main) {
+  String imageFilename(String? main) {
     if (_library == null) {
       throw Exception('Need run setup at first or use imageFilenameAsync');
     }

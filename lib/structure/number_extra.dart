@@ -1,6 +1,6 @@
 extension NumberExtra on num {
   /// >>> 限制数值在一个范围内 >>>
-  num between(num min, num max) {
+  num between(num? min, num? max) {
     if (min != null) {
       if (this < min) {
         return min;
@@ -35,12 +35,12 @@ String sixDigits(int n) {
 }
 
 String threeDigits(int n) {
-  if (n >= 100) return "${n}";
-  if (n >= 10) return "0${n}";
-  return "00${n}";
+  if (n >= 100) return "$n";
+  if (n >= 10) return "0$n";
+  return "00$n";
 }
 
 String twoDigits(int n) {
-  if (n >= 10) return "${n}";
-  return "0${n}";
+  if (n >= 10) return "$n";
+  return "0$n";
 }
