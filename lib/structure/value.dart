@@ -1,5 +1,5 @@
 /// >>> 判断一个数值是否为空 >>>
-bool? isEmpty(dynamic l) {
+bool isEmpty(dynamic l) {
   if (l == null || l == Null) {
     return true;
   }
@@ -9,6 +9,10 @@ bool? isEmpty(dynamic l) {
   }
 
   return false;
+}
+
+bool isNotEmpty(dynamic l) {
+  return !isEmpty(l);
 }
 
 /// >>> 从组合数据中判断取得的数据 >>>
