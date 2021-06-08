@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'dart:math' as math;
+
+enum IntrinsicDirection {
+  horizon,
+  vertical,
+  both,
+}
 
 extension WidgetExtra on Widget {
   /// >>> 点击控件 >>>
@@ -230,6 +238,111 @@ extension WidgetExtra on Widget {
       key: key,
       child: this,
       onNotification: onNotification,
+    );
+  }
+
+  OverflowBox overflow(
+      {Key? key,
+      AlignmentGeometry alignment = Alignment.topLeft,
+      double? minWidth,
+      double? maxWidth,
+      double? minHeight,
+      double? maxHeight}) {
+    return OverflowBox(
+      child: this,
+      alignment: alignment,
+      minWidth: minWidth,
+      minHeight: minHeight,
+      maxWidth: maxWidth,
+      maxHeight: maxHeight,
+    );
+  }
+
+  Widget intrinsic(IntrinsicDirection direciton) {
+    switch (direciton) {
+      case IntrinsicDirection.horizon:
+        return IntrinsicWidth(child: this);
+      case IntrinsicDirection.vertical:
+        return IntrinsicHeight(child: this);
+      case IntrinsicDirection.both:
+        return IntrinsicHeight(child: IntrinsicWidth(child: this));
+    }
+  }
+
+  ConstrainedBox constrain(
+      {double? minWidth,
+      double? maxWidth,
+      double? minHeight,
+      double? maxHeight}) {
+    return ConstrainedBox(
+      child: this,
+      constraints: BoxConstraints(
+          minWidth: minWidth ?? 0,
+          minHeight: minHeight ?? 0,
+          maxWidth: maxWidth ?? double.infinity,
+          maxHeight: maxHeight ?? double.infinity),
+    );
+  }
+
+  Transform rotate(
+      {Key? key,
+      required double degree,
+      Offset? origin,
+      AlignmentGeometry? alignment,
+      bool transformHitTests = true,
+      Widget? child}) {
+    return Transform.rotate(
+        angle: math.pi / degree,
+        key: key,
+        origin: origin,
+        alignment: alignment,
+        transformHitTests: transformHitTests,
+        child: this);
+  }
+
+  Transform scale(
+      {Key? key,
+      required double scale,
+      Offset? origin,
+      AlignmentGeometry? alignment,
+      bool transformHitTests = true}) {
+    return Transform.scale(
+        scale: scale,
+        key: key,
+        origin: origin,
+        alignment: alignment,
+        transformHitTests: transformHitTests,
+        child: this);
+  }
+
+  Transform move(
+      {Key? key, required Offset offset, bool transformHitTests = true}) {
+    return Transform.translate(
+      offset: offset,
+      key: key,
+      transformHitTests: transformHitTests,
+    );
+  }
+
+  Offstage hide({Key? key, required bool hide}) {
+    return Offstage(
+      child: this,
+      key: key,
+      offstage: hide,
+    );
+  }
+
+  FittedBox fit(
+      {Key? key,
+      required BoxFit fit,
+      AlignmentGeometry alignment = Alignment.topLeft,
+      Clip clipBehavior = Clip.none}) {
+    return FittedBox(
+      key: key,
+      fit: fit,
+      alignment: alignment,
+      clipBehavior: clipBehavior,
+      child: this,
     );
   }
 }
