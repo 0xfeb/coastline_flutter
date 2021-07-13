@@ -41,6 +41,14 @@ extension ListExtra<T> on List<T> {
     return result;
   }
 
+  T? get random {
+    if (this.isEmpty) {
+      return null;
+    }
+    int n = Random().nextInt(this.length);
+    return this[n];
+  }
+
   /// >>> 检查两个列表是否相同 >>>
   bool isEqualTo(List<T> other, {bool Function(T, T)? compare}) {
     if (this.length != other.length) {

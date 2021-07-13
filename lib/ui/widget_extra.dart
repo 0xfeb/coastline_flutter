@@ -39,23 +39,21 @@ extension WidgetExtra on Widget {
       double? height,
       Color? color,
       EdgeInsets? padding,
+      double borderSize = 1,
+      Color borderColor = Colors.black,
       double? cornerRadius}) {
-    if (cornerRadius == null) {
-      return Container(
-        child: this,
-        width: width,
-        height: height,
-        padding: padding,
-        decoration: BoxDecoration(color: color),
-      );
-    }
+    BoxDecoration decoration = BoxDecoration(
+      color: color,
+      borderRadius:
+          cornerRadius != null ? BorderRadius.circular(cornerRadius) : null,
+      border: Border.all(width: borderSize, color: borderColor),
+    );
     return Container(
       child: this,
       width: width,
       height: height,
       padding: padding,
-      decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.circular(cornerRadius)),
+      decoration: decoration,
     );
   }
 
