@@ -33,14 +33,14 @@ extension CanvasHelp on Canvas {
     this.drawLine(arrowPoint2, item.arrowPoint!, paint);
 
     // 绘制曲线
-    Offset center1 =
-        Offset(item.endPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) / 2);
-    Offset center2 =
-        Offset(item.arrowPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) / 2);
+    Offset center1 = Offset(
+        item.endPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) / 2);
+    Offset center2 = Offset(
+        item.arrowPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) / 2);
     Line line = Line(
-        points: [item.endPoint, center1, center2, item.arrowPoint],
+        points: [item.endPoint!, center1, center2, item.arrowPoint!],
         smoothLevel: 20);
-    Path path = linePath(line);
+    Path path = PathExtra.line(line);
 
     this.drawPath(path, paint);
 

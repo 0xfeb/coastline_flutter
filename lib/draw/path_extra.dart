@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'line.dart';
 
 /// >>> 组合Path >>>
-Path pathUnion(Path path1, Path path2) {
+Path _pathUnion(Path path1, Path path2) {
   return Path.combine(PathOperation.union, path1, path2);
 }
 
 /// >>> 在Path上挖洞 >>>
-Path pathHole(Path path1, Path path2) {
+Path _pathHole(Path path1, Path path2) {
   return Path.combine(PathOperation.difference, path1, path2);
 }
 
 /// >>> 矩形Path >>>
-Path rectPath(Rect rect) {
+Path _rectPath(Rect rect) {
   return Path()..addRect(rect);
 }
 
 /// >>> 圆角矩形Path >>>
-Path rrectPath(Rect rect,
+Path _rrectPath(Rect rect,
     {double? topLeftCorner,
     double? topRightCorner,
     double? bottomLeftCorner,
@@ -89,13 +89,13 @@ Path rrectPath(Rect rect,
 }
 
 /// >>> 圆形Path >>>
-Path cyclePath(Offset center, double radius) {
+Path _cyclePath(Offset center, double radius) {
   Rect rect = Rect.fromCenter(center: center, width: radius, height: radius);
   return Path()..addOval(rect);
 }
 
 /// >>> 三角形Path >>>
-Path triplePath(Offset a, Offset b, Offset c) {
+Path _triplePath(Offset a, Offset b, Offset c) {
   return Path()
     ..moveTo(a.dx, a.dy)
     ..lineTo(b.dx, b.dy)
@@ -107,8 +107,8 @@ Path triplePath(Offset a, Offset b, Offset c) {
 /// anglePoint -- 直角所在点的位置
 /// x -- 基于直角点的横轴偏移
 /// y -- 基于直角点的竖轴偏移
-Path angleTriplePath(Offset anglePoint, double x, double y) {
-  return triplePath(
+Path _angleTriplePath(Offset anglePoint, double x, double y) {
+  return _triplePath(
     anglePoint,
     Offset(anglePoint.dx + x, anglePoint.dy),
     Offset(anglePoint.dx, anglePoint.dy + y),
@@ -138,27 +138,8 @@ Path angleTriplePath(Offset anglePoint, double x, double y) {
 //   return isoTriplePath(point1, point2, h);
 // }
 
-/// >>> 线中取一个偏移点(从0.0到1.0) >>>
-Offset offsetOfLine(Offset point1, Offset point2, double offset) {
-  final x = (point2.dx - point1.dx) * offset + point1.dx;
-  final y = (point2.dy - point1.dy) * offset + point1.dy;
-  return Offset(x, y);
-}
-
-/// >>> 线中取一个偏移点(大于0, 是point1这边偏移, 小于0, 是point2这边偏移) >>>
-Offset positionOfLine(Offset point1, Offset point2, double position) {
-  final distance = (point2 - point1).distance;
-  double offset = 0;
-  if (position >= 0) {
-    offset = position / distance;
-  } else {
-    offset = (distance + position) / distance;
-  }
-  return offsetOfLine(point1, point2, offset);
-}
-
 /// >>> 多个点形成一个封闭的形状, 并且支持圆角功能 >>>
-Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
+Path _closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
   Path path = Path();
   Offset? a;
   Offset b;
@@ -191,7 +172,7 @@ Path closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
 }
 
 /// >>> 多个点形成一个封闭的形状, 不支持圆角功能 >>>
-Path closedSharpPath(List<Offset> points) {
+Path _closedSharpPath(List<Offset> points) {
   Path path = Path();
   path.moveTo(points.first.dx, points.first.dy);
   for (Offset point in points) {
@@ -202,23 +183,23 @@ Path closedSharpPath(List<Offset> points) {
 }
 
 /// >>> 多个点形成一个线条, 并且支持圆角功能 >>>
-Path linePath(Line line) {
+Path _linePath(Line line) {
   Path path = Path();
-  Offset start = line.points!.first!;
+  Offset start = line.points.first;
   Offset startP;
   Offset nextP;
   Offset? next;
 
   path.moveTo(start.dx, start.dy);
 
-  for (int i = 1; i < line.points!.length; ++i) {
-    next = line.points![i];
-    startP = positionOfLine(start, next!, line.smoothLevel);
+  for (int i = 1; i < line.points.length; ++i) {
+    next = line.points[i];
+    startP = positionOfLine(start, next, line.smoothLevel);
     nextP = positionOfLine(start, next, -line.smoothLevel);
 
     path.quadraticBezierTo(start.dx, start.dy, startP.dx, startP.dy);
 
-    if (i == line.points!.length - 1) {
+    if (i == line.points.length - 1) {
       path.lineTo(next.dx, next.dy);
     } else {
       path.lineTo(nextP.dx, nextP.dy);
@@ -228,4 +209,72 @@ Path linePath(Line line) {
   }
 
   return path;
+}
+
+extension PathExtra on Path {
+  Path union(Path other) {
+    return _pathUnion(this, other);
+  }
+
+  Path hole(Path dig) {
+    return _pathHole(this, dig);
+  }
+
+  static Path rect(Rect rect) {
+    return _rectPath(rect);
+  }
+
+  static Path rrect(Rect rect,
+      {double? topLeftCorner,
+      double? topRightCorner,
+      double? bottomLeftCorner,
+      double? bottomRightCorner,
+      double? allCorners,
+      double? leftCorners,
+      double? rightCorners,
+      double? topCorners,
+      double? bottomCorners}) {
+    return _rrectPath(
+      rect,
+      topLeftCorner: topLeftCorner,
+      topRightCorner: topRightCorner,
+      bottomLeftCorner: bottomLeftCorner,
+      bottomRightCorner: bottomRightCorner,
+      allCorners: allCorners,
+      leftCorners: leftCorners,
+      rightCorners: rightCorners,
+      topCorners: topCorners,
+      bottomCorners: bottomCorners,
+    );
+  }
+
+  static Path cycle({required Offset center, required double radius}) {
+    return _cyclePath(center, radius);
+  }
+
+  static Path triple(
+      {required Offset point1,
+      required Offset point2,
+      required Offset point3}) {
+    return _triplePath(point1, point2, point3);
+  }
+
+  static Path angleTriple(
+      {required Offset anglePoint,
+      required double length1,
+      required double length2}) {
+    return _angleTriplePath(anglePoint, length1, length2);
+  }
+
+  static Path line(Line line) {
+    return _linePath(line);
+  }
+
+  static Path smoothShape(List<Offset> points, {double cornerRadius = 4.0}) {
+    return _closedPath(points, cornerRadius: cornerRadius);
+  }
+
+  static Path sharpShape(List<Offset> points) {
+    return _closedSharpPath(points);
+  }
 }

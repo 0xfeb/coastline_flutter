@@ -96,7 +96,7 @@ class TagBorder extends ShapeBorder {
       Offset(rect.width, rect.height),
       Offset(rect.height, rect.height),
     ];
-    return closedPath(pointList, cornerRadius: 8.0);
+    return PathExtra.smoothShape(pointList, cornerRadius: 8.0);
   }
 
   @override
@@ -108,10 +108,11 @@ class TagBorder extends ShapeBorder {
       Offset(rect.width, rect.height),
       Offset(rect.height / 2, rect.height),
     ];
-    Path path1 = closedPath(pointList, cornerRadius: 8.0);
-    Path path2 =
-        cyclePath(Offset(rect.height / 2, rect.height / 2), rect.height / 4);
-    Path path = pathHole(path1, path2);
+    Path path1 = PathExtra.smoothShape(pointList, cornerRadius: 8.0);
+    Path path2 = PathExtra.cycle(
+        center: Offset(rect.height / 2, rect.height / 2),
+        radius: rect.height / 4);
+    Path path = path1.hole(path2);
     return path.shift(Offset(rect.left, rect.top));
   }
 
@@ -144,19 +145,21 @@ class TicketBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return rectPath(rect);
+    return PathExtra.rect(rect);
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    Path path1 = rectPath(Rect.fromLTWH(0, 0, rect.width, rect.height));
+    Path path1 = PathExtra.rect(Rect.fromLTWH(0, 0, rect.width, rect.height));
     double n = (rect.height - cutSize / 2) / (3 * cutSize / 2);
     int np = n.toInt();
     for (int i = 1; i <= np; ++i) {
-      Path oPath1 = cyclePath(Offset(0, cutSize * 1.5 * i), cutSize);
-      path1 = pathHole(path1, oPath1);
-      Path oPath2 = cyclePath(Offset(rect.width, cutSize * 1.5 * i), cutSize);
-      path1 = pathHole(path1, oPath2);
+      Path oPath1 = PathExtra.cycle(
+          center: Offset(0, cutSize * 1.5 * i), radius: cutSize);
+      path1 = path1.hole(oPath1);
+      Path oPath2 = PathExtra.cycle(
+          center: Offset(rect.width, cutSize * 1.5 * i), radius: cutSize);
+      path1 = path1.hole(oPath2);
     }
     return path1.shift(Offset(rect.left, rect.top));
   }
@@ -218,7 +221,7 @@ class FullReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return rectPath(rect);
+    return PathExtra.rect(rect);
   }
 
   @override
@@ -229,7 +232,7 @@ class FullReceiptBorder extends ShapeBorder {
         .map((e) => e.translate(0, rect.height - 10))
         .toList();
     points.addAll(bottomPoints);
-    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
+    return PathExtra.sharpShape(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
@@ -259,7 +262,7 @@ class TopReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return rectPath(rect);
+    return PathExtra.rect(rect);
   }
 
   @override
@@ -267,7 +270,7 @@ class TopReceiptBorder extends ShapeBorder {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     points.add(Offset(rect.width, rect.height));
     points.add(Offset(0, rect.height));
-    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
+    return PathExtra.sharpShape(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
@@ -297,7 +300,7 @@ class BottomReceiptBorder extends ShapeBorder {
 
   @override
   Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return rectPath(rect);
+    return PathExtra.rect(rect);
   }
 
   @override
@@ -308,7 +311,7 @@ class BottomReceiptBorder extends ShapeBorder {
         .toList();
     points.add(Offset(0, 0));
     points.add(Offset(rect.width, 0));
-    return closedSharpPath(points).shift(Offset(rect.left, rect.top));
+    return PathExtra.sharpShape(points).shift(Offset(rect.left, rect.top));
   }
 
   @override
@@ -325,14 +328,6 @@ class BottomReceiptBorder extends ShapeBorder {
   ShapeBorder scale(double t) {
     return this;
   }
-}
-
-/// >>> 对话框边框 >>>
-ChatPopBorder chatPopBorder({
-  double offset = 0.8,
-  Size arrowSize = const Size(10, 10),
-}) {
-  return ChatPopBorder(offset: offset, arrowSize: arrowSize);
 }
 
 /// >>> 圆角矩形边框 >>>

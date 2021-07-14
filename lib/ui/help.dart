@@ -1,5 +1,5 @@
 import 'package:coastline/draw/canvas_view.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 import './help_item.dart';
@@ -28,7 +28,8 @@ showHelp({required BuildContext context, required List<HelpItem> items}) {
       text: e.text,
       arrowPoint:
           Offset(e.arrowPoint!.dx * size.width, e.arrowPoint!.dy * size.height),
-      endPoint: Offset(e.endPoint!.dx * size.width, e.endPoint!.dy * size.height),
+      endPoint:
+          Offset(e.endPoint!.dx * size.width, e.endPoint!.dy * size.height),
     );
     children.insert(
       0,
