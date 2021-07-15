@@ -2,28 +2,28 @@ import 'number_extra.dart';
 
 extension DateTimeExtra on DateTime {
   String get dateTimeString {
-    String y = fourDigits(year);
-    String m = twoDigits(month);
-    String d = twoDigits(day);
-    String h = twoDigits(hour);
-    String min = twoDigits(minute);
-    String sec = twoDigits(second);
+    String y = year.digitsString(digitNumber: 4);
+    String m = month.digitsString(digitNumber: 2);
+    String d = day.digitsString(digitNumber: 2);
+    String h = hour.digitsString(digitNumber: 2);
+    String min = minute.digitsString(digitNumber: 2);
+    String sec = second.digitsString(digitNumber: 2);
 
     return '$y-$m-$d $h:$min:$sec';
   }
 
   String get dateString {
-    String y = fourDigits(year);
-    String m = twoDigits(month);
-    String d = twoDigits(day);
+    String y = year.digitsString(digitNumber: 4);
+    String m = month.digitsString(digitNumber: 2);
+    String d = day.digitsString(digitNumber: 2);
 
     return '$y-$m-$d';
   }
 
   String get timeString {
-    String h = twoDigits(hour);
-    String min = twoDigits(minute);
-    String sec = twoDigits(second);
+    String h = hour.digitsString(digitNumber: 2);
+    String min = minute.digitsString(digitNumber: 2);
+    String sec = second.digitsString(digitNumber: 2);
 
     return '$h:$min:$sec';
   }
@@ -35,9 +35,9 @@ extension DateTimeExtra on DateTime {
     DateTime thisDate = DateTime(year, month, day);
     Duration d = now.difference(thisDate);
 
-    String h = twoDigits(hour);
-    String min = twoDigits(minute);
-    String sec = twoDigits(second);
+    String h = hour.digitsString(digitNumber: 2);
+    String min = minute.digitsString(digitNumber: 2);
+    String sec = second.digitsString(digitNumber: 2);
     if (d > Duration(days: 3)) {
       return dateTimeString;
     } else if (d > Duration(days: 2)) {

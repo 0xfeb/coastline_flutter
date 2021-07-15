@@ -150,8 +150,8 @@ Path _closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
   for (int i = 0; i < points.length; ++i) {
     a = points[i];
     b = (i == points.length - 1) ? points[0] : points[i + 1];
-    bp = positionOfLine(a, b, -cornerRadius);
-    ap = positionOfLine(a, b, cornerRadius);
+    bp = StrightLine(a, b).positionOfOffset(-cornerRadius);
+    ap = StrightLine(a, b).positionOfOffset(cornerRadius);
 
     if (i == 0) {
       path.moveTo(ap.dx, ap.dy);
@@ -164,7 +164,7 @@ Path _closedPath(List<Offset> points, {double cornerRadius = 4.0}) {
     path.lineTo(bp.dx, bp.dy);
   }
 
-  Offset lastP = positionOfLine(a!, first!, -cornerRadius);
+  Offset lastP = StrightLine(a!, first!).positionOfOffset(-cornerRadius);
   path.lineTo(lastP.dx, lastP.dy);
   path.quadraticBezierTo(first.dx, first.dy, firstP.dx, firstP.dy);
 
@@ -194,8 +194,8 @@ Path _linePath(Line line) {
 
   for (int i = 1; i < line.points.length; ++i) {
     next = line.points[i];
-    startP = positionOfLine(start, next, line.smoothLevel);
-    nextP = positionOfLine(start, next, -line.smoothLevel);
+    startP = StrightLine(start, next).positionOfOffset(line.smoothLevel);
+    nextP = StrightLine(start, next).positionOfOffset(-line.smoothLevel);
 
     path.quadraticBezierTo(start.dx, start.dy, startP.dx, startP.dy);
 

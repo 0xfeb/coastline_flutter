@@ -42,6 +42,23 @@ Future<String?> loadPathCopyToStorageImageAsync(String sourcePath) async {
   return loadPathCopyToStorageImage(sourcePath);
 }
 
+class StorageImage {
+  String storageId;
+
+  StorageImage(this.storageId);
+  static StorageImage? fromPath(String sourcePath) {
+    String? sid = loadPathCopyToStorageImage(sourcePath);
+    if (sid == null) {
+      return null;
+    }
+    return StorageImage(sid);
+  }
+
+  FileImage? laodImage() {
+    return loadStorageImage(storageId);
+  }
+}
+
 extension ImageExtra on FileImage {
   /// >>> 存储图像, 自动返回一个Storage ID >>>
   String save() {
