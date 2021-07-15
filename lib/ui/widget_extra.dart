@@ -58,10 +58,10 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 尺寸控件 >>>
-  SizedBox sized(Size size) {
+  SizedBox sized({Size? size, double? height, double? width}) {
     return SizedBox(
-      width: size.width,
-      height: size.height,
+      width: width ?? size?.width ?? 0,
+      height: height ?? size?.height ?? 0,
       child: this,
     );
   }
