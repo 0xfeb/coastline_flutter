@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 extension MultiWidget<T extends Widget> on List<T> {
@@ -162,6 +163,45 @@ extension MultiWidget<T extends Widget> on List<T> {
       crossAxisSpacing: crossAxisSpacing,
       childAspectRatio: childAspectRatio,
       children: this,
+    );
+  }
+
+  CustomScrollView scrollView(
+      {Key? key,
+      Axis scrollDirection = Axis.vertical,
+      bool reverse = false,
+      ScrollController? controller,
+      bool? primary,
+      ScrollPhysics? physics,
+      ScrollBehavior? scrollBehavior,
+      bool shrinkWrap = false,
+      Key? center,
+      double anchor = 0.0,
+      double? cacheExtent,
+      int? semanticChildCount,
+      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+          ScrollViewKeyboardDismissBehavior.onDrag,
+      String? restorationId,
+      Clip clipBehavior = Clip.hardEdge}) {
+    return CustomScrollView(
+      slivers: this,
+      key: key,
+      scrollDirection: scrollDirection,
+      reverse: reverse,
+      controller: controller,
+      primary: primary,
+      physics: physics,
+      scrollBehavior: scrollBehavior,
+      shrinkWrap: shrinkWrap,
+      center: center,
+      anchor: anchor,
+      cacheExtent: cacheExtent,
+      semanticChildCount: semanticChildCount,
+      dragStartBehavior: dragStartBehavior,
+      keyboardDismissBehavior: keyboardDismissBehavior,
+      restorationId: restorationId,
+      clipBehavior: clipBehavior,
     );
   }
 }
