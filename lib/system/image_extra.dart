@@ -54,7 +54,7 @@ class StorageImage {
     return StorageImage(sid);
   }
 
-  FileImage? laodImage() {
+  FileImage? loadImage() {
     return loadStorageImage(storageId);
   }
 }

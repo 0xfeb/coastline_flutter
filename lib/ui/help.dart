@@ -57,7 +57,7 @@ showHelp({required BuildContext context, required List<HelpItem> items}) {
             children: children,
           ),
         ),
-      ).sized(size);
+      ).sized(size: size);
     },
   );
 }

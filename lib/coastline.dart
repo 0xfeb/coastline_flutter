@@ -36,3 +36,4 @@ export './ui/text_display.dart';
 export './ui/widget_extra.dart';
 export './ui/help.dart';
 export './ui/help_item.dart';
+export './ui/clip.dart';
