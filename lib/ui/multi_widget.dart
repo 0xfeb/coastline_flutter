@@ -204,4 +204,8 @@ extension MultiWidget<T extends Widget> on List<T> {
       clipBehavior: clipBehavior,
     );
   }
+
+  SliverList sliverList() {
+    return SliverList(delegate: SliverChildListDelegate(this));
+  }
 }
