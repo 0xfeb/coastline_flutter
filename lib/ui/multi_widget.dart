@@ -208,4 +208,30 @@ extension MultiWidget<T extends Widget> on List<T> {
   SliverList sliverList() {
     return SliverList(delegate: SliverChildListDelegate(this));
   }
+
+  Wrap wrap(
+      {Key? key,
+      Axis direction = Axis.horizontal,
+      WrapAlignment alignment = WrapAlignment.start,
+      double spacing = 4,
+      WrapAlignment runAlignment = WrapAlignment.start,
+      double runSpacing = 4,
+      WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+      TextDirection? textDirection,
+      VerticalDirection verticalDirection = VerticalDirection.down,
+      Clip clipBehavior = Clip.hardEdge}) {
+    return Wrap(
+      key: key,
+      children: this,
+      direction: direction,
+      alignment: alignment,
+      spacing: spacing,
+      runAlignment: runAlignment,
+      runSpacing: runSpacing,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+      clipBehavior: clipBehavior,
+    );
+  }
 }
