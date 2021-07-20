@@ -343,4 +343,29 @@ extension WidgetExtra on Widget {
       child: this,
     );
   }
+
+  Card card(
+      {Key? key,
+      Color color = Colors.white,
+      Color shadowColor = Colors.black,
+      double elevation = 0,
+      double radius = 4,
+      bool borderOnForeground: true,
+      EdgeInsetsGeometry margin = EdgeInsets.zero,
+      Clip clipBehavior = Clip.hardEdge,
+      bool semanticContainer: true}) {
+    return Card(
+      key: key,
+      color: color,
+      shadowColor: shadowColor,
+      elevation: elevation,
+      shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+      borderOnForeground: borderOnForeground,
+      margin: margin,
+      clipBehavior: clipBehavior,
+      child: this,
+      semanticContainer: semanticContainer,
+    );
+  }
 }

@@ -167,7 +167,7 @@ class PhotoFrame extends StatelessWidget {
 
 /// >>> 色彩Tab >>>
 class ColorTab extends StatelessWidget {
-  final List<Pair<String, Color>> tabs;
+  final List<Pair<Color, String>> tabs;
   final int selectedIndex;
   final Color textColor;
   final double fontSize;
@@ -187,11 +187,11 @@ class ColorTab extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> list = [];
     for (int i = 0; i < tabs.length; ++i) {
-      String title = tabs[i].a;
+      String title = tabs[i].b;
       Color? colorSelect =
-          colorReverse ? Color.lerp(tabs[i].b, Colors.white, 0.3) : tabs[i].b;
+          colorReverse ? Color.lerp(tabs[i].a, Colors.white, 0.3) : tabs[i].a;
       Color? colorUnSelect =
-          colorReverse ? tabs[i].b : Color.lerp(tabs[i].b, Colors.white, 0.3);
+          colorReverse ? tabs[i].a : Color.lerp(tabs[i].a, Colors.white, 0.3);
       Color? color = selectedIndex == i ? colorSelect : colorUnSelect;
       double leftRadius = i == 0 ? 8 : 0;
       double rightRadius = i == tabs.length - 1 ? 8 : 0;
@@ -209,7 +209,7 @@ class ColorTab extends StatelessWidget {
               right: Radius.circular(rightRadius),
             ),
             border: Border.all(
-                color: tabs[i].b, width: selectedIndex == i ? 1 : 0)),
+                color: tabs[i].a, width: selectedIndex == i ? 1 : 0)),
       ).onTap(() {
         onSelectTab(i);
       });
