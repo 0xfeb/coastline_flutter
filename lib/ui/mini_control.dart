@@ -14,3 +14,14 @@ class Gap extends StatelessWidget {
     );
   }
 }
+
+class SliverGap extends StatelessWidget {
+  final double size;
+
+  SliverGap(this.size);
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(child: Gap(size));
+  }
+}
