@@ -31,10 +31,18 @@ extension WidgetExtra on Widget {
     );
   }
 
-  Container rrect(double radius) {
+  Container roundRect(double radius) {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius)),
       child: this,
+    );
+  }
+
+  Container container({double cornerRadius, EdgeInsetsGeometry padding, Color color}) {
+    return Container(
+      child: this,
+      decoration: BoxDecoration(borderRadius: cornerRadius == null? null : BorderRadius.circular(cornerRadius), color: color),
+      padding: padding,
     );
   }
 
@@ -96,7 +104,7 @@ extension WidgetExtra on Widget {
     );
   }
 
-  AspectRatio apsect({double ratio = 1}) {
+  AspectRatio aspect({double ratio = 1}) {
     return AspectRatio(aspectRatio: ratio, child: this);
   }
 
