@@ -1,8 +1,7 @@
 name: coastline
 description: Simple flutter library for myself use.
-version: 0.5.0
-author:
-homepage:
+version: 0.5.1
+homepage: www.clstd.com
 environment:
   sdk: ">=2.7.0 <3.0.0"
   flutter: ">=1.17.0"
@@ -11,11 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  path_provider: ^2.0.1
+  path_provider: ^2.0.8
 
-  image_picker: ^0.7.2+1
+  image_picker: ^0.8.4+4
 
-  uuid: ^3.0.1
+  uuid: ^3.0.5
 
 dev_dependencies:
   flutter_test:
