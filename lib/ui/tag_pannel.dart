@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:coastline/coastline.dart';
 
-class TagPanel extends StatefulWidget {
+class TagPannel extends StatefulWidget {
   final int selected;
   final Function(int) onSelectColor;
   final List<IconData> icons;
 
-  const TagPanel({
+  const TagPannel({
     Key? key,
     required this.selected,
     required this.onSelectColor,
@@ -15,10 +15,10 @@ class TagPanel extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _TagPanelState();
+  State<StatefulWidget> createState() => _TagPannelState();
 }
 
-class _TagPanelState extends State<TagPanel> {
+class _TagPannelState extends State<TagPannel> {
   int _selected = 0;
 
   @override
