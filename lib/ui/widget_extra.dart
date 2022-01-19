@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'dart:math' as math;
 
 enum IntrinsicDirection {
@@ -67,7 +66,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 尺寸控件(宽度) >>>
-  SizedBox widthed(double width) {
+  SizedBox widthBox(double width) {
     return SizedBox(
       width: width,
       child: this,
@@ -75,7 +74,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 尺寸控件(高度) >>>
-  SizedBox heighted(double height) {
+  SizedBox heightBox(double height) {
     return SizedBox(
       height: height,
       child: this,
@@ -146,7 +145,7 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 宽高比(1为正方形) >>>
-  AspectRatio apsect(double whRate) {
+  AspectRatio aspect(double whRate) {
     return AspectRatio(aspectRatio: whRate, child: this);
   }
 
@@ -256,8 +255,8 @@ extension WidgetExtra on Widget {
     );
   }
 
-  Widget intrinsic(IntrinsicDirection direciton) {
-    switch (direciton) {
+  Widget intrinsic(IntrinsicDirection direction) {
+    switch (direction) {
       case IntrinsicDirection.horizon:
         return IntrinsicWidth(child: this);
       case IntrinsicDirection.vertical:
