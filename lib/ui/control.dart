@@ -1,30 +1,64 @@
-import '../structure/combo_data.dart';
 import 'package:flutter/material.dart';
+import '../structure/combo_data.dart';
+import 'widget_extra.dart';
 
-class Control {
-  /// >>> 文本条 >>>
-  static Widget bar(
-    String text, {
-    Color color = Colors.blue,
-    double fontSize = 14,
-  }) {
+/// >>> 文本条 >>>
+class TextBar extends StatelessWidget {
+  final String text;
+  final Color color;
+  final Color textColor;
+  final double fontSize;
+
+  TextBar(
+    this.text, {
+    this.color = Colors.blue,
+    this.textColor = Colors.white,
+    this.fontSize = 14,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(
-          fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
-      child: Text(text, style: TextStyle(color: color, fontSize: fontSize)),
+      padding:
+          EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(4), color: color),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: fontSize)),
     );
   }
+}
 
-  /// >>> 带有文本的图标 >>>
-  static Widget icon({
-    @required IconData icon,
-    @required String text,
-    Color iconColor = Colors.white,
-    Color textColor = Colors.white,
-    double iconSize = 20,
-    double fontSize = 14,
-  }) {
+extension TextBarExtra on String {
+  Widget bar(
+      {Color color = Colors.blue,
+      Color textColor = Colors.white,
+      double fontSize = 14}) {
+    return TextBar(this,
+        color: color, textColor: textColor, fontSize: fontSize);
+  }
+}
+
+/// >>> 带有文本的图标 >>>
+
+class IconWithText extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final Color iconColor;
+  final Color textColor;
+  final double iconSize;
+  final double fontSize;
+
+  IconWithText(
+    this.text,
+    this.icon, {
+    this.iconColor = Colors.blue,
+    this.textColor = Colors.blue,
+    this.iconSize = 20,
+    this.fontSize = 14,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,33 +68,51 @@ class Control {
       ],
     );
   }
+}
 
-  /// >>> 药丸结构(双文本) >>>>
-  static Widget capsule({
-    @required String mainText,
-    @required String subText,
-    double fontSize = 14,
-    @required Color mainColor,
-    Color subColor = Colors.white,
-  }) {
+/// >>> 药丸结构(双文本) >>>>
+class Capsule extends StatelessWidget {
+  final String mainText;
+  final String subText;
+  final double fontSize;
+  final Color mainColor;
+  final Color subColor;
+  final double cornerRadius;
+
+  Capsule(
+    this.mainText,
+    this.subText, {
+    this.fontSize = 14,
+    this.mainColor = Colors.blue,
+    this.subColor = Colors.white,
+    this.cornerRadius = 4,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           padding: EdgeInsets.fromLTRB(
-              fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+              fontSize, fontSize / 2, fontSize, fontSize / 2),
           decoration: BoxDecoration(
             color: mainColor,
-            borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
+            borderRadius:
+                BorderRadius.horizontal(left: Radius.circular(cornerRadius)),
+            border: Border.all(color: mainColor),
           ),
           child: Text(mainText,
               style: TextStyle(fontSize: fontSize, color: subColor)),
         ),
         Container(
           padding: EdgeInsets.fromLTRB(
-              fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
+              fontSize, fontSize / 2, fontSize, fontSize / 2),
           decoration: BoxDecoration(
             color: subColor,
-            borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
+            borderRadius:
+                BorderRadius.horizontal(right: Radius.circular(cornerRadius)),
+            border: Border.all(color: mainColor),
           ),
           child: Text(mainText,
               style: TextStyle(fontSize: fontSize, color: mainColor)),
@@ -68,21 +120,34 @@ class Control {
       ],
     );
   }
+}
 
-  /// >>> 相框图片(带图标提示) >>>
-  static Widget frame({
-    @required ImageProvider picture,
-    @required IconData icon,
-    double iconSize = 16,
-    Color iconColor = Colors.grey,
-    Color borderColor = Colors.white,
-    double borderWidth = 6,
-  }) {
+/// >>> 相框图片(带图标提示) >>>
+// todo: 以后改成icon镂空, 研究怎么镂空文本, 怎么镂空Image, 怎么镂空Icon
+class PhotoFrame extends StatelessWidget {
+  final ImageProvider picture;
+  final IconData icon;
+  final double iconSize;
+  final Color iconColor;
+  final Color borderColor;
+  final double borderWidth;
+
+  PhotoFrame(
+    this.picture, {
+    required this.icon,
+    this.iconSize = 16,
+    this.iconColor = Colors.grey,
+    this.borderColor = Colors.white,
+    this.borderWidth = 6,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
           image: picture,
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         ),
         color: borderColor,
         borderRadius: BorderRadius.circular(8),
@@ -91,42 +156,63 @@ class Control {
       alignment: Alignment.bottomRight,
       child: Container(
         decoration: BoxDecoration(
-          color: borderColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
+            color: borderColor,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(8))),
         padding: EdgeInsets.all(4),
         child: Icon(icon, color: iconColor, size: iconSize),
       ),
     );
   }
+}
 
-  /// >>> 色彩Tab >>>
-  static Widget tab({
-    @required List<Pair<String, Color>> tabs,
-    int selectedIndex = 0,
-    Color textColor = Colors.white,
-    double fontSize = 18,
-    @required Function(int index) onSelectTab,
-  }) {
+/// >>> 色彩Tab >>>
+class ColorTab extends StatelessWidget {
+  final List<Pair<Color, String>> tabs;
+  final int selectedIndex;
+  final Color textColor;
+  final double fontSize;
+  final bool colorReverse;
+  final Function(int index) onSelectTab;
+
+  ColorTab({
+    required this.tabs,
+    this.selectedIndex = 0,
+    this.textColor = Colors.white,
+    this.fontSize = 14,
+    this.colorReverse = false,
+    required this.onSelectTab,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     List<Widget> list = [];
     for (int i = 0; i < tabs.length; ++i) {
-      String title = tabs[i].a;
-      Color color = tabs[i].b;
+      String title = tabs[i].b;
+      Color? colorSelect =
+          colorReverse ? Color.lerp(tabs[i].a, Colors.white, 0.3) : tabs[i].a;
+      Color? colorUnSelect =
+          colorReverse ? tabs[i].a : Color.lerp(tabs[i].a, Colors.white, 0.3);
+      Color? color = selectedIndex == i ? colorSelect : colorUnSelect;
       double leftRadius = i == 0 ? 8 : 0;
       double rightRadius = i == tabs.length - 1 ? 8 : 0;
       Widget tab = Container(
-        child:
-            Text(title, style: TextStyle(color: textColor, fontSize: fontSize)),
-        padding: EdgeInsets.fromLTRB(
-            fontSize * 2, fontSize / 2, fontSize * 2, fontSize / 2),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.horizontal(
-            left: Radius.circular(leftRadius),
-            right: Radius.circular(rightRadius),
-          ),
+        child: Center(
+          child: Text(title,
+              style: TextStyle(color: textColor, fontSize: fontSize)),
         ),
-      );
+        padding:
+            EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.horizontal(
+              left: Radius.circular(leftRadius),
+              right: Radius.circular(rightRadius),
+            ),
+            border: Border.all(
+                color: tabs[i].a, width: selectedIndex == i ? 1 : 0)),
+      ).onTap(() {
+        onSelectTab(i);
+      });
       list.add(Expanded(child: tab));
     }
     return Row(children: list);

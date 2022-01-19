@@ -1,9 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter/widgets.dart';
-
-import 'combo_data.dart';
-
 extension ListExtra<T> on List<T> {
   /// >>> 混合插入两个list >>>
   List<T> combineMix(List<T> next) {
@@ -11,11 +7,11 @@ extension ListExtra<T> on List<T> {
     final int maxCount = max(next.length, this.length);
 
     for (int i = 0; i < maxCount; ++i) {
-      if (i >= this.length) {
+      if (i < this.length) {
         result.add(this[i]);
       }
 
-      if (i >= next.length) {
+      if (i < next.length) {
         result.add(next[i]);
       }
     }
@@ -24,12 +20,15 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>>  混合插入元素 >>>
-  List<T> fillMix(T item, {bool around}) {
+  List<T> fillMix(T item, {bool around = false}) {
     List<T> result = [];
 
     for (int i = 0; i < this.length; ++i) {
-      bool firstAround = i == 0 && around == false;
-      if (!firstAround) {
+      if (i == 0) {
+        if (around) {
+          result.add(item);
+        }
+      } else {
         result.add(item);
       }
       result.add(this[i]);
@@ -42,8 +41,16 @@ extension ListExtra<T> on List<T> {
     return result;
   }
 
+  T? get random {
+    if (this.isEmpty) {
+      return null;
+    }
+    int n = Random().nextInt(this.length);
+    return this[n];
+  }
+
   /// >>> 检查两个列表是否相同 >>>
-  bool isEqualTo(List<T> other, {bool Function(T, T) compare}) {
+  bool isEqualTo(List<T> other, {bool Function(T, T)? compare}) {
     if (this.length != other.length) {
       return false;
     }
@@ -64,7 +71,7 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 由另外一个List开头 >>>
-  bool startWith(List<T> other, {bool Function(T, T) compare}) {
+  bool startWith(List<T> other, {bool Function(T, T)? compare}) {
     if (other.length > this.length) {
       return false;
     }
@@ -72,7 +79,7 @@ extension ListExtra<T> on List<T> {
     for (int i = 0; i < other.length; ++i) {
       var n = other[i];
       var m = this[i];
-      if (!compare(n, m)) {
+      if (!compare!(n, m)) {
         return false;
       }
     }
@@ -81,15 +88,15 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 由另外一个List结束 >>>
-  bool endWith(List<T> other, {bool Function(T, T) compare}) {
+  bool endWith(List<T> other, {bool Function(T, T)? compare}) {
     if (other.length > this.length) {
       return false;
     }
 
     for (int i = 0; i < other.length; ++i) {
-      var n = other[i];
+      var n = other[other.length - i - 1];
       var m = this[length - i - 1];
-      if (!compare(n, m)) {
+      if (!compare!(n, m)) {
         return false;
       }
     }
@@ -98,16 +105,16 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 获得带序列的数据列表 >>>
-  List<Pair<T, int>> get indicate {
-    List<Pair<T, int>> result = [];
+  List<MapEntry<int, T>> get indicate {
+    List<MapEntry<int, T>> result = [];
     for (int i = 0; i < this.length; ++i) {
-      result.add(Pair(this[i], i));
+      result.add(MapEntry(i, this[i]));
     }
     return result;
   }
 }
 
 /// >>> 产生一个序列列表 >>>
-List<int> inc({int start = 0, @required int length}) {
+List<int> inc({int start = 0, required int length}) {
   return List<int>.generate(length, (index) => start + index);
 }

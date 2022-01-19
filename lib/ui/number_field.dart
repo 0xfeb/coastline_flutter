@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import 'widget_extra.dart';
 
+/// >>> 数字输入框 >>>
 class NumberField extends StatelessWidget {
   final Color color;
   final int min;
   final int max;
-  final TextEditingController controller;
-  final FocusNode focus;
+  final TextEditingController? controller;
+  final FocusNode? focus;
   final TextStyle style;
 
   const NumberField(
-      {Key key,
-      this.color,
+      {Key? key,
+      this.color = Colors.blue,
       this.min = 0,
       this.max = 10000,
       this.controller,
       this.focus,
-      this.style})
+      this.style = const TextStyle(fontSize: 30)})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enableInteractiveSelection: false,
+      toolbarOptions: ToolbarOptions(),
       controller: controller,
       focusNode: focus,
       textAlign: TextAlign.center,
@@ -31,6 +34,7 @@ class NumberField extends StatelessWidget {
         prefixIcon: AspectRatio(
           aspectRatio: 1,
           child: Container(
+            margin: EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: color,
@@ -38,20 +42,24 @@ class NumberField extends StatelessWidget {
             child: Icon(Icons.remove, color: Colors.white),
           ).onTap(() {
             int number = min;
-            if (controller != null &&
-                controller.text != null &&
-                controller.text.length > 0) {
-              number = int.parse(controller.text) - 1;
+            bool? textNotEmpty = controller?.text.isNotEmpty;
+            if (textNotEmpty == true) {
+              number = int.parse(controller!.text) - 1;
               if (number < min) {
                 number = min;
               }
             }
-            controller.text = '$number';
+            if (controller != null) {
+              controller!.text = '$number';
+              controller!.selection =
+                  TextSelection(baseOffset: 0, extentOffset: 0);
+            }
           }),
         ),
         suffixIcon: AspectRatio(
           aspectRatio: 1,
           child: Container(
+            margin: EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: color,
@@ -59,15 +67,18 @@ class NumberField extends StatelessWidget {
             child: Icon(Icons.add, color: Colors.white),
           ).onTap(() {
             int number = max;
-            if (controller != null &&
-                controller.text != null &&
-                controller.text.length > 0) {
-              number = int.parse(controller.text) + 1;
+            bool? textNotEmpty = controller?.text.isNotEmpty;
+            if (textNotEmpty == true) {
+              number = int.parse(controller!.text) + 1;
               if (number > max) {
                 number = max;
               }
             }
-            controller.text = '$number';
+            if (controller != null) {
+              controller!.text = '$number';
+              controller!.selection =
+                  TextSelection(baseOffset: 0, extentOffset: 0);
+            }
           }),
         ),
       ),

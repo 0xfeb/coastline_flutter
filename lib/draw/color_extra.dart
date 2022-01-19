@@ -1,9 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+
 import '../structure/number_extra.dart';
 import '../structure/list_extra.dart';
 
 /// >>> 几种常用色彩 >>>
-enum ColorName { red, orange, yello, green, cyan, blue, puple, pink }
+enum ColorName { red, orange, yellow, green, cyan, blue, puple, pink }
 
 double _hueOfColor(ColorName color) {
   switch (color) {
@@ -11,7 +14,7 @@ double _hueOfColor(ColorName color) {
       return 0;
     case ColorName.orange:
       return 30;
-    case ColorName.yello:
+    case ColorName.yellow:
       return 60;
     case ColorName.green:
       return 120;
@@ -24,8 +27,13 @@ double _hueOfColor(ColorName color) {
     case ColorName.pink:
       return 300;
   }
+}
 
-  return 0;
+/// >>> 生成随机颜色 >>>
+Color randomColor({double saturation = 0.5, double value = 0.5}) {
+  double hue = Random().nextDouble() * 360.0;
+
+  return HSVColor.fromAHSV(1, hue, saturation, value).toColor();
 }
 
 extension ColorExtra on Color {
@@ -40,6 +48,15 @@ extension ColorExtra on Color {
     ).toColor();
   }
 
+  /// >>> 获得当前颜色对应的随机色 >>>
+  Color get random {
+    final hsvColor = HSVColor.fromColor(this);
+    double hue = Random().nextDouble() * 360.0;
+    return HSVColor.fromAHSV(
+            hsvColor.alpha, hue, hsvColor.saturation, hsvColor.value)
+        .toColor();
+  }
+
   /// >>> 获取当前颜色的相对色 >>>
   Color get opsiteRGB {
     return Color.fromARGB(
@@ -51,7 +68,7 @@ extension ColorExtra on Color {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
-      _hueOfColor(color) + offset,
+      (_hueOfColor(color) + offset).between(0, 360.0) as double,
       hsvColor.saturation,
       hsvColor.value,
     ).toColor();
@@ -60,12 +77,12 @@ extension ColorExtra on Color {
   /// >>> 获得增加亮度的色彩 >>>
   Color bright({double offset = 0.3}) {
     final hsvColor = HSVColor.fromColor(this);
-    final v = (hsvColor.value + offset).between(min: 0, max: 1.0);
+    final v = (hsvColor.value + offset).between(0, 1.0);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
       hsvColor.hue,
       hsvColor.saturation,
-      v,
+      v as double,
     ).toColor();
   }
 

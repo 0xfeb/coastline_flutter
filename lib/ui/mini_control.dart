@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 
-Widget gap(double size) {
-  return SizedBox(
-    height: size,
-    width: size,
-  );
+/// >>> 空隙元素 >>>
+class Gap extends StatelessWidget {
+  final double size;
+
+  Gap(this.size);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: size,
+      width: size,
+    );
+  }
+}
+
+class SliverGap extends StatelessWidget {
+  final double size;
+
+  SliverGap(this.size);
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(child: Gap(size));
+  }
 }
