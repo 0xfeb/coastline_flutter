@@ -38,5 +38,5 @@ export './ui/help.dart';
 export './ui/help_item.dart';
 export './ui/clip.dart';
 export './ui/image_selector.dart';
-export './ui/text_label_pannel.dart';
-export './ui/tag_pannel.dart';
+export './ui/text_label_panel.dart';
+export './ui/tag_panel.dart';

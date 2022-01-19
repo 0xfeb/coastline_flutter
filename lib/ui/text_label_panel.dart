@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'text_display.dart';
 import 'widget_extra.dart';
 
-class TextLabelPannel extends StatefulWidget {
+class TextLabelPanel extends StatefulWidget {
   final List<String> textList;
   final String preforText;
   final Function(String) onSelectLabel;
   final double fontSize;
 
-  const TextLabelPannel(
+  const TextLabelPanel(
       {Key? key,
       required this.textList,
       required this.preforText,
@@ -18,10 +18,10 @@ class TextLabelPannel extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _TextLabelPannelState();
+  State<StatefulWidget> createState() => _TextLabelPanelState();
 }
 
-class _TextLabelPannelState extends State<TextLabelPannel> {
+class _TextLabelPanelState extends State<TextLabelPanel> {
   @override
   Widget build(BuildContext context) {
     List<Widget> tagList = widget.textList.map((tag) {
