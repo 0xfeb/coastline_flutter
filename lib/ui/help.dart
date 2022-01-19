@@ -1,7 +1,5 @@
 import 'package:coastline/draw/canvas_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-
 import './help_item.dart';
 import './widget_extra.dart';
 

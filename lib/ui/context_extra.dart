@@ -1,46 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DialogAction {
   final String title;
   final Color? color;
   final Function()? action;
-  final bool popout;
+  final bool close;
 
   /// >>> 对话框按钮 >>>
   DialogAction(
-      {this.popout = false, required this.title, this.color, this.action});
+      {this.close = false, required this.title, this.color, this.action});
 
   /// >>> 删除按钮 >>>
   static DialogAction destroy(
-      {required String title, Function()? action, bool popout = true}) {
+      {required String title, Function()? action, bool close = true}) {
     return DialogAction(
       title: title,
       color: Colors.red,
       action: action,
-      popout: popout,
+      close: close,
     );
   }
 
   /// >>> 确认按钮 >>>
   static DialogAction accept(
-      {required String title, Function()? action, bool popout = true}) {
+      {required String title, Function()? action, bool close = true}) {
     return DialogAction(
       title: title,
       color: Colors.green,
       action: action,
-      popout: popout,
+      close: close,
     );
   }
 
   /// >>> 取消按钮 >>>
   static DialogAction cancel(
-      {required String title, Function()? action, bool popout = true}) {
+      {required String title, Function()? action, bool close = true}) {
     return DialogAction(
       title: title,
       color: Colors.grey,
       action: action,
-      popout: popout,
+      close: close,
     );
   }
 }
@@ -91,7 +90,7 @@ extension ContextExtra on BuildContext {
                     if (e.action != null) {
                       e.action!();
                     }
-                    if (e.popout) {
+                    if (e.close) {
                       Navigator.of(ctx).pop();
                     }
                   });

@@ -6,7 +6,7 @@ import '../structure/number_extra.dart';
 import '../structure/list_extra.dart';
 
 /// >>> 几种常用色彩 >>>
-enum ColorName { red, orange, yellow, green, cyan, blue, puple, pink }
+enum ColorName { red, orange, yellow, green, cyan, blue, purple, pink }
 
 double _hueOfColor(ColorName color) {
   switch (color) {
@@ -22,7 +22,7 @@ double _hueOfColor(ColorName color) {
       return 180;
     case ColorName.blue:
       return 240;
-    case ColorName.puple:
+    case ColorName.purple:
       return 260;
     case ColorName.pink:
       return 300;
@@ -38,7 +38,7 @@ Color randomColor({double saturation = 0.5, double value = 0.5}) {
 
 extension ColorExtra on Color {
   /// >>> 获取当前颜色的相对色 >>>
-  Color get opsiteHSV {
+  Color get oppositeHSV {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(
       hsvColor.alpha,
@@ -58,7 +58,7 @@ extension ColorExtra on Color {
   }
 
   /// >>> 获取当前颜色的相对色 >>>
-  Color get opsiteRGB {
+  Color get oppositeRGB {
     return Color.fromARGB(
         this.alpha, 0xff - this.red, 0xff - this.green, 0xff - this.blue);
   }
@@ -92,7 +92,7 @@ extension ColorExtra on Color {
   }
 
   /// >>> 分割色彩 >>>
-  List<Color> devidedColors(int number) {
+  List<Color> dividedColors(int number) {
     double c = 360 / number.toDouble();
     HSVColor hc = HSVColor.fromColor(this);
     double alpha = hc.alpha;

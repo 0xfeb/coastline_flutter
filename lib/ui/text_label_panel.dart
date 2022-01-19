@@ -5,14 +5,14 @@ import 'widget_extra.dart';
 
 class TextLabelPanel extends StatefulWidget {
   final List<String> textList;
-  final String preforText;
+  final String preferText;
   final Function(String) onSelectLabel;
   final double fontSize;
 
   const TextLabelPanel(
       {Key? key,
       required this.textList,
-      required this.preforText,
+      required this.preferText,
       required this.onSelectLabel,
       this.fontSize = 14})
       : super(key: key);
@@ -25,9 +25,6 @@ class _TextLabelPanelState extends State<TextLabelPanel> {
   @override
   Widget build(BuildContext context) {
     List<Widget> tagList = widget.textList.map((tag) {
-      // var color = tag == widget.preforText
-      //     ? Theme.of(context).primaryColor
-      //     : Theme.of(context).primaryColor.withAlpha(100);
       return Chip(
         labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
         backgroundColor: Colors.grey[700],

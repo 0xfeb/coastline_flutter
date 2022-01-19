@@ -27,11 +27,11 @@ Offset _positionOfLine(Offset point1, Offset point2, double position) {
   return _offsetOfLine(point1, point2, offset);
 }
 
-class StrightLine {
+class StraightLine {
   final Offset point1;
   final Offset point2;
 
-  StrightLine(this.point1, this.point2);
+  StraightLine(this.point1, this.point2);
 
   // from 0 -> 1
   Offset positionInRate(double rate) {

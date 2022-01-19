@@ -331,6 +331,6 @@ class BottomReceiptBorder extends ShapeBorder {
 }
 
 /// >>> 圆角矩形边框 >>>
-RoundedRectangleBorder rrectBorder({double radius = 4}) {
+RoundedRectangleBorder rRectBorder({double radius = 4}) {
   return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
 }

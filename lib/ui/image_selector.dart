@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import '../system/image_extra.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +54,7 @@ class _ImageSelectorState extends State<ImageSelector> {
     super.initState();
 
     _imagePicker = ImagePicker();
-    if (widget.imageFileList != null) {
-      _imageFileList = widget.imageFileList;
-    }
+    _imageFileList = widget.imageFileList;
   }
 
   _onChooseImage(ImageSource source) async {
@@ -67,7 +64,7 @@ class _ImageSelectorState extends State<ImageSelector> {
 
     _inBusy = true;
     print('>>>> 1');
-    PickedFile? file = await _imagePicker.getImage(source: source);
+    XFile? file = await _imagePicker.pickImage(source: source);
     print('>>>> 2');
     if (file != null) {
       setState(() => _imageFileList.add(file.path));
