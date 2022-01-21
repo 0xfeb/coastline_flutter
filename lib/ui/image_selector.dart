@@ -91,7 +91,7 @@ class _ImageSelectorState extends State<ImageSelector> {
               fit: BoxFit.cover,
             )
                 .sized(height: imageSize, width: imageSize)
-                .clipRRect(borderRadius: BorderRadius.circular(4))
+                .clipRRect(borderRadius: 4)
                 .positioned(),
             Icons.close
                 .icon(size: 15, color: Colors.white)

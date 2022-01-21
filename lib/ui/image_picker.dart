@@ -1,27 +1,76 @@
+import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import './widget_extra.dart';
+import '../draw/icon.dart';
+import './multi_widget.dart';
+import './clip.dart';
+import '../draw/path_extra.dart';
 
 class CImagePicker extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _CImagePickerState();
   }
-
 }
 
 class _CImagePickerState extends State<CImagePicker> {
   String? _imagePath;
+  ImagePicker _imagePicker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
-    return _imagePath == null ?  _emptyBar() : _fullBar();
+    return _imagePath == null ? _emptyBar() : _fullBar();
   }
 
   Widget _emptyBar() {
-    return Text('');
+    return <Widget>[
+      Icons.camera
+          .icon(size: 30, color: Colors.white)
+          .box(color: Colors.grey[800])
+          .onTap(() async {
+        XFile? file = await _imagePicker.pickImage(source: ImageSource.camera);
+        setState(() {
+          _imagePath = file?.path;
+        });
+      }),
+
+      //List<Offset>
+      Icons.album
+          .icon(size: 15, color: Colors.white)
+          .box(color: Colors.grey[400])
+          .clipPath((size) => <Offset>[
+                Offset(0, 0),
+                Offset(size.width, 0),
+                Offset(size.width, size.height)
+              ].polygonPath())
+          .onTap(() async {
+        XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
+        setState(() {
+          _imagePath = file?.path;
+        });
+      }).positioned(top: 0, right: 0, width: 30, height: 40),
+    ].stack();
   }
 
   Widget _fullBar() {
-    return Text('');
+    return <Widget>[
+      Image.file(File(_imagePath!)),
+
+      //
+      Icons.remove.icon(size: 10, color: Colors.white)
+      .box(color:Colors.red)
+          .clipPath((size) => <Offset>[
+        Offset(0, 0),
+        Offset(size.width, 0),
+        Offset(size.width, size.height)
+      ].polygonPath())
+      .onTap(() {
+        setState(() {
+          _imagePath = null;
+        });
+      }).positioned(top: 0, right: 0, width: 15, height: 15),
+    ].stack();
   }
 }

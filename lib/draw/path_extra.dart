@@ -278,3 +278,46 @@ extension PathExtra on Path {
     return _closedSharpPath(points);
   }
 }
+
+extension RectExtra on Rect {
+  Path get path {
+    return PathExtra.rect(this);
+  }
+
+  Path pathWithCorner(
+      {double? topLeftCorner,
+      double? topRightCorner,
+      double? bottomLeftCorner,
+      double? bottomRightCorner,
+      double? allCorners,
+      double? leftCorners,
+      double? rightCorners,
+      double? topCorners,
+      double? bottomCorners}) {
+    return PathExtra.rrect(
+      this,
+      topLeftCorner: topLeftCorner,
+      topRightCorner: topRightCorner,
+      bottomLeftCorner: bottomLeftCorner,
+      bottomRightCorner: bottomRightCorner,
+      allCorners: allCorners,
+      leftCorners: leftCorners,
+      rightCorners: rightCorners,
+      topCorners: topCorners,
+      bottomCorners: bottomCorners,
+    );
+  }
+}
+
+extension LineExtra on List<Offset> {
+  Path linePath({double cornerRadius = 0}) {
+    Line line = Line(points: this, smoothLevel: cornerRadius);
+    return PathExtra.line(line);
+  }
+
+  Path polygonPath({double? cornerRadius}) {
+    return cornerRadius == null
+        ? PathExtra.sharpShape(this)
+        : PathExtra.smoothShape(this, cornerRadius: cornerRadius);
+  }
+}
