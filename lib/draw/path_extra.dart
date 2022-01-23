@@ -182,6 +182,15 @@ Path _closedSharpPath(List<Offset> points) {
   return path;
 }
 
+Path _openSharpPath(List<Offset> points) {
+  Path path = Path();
+  path.moveTo(points.first.dx, points.first.dy);
+  for (Offset point in points) {
+    path.lineTo(point.dx, point.dy);
+  }
+  return path;
+}
+
 /// >>> 多个点形成一个线条, 并且支持圆角功能 >>>
 Path _linePath(Line line) {
   Path path = Path();
@@ -310,9 +319,10 @@ extension RectExtra on Rect {
 }
 
 extension LineExtra on List<Offset> {
-  Path linePath({double cornerRadius = 0}) {
-    Line line = Line(points: this, smoothLevel: cornerRadius);
-    return PathExtra.line(line);
+  Path linePath({double? cornerRadius}) {
+    return cornerRadius == null
+        ? _openSharpPath(this)
+        : PathExtra.line(Line(points: this, smoothLevel: cornerRadius));
   }
 
   Path polygonPath({double? cornerRadius}) {

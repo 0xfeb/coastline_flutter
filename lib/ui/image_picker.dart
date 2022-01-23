@@ -34,17 +34,20 @@ class _CImagePickerState extends State<CImagePicker> {
         setState(() {
           _imagePath = file?.path;
         });
-      }),
+      }).positioned(left: 0, right: 0, top: 0, bottom: 0),
 
       //List<Offset>
       Icons.album
           .icon(size: 15, color: Colors.white)
           .box(color: Colors.grey[400])
-          .clipPath((size) => <Offset>[
-                Offset(0, 0),
-                Offset(size.width, 0),
-                Offset(size.width, size.height)
-              ].polygonPath())
+          /*.clipPath((size) {
+        print('size -> $size');
+        return <Offset>[
+          Offset(0, 0),
+          Offset(50, 0),
+          Offset(50, 50),
+        ].polygonPath();
+      })*/
           .onTap(() async {
         XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
         setState(() {
@@ -56,17 +59,20 @@ class _CImagePickerState extends State<CImagePicker> {
 
   Widget _fullBar() {
     return <Widget>[
-      Image.file(File(_imagePath!)),
+      Image.file(File(_imagePath!))
+          .box()
+          .positioned(left: 0, right: 0, top: 0, bottom: 0),
 
       //
-      Icons.remove.icon(size: 10, color: Colors.white)
-      .box(color:Colors.red)
+      Icons.remove
+          .icon(size: 10, color: Colors.white)
+          .box(color: Colors.red)
           .clipPath((size) => <Offset>[
-        Offset(0, 0),
-        Offset(size.width, 0),
-        Offset(size.width, size.height)
-      ].polygonPath())
-      .onTap(() {
+                Offset(0, 0),
+                Offset(size.width, 0),
+                Offset(size.width, size.height)
+              ].polygonPath())
+          .onTap(() {
         setState(() {
           _imagePath = null;
         });
