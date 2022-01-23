@@ -144,6 +144,29 @@ extension WidgetExtra on Widget {
     );
   }
 
+  ///
+  Positioned positionRelate(
+      {double? left,
+      double? right,
+      double? top,
+      double? bottom,
+      double? width,
+      double? height,
+      double? all,
+      double? horizon,
+      double? vertical}) {
+    double _left = all ?? horizon ?? left ?? 0;
+    double _right = all ?? horizon ?? right ?? 0;
+    double _top = all ?? horizon ?? top ?? 0;
+    double _bottom = all ?? horizon ?? bottom ?? 0;
+    RelativeRect r = RelativeRect.fromRect(
+      Rect.fromLTWH(_left * 100, _top * 100, (1 - _left - _right) * 100,
+          (1 - _top - _bottom) * 100),
+      Rect.fromLTWH(0, 0, 100, 100),
+    );
+    return Positioned.fromRelativeRect(rect: r, child: this);
+  }
+
   /// >>> 宽高比(1为正方形) >>>
   AspectRatio aspect(double whRate) {
     return AspectRatio(aspectRatio: whRate, child: this);

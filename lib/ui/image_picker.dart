@@ -39,21 +39,21 @@ class _CImagePickerState extends State<CImagePicker> {
       //List<Offset>
       Icons.album
           .icon(size: 15, color: Colors.white)
+          .rightTop
           .box(color: Colors.grey[400])
-          /*.clipPath((size) {
-        print('size -> $size');
+          .clipPath((size) {
         return <Offset>[
           Offset(0, 0),
-          Offset(50, 0),
-          Offset(50, 50),
+          Offset(size.width, 0),
+          Offset(size.width, size.width),
         ].polygonPath();
-      })*/
-          .onTap(() async {
+      }).onTap(() async {
         XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
         setState(() {
           _imagePath = file?.path;
         });
-      }).positioned(top: 0, right: 0, width: 30, height: 40),
+      }).positioned(top: 0, right: 0, width: 50, height: 50),
+// todo: 如何解决尺寸比例逻辑, 比如获得上级控件1/3宽度
     ].stack();
   }
 
