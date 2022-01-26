@@ -145,27 +145,62 @@ extension WidgetExtra on Widget {
   }
 
   ///
-  Positioned positionRelate(
-      {double? left,
-      double? right,
-      double? top,
-      double? bottom,
-      double? width,
-      double? height,
-      double? all,
-      double? horizon,
-      double? vertical}) {
-    double _left = all ?? horizon ?? left ?? 0;
-    double _right = all ?? horizon ?? right ?? 0;
-    double _top = all ?? horizon ?? top ?? 0;
-    double _bottom = all ?? horizon ?? bottom ?? 0;
-    RelativeRect r = RelativeRect.fromRect(
-      Rect.fromLTWH(_left * 100, _top * 100, (1 - _left - _right) * 100,
-          (1 - _top - _bottom) * 100),
-      Rect.fromLTWH(0, 0, 100, 100),
-    );
-    return Positioned.fromRelativeRect(rect: r, child: this);
-  }
+  // Positioned positionRelate(
+  //     {double? left,
+  //     double? right,
+  //     double? top,
+  //     double? bottom,
+  //     double? width,
+  //     double? height,
+  //     double? all,
+  //     double? horizon,
+  //     double? vertical}) {
+  //   double? mLeft = all ?? horizon ?? left;
+  //   double? mRight = all ?? horizon ?? right;
+  //   double? mTop = all ?? horizon ?? top;
+  //   double? mBottom = all ?? horizon ?? bottom;
+
+  //   double _left = mLeft ?? 0;
+  //   double _right = mRight ?? 0;
+  //   double _top = mTop ?? 0;
+  //   double _bottom = mBottom ?? 0;
+
+  //   double _width = width ?? (1 - _left - _right);
+  //   double _height = height ?? (1 - _top - _bottom);
+
+  //   if (mLeft == null) {
+  //     if (mRight != null && width != null) {
+  //       _left = 1 - width - mRight;
+  //     }
+  //   }
+
+  //   if (mRight == null) {
+  //     if (mLeft != null && width != null) {
+  //       _right = 1 - width - mLeft;
+  //     }
+  //   }
+
+  //   if (mTop == null) {
+  //     if (mBottom != null && height != null) {
+  //       _top = 1 - height - mBottom;
+  //     }
+  //   }
+
+  //   if (mBottom == null) {
+  //     if (mTop != null && height != null) {
+  //       _bottom = 1 - height - mTop;
+  //     }
+  //   }
+
+  //   print('_left:$_left, _top:$_top, _width:$_width, _heght:$_height');
+
+  //   RelativeRect r = RelativeRect.fromRect(
+  //     Rect.fromLTWH(_left * 100, _top * 100, _width * 100, _height * 100),
+  //     Rect.fromLTWH(0, 0, 100, 100),
+  //   );
+  //   print('rrrr :$r');
+  //   return Positioned.fromRelativeRect(rect: r, child: this);
+  // }
 
   /// >>> 宽高比(1为正方形) >>>
   AspectRatio aspect(double whRate) {

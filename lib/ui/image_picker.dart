@@ -27,7 +27,7 @@ class _CImagePickerState extends State<CImagePicker> {
   Widget _emptyBar() {
     return <Widget>[
       Icons.camera
-          .icon(size: 30, color: Colors.white)
+          .icon(size: 50, color: Colors.white)
           .box(color: Colors.grey[800])
           .onTap(() async {
         XFile? file = await _imagePicker.pickImage(source: ImageSource.camera);
@@ -37,9 +37,9 @@ class _CImagePickerState extends State<CImagePicker> {
       }).positioned(left: 0, right: 0, top: 0, bottom: 0),
 
       //List<Offset>
-      Icons.album
-          .icon(size: 15, color: Colors.white)
-          .rightTop
+      Icons.photo_album
+          .icon(size: 30, color: Colors.white)
+          .offset(x: 0.7, y: 0.3)
           .box(color: Colors.grey[400])
           .clipPath((size) {
         return <Offset>[
@@ -52,8 +52,11 @@ class _CImagePickerState extends State<CImagePicker> {
         setState(() {
           _imagePath = file?.path;
         });
-      }).positioned(top: 0, right: 0, width: 50, height: 50),
-// todo: 如何解决尺寸比例逻辑, 比如获得上级控件1/3宽度
+      }).positioned(
+              right: 0,
+              top: 0,
+              width: MediaQuery.of(context).size.width / 4,
+              height: MediaQuery.of(context).size.width / 4),
     ].stack();
   }
 
