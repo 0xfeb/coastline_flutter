@@ -11,6 +11,7 @@ extension WidgetExtra on Widget {
   /// >>> 点击控件 >>>
   InkWell onTap(Function() onTap) {
     return InkWell(
+      enableFeedback: false,
       child: this,
       onTap: onTap,
     );
