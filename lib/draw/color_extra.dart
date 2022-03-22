@@ -86,6 +86,17 @@ extension ColorExtra on Color {
     ).toColor();
   }
 
+  Color light({double offset = 0.3}) {
+    final hsvColor = HSVColor.fromColor(this);
+    final s = (hsvColor.saturation + offset).between(0.0, 1.0) as double;
+    return HSVColor.fromAHSV(
+      hsvColor.alpha,
+      hsvColor.hue,
+      s,
+      hsvColor.value,
+    ).toColor();
+  }
+
   /// >>> 获得减少亮度的色彩 >>>
   Color dark({double offset = 0.3}) {
     return bright(offset: -offset);

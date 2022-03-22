@@ -20,6 +20,8 @@ dependencies:
 
   flutter_exif_rotation: ^0.5.0
 
+  sqflite: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

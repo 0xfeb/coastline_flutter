@@ -1,3 +1,5 @@
+import 'package:flutter/widgets.dart';
+
 /// >>> 判断一个数值是否为空 >>>
 bool isEmpty(dynamic l) {
   if (l == null || l == Null) {
@@ -6,6 +8,10 @@ bool isEmpty(dynamic l) {
 
   if (l is List || l is String || l is Map || l is Set) {
     return l.isEmpty;
+  }
+
+  if (l is TextEditingController) {
+    return l.text.isEmpty;
   }
 
   return false;
