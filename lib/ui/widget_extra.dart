@@ -22,14 +22,14 @@ extension WidgetExtra on Widget {
       {Function()? onHold, Function()? onRelease, Function()? onFocusRelease}) {
     return GestureDetector(
       child: this,
-      onTapDown: (_) => onHold!(),
+      onTapDown: onHold == null ? null : (_) => onHold(),
       onTapUp: (_) {
         if (onFocusRelease != null) {
           onFocusRelease();
         }
         onRelease!();
       },
-      onTapCancel: () => onRelease!(),
+      onTapCancel: onRelease,
     );
   }
 

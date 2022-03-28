@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'dart:async';
+//import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_exif_rotation/flutter_exif_rotation.dart';
