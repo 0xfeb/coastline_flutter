@@ -60,8 +60,8 @@ extension WidgetExtra on Widget {
   /// >>> 尺寸控件 >>>
   SizedBox sized({Size? size, double? height, double? width}) {
     return SizedBox(
-      width: width ?? size?.width ?? 0,
-      height: height ?? size?.height ?? 0,
+      width: width ?? size?.width ?? double.infinity,
+      height: height ?? size?.height ?? double.infinity,
       child: this,
     );
   }

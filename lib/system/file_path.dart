@@ -20,15 +20,19 @@ class FilePath {
     if (_library != null) {
       return;
     }
-
-    if (Platform.isIOS || Platform.isMacOS) {
-      var dir = await getLibraryDirectory();
-      _library = dir.path;
-    } else if (Platform.isAndroid) {
-      //PackageInfo packageInfo = await PackageInfo.fromPlatform();
-      //var pkgName = packageInfo.packageName;
-      var dir = await getApplicationDocumentsDirectory();
-      _library = dir.path;
+    if (Platform.environment['FLUTTER_TEST'] == "true") {
+      String? home = Platform.environment['HOME'];
+      _library = home!;
+    } else {
+      if (Platform.isIOS || Platform.isMacOS) {
+        var dir = await getLibraryDirectory();
+        _library = dir.path;
+      } else if (Platform.isAndroid) {
+        //PackageInfo packageInfo = await PackageInfo.fromPlatform();
+        //var pkgName = packageInfo.packageName;
+        var dir = await getApplicationDocumentsDirectory();
+        _library = dir.path;
+      }
     }
 
     _db = _library! + '/storage.db';

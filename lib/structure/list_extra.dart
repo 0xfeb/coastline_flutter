@@ -1,8 +1,11 @@
 import 'dart:math';
+import 'package:collection/collection.dart';
+
+import 'combo_data.dart';
 
 extension ListExtra<T> on List<T> {
   /// >>> 混合插入两个list >>>
-  List<T> combineMix(List<T> next) {
+  List<T> mixList(List<T> next) {
     List<T> result = [];
     final int maxCount = max(next.length, this.length);
 
@@ -20,7 +23,7 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>>  混合插入元素 >>>
-  List<T> fillMix(T item, {bool around = false}) {
+  List<T> mixItem(T item, {bool around = false}) {
     List<T> result = [];
 
     for (int i = 0; i < this.length; ++i) {
@@ -41,7 +44,7 @@ extension ListExtra<T> on List<T> {
     return result;
   }
 
-  T? get random {
+  T? get randomItem {
     if (this.isEmpty) {
       return null;
     }
@@ -105,13 +108,60 @@ extension ListExtra<T> on List<T> {
   }
 
   /// >>> 获得带序列的数据列表 >>>
-  List<MapEntry<int, T>> get indicate {
-    List<MapEntry<int, T>> result = [];
-    for (int i = 0; i < this.length; ++i) {
-      result.add(MapEntry(i, this[i]));
+  Iterable<MapEntry<int, T>> get indicate {
+    return this.asMap().entries;
+  }
+
+  int? find(List<T> a) {
+    if (a.length > length) {
+      return null;
+    }
+
+    int? result;
+    int nLength = length - a.length;
+    for (int i = 0; i < nLength; ++i) {
+      result = i;
+      for (int j = 0; j < a.length; ++j) {
+        if (this[i] != a[j]) {
+          result = null;
+          break;
+        }
+      }
     }
     return result;
   }
+
+  int? findLast(List<T> a) {
+    if (a.length > length) {
+      return null;
+    }
+
+    int? result;
+    int nLength = length - a.length;
+    for (int i = nLength - 1; i >= 0; ++i) {
+      result = i;
+      for (int j = a.length - 1; j >= 0; ++j) {
+        if (this[i] != a[j]) {
+          result = null;
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
+  // Pair<List<T>, List<T>> devide2({required List<T> gap, bool reseve = false}) {
+  //   //
+  // }
+
+  // Triple<List<T>, List<T>, List<T>> devide3(
+  //     {required List<T> gap, bool reseve = false}) {
+  //   //
+  // }
+
+  // Iterable<List<T>> devide({required List<T> gap}) {
+  //   //
+  // }
 }
 
 /// >>> 产生一个序列列表 >>>

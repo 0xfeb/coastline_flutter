@@ -49,3 +49,9 @@ extension DateTimeExtra on DateTime {
     }
   }
 }
+
+extension DateTimeString on String {
+  DateTime get dateTime {
+    return DateTime.parse(this);
+  }
+}
