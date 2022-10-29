@@ -1,11 +1,11 @@
 import 'dart:io';
 //import 'dart:async';
 
+import 'package:coastline/draw/resource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_exif_rotation/flutter_exif_rotation.dart';
 import 'package:image_picker/image_picker.dart';
 import './widget_extra.dart';
-import '../draw/icon.dart';
 import './multi_widget.dart';
 import './clip.dart';
 import '../draw/path_extra.dart';

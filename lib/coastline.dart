@@ -7,6 +7,7 @@ export './draw/path_extra.dart';
 export './draw/shape_border.dart';
 export './draw/path_view.dart';
 export './draw/canvas_view.dart';
+export './draw/line.dart';
 
 export './structure/combo_data.dart';
 export './structure/list_extra.dart';
@@ -41,6 +42,7 @@ export './ui/image_selector.dart';
 export './ui/text_label_panel.dart';
 export './ui/tag_panel.dart';
 export './ui/image_picker.dart';
+export './ui/image_picker_controller.dart';
 //
 
 export './database/db_interface.dart';
