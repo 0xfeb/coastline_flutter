@@ -5,8 +5,8 @@ export './draw/gradient.dart';
 export './draw/resource.dart';
 export './draw/path_extra.dart';
 export './draw/shape_border.dart';
-export './draw/path_view.dart';
-export './draw/canvas_view.dart';
+export 'draw/path_view.dart';
+export 'draw/draw_view.dart';
 export './draw/line.dart';
 
 export './structure/combo_data.dart';

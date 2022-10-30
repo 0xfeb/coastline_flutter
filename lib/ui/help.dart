@@ -1,4 +1,4 @@
-import 'package:coastline/draw/canvas_view.dart';
+import 'package:coastline/draw/draw_view.dart';
 import 'package:flutter/material.dart';
 import './help_item.dart';
 import './widget_extra.dart';
@@ -32,7 +32,7 @@ showHelp({required BuildContext context, required List<HelpItem> items}) {
     children.insert(
       0,
       Positioned(
-        child: CanvasView(
+        child: DrawView(
           size: size,
           onPaint: (canvas, size) {
             canvas.drawHelpItem(item);

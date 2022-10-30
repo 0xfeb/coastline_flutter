@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 /// >>> 绘图组件 >>>
-class CanvasPathView extends StatelessWidget {
+class PathView extends StatelessWidget {
   final Path path;
   final Paint paint;
   //final Size size;
   final Widget? child;
 
-  const CanvasPathView(
+  const PathView(
       {Key? key,
       required this.path,
       required this.paint,

@@ -48,6 +48,12 @@ extension ColorExtra on Color {
     ).toColor();
   }
 
+  /// >>> 获取当前颜色的相对色 >>>
+  Color get oppositeRGB {
+    return Color.fromARGB(
+        this.alpha, 0xff - this.red, 0xff - this.green, 0xff - this.blue);
+  }
+
   /// >>> 获得当前颜色对应的随机色 >>>
   Color get random {
     final hsvColor = HSVColor.fromColor(this);
@@ -55,12 +61,6 @@ extension ColorExtra on Color {
     return HSVColor.fromAHSV(
             hsvColor.alpha, hue, hsvColor.saturation, hsvColor.value)
         .toColor();
-  }
-
-  /// >>> 获取当前颜色的相对色 >>>
-  Color get oppositeRGB {
-    return Color.fromARGB(
-        this.alpha, 0xff - this.red, 0xff - this.green, 0xff - this.blue);
   }
 
   /// >>> 保持明度亮度的情况下调整色彩 >>>
@@ -75,7 +75,7 @@ extension ColorExtra on Color {
   }
 
   /// >>> 获得增加亮度的色彩 >>>
-  Color bright({double offset = 0.3}) {
+  Color changeColorValue({double offset = 0.3}) {
     final hsvColor = HSVColor.fromColor(this);
     final v = (hsvColor.value + offset).limitBetween(0, 1.0);
     return HSVColor.fromAHSV(
@@ -86,7 +86,7 @@ extension ColorExtra on Color {
     ).toColor();
   }
 
-  Color light({double offset = 0.3}) {
+  Color toLight({double offset = 0.3}) {
     final hsvColor = HSVColor.fromColor(this);
     final s = (hsvColor.saturation + offset).limitBetween(0.0, 1.0) as double;
     return HSVColor.fromAHSV(
@@ -98,8 +98,8 @@ extension ColorExtra on Color {
   }
 
   /// >>> 获得减少亮度的色彩 >>>
-  Color dark({double offset = 0.3}) {
-    return bright(offset: -offset);
+  Color toDark({double offset = 0.3}) {
+    return toLight(offset: -offset);
   }
 
   /// >>> 分割色彩 >>>

@@ -34,9 +34,9 @@ random `[属性]` 根据当前颜色的特性, 获得一个随机颜色
 
 changeHue `[函数]` 在保持亮度和明度的情况下, 修改色彩, 指定一个基本色彩`color[ColorName]`以及色彩偏移`offset[int:0-360]`, 获得一个新的色彩  
 
-bright `[函数]` 增加或者减少亮度`offset[int]`, 正数为增加, 负数为减少, 最低不能低于0, 最高不能高于1, 获得一个新的色彩  
+changeColorValue `[函数]` 增加或者减少亮度`offset[int]`, 正数为增加, 负数为减少, 最低不能低于0, 最高不能高于1, 获得一个新的色彩  
 
-dark `[函数]` 与bright相反的功能, 获得一个新的色彩  
+toLight / toDark `[函数]` 调整亮度  
 
 devidedColors `[函数]` 跟当前颜色明度亮度相同的情况下, 产生一批不同色彩的颜色, 获得一个颜色列表  
 
@@ -86,7 +86,7 @@ imageFill `[属性]` 从Provider产生Image控件, 支持高宽比失衡伸缩.
 
 
 ### ShapeBorder
-图形边框
+图形边框, 适用于ShapeDecoration中, 为Container的Decoration去配置.
 
 > 类 ChatPopBorder   
 
@@ -131,60 +131,83 @@ chatPopBorder `[生成]` 获得ChatPopBorder.
 rrectBorder `[生成]`  获得圆角矩形边框.   
 
 
+### Line
+
+> 类 Line 多段线
+
+points `[属性]` 点列表  
+
+smoothLevel `[属性]` 平滑等级, 暂时无作用
+
+> 类 StraightLine 直线
+
+point1 `[属性]` 点1
+
+point2 `[属性]` 点2
+
+positionInRate `[函数]` 从0到1的线中心取点
+
+positionOfOffset `[函数]` 线偏移取点, >0, 从Point1这边偏移, <0, 从Point2这边偏移
+
 
 ### PathExtra
 
 > 函数
 
-pathUnion `[函数]` 合并两个Path.   
+PathExtra::union `[函数]` 合并两个Path.   
 
-pathHole `[函数]` 在Path上挖洞.   
+PathExtra::hole `[函数]` 在Path上挖洞.   
 
-rectPath `[函数]` 生成矩形Path.   
+PathExtra::rect `[函数]` 生成矩形Path.   
 
-rrectPath  `[函数]` 生成圆角矩形Path.   
+PathExtra::rrect  `[函数]` 生成圆角矩形Path.   
 
-cyclePath `[函数]` 生成圆形Path.   
+PathExtra::cycle `[函数]` 生成圆形Path.   
 
-triplePath `[函数]` 生成三角形Path.  
+PathExtra::triple `[函数]` 生成三角形Path.  
 
-angleTriplePath `[函数]` 生成直角三角形Path.   
+PathExtra::angleTriple `[函数]` 生成直角三角形Path.   
 
-offsetOfLine `[函数]`  在两点中根据偏移获得一个点, 偏移从0到1.0.  
+PathExtra::line `[函数]`  绘制一条线.  
 
-positionOfLine  `[函数]`   在两点中根据差值获得一个点, 差值就是具体的像素值, 从左边开始为正数, 从右边开始为负数.   
+PathExtra::smoothShape  `[函数]`   平滑的图形.   
 
-closedPath  `[函数]`  获得一个每个角都支持贝塞尔曲线的多边形Path.   
+PathExtra::sharpShape  `[函数]`  尖锐的图形.   
 
-closedSharpPath  `[函数]`   获得一个多边形Path.   
+> 扩展 RectExtra
 
+path `[函数]` 直角的Rect的Path.  
 
-### Paint View
+pathWithCorner `[函数]` 带圆角的Rect的Path.  
 
-> 类 PaintView     
-快捷绘制Path的组件   
+> 扩展 LineExtra, 基于List<Offset>.  
 
-path `[属性]` 绘图的形状   
+linPath `[函数]` 绘制线条的Path.  
 
-paint `[属性]`  绘图的模式   
-
-size  `[属性]`  绘图控件的尺寸   
-
-child  `[属性]`  子控件    
+polygonPath `[函数]` 绘制图形的path.  
 
 
-### Canvas View
+### Draw View
 
-> 类 CanvasView     
+> 类 DrawView     
 快捷绘图板控件   
 
 onPaint `[属性]` 绘图函数   
 
-paint `[属性]`  绘图的模式   
-
 size  `[属性]`  绘图控件的尺寸   
 
 child  `[属性]`  子控件    
+
+
+### Path View
+
+> 类 PathView  
+
+path `[属性]` 绘图路径  
+
+paint `[属性]` 绘图模式  
+
+child `[属性]` 子控件  
 
 
 ## structure
