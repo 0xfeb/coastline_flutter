@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'package:coastline/coastline.dart';
 
-class TagPanel extends StatefulWidget {
+class TagGrid extends StatefulWidget {
   final int selected;
-  final Function(int) onSelectColor;
+  final Function(int) onSelect;
   final List<IconData> icons;
 
-  const TagPanel({
+  const TagGrid({
     Key? key,
     required this.selected,
-    required this.onSelectColor,
+    required this.onSelect,
     required this.icons,
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _TagPanelState();
+  State<StatefulWidget> createState() => _TagGridState();
 }
 
-class _TagPanelState extends State<TagPanel> {
+class _TagGridState extends State<TagGrid> {
   int _selected = 0;
 
   @override
@@ -46,7 +46,7 @@ class _TagPanelState extends State<TagPanel> {
             .opacity(_selected == index ? 1 : 0.4)
             .onTap(() {
           setState(() => _selected = index);
-          widget.onSelectColor(_selected);
+          widget.onSelect(_selected);
         });
       },
       itemCount: widget.icons.length,

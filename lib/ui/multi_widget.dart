@@ -28,16 +28,6 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
-  Stack stack(
-      {AlignmentGeometry alignment = AlignmentDirectional.topStart,
-      StackFit fit = StackFit.loose}) {
-    return Stack(
-      children: this,
-      alignment: alignment,
-      fit: fit,
-    );
-  }
-
   Flow flow(FlowDelegate delegate) {
     return Flow(
       delegate: delegate,
@@ -166,6 +156,50 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  SliverList sliverList() {
+    return SliverList(delegate: SliverChildListDelegate(this));
+  }
+
+  Wrap wrap(
+      {Key? key,
+      Axis direction = Axis.horizontal,
+      WrapAlignment alignment = WrapAlignment.start,
+      double spacing = 4,
+      WrapAlignment runAlignment = WrapAlignment.start,
+      double runSpacing = 4,
+      WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+      TextDirection? textDirection,
+      VerticalDirection verticalDirection = VerticalDirection.down,
+      Clip clipBehavior = Clip.hardEdge}) {
+    return Wrap(
+      key: key,
+      children: this,
+      direction: direction,
+      alignment: alignment,
+      spacing: spacing,
+      runAlignment: runAlignment,
+      runSpacing: runSpacing,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+      clipBehavior: clipBehavior,
+    );
+  }
+}
+
+extension StackExtra<T extends Positioned> on List<T> {
+  Stack stack(
+      {AlignmentGeometry alignment = AlignmentDirectional.topStart,
+      StackFit fit = StackFit.loose}) {
+    return Stack(
+      children: this,
+      alignment: alignment,
+      fit: fit,
+    );
+  }
+}
+
+extension SliverExtra<T extends SliverWithKeepAliveWidget> on List<T> {
   CustomScrollView scrollView(
       {Key? key,
       Axis scrollDirection = Axis.vertical,
@@ -201,36 +235,6 @@ extension MultiWidget<T extends Widget> on List<T> {
       dragStartBehavior: dragStartBehavior,
       keyboardDismissBehavior: keyboardDismissBehavior,
       restorationId: restorationId,
-      clipBehavior: clipBehavior,
-    );
-  }
-
-  SliverList sliverList() {
-    return SliverList(delegate: SliverChildListDelegate(this));
-  }
-
-  Wrap wrap(
-      {Key? key,
-      Axis direction = Axis.horizontal,
-      WrapAlignment alignment = WrapAlignment.start,
-      double spacing = 4,
-      WrapAlignment runAlignment = WrapAlignment.start,
-      double runSpacing = 4,
-      WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
-      TextDirection? textDirection,
-      VerticalDirection verticalDirection = VerticalDirection.down,
-      Clip clipBehavior = Clip.hardEdge}) {
-    return Wrap(
-      key: key,
-      children: this,
-      direction: direction,
-      alignment: alignment,
-      spacing: spacing,
-      runAlignment: runAlignment,
-      runSpacing: runSpacing,
-      crossAxisAlignment: crossAxisAlignment,
-      textDirection: textDirection,
-      verticalDirection: verticalDirection,
       clipBehavior: clipBehavior,
     );
   }

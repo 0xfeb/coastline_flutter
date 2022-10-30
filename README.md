@@ -401,6 +401,19 @@ saveToStorage `[函数]`  存储图片到storage库中去
 ## ui
 界面控件封装
 
+### Clip 对控件进行切割
+
+> 扩展 Widget
+
+clipRect `[函数]` 切割成矩形  
+
+clipRRect `[函数]` 切割成圆角矩形  
+
+clipRound `[函数]` 切割成圆形  
+
+clipPath `[函数]` 切割成Path指定的图形  
+
+
 ### Context Extra  
 上下文的扩展  
 
@@ -434,24 +447,90 @@ showSnackTitle `函数` 显示文本的SnackBar, `title[String]`SnackBar中的�
 ### Control  
 组合的控件  
 
+> 类 TextBar 
 
-> textBar `[函数]`   
-文本显示条. `text [String]` 文本内容, `color [Color]` 文本框的背景色, `fontSize [double]` 文本大小, `textColor [Color]` 文本色彩.   
+text `[属性]` 文本内容  
+
+color `[属性]` 背景色彩  
+
+textColor `[属性]` 文本色彩  
+
+fontSize `[属性]` 文本字体大小  
+
+radius `[属性]` 文本框的圆角大小  
+
+> 扩展 String  
+
+bar `[函数]` 从文本能得到TextBar  
 
 
-> textIcon `函数`    
-文本和图标的上下组合体. `icon [IconData]` 图标素材, `text [String]` 文本内容, `iconColor [Color]` 图标色彩, `textColor [Color]` 文本色彩, `iconSize [double]` 图标尺寸, `fontSize [double]` 文本尺寸.    
 
 
-> capsule `函数`     
-左右的药丸结构组合. `mainText [String]` 主文本内容, `subText [String]` 副文本内容, `fontSize [double]` 文本的尺寸, `mainColor [Color]` 药丸的主色彩, `subColor [Color]` 药丸的副色彩.    
+
+> 类 IconTextBar  
+
+text `[属性]` 文本内容  
+
+icon `[属性]` 图标  
+
+iconColor `[属性]` 图标颜色  
+
+textColor `[属性]` 文本颜色  
+
+iconSize `[属性]` 图标尺寸  
+
+fontSize `[属性]` 文本字体大小  
+
+vertical `[属性]` 是否竖排, 如果否的话, 则为横排.  
 
 
-> imageFrame `函数`    
-相框结构, 显示图片, 边框, 以及提示图标. `picture [ImageProvider]` 图片内容, `icon [IconData]` 图标内容, `iconSize [double]` 图标尺寸, `iconColor [Color]` 图标色彩, `borderColor [Color]` 边框色彩, `borderWidth [double]` 边框宽度.   
+> 类 Capsule  
 
-> colorTabs `函数`   
-色彩Tab控件. `tabs [List<Pair<String, Color>>]` 标题和色彩的列表, `selectedIndex [int]` 当前选中的Tab, `textColor [Color]` 标题色彩, `fontSize [double]` 标题文本尺寸, `onSelectTab` 点击某个Tab后, 产生的事件.   
+mainText `[属性]` 主文本  
+
+subText `[属性]` 次文本  
+
+fontSize `[属性]` 字体大小  
+
+mainColor `[属性]` 主文本色彩  
+
+subColor `[属性]` 次文本色彩  
+
+cornerRadius `[属性]` 圆角大小  
+
+
+> 类 PhotoFrame  
+带框图片  
+
+picture `[属性]` 图片  
+
+icon `[属性]` 提示图标  
+
+iconSize `[属性]` 图标尺寸  
+
+iconColor `[属性]` 图标色彩  
+
+borderColor `[属性]` 边框色彩  
+
+borderWidth `[属性]` 边框宽度  
+
+alignment `[属性]` 图标在图片框的什么位置  
+
+
+> 类 ColorTab  
+用色彩区分的Tab控件   
+
+tabs `[属性]` 文本和背景色的列表  
+
+selectedIndex `[属性]` 当前选中的tab  
+
+textColor `[属性]` 文本色彩  
+
+fontSize `[属性]` 文本字体大小  
+
+colorReverse `[属性]`  色彩是否调转, 如果调转, 普通tab背景色偏白, 选中tab背景色为正常. 否则, 普通tab背景正常, 选中tab背景色偏白.  
+
+onSelectTab `[属性]` 选中某个tab而执行的函数.  
 
 
 ### GridList   
@@ -463,9 +542,47 @@ rowNumber `属性`, 横向元素数量.
 
 selectedIndex `属性`, 当前选中的Grid.  
 
+count `[属性]`, 总数.  
+
 onSelectIndex `属性`, 选中某个Grid之后产生的事件.  
 
+spacing `属性`, 分割尺寸.  
+
 itemBuilder `属性`, 建造一个具体Grid的内容.  
+
+### ImageBarWithPicker
+带图片选取器的图片显示   
+
+> 类 ImageBarWithPicker
+
+onUpdate `[函数]` 当更新图片后, 执行本函数, 参数为图片文件地址. 
+
+### MultiImageBarWithPicker
+带图片选取器的多图片显示   
+
+> 类 MultiImageBarWithPicker
+
+leadText `[属性]` 标题文本  
+
+emptyText `[属性]` 空白内容显示的文本  
+
+iconColor `[属性]` 图标颜色, 图标为指向拍摄和选择图片列表功能的两个图标.  
+
+imageHeight `[属性]` 图片高度  
+
+deleteTitle `[属性]` 删除确认对话框中删除文本  
+
+deleteCancel `[属性]` 删除确认对话框中取消文本  
+
+deleteContent `[属性]` 删除确认对话框中主体文本  
+
+imageFileList `[属性]` 初始化的图片文件列表  
+
+onUpdateFileList `[属性]` 当更新图片文件列表的时候, 执行本函数  
+
+
+
+
 
 
 
@@ -510,8 +627,11 @@ pad `函数`, 指定一个控件的前后左右, 或者全部, 或者上下/左�
 
 ### RichText   
 
-> 函数  richTextFormList   
+> 扩展 List<TextSpan>  
+
+richText `[函数]` 生成RichText  
 从TextSpan列表获取富文本控件. `list [List<TextSpan>]`文本列表, `textAlign [TextAlign]` 文本的对齐模式, `textDirection [TextDirection]` 文本的方向, `softWrap [bool]` 软换行, `overflow [TextOverflow]` 文本溢出的处理方式, `textScaleFactor [double]` 文本放大倍数, `maxLines [int]` 最大的文本行数, `locale [Locale]` 文本所属的地区设置.   
+
 
 
 
@@ -588,6 +708,63 @@ unselectedColor   `属性` 未选中的Tag元素背景色.
 
 textColor   `属性` 文本的色彩.   
 
+### TagGrid  
+
+> 类  TagGrid   
+支持表格模式的图标表格控件.   
+
+selected `[属性]` 初始化选中的图标  
+
+onSelect `[属性]` 选中某个图标的时候, 执行的函数  
+
+icons `[属性]` 图标列表  
+
+
+
+
+### Multi Widget
+基于多个控件列表的扩展 
+
+> 扩展 List<T extends Widget>
+
+row `[函数]` 将控件列表生成横向排列  
+
+column `[函数]` 将控件列表生成竖向排列  
+
+flow `[函数]` 将控件列表生成由FlowDelegate指定的控件列表, 一般用于右键菜单类似组件  
+
+listBody `[函数]` 将控件列表生成ListBody  
+
+pageView `[函数]` 将控件列表生成页面列表  
+
+listView `[函数]` 将控件列表生成排列列表(与row/column不同, 这个带滚动功能)  
+
+gridViewByDelegate `[函数]` 将控件列表生成通过delegate生成表格   
+
+gridViewByCount `[函数]` 将控件列表生成通过规划生成表格   
+
+gridViewByLimit `[函数]` 将控件列表生成通过限制生成表格   
+
+sliverList `[函数]` 将控件列表生成适用于ScrollView的Sliver列表   
+
+wrap `[函数]` 将控件列表生成换行排列.  
+
+
+
+
+
+
+> 扩展 List<T extends Positioned> 
+
+stack `[函数]` 将控件列表(必须是Position), 生成Stack控件.  
+
+
+
+> 扩展 List<T extends SliverWithKeepAliveWidget>  
+
+scrollView `[函数]` 将控件列表生成一个滚动控件.   
+
+
 
 
 ### TextDisplay   
@@ -605,7 +782,7 @@ textBodyBold  `函数`, 从字符串得到宽文本控件.  字符大小由上�
 
 textBodyNormal   `函数`, 从字符串得到标准文本控件.  字符大小由上级Theme指定.    
 
-textButton  `函数`, 从字符串得到按钮文本控件.  字符大小由上级Theme指定.    
+textAction  `函数`, 从字符串得到操作所用的文本控件.  字符大小由上级Theme指定.    
 
 textSpan  `函数`, 从字符串得到TextSpan控件, `style [TextStyle]`为文本显示形式,  `onTap` 为点击文本的时候, 产生的事件.   
 
@@ -642,7 +819,26 @@ apsect  `函数`, 设定宽高比的控件.
 
 center / left / right / top / bottom / leftTop / rightTop / leftBottom / rightBottom `属性`, 位置设定控件.   
 
-align  `函数` 按照比例配置的位置控件.   
+offset `函数`, 通过0(左或上)到1(右或下)指定位置设定控件.  
+
+onListen `[函数]`, 指定监听某个通知, 当子控件发出一个通知的时候, onNotification会执行.   
+
+overflow `[函数]`, 限定范围的可超过内容.   
+
+constrain `[函数]`, 给出约束尺寸.   
+
+rotate `[函数]`, 指定控件的旋转.   
+
+scale `[函数]`, 指定控件的拉伸.    
+
+move `[函数]`, 指定控件的移动.   
+
+hide `[函数]`, 指定控件是否隐藏.   
+
+fit `[函数]`, 指定子内容在本内容中的约束方式, 使用BoxFix限定.   
+
+card `[函数]`, 展示一个卡形状.   
+
 
 
 ### Help

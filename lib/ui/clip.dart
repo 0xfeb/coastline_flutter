@@ -65,7 +65,7 @@ class _ClipPath extends CustomClipper<Path> {
 }
 
 extension ClipWidget on Widget {
-  ClipRect clipRectCustom(
+  ClipRect _clipRectCustom(
       {Key? key,
       CustomClipper<Rect>? clipper,
       Clip clipBehavior = Clip.hardEdge}) {
@@ -78,10 +78,10 @@ extension ClipWidget on Widget {
   }
 
   ClipRect clipRect({Rect Function(Size)? clip}) {
-    return clipRectCustom(clipper: clip == null ? null : _ClipRect(clip));
+    return _clipRectCustom(clipper: clip == null ? null : _ClipRect(clip));
   }
 
-  ClipRRect clipRRectCustom(
+  ClipRRect _clipRRectCustom(
       {Key? key,
       BorderRadius? borderRadius,
       CustomClipper<RRect>? clipper,
@@ -96,13 +96,13 @@ extension ClipWidget on Widget {
   }
 
   ClipRRect clipRRect({RRect Function(Size)? clip, double? borderRadius}) {
-    return clipRRectCustom(
+    return _clipRRectCustom(
         clipper: clip == null ? null : _ClipRRect(clip),
         borderRadius:
             borderRadius == null ? null : BorderRadius.circular(borderRadius));
   }
 
-  ClipOval clipRoundCustom(
+  ClipOval _clipRoundCustom(
       {Key? key,
       CustomClipper<Rect>? clipper,
       Clip clipBehavior = Clip.hardEdge}) {
@@ -115,10 +115,10 @@ extension ClipWidget on Widget {
   }
 
   ClipOval clipRound({Rect Function(Size)? clip}) {
-    return clipRoundCustom(clipper: clip == null ? null : _ClipRound(clip));
+    return _clipRoundCustom(clipper: clip == null ? null : _ClipRound(clip));
   }
 
-  ClipPath clipPathCustom(
+  ClipPath _clipPathCustom(
       {Key? key,
       CustomClipper<Path>? clipper,
       Clip clipBehavior = Clip.hardEdge}) {
@@ -131,6 +131,6 @@ extension ClipWidget on Widget {
   }
 
   ClipPath clipPath(Path Function(Size) clip) {
-    return clipPathCustom(clipper: _ClipPath(clip));
+    return _clipPathCustom(clipper: _ClipPath(clip));
   }
 }

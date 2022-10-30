@@ -1,4 +1,3 @@
-
 import '../system/image_extra.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -12,7 +11,7 @@ import '../draw/resource.dart';
 import './mini_control.dart';
 import './context_extra.dart';
 
-class ImageSelector extends StatefulWidget {
+class MultiImageBarWithPicker extends StatefulWidget {
   final String leadText;
   final String emptyText;
   final Color iconColor;
@@ -22,9 +21,8 @@ class ImageSelector extends StatefulWidget {
   final String deleteContent;
   final Function(List<String>) onUpdateFileList;
   final List<String> imageFileList;
-  final int imageLimit;
 
-  const ImageSelector({
+  const MultiImageBarWithPicker({
     Key? key,
     required this.leadText,
     required this.emptyText,
@@ -35,14 +33,13 @@ class ImageSelector extends StatefulWidget {
     this.deleteCancel = 'Cancel',
     this.deleteContent = 'Are you sure to delete picture?',
     required this.imageFileList,
-    this.imageLimit = 1,
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _ImageSelectorState();
+  State<StatefulWidget> createState() => _MultiImageBarWithPickerState();
 }
 
-class _ImageSelectorState extends State<ImageSelector> {
+class _MultiImageBarWithPickerState extends State<MultiImageBarWithPicker> {
   List<String> _imageFileList = [];
 
   late ImagePicker _imagePicker;

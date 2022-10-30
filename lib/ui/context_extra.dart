@@ -46,7 +46,7 @@ class DialogAction {
 
 extension ContextExtra on BuildContext {
   /// >>> 实现对话框 >>>
-  Future<T?> showAlert<T>({
+  Future showAlert({
     required String title,
     String subTitle = '',
     Color titleColor = Colors.black,

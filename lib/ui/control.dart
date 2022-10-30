@@ -8,12 +8,14 @@ class TextBar extends StatelessWidget {
   final Color color;
   final Color textColor;
   final double fontSize;
+  final double radius;
 
   TextBar(
     this.text, {
     this.color = Colors.blue,
     this.textColor = Colors.white,
     this.fontSize = 14,
+    this.radius = 4,
   });
 
   @override
@@ -21,8 +23,8 @@ class TextBar extends StatelessWidget {
     return Container(
       padding:
           EdgeInsets.fromLTRB(fontSize, fontSize / 2, fontSize, fontSize / 2),
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(4), color: color),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius), color: color),
       child: Text(text, style: TextStyle(color: textColor, fontSize: fontSize)),
     );
   }
@@ -32,41 +34,60 @@ extension TextBarExtra on String {
   Widget bar(
       {Color color = Colors.blue,
       Color textColor = Colors.white,
-      double fontSize = 14}) {
-    return TextBar(this,
-        color: color, textColor: textColor, fontSize: fontSize);
+      double fontSize = 14,
+      double radius = 4}) {
+    return TextBar(
+      this,
+      color: color,
+      textColor: textColor,
+      fontSize: fontSize,
+      radius: radius,
+    );
   }
 }
 
 /// >>> 带有文本的图标 >>>
 
-class IconWithText extends StatelessWidget {
+class IconTextBar extends StatelessWidget {
   final String text;
   final IconData icon;
   final Color iconColor;
   final Color textColor;
   final double iconSize;
   final double fontSize;
+  final bool vertical;
 
-  IconWithText(
+  IconTextBar(
     this.text,
     this.icon, {
     this.iconColor = Colors.blue,
     this.textColor = Colors.blue,
     this.iconSize = 20,
     this.fontSize = 14,
+    this.vertical = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(icon, size: iconSize, color: iconColor),
-        Text(text, style: TextStyle(color: textColor, fontSize: fontSize)),
-      ],
-    );
+    return vertical
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(icon, size: iconSize, color: iconColor),
+              Text(text,
+                  style: TextStyle(color: textColor, fontSize: fontSize)),
+            ],
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(icon, size: iconSize, color: iconColor),
+              Text(text,
+                  style: TextStyle(color: textColor, fontSize: fontSize)),
+            ],
+          );
   }
 }
 
@@ -79,9 +100,9 @@ class Capsule extends StatelessWidget {
   final Color subColor;
   final double cornerRadius;
 
-  Capsule(
-    this.mainText,
-    this.subText, {
+  Capsule({
+    required this.mainText,
+    required this.subText,
     this.fontSize = 14,
     this.mainColor = Colors.blue,
     this.subColor = Colors.white,
@@ -131,6 +152,7 @@ class PhotoFrame extends StatelessWidget {
   final Color iconColor;
   final Color borderColor;
   final double borderWidth;
+  final Alignment alignment;
 
   PhotoFrame(
     this.picture, {
@@ -139,6 +161,7 @@ class PhotoFrame extends StatelessWidget {
     this.iconColor = Colors.grey,
     this.borderColor = Colors.white,
     this.borderWidth = 6,
+    this.alignment = Alignment.bottomRight,
   });
 
   @override
@@ -153,7 +176,7 @@ class PhotoFrame extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: borderColor, width: borderWidth),
       ),
-      alignment: Alignment.bottomRight,
+      alignment: alignment,
       child: Container(
         decoration: BoxDecoration(
             color: borderColor,

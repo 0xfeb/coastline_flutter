@@ -10,18 +10,18 @@ import './multi_widget.dart';
 import './clip.dart';
 import '../draw/path_extra.dart';
 
-class CImagePicker extends StatefulWidget {
+class ImageBarWithPicker extends StatefulWidget {
   final Function(String?)? onUpdate;
 
-  CImagePicker({Key? key, this.onUpdate}) : super(key: key);
+  ImageBarWithPicker({Key? key, this.onUpdate}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _CImagePickerState();
+    return _ImageBarWithPickerState();
   }
 }
 
-class _CImagePickerState extends State<CImagePicker> {
+class _ImageBarWithPickerState extends State<ImageBarWithPicker> {
   String? _imagePath;
   ImagePicker _imagePicker = ImagePicker();
   File? _imageFile;
@@ -40,7 +40,7 @@ class _CImagePickerState extends State<CImagePicker> {
   }
 
   Widget _emptyBar() {
-    return <Widget>[
+    return <Positioned>[
       Icons.camera
           .icon(size: 50, color: Colors.white)
           .box(color: Colors.grey[800])
@@ -82,7 +82,7 @@ class _CImagePickerState extends State<CImagePicker> {
   }
 
   Widget _fullBar() {
-    return <Widget>[
+    return <Positioned>[
       Image.file(_imageFile!, fit: BoxFit.cover)
           .box()
           .positioned(left: 0, right: 0, top: 0, bottom: 0),

@@ -153,7 +153,7 @@ extension TextDisplay on String {
   }
 
   /// >>> 从字符串生成按钮文本控件 >>>
-  Text textButton(
+  Text textAction(
       {Key? key,
       required BuildContext context,
       StrutStyle? strutStyle,
