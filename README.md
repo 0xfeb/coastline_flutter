@@ -239,9 +239,11 @@ child `[属性]` 子控件
 
 > 扩展  List<T>   
 
-combineMix `[函数]` 将两个数组进行交叉组合, `next [List<T>]`为接下去的数组. 返回一个组合后的新数组.  
+mixList `[函数]` 将两个数组进行交叉组合, `next [List<T>]`为接下去的数组. 返回一个组合后的新数组.  
 
-fillMix `[函数]` 将数据交叉插入数组中, `item [T]`为插入到数组中的数据, `around [bool]`指定数据是否包含到数组之外. 返回一个组合后的新数组.   
+mixItem `[函数]` 将数据交叉插入数组中, `item [T]`为插入到数组中的数据, `around [bool]`指定数据是否包含到数组之外. 返回一个组合后的新数组.   
+
+randomItem `[属性]` 从list获取一个随机对象.   
 
 isEqualTo `[函数]` 判断本数组是否与另外一个数组相同.   
 
@@ -250,6 +252,8 @@ startWith `[函数]` 判断本数组是否由另外一个数组开头.
 endWith `[函数]` 判断本数组是否另外一个数组结束.   
 
 indicate `[属性]` 产生一个带有序列号的数组.   
+
+find / findLast `[函数]` 搜索一个子list.  
 
 
 > 函数 inc   
@@ -271,7 +275,12 @@ findByValue `函数` 通过Value元素进行数据搜索, `byValue`为数据对�
 
 > 扩展 num  
 
-between `函数` 通过`min[num]`和`max[num]`限制本数字的上下限, 返回一个新的数据. 相当于max(min(max, X), min)的结果.  
+limitBetween `函数` 通过`min[num]`和`max[num]`限制本数字的上下限, 返回一个新的数据. 相当于max(min(max, X), min)的结果.  
+
+> 扩展 int
+
+digitsString `[函数]` 设定0的数量, 如果数字不够位数, 在前方添加0.   
+
 
 
 ### Number Parser  
@@ -303,7 +312,7 @@ fileExits `属性` 判断文件是否存在.
 
 > 扩展 PairJudge   
 
-judge `函数` 判断后续的系列语句是否正确, 然后返回可选.    
+judge `函数` 判断后续的系列语句是否正确, 然后返回可选, 意义不明.    
 
 
 ### Time
@@ -319,6 +328,10 @@ judge `函数` 判断后续的系列语句是否正确, 然后返回可选.
 
 > simpleString `属性` 简化版显示日期时间   
 
+> 扩展String
+
+dateTime `[属性]` 从文本获得时间   
+
 
 ## system
 系统功能集合
@@ -326,28 +339,30 @@ judge `函数` 判断后续的系列语句是否正确, 然后返回可选.
 ### Image Extra  
 自动存储的图片扩展   
 
-> 函数 loadStorageImage  
+注意: 要使用Stoage对应的同步操作, 必须先执行好await FilePath().setup();
+
+> 函数 imageFromId  
 
 通过Storage Id得到一个File Image. Storage ID由FileImage::Save 或者FileImage::SaveSync, FileImage::copyToStorage, FileImage::copyToStorageAsync得到.  
 
-> 函数 loadStorageImageAsync  
+> 函数 imageFromIdAsync  
 
-与loadStorageImage相同, 不过, 这个是异步的.  
+与imageFromId相同, 不过, 这个是异步的.  
 
-> 函数 loadPathCopyToStorageImage  
+> 函数 imageToStorage  
 
 拷贝一个图片文件`sourcePath [String]`到Storage, 并且得到一个Storage ID.    
 
-> 函数 loadPathCopyToStorageImageAsync  
+> 函数 imageToStorageAsync  
 
-与loadPathCopyToStorageImage相同, 异步.  
+与imageToStorage相同, 异步.  
 
 > 扩展 FileImage  
 
 
-save `函数` 保存图片, 保存之后, 会得到一个Storage ID.  
+saveToStorage `函数` 保存图片, 保存之后, 会得到一个Storage ID.  
 
-saveAsync `函数` 保存图片, 与save相同, 异步.  
+saveToStorageAsync `函数` 保存图片, 与save相同, 异步.  
 
 
 
@@ -377,7 +392,7 @@ imageFilenameAsync `函数`, 与imageFilename相同, 异步.
 
 > 扩展  ImageProvider   
 
-save `[函数]` 存储图片到特定的文件中去   
+saveToFile `[函数]` 存储图片到特定的文件中去   
 
 saveToStorage `[函数]`  存储图片到storage库中去   
 

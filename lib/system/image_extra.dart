@@ -5,7 +5,7 @@ import 'file_path.dart';
 import 'package:uuid/uuid.dart';
 
 /// >>> 文件图像, 从Storage ID获取图像 >>>
-FileImage? loadStorageImage(String storageId) {
+FileImage? imageFromId(String storageId) {
   String destPath = FilePath().imageFilename(storageId);
   print('load image from -> $destPath');
   File file = File(destPath);
@@ -18,13 +18,13 @@ FileImage? loadStorageImage(String storageId) {
 }
 
 /// >>> 文件图像, 从Storage ID获取图像, 同步 >>>
-Future<FileImage?> loadStorageImageAsync(String storageId) async {
+Future<FileImage?> imageFromIdAsync(String storageId) async {
   await FilePath().setup();
-  return loadStorageImage(storageId);
+  return imageFromId(storageId);
 }
 
 /// >>> 拷贝一个文件到Storage ID >>>
-String? loadPathCopyToStorageImage(String sourcePath) {
+String? imageToStorage(String sourcePath) {
   String uuid = Uuid().v4();
   String destFile = FilePath().imageFilename(uuid);
   File file = File(sourcePath);
@@ -37,9 +37,9 @@ String? loadPathCopyToStorageImage(String sourcePath) {
 }
 
 /// >>> 拷贝一个文件到Storage ID, 同步 >>>
-Future<String?> loadPathCopyToStorageImageAsync(String sourcePath) async {
+Future<String?> imageToStorageAsync(String sourcePath) async {
   await FilePath().setup();
-  return loadPathCopyToStorageImage(sourcePath);
+  return imageToStorage(sourcePath);
 }
 
 class StorageImage {
@@ -47,7 +47,7 @@ class StorageImage {
 
   StorageImage(this.storageId);
   static StorageImage? fromPath(String sourcePath) {
-    String? sid = loadPathCopyToStorageImage(sourcePath);
+    String? sid = imageToStorage(sourcePath);
     if (sid == null) {
       return null;
     }
@@ -55,13 +55,13 @@ class StorageImage {
   }
 
   FileImage? loadImage() {
-    return loadStorageImage(storageId);
+    return imageFromId(storageId);
   }
 }
 
 extension ImageExtra on FileImage {
   /// >>> 存储图像, 自动返回一个Storage ID >>>
-  String save() {
+  String saveToStorage() {
     String uuid = Uuid().v4();
     String destFile = FilePath().imageFilename(uuid);
     if (!File(destFile).existsSync()) {
@@ -72,8 +72,8 @@ extension ImageExtra on FileImage {
   }
 
   /// >>> 存储图像, 自动返回一个Storage ID, 同步 >>>
-  Future<String> saveAsync() async {
+  Future<String> saveToStorageAsync() async {
     await FilePath().setup();
-    return save();
+    return saveToStorage();
   }
 }
