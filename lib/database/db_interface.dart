@@ -10,9 +10,13 @@ Pair<String, String> _tableKV(String key, Object? value) {
   return Pair('key', '"$value"');
 }
 
+// 数据库操作实例
 class DbInterface {
   static OnDatabaseCreateFn? onCreate;
   static final DbInterface _instance = DbInterface._internal();
+  static String keyValueTableName = "config";
+  static String keyColumnName = "key";
+  static String valueColumnName = "value";
   factory DbInterface() {
     return _instance;
   }
@@ -29,33 +33,35 @@ class DbInterface {
 
     // get database instance
     _dbInst =
-        await openDatabase(_dbFile, version: 1, onCreate: DbInterface.onCreate);
+        await openDatabase(_dbFile, version: 1, onCreate: (database, version) {
+      database.execute(
+          'create table $keyValueTableName ($keyColumnName text, $valueColumnName text)');
+      if (onCreate != null) {
+        onCreate!(database, version);
+      }
+    });
   }
 
-  Future<String?> value(
-      {required String key,
-      required String table,
-      String columnKey = "key",
-      String columnValue = "value"}) async {
-    var list = await _dbInst.query(table, where: '$columnKey="$key"');
+  // 从一个table获取value
+  Future<String?> value(String key) async {
+    var list =
+        await _dbInst.query(keyValueTableName, where: '$keyColumnName="$key"');
     if (list.isEmpty) {
       return null;
     }
-    return list.first[columnValue] as String?;
+    return list.first[valueColumnName] as String?;
   }
 
-  Future<int> setValue(
-      {required String key,
-      required String value,
-      required String table,
-      String columnKey = "key",
-      String columnValue = "value"}) async {
+  // 往一个table写入key, value
+  Future<int> setValue({required String key, required String value}) async {
     return _dbInst.rawUpdate(
-        'insert or replace into $table ($columnKey, $columnValue) values ("$key", "$value") on conflict replace');
+        'insert or replace into $keyValueTableName ($keyColumnName, $valueColumnName) values ("$key", "$value") on conflict replace');
   }
 
-  Future<Map<String, Object?>?> getObject(String query) async {
-    List<Map<String, Object?>> items = await _dbInst.rawQuery(query);
+  // 读取一行数据
+  Future<Map<String, Object?>?> getOneObject(String query,
+      [List<Object?>? arguments]) async {
+    List<Map<String, Object?>> items = await _dbInst.rawQuery(query, arguments);
 
     if (items.isEmpty) {
       return null;
@@ -64,12 +70,15 @@ class DbInterface {
     return items.first;
   }
 
-  Future<List<Map<String, Object?>>> listObject(String query) {
-    return _dbInst.rawQuery(query);
+  // 读取多行数据
+  Future<List<Map<String, Object?>>> getObjects(String query,
+      [List<Object?>? arguments]) {
+    return _dbInst.rawQuery(query, arguments);
   }
 
-  Future<int> countObject(String query) async {
-    List<Map<String, Object?>> items = await _dbInst.rawQuery(query);
+  // 统计结果数量
+  Future<int> countObject(String query, [List<Object?>? arguments]) async {
+    List<Map<String, Object?>> items = await _dbInst.rawQuery(query, arguments);
 
     if (items.isEmpty) {
       return 0;
@@ -81,10 +90,17 @@ class DbInterface {
     return 0;
   }
 
-  Future<int> rawAddObject(String action) {
-    return _dbInst.rawInsert(action);
+  // 执行一个sql操作
+  Future execute(String sql, [List<Object?>? arguments]) async {
+    await _dbInst.execute(sql, arguments);
   }
 
+  // 添加一个数据
+  Future<int> rawAddObject(String action, [List<Object?>? arguments]) {
+    return _dbInst.rawInsert(action, arguments);
+  }
+
+  // 添加一个数据, 通过keyValues, 指定列名和数据的合集
   Future<int> addObject(
       {required String table, required Map<String, Object?> keyValues}) async {
     List<Pair<String, String>> kvs =
@@ -93,17 +109,19 @@ class DbInterface {
     }).toList();
     String key = kvs.map((item) => item.a).join(',');
     String value = kvs.map((item) => item.b).join(',');
-    return rawUpdate('insert into $table ($key) value ($value)');
+    return rawUpdate('insert into $table ($key) values ($value)');
   }
 
-  Future<int> rawUpdate(String action) {
-    return _dbInst.rawUpdate(action);
+  // 更改一个数据
+  Future<int> rawUpdate(String action, [List<Object?>? arguments]) async {
+    return _dbInst.rawUpdate(action, arguments);
   }
 
+  // 更改一个数据, 通过KeyValues, 指定列名和数据的合集
   Future<int> update(
       {required String table,
       required int rawId,
-      required Map<String, Object?> keyValues}) {
+      required Map<String, Object?> keyValues}) async {
     String action =
         keyValues.entries.where((element) => element.value != null).map((e) {
       if (e.value is num) {
@@ -113,5 +131,29 @@ class DbInterface {
       }
     }).join(",");
     return rawUpdate('update $table set $action where rawid=$rawId');
+  }
+
+  // 删除一个数据
+  Future rawDelete(String action, [List<Object?>? arguments]) {
+    return _dbInst.rawDelete(action, arguments);
+  }
+
+  // 删除一个数据, 通过rawId
+  Future deleteById({required String table, required int rawId}) async {
+    return rawDelete('delete $table where rawid=$rawId');
+  }
+
+  // 删除一个数据, 通过KeyValues, 指定列名和数据的合集
+  Future delete(
+      {required String table, required Map<String, Object?> keyValues}) async {
+    String action =
+        keyValues.entries.where((element) => element.value != null).map((e) {
+      if (e.value is num) {
+        return "${e.key}=${e.value}";
+      } else {
+        return '${e.key}="${e.value}"';
+      }
+    }).join(" and ");
+    return rawDelete('delete $table where $action');
   }
 }
