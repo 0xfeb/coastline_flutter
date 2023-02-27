@@ -182,6 +182,7 @@ extension TextDisplay on String {
         textHeightBehavior: textHeightBehavior);
   }
 
+  /// >>> 从字符串生成富文件组件 >>>
   TextSpan textSpan({
     TextStyle? style,
     Function onTap()?,

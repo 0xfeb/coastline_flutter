@@ -17,6 +17,7 @@ bool isEmpty(dynamic l) {
   return false;
 }
 
+/// >>> 判断一个数值是否非空 >>>
 bool isNotEmpty(dynamic l) {
   return !isEmpty(l);
 }

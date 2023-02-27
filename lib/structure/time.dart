@@ -1,6 +1,7 @@
 import 'number_extra.dart';
 
 extension DateTimeExtra on DateTime {
+  /// >>> 日期时间的字符串 >>>
   String get dateTimeString {
     String y = year.digitsString(digitNumber: 4);
     String m = month.digitsString(digitNumber: 2);
@@ -12,6 +13,7 @@ extension DateTimeExtra on DateTime {
     return '$y-$m-$d $h:$min:$sec';
   }
 
+  /// >>> 日期字符串 >>>
   String get dateString {
     String y = year.digitsString(digitNumber: 4);
     String m = month.digitsString(digitNumber: 2);
@@ -20,6 +22,7 @@ extension DateTimeExtra on DateTime {
     return '$y-$m-$d';
   }
 
+  /// >>> 时间字符串 >>>
   String get timeString {
     String h = hour.digitsString(digitNumber: 2);
     String min = minute.digitsString(digitNumber: 2);
@@ -51,6 +54,7 @@ extension DateTimeExtra on DateTime {
 }
 
 extension DateTimeString on String {
+  /// >>> 从文本获得时间 >>>
   DateTime get dateTime {
     return DateTime.parse(this);
   }

@@ -64,6 +64,7 @@ class _ClipPath extends CustomClipper<Path> {
   }
 }
 
+// >>> 切割组件 >>>
 extension ClipWidget on Widget {
   ClipRect _clipRectCustom(
       {Key? key,

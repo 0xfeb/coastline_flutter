@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:coastline/coastline.dart';
 
+/// >>> Tag选择格子 >>>
 class TagGrid extends StatefulWidget {
   final int selected;
   final Function(int) onSelect;

@@ -18,6 +18,7 @@ extension NumberExtra on num {
 }
 
 extension IntExtra on int {
+  // >>> 获取基于数字的文本, 限定位数, 位数不够的时候, 自动凑0
   String digitsString({int digitNumber = 2}) {
     String n = this < 0 ? '-' : '';
     String p = this.abs().toString();

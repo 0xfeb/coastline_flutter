@@ -287,6 +287,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 行为监控 >>>
   NotificationListener<T> onListen<T extends Notification>(
       NotificationListenerCallback<T> onNotification,
       {Key? key}) {
@@ -297,6 +298,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 溢出控件 >>>
   OverflowBox overflow(
       {Key? key,
       AlignmentGeometry alignment = Alignment.topLeft,
@@ -325,6 +327,7 @@ extension WidgetExtra on Widget {
     }
   }
 
+  /// >>> 限定尺寸 >>>
   ConstrainedBox constrain(
       {double? minWidth,
       double? maxWidth,
@@ -340,6 +343,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 转换 >>>
   Transform rotate(
       {Key? key,
       required double degree,
@@ -356,6 +360,7 @@ extension WidgetExtra on Widget {
         child: this);
   }
 
+  /// >>> 缩放 >>>
   Transform scale(
       {Key? key,
       required double scale,
@@ -371,6 +376,7 @@ extension WidgetExtra on Widget {
         child: this);
   }
 
+  /// >>> 移动 >>>
   Transform move(
       {Key? key, required Offset offset, bool transformHitTests = true}) {
     return Transform.translate(
@@ -380,6 +386,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 隐藏 >>>
   Offstage hide({Key? key, required bool hide}) {
     return Offstage(
       child: this,
@@ -388,6 +395,7 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 设置内容限定模式 >>>
   FittedBox fit(
       {Key? key,
       required BoxFit fit,
@@ -402,16 +410,17 @@ extension WidgetExtra on Widget {
     );
   }
 
+  /// >>> 卡片 >>>
   Card card(
       {Key? key,
       Color color = Colors.white,
       Color shadowColor = Colors.black,
       double elevation = 0,
       double radius = 4,
-      bool borderOnForeground: true,
+      bool borderOnForeground = true,
       EdgeInsetsGeometry margin = EdgeInsets.zero,
       Clip clipBehavior = Clip.hardEdge,
-      bool semanticContainer: true}) {
+      bool semanticContainer = true}) {
     return Card(
       key: key,
       color: color,

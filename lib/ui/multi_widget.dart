@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 extension MultiWidget<T extends Widget> on List<T> {
+  /// >>> 行 >>>
   Row row({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -15,6 +16,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 列 >>>
   Column column({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -28,6 +30,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 流展示 >>>
   Flow flow(FlowDelegate delegate) {
     return Flow(
       delegate: delegate,
@@ -35,6 +38,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 展示的子内容 >>>
   ListBody listBody({required Axis axis, bool reverse = false}) {
     return ListBody(
       mainAxis: axis,
@@ -43,6 +47,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 分页 >>>
   PageView pageView(
       {Axis scrollDirection = Axis.vertical,
       bool reverse = false,
@@ -58,6 +63,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 列表 >>>
   ListView listView({
     Axis scrollDirection = Axis.vertical,
     bool reverse = false,
@@ -78,6 +84,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 表格 >>>
   GridView gridViewByDelegate({
     Axis scrollDirection = Axis.vertical,
     bool reverse = false,
@@ -100,6 +107,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 表格 >>>
   GridView gridViewByCount({
     required int crossAxisCount,
     required double mainAxisSpacing,
@@ -128,6 +136,7 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> 表格 >>>
   GridView gridViewByLimit({
     required double crossAxisLimit,
     required double mainAxisSpacing,
@@ -156,10 +165,12 @@ extension MultiWidget<T extends Widget> on List<T> {
     );
   }
 
+  /// >>> CustomScrollView专用内容 >>>
   SliverList sliverList() {
     return SliverList(delegate: SliverChildListDelegate(this));
   }
 
+  /// >>> 换行控件 >>>
   Wrap wrap(
       {Key? key,
       Axis direction = Axis.horizontal,
@@ -187,6 +198,7 @@ extension MultiWidget<T extends Widget> on List<T> {
   }
 }
 
+/// >>> 堆栈控件 >>>
 extension StackExtra<T extends Positioned> on List<T> {
   Stack stack(
       {AlignmentGeometry alignment = AlignmentDirectional.topStart,
@@ -199,6 +211,7 @@ extension StackExtra<T extends Positioned> on List<T> {
   }
 }
 
+/// >>> 直接从控件列表生成CustomScorllView >>>
 extension SliverExtra<T extends SliverWithKeepAliveWidget> on List<T> {
   CustomScrollView scrollView(
       {Key? key,
