@@ -43,3 +43,5 @@ export './ui/tag_grid.dart';
 export './ui/image_bar_with_picker.dart';
 
 export './database/db_interface.dart';
+
+export './media/media.dart';
