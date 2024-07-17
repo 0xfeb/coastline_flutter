@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:coastline/coastline.dart';
+import '../draw/resource.dart';
+
+import 'widget_extra.dart';
 
 class TagPannel extends StatefulWidget {
   final int selected;

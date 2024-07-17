@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'value.dart';
+
 extension ListExtra<T> on List<T> {
   /// >>> 混合插入两个list >>>
   List<T> combineMix(List<T> next) {
@@ -111,6 +113,25 @@ extension ListExtra<T> on List<T> {
       result.add(MapEntry(i, this[i]));
     }
     return result;
+  }
+
+  // 两个数组比较
+  bool compare<V>(Iterable<V> list, {Compare? c}) {
+    if (list.length != this.length) {
+      return false;
+    }
+    for (int i = 0; i < list.length; i++) {
+      if (c == null) {
+        if (elementAt(i) != list.elementAt(i)) {
+          return false;
+        }
+      } else {
+        if (!c(elementAt(i), list.elementAt(i))) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }
 

@@ -1,6 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:math' as math;
 
 enum IntrinsicDirection {
   horizon,
@@ -66,31 +67,14 @@ extension WidgetExtra on Widget {
     );
   }
 
-<<<<<<< HEAD
-  Container roundRect(double radius) {
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius)),
-=======
   /// >>> 尺寸控件(宽度) >>>
   SizedBox widthed(double width) {
     return SizedBox(
       width: width,
->>>>>>> d1aa2f163393b79f056f889ead876cb55b7c20b2
       child: this,
     );
   }
 
-<<<<<<< HEAD
-  Container container({double cornerRadius, EdgeInsetsGeometry padding, Color color}) {
-    return Container(
-      child: this,
-      decoration: BoxDecoration(borderRadius: cornerRadius == null? null : BorderRadius.circular(cornerRadius), color: color),
-      padding: padding,
-    );
-  }
-
-  RotatedBox rotated({int quarter}) {
-=======
   /// >>> 尺寸控件(高度) >>>
   SizedBox heighted(double height) {
     return SizedBox(
@@ -101,7 +85,6 @@ extension WidgetExtra on Widget {
 
   /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
   RotatedBox rotated({required int quarter}) {
->>>>>>> d1aa2f163393b79f056f889ead876cb55b7c20b2
     return RotatedBox(
       quarterTurns: quarter,
       child: this,
@@ -163,14 +146,9 @@ extension WidgetExtra on Widget {
     );
   }
 
-<<<<<<< HEAD
-  AspectRatio aspect({double ratio = 1}) {
-    return AspectRatio(aspectRatio: ratio, child: this);
-=======
   /// >>> 宽高比(1为正方形) >>>
   AspectRatio apsect(double whRate) {
     return AspectRatio(aspectRatio: whRate, child: this);
->>>>>>> d1aa2f163393b79f056f889ead876cb55b7c20b2
   }
 
   /// >>> 居中控件 >>>

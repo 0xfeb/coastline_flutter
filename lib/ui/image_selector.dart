@@ -1,17 +1,18 @@
 import 'dart:io';
 
-import '../system/image_extra.dart';
 import 'package:flutter/material.dart';
+
 import 'package:image_picker/image_picker.dart';
 
-import './multi_widget.dart';
-import './widget_extra.dart';
-import './text_display.dart';
-import './pad.dart';
-import './clip.dart';
 import '../draw/resource.dart';
-import './mini_control.dart';
+import '../system/image_extra.dart';
+import './clip.dart';
 import './context_extra.dart';
+import './mini_control.dart';
+import './multi_widget.dart';
+import './pad.dart';
+import './text_display.dart';
+import './widget_extra.dart';
 
 class ImageSelector extends StatefulWidget {
   final String leadText;
@@ -55,9 +56,7 @@ class _ImageSelectorState extends State<ImageSelector> {
     super.initState();
 
     _imagePicker = ImagePicker();
-    if (widget.imageFileList != null) {
-      _imageFileList = widget.imageFileList;
-    }
+    _imageFileList = widget.imageFileList;
   }
 
   _onChooseImage(ImageSource source) async {
@@ -94,7 +93,7 @@ class _ImageSelectorState extends State<ImageSelector> {
               fit: BoxFit.cover,
             )
                 .sized(height: imageSize, width: imageSize)
-                .clipRRect(borderRadius: BorderRadius.circular(4))
+                .clipRRect(borderRadius: 4)
                 .positioned(),
             Icons.close
                 .icon(size: 15, color: Colors.white)
