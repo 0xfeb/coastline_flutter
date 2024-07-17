@@ -3,7 +3,7 @@ description: Simple flutter library for myself use.
 version: 0.8.1
 homepage: www.clstd.com
 environment:
-    sdk: '>=2.19.0 <3.0.0'
+    sdk: '>=3.2.0'
 
 dependencies:
   flutter:

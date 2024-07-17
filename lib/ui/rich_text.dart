@@ -7,7 +7,7 @@ extension RichTextList on List<TextSpan> {
     TextDirection? textDirection,
     bool softWrap = true,
     TextOverflow overflow = TextOverflow.clip,
-    double textScaleFactor = 1.0,
+    double textScaler = 1.0,
     int? maxLines,
     Locale? locale,
   }) {
@@ -17,7 +17,7 @@ extension RichTextList on List<TextSpan> {
       textDirection: textDirection,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      textScaler: TextScaler.linear(textScaler),
       maxLines: maxLines,
       locale: locale,
     );

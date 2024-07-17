@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'dart:ui' as ui;
+
 import 'package:flutter/widgets.dart';
+
 import 'package:uuid/uuid.dart';
 
 import 'file_path.dart';
@@ -22,10 +23,18 @@ extension ImageProviderFileExtra on ImageProvider {
     return completer.future;
   }
 
+  Image get image {
+    return Image(
+      image: this,
+      fit: BoxFit.cover,
+    );
+  }
+
   /// >>> 存储到文件中去 >>>
   Future saveToFile(String filePath) async {
     ui.Image image = await _toImage();
-    var bytes = await (image.toByteData(format: ui.ImageByteFormat.png) as FutureOr<ByteData>);
+    var bytes = await (image.toByteData(format: ui.ImageByteFormat.png)
+        as FutureOr<ByteData>);
     Uint8List ul = bytes.buffer.asUint8List();
     File file = File(filePath);
     file.openWrite();

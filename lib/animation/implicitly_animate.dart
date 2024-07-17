@@ -131,27 +131,32 @@ extension ThemeExt on Theme {
   }
 }
 
-// extension PhysicalModelExt on PhysicalModel {
-//   AnimatedPhysicalModel animate(
-//       {Curve curve = Curves.linear,
-//       Duration duration = const Duration(milliseconds: 300),
-//       VoidCallback? onEnd,
-//       required Color color,
-//       BorderRadiusGeometry borderRadius = BorderRadius.zero,
-//       Clip clipBehavior = Clip.none,
-//       ShapeBorder shape = const RoundedRectangleBorder()}) {
-//     return AnimatedPhysicalModel(
-//         key: key,
-//         color: color,
-//         borderRadius: borderRadius,
-//         clipBehavior: clipBehavior,
-//         shape: shape,
-//         curve: curve,
-//         duration: duration,
-//         onEnd: onEnd,
-//         child: child);
-//       }
-// }
+extension PhysicalModelExt on PhysicalModel {
+  AnimatedPhysicalModel animate(
+      {Curve curve = Curves.linear,
+      Duration duration = const Duration(milliseconds: 300),
+      VoidCallback? onEnd,
+      required Color color,
+      double borderRadius = 5.0,
+      Clip clipBehavior = Clip.none,
+      double elevation = 0,
+      Color shadowColor = Colors.grey,
+      BoxShape shape = BoxShape.rectangle,
+      required Widget child}) {
+    return AnimatedPhysicalModel(
+        key: key,
+        color: color,
+        borderRadius: BorderRadius.circular(borderRadius),
+        clipBehavior: clipBehavior,
+        shape: shape,
+        curve: curve,
+        duration: duration,
+        onEnd: onEnd,
+        elevation: elevation,
+        shadowColor: shadowColor,
+        child: child);
+  }
+}
 
 extension AnimateExt on Widget {
   AnimatedScale scaleAnimation(
@@ -170,6 +175,39 @@ extension AnimateExt on Widget {
         duration: duration,
         onEnd: onEnd,
         child: this);
+  }
+
+  AnimatedCrossFade animationCrossFade({
+    required int duration,
+    required Widget nextChild,
+    required bool showNext,
+  }) {
+    return AnimatedCrossFade(
+      duration: Duration(milliseconds: duration),
+      firstChild: this,
+      secondChild: nextChild,
+      crossFadeState:
+          showNext ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+    );
+  }
+
+  TweenAnimationBuilder animatedParent<T>(
+      {required T begin,
+      required T end,
+      required int duration,
+      Curve curve = Curves.linear,
+      required ValueWidgetBuilder<Object?> parentBuilder,
+      Key? key,
+      VoidCallback? onEnd}) {
+    return TweenAnimationBuilder(
+      key: key,
+      tween: Tween(begin: begin, end: end),
+      duration: Duration(milliseconds: duration),
+      curve: curve,
+      builder: parentBuilder,
+      onEnd: onEnd,
+      child: this,
+    );
   }
 
   AnimatedRotation rotationAnimation(
