@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'widget_extra.dart';
 
 /// >>> 数字输入框 >>>
@@ -24,7 +25,6 @@ class NumberField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
-      toolbarOptions: ToolbarOptions(),
       controller: controller,
       focusNode: focus,
       textAlign: TextAlign.center,
