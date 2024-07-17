@@ -1,11 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'dart:math' as math;
-=======
-import 'package:flutter/rendering.dart';
->>>>>>> master
 
 enum IntrinsicDirection {
   horizon,
