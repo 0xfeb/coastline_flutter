@@ -1,8 +1,12 @@
 import 'dart:io';
 
-import 'package:flutter/widgets.dart';
-import 'file_path.dart';
+import 'package:flutter/material.dart';
+
 import 'package:uuid/uuid.dart';
+
+import '../draw/resource.dart';
+
+import 'file_path.dart';
 
 /// >>> 文件图像, 从Storage ID获取图像 >>>
 FileImage? imageFromId(String storageId) {
