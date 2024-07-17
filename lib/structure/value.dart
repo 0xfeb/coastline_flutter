@@ -1,6 +1,8 @@
-import 'package:flutter/widgets.dart';
+import 'dart:math' as math;
+import 'dart:math' as math;
 
-/// >>> 判断一个数值是否为空 >>>
+import 'package:flutter/material.dart';
+
 bool isEmpty(dynamic l) {
   if (l == null || l == Null) {
     return true;
