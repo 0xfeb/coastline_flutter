@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../structure/combo_data.dart';
+
 import 'widget_extra.dart';
 
 /// >>> 文本条 >>>
@@ -190,7 +190,7 @@ class PhotoFrame extends StatelessWidget {
 
 /// >>> 色彩Tab >>>
 class ColorTab extends StatelessWidget {
-  final List<Pair<Color, String>> tabs;
+  final List<(Color, String)> tabs;
   final int selectedIndex;
   final Color textColor;
   final double fontSize;
@@ -210,11 +210,11 @@ class ColorTab extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> list = [];
     for (int i = 0; i < tabs.length; ++i) {
-      String title = tabs[i].b;
+      String title = tabs[i].$2;
       Color? colorSelect =
-          colorReverse ? Color.lerp(tabs[i].a, Colors.white, 0.3) : tabs[i].a;
+          colorReverse ? Color.lerp(tabs[i].$1, Colors.white, 0.3) : tabs[i].$1;
       Color? colorUnSelect =
-          colorReverse ? tabs[i].a : Color.lerp(tabs[i].a, Colors.white, 0.3);
+          colorReverse ? tabs[i].$1 : Color.lerp(tabs[i].$1, Colors.white, 0.3);
       Color? color = selectedIndex == i ? colorSelect : colorUnSelect;
       double leftRadius = i == 0 ? 8 : 0;
       double rightRadius = i == tabs.length - 1 ? 8 : 0;
@@ -232,7 +232,7 @@ class ColorTab extends StatelessWidget {
               right: Radius.circular(rightRadius),
             ),
             border: Border.all(
-                color: tabs[i].a, width: selectedIndex == i ? 1 : 0)),
+                color: tabs[i].$1, width: selectedIndex == i ? 1 : 0)),
       ).onTap(() {
         onSelectTab(i);
       });

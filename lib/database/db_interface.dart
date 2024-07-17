@@ -1,13 +1,13 @@
 import 'package:sqflite/sqflite.dart';
-import '../structure/combo_data.dart';
+
 import '../system/file_path.dart';
 
-Pair<String, String> _tableKV(String key, Object? value) {
+(String, String) _tableKV(String key, Object? value) {
   if (value is num) {
-    return Pair('key', '$value');
+    return ('key', '$value');
   }
 
-  return Pair('key', '"$value"');
+  return ('key', '"$value"');
 }
 
 // 数据库操作实例
@@ -103,12 +103,12 @@ class DbInterface {
   // 添加一个数据, 通过keyValues, 指定列名和数据的合集
   Future<int> addObject(
       {required String table, required Map<String, Object?> keyValues}) async {
-    List<Pair<String, String>> kvs =
+    List<(String, String)> kvs =
         keyValues.entries.where((element) => element.value != null).map((e) {
       return _tableKV(e.key, e.value);
     }).toList();
-    String key = kvs.map((item) => item.a).join(',');
-    String value = kvs.map((item) => item.b).join(',');
+    String key = kvs.map((item) => item.$1).join(',');
+    String value = kvs.map((item) => item.$2).join(',');
     return rawUpdate('insert into $table ($key) values ($value)');
   }
 

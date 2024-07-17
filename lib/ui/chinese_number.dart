@@ -1,5 +1,3 @@
-import 'package:coastline/coastline.dart';
-
 extension ChineseNumber on String {
   (String?, String) apart(String gap) {
     int pos = this.indexOf(gap);
@@ -56,5 +54,21 @@ extension ChineseNumber on String {
         b._singleNumber * 100 +
         s._singleNumber * 10 +
         g._singleNumber;
+  }
+
+  /// >>> 中文和阿拉伯混合文本得到的数值 >>>
+  int get mixChineseNumber {
+    String mix = this.replaceAll('1', "一");
+    mix = mix.replaceAll('2', "二");
+    mix = mix.replaceAll('3', "三");
+    mix = mix.replaceAll('4', "四");
+    mix = mix.replaceAll('5', "五");
+    mix = mix.replaceAll('6', "六");
+    mix = mix.replaceAll('7', "七");
+    mix = mix.replaceAll('8', "八");
+    mix = mix.replaceAll('9', "九");
+    mix = mix.replaceAll('0', "零");
+
+    return mix.chineseNumber;
   }
 }
