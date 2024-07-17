@@ -96,11 +96,10 @@ extension ClipWidget on Widget {
     );
   }
 
-  ClipRRect clipRRect({RRect Function(Size)? clip, double? borderRadius}) {
+  ClipRRect clipRRect({RRect Function(Size)? clip, double borderRadius = 4}) {
     return _clipRRectCustom(
         clipper: clip == null ? null : _ClipRRect(clip),
-        borderRadius:
-            borderRadius == null ? null : BorderRadius.circular(borderRadius));
+        borderRadius: borderRadius);
   }
 
   ClipOval _clipRoundCustom(

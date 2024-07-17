@@ -39,7 +39,6 @@ export './ui/help.dart';
 export './ui/help_item.dart';
 export './ui/clip.dart';
 export './ui/multi_image_bar_with_picker.dart';
-export './ui/tag_grid.dart';
 export './ui/image_bar_with_picker.dart';
 
 export './database/db_interface.dart';

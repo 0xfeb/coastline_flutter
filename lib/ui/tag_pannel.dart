@@ -2,23 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../draw/resource.dart';
 
-<<<<<<<< HEAD:lib/ui/tag_grid.dart
-/// >>> Tag选择格子 >>>
-class TagGrid extends StatefulWidget {
-========
 import 'widget_extra.dart';
 
 class TagPannel extends StatefulWidget {
->>>>>>>> master:lib/ui/tag_pannel.dart
   final int selected;
   final Function(int) onSelect;
   final List<IconData> icons;
 
-<<<<<<<< HEAD:lib/ui/tag_grid.dart
-  const TagGrid({
-========
   const TagPannel({
->>>>>>>> master:lib/ui/tag_pannel.dart
     Key? key,
     required this.selected,
     required this.onSelect,
@@ -26,17 +17,10 @@ class TagPannel extends StatefulWidget {
   }) : super(key: key);
 
   @override
-<<<<<<<< HEAD:lib/ui/tag_grid.dart
-  State<StatefulWidget> createState() => _TagGridState();
-}
-
-class _TagGridState extends State<TagGrid> {
-========
   State<StatefulWidget> createState() => _TagPannelState();
 }
 
 class _TagPannelState extends State<TagPannel> {
->>>>>>>> master:lib/ui/tag_pannel.dart
   int _selected = 0;
 
   @override
