@@ -4,7 +4,6 @@ import 'package:image_picker/image_picker.dart';
 
 import '../draw/resource.dart';
 import '../system/image_extra.dart';
-import '../system/image_extra.dart';
 import './clip.dart';
 import './context_extra.dart';
 import './mini_control.dart';
