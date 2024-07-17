@@ -1,15 +1,17 @@
-import '../system/image_extra.dart';
 import 'package:flutter/material.dart';
+
 import 'package:image_picker/image_picker.dart';
 
-import './multi_widget.dart';
-import './widget_extra.dart';
-import './text_display.dart';
-import './pad.dart';
-import './clip.dart';
 import '../draw/resource.dart';
-import './mini_control.dart';
+import '../system/image_extra.dart';
+import '../system/image_extra.dart';
+import './clip.dart';
 import './context_extra.dart';
+import './mini_control.dart';
+import './multi_widget.dart';
+import './pad.dart';
+import './text_display.dart';
+import './widget_extra.dart';
 
 class MultiImageBarWithPicker extends StatefulWidget {
   final String leadText;

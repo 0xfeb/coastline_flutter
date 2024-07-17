@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'value.dart';
+
 extension ListExtra<T> on List<T> {
   /// >>> 混合插入两个list >>>
   List<T> mixList(List<T> next) {
@@ -147,18 +149,24 @@ extension ListExtra<T> on List<T> {
     return result;
   }
 
-  // Pair<List<T>, List<T>> devide2({required List<T> gap, bool reseve = false}) {
-  //   //
-  // }
-
-  // Triple<List<T>, List<T>, List<T>> devide3(
-  //     {required List<T> gap, bool reseve = false}) {
-  //   //
-  // }
-
-  // Iterable<List<T>> devide({required List<T> gap}) {
-  //   //
-  // }
+  // 两个数组比较
+  bool compare<V>(Iterable<V> list, {Compare? c}) {
+    if (list.length != this.length) {
+      return false;
+    }
+    for (int i = 0; i < list.length; i++) {
+      if (c == null) {
+        if (elementAt(i) != list.elementAt(i)) {
+          return false;
+        }
+      } else {
+        if (!c(elementAt(i), list.elementAt(i))) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
 
 /// >>> 产生一个序列列表 >>>

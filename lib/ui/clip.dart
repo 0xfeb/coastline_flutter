@@ -84,12 +84,12 @@ extension ClipWidget on Widget {
 
   ClipRRect _clipRRectCustom(
       {Key? key,
-      BorderRadius? borderRadius,
+      double borderRadius = 5.0,
       CustomClipper<RRect>? clipper,
       Clip clipBehavior = Clip.hardEdge}) {
     return ClipRRect(
       key: key,
-      borderRadius: borderRadius,
+      borderRadius: BorderRadius.circular(5.0),
       clipper: clipper,
       clipBehavior: clipBehavior,
       child: this,
