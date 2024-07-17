@@ -48,7 +48,7 @@ extension TextDisplay on String {
       TextWidthBasis? textWidthBasis,
       TextHeightBehavior? textHeightBehavior}) {
     return Text(this,
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.headlineSmall,
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
@@ -78,7 +78,7 @@ extension TextDisplay on String {
       TextWidthBasis? textWidthBasis,
       TextHeightBehavior? textHeightBehavior}) {
     return Text(this,
-        style: Theme.of(context).textTheme.subtitle1,
+        style: Theme.of(context).textTheme.titleSmall,
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
@@ -108,7 +108,7 @@ extension TextDisplay on String {
       TextWidthBasis? textWidthBasis,
       TextHeightBehavior? textHeightBehavior}) {
     return Text(this,
-        style: Theme.of(context).textTheme.bodyText1,
+        style: Theme.of(context).textTheme.bodyMedium,
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
@@ -138,7 +138,7 @@ extension TextDisplay on String {
       TextWidthBasis? textWidthBasis,
       TextHeightBehavior? textHeightBehavior}) {
     return Text(this,
-        style: Theme.of(context).textTheme.bodyText2,
+        style: Theme.of(context).textTheme.bodyMedium,
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
@@ -168,7 +168,7 @@ extension TextDisplay on String {
       TextWidthBasis? textWidthBasis,
       TextHeightBehavior? textHeightBehavior}) {
     return Text(this,
-        style: Theme.of(context).textTheme.button,
+        style: Theme.of(context).textTheme.labelMedium,
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
