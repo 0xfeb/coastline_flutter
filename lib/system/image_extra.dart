@@ -8,7 +8,7 @@ import 'file_path.dart';
 
 /// >>> 文件图像, 从Storage ID获取图像 >>>
 FileImage? imageFromId(String storageId) {
-  String destPath = FilePath().imageFilename(storageId);
+  String destPath = FilePath.imagePath + storageId;
   print('load image from -> $destPath');
   File file = File(destPath);
   if (file.existsSync()) {
@@ -21,14 +21,14 @@ FileImage? imageFromId(String storageId) {
 
 /// >>> 文件图像, 从Storage ID获取图像, 同步 >>>
 Future<FileImage?> imageFromIdAsync(String storageId) async {
-  await FilePath().setup();
+  await FilePath.setup();
   return imageFromId(storageId);
 }
 
 /// >>> 拷贝一个文件到Storage ID >>>
 String? imageToStorage(String sourcePath) {
   String uuid = Uuid().v4();
-  String destFile = FilePath().imageFilename(uuid);
+  String destFile = FilePath.imagePath + uuid;
   File file = File(sourcePath);
   if (file.existsSync()) {
     file.copySync(destFile);
@@ -40,7 +40,7 @@ String? imageToStorage(String sourcePath) {
 
 /// >>> 拷贝一个文件到Storage ID, 同步 >>>
 Future<String?> imageToStorageAsync(String sourcePath) async {
-  await FilePath().setup();
+  await FilePath.setup();
   return imageToStorage(sourcePath);
 }
 
@@ -65,7 +65,7 @@ extension ImageExtra on FileImage {
   /// >>> 存储图像, 自动返回一个Storage ID >>>
   String saveToStorage() {
     String uuid = Uuid().v4();
-    String destFile = FilePath().imageFilename(uuid);
+    String destFile = FilePath.imagePath + uuid;
     if (!File(destFile).existsSync()) {
       File(destFile).createSync(recursive: true);
     }
@@ -75,7 +75,7 @@ extension ImageExtra on FileImage {
 
   /// >>> 存储图像, 自动返回一个Storage ID, 同步 >>>
   Future<String> saveToStorageAsync() async {
-    await FilePath().setup();
+    await FilePath.setup();
     return saveToStorage();
   }
 }

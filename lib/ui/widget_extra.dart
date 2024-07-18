@@ -67,6 +67,15 @@ extension WidgetExtra on Widget {
     );
   }
 
+  ElevatedButton button(
+      {ButtonStyle? style, Color? color, required void Function()? onPressed}) {
+    return ElevatedButton(
+      style: style ?? ElevatedButton.styleFrom(backgroundColor: color),
+      child: this,
+      onPressed: onPressed,
+    );
+  }
+
   /// >>> 尺寸控件(宽度) >>>
   SizedBox widthBox(double width) {
     return SizedBox(

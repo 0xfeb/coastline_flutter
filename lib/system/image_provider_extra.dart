@@ -43,9 +43,9 @@ extension ImageProviderFileExtra on ImageProvider {
 
   /// >>> 存储到特定Storage库中去 >>>
   Future<String> saveToStorage({String? storageId}) async {
-    await FilePath().setup();
+    await FilePath.setup();
     String uuid = storageId ?? Uuid().v4();
-    String destFile = FilePath().imageFilename(uuid);
+    String destFile = FilePath.imagePath + uuid;
     await saveToFile(destFile);
 
     return uuid;

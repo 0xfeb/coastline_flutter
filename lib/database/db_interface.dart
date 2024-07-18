@@ -29,7 +29,9 @@ class DbInterface {
 
   setup() async {
     // get database file path
-    _dbFile = FilePath().db!;
+    _dbFile = await FilePath.dbAsync;
+
+    print("db file path: $_dbFile");
 
     // get database instance
     _dbInst =
@@ -40,6 +42,11 @@ class DbInterface {
         onCreate!(database, version);
       }
     });
+  }
+
+  // 销毁所有数据
+  Future close() async {
+    await _dbInst.close();
   }
 
   // 从一个table获取value
