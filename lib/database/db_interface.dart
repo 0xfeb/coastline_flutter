@@ -12,34 +12,33 @@ import '../system/file_path.dart';
 
 // 数据库操作实例
 class DbInterface {
-  static OnDatabaseCreateFn? onCreate;
-  static final DbInterface _instance = DbInterface._internal();
+  DbInterface._privateConstructor();
+
+  static Future<DbInterface> getInstance({OnDatabaseCreateFn? onCreate}) async {
+    DbInterface instance = DbInterface._privateConstructor();
+    await instance._initialize(onCreate: onCreate);
+    return instance;
+  }
+
   static String keyValueTableName = "config";
   static String keyColumnName = "key";
   static String valueColumnName = "value";
-  factory DbInterface() {
-    return _instance;
-  }
-  DbInterface._internal() {
-    setup();
-  }
 
-  late String _dbFile;
   late Database _dbInst;
 
-  setup() async {
+  _initialize({OnDatabaseCreateFn? onCreate}) async {
     // get database file path
-    _dbFile = await FilePath.dbAsync;
+    String dbFile = await FilePath.dbAsync;
 
-    print("db file path: $_dbFile");
+    print("db file path: $dbFile");
 
     // get database instance
     _dbInst =
-        await openDatabase(_dbFile, version: 1, onCreate: (database, version) {
+        await openDatabase(dbFile, version: 1, onCreate: (database, version) {
       database.execute(
           'create table $keyValueTableName ($keyColumnName text, $valueColumnName text)');
       if (onCreate != null) {
-        onCreate!(database, version);
+        onCreate(database, version);
       }
     });
   }
