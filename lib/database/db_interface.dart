@@ -4,10 +4,10 @@ import '../system/file_path.dart';
 
 (String, String) _tableKV(String key, Object? value) {
   if (value is num) {
-    return ('key', '$value');
+    return (key, '$value');
   }
 
-  return ('key', '"$value"');
+  return (key, '"$value"');
 }
 
 // 数据库操作实例
@@ -36,7 +36,7 @@ class DbInterface {
     _dbInst =
         await openDatabase(dbFile, version: 1, onCreate: (database, version) {
       database.execute(
-          'create table $keyValueTableName ($keyColumnName text, $valueColumnName text)');
+          'create table $keyValueTableName ($keyColumnName text NOT NULL PRIMARY KEY, $valueColumnName text)');
       if (onCreate != null) {
         onCreate(database, version);
       }
@@ -60,8 +60,10 @@ class DbInterface {
 
   // 往一个table写入key, value
   Future<int> setValue({required String key, required String value}) async {
-    return _dbInst.rawUpdate(
-        'insert or replace into $keyValueTableName ($keyColumnName, $valueColumnName) values ("$key", "$value") on conflict replace');
+    print(
+        'insert or replace into $keyValueTableName ($keyColumnName, $valueColumnName) values ("$key", "$value")');
+    return _dbInst.rawInsert(
+        'insert or replace into $keyValueTableName ($keyColumnName, $valueColumnName) values ("$key", "$value")');
   }
 
   // 读取一行数据
@@ -109,13 +111,15 @@ class DbInterface {
   // 添加一个数据, 通过keyValues, 指定列名和数据的合集
   Future<int> addObject(
       {required String table, required Map<String, Object?> keyValues}) async {
+    print(keyValues);
     List<(String, String)> kvs =
         keyValues.entries.where((element) => element.value != null).map((e) {
       return _tableKV(e.key, e.value);
     }).toList();
+    print(kvs);
     String key = kvs.map((item) => item.$1).join(',');
     String value = kvs.map((item) => item.$2).join(',');
-    return rawUpdate('insert into $table ($key) values ($value)');
+    return rawUpdate('insert or replace into $table ($key) values ($value)');
   }
 
   // 更改一个数据
@@ -126,7 +130,7 @@ class DbInterface {
   // 更改一个数据, 通过KeyValues, 指定列名和数据的合集
   Future<int> update(
       {required String table,
-      required int rawId,
+      required int rowid,
       required Map<String, Object?> keyValues}) async {
     String action =
         keyValues.entries.where((element) => element.value != null).map((e) {
@@ -136,7 +140,8 @@ class DbInterface {
         return '${e.key}="${e.value}"';
       }
     }).join(",");
-    return rawUpdate('update $table set $action where rawid=$rawId');
+    print('update $table set $action where rowid=$rowid');
+    return rawUpdate('update $table set $action where rowid=$rowid');
   }
 
   // 删除一个数据
@@ -144,9 +149,9 @@ class DbInterface {
     return _dbInst.rawDelete(action, arguments);
   }
 
-  // 删除一个数据, 通过rawId
-  Future deleteById({required String table, required int rawId}) async {
-    return rawDelete('delete $table where rawid=$rawId');
+  // 删除一个数据, 通过rowid
+  Future deleteById({required String table, required int rowid}) async {
+    return rawDelete('delete from $table where rowid=$rowid');
   }
 
   // 删除一个数据, 通过KeyValues, 指定列名和数据的合集
@@ -160,6 +165,6 @@ class DbInterface {
         return '${e.key}="${e.value}"';
       }
     }).join(" and ");
-    return rawDelete('delete $table where $action');
+    return rawDelete('delete from $table where $action');
   }
 }

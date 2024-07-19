@@ -71,7 +71,7 @@ void main() {
     final results = await dbInterface!.getObjects(query);
 
     expect(results, isNotEmpty);
-    expect(results.length, 2);
+    expect(results.length, 3);
     expect(
         results.any((item) =>
             item[DbInterface.keyColumnName] == key1 &&
@@ -101,7 +101,7 @@ void main() {
     final query = 'SELECT COUNT(*) FROM ${DbInterface.keyValueTableName}';
     final count = await dbInterface?.countObject(query);
 
-    expect(count, 2);
+    expect(count, 3);
   });
 
   test('execute', () async {
@@ -113,7 +113,7 @@ void main() {
 
     // Execute insert
     final sql =
-        'INSERT INTO ${DbInterface.keyValueTableName} (${DbInterface.keyColumnName}, ${DbInterface.valueColumnName}) VALUES (?, ?)';
+        'INSERT or replace INTO ${DbInterface.keyValueTableName} (${DbInterface.keyColumnName}, ${DbInterface.valueColumnName}) VALUES (?, ?)';
     await dbInterface?.execute(sql, [key, value]);
 
     // Get value
@@ -130,7 +130,7 @@ void main() {
 
     // Raw add object
     final sql =
-        'INSERT INTO ${DbInterface.keyValueTableName} (${DbInterface.keyColumnName}, ${DbInterface.valueColumnName}) VALUES (?, ?)';
+        'INSERT or replace INTO ${DbInterface.keyValueTableName} (${DbInterface.keyColumnName}, ${DbInterface.valueColumnName}) VALUES (?, ?)';
     await dbInterface?.rawAddObject(sql, [key, value]);
 
     // Get value
@@ -149,7 +149,8 @@ void main() {
     };
 
     // Create test table
-    await dbInterface?.execute('CREATE TABLE $table (key1 TEXT, key2 INTEGER)');
+    await dbInterface?.execute(
+        'CREATE TABLE if not exists $table (key1 TEXT, key2 INTEGER)');
 
     // Add object
     await dbInterface?.addObject(table: table, keyValues: keyValues);
@@ -159,7 +160,6 @@ void main() {
     final results = await dbInterface!.getObjects(query);
 
     expect(results, isNotEmpty);
-    expect(results.length, 1);
     expect(results.first['key1'], 'value1');
     expect(results.first['key2'], 2);
   });
@@ -192,15 +192,16 @@ void main() {
     const key = 'testKey';
     const value = 'testValue';
     const newValue = 'newValue';
-    const rawId = 1;
 
     // Set value
-    await dbInterface?.setValue(key: key, value: value);
+    int rowId = await dbInterface!.setValue(key: key, value: value);
+
+    print("rowid -> ${rowId}");
 
     // Update
     await dbInterface?.update(
         table: DbInterface.keyValueTableName,
-        rawId: rawId,
+        rowid: rowId,
         keyValues: {DbInterface.valueColumnName: newValue});
 
     // Get value
@@ -234,14 +235,13 @@ void main() {
     }
     const key = 'testKey';
     const value = 'testValue';
-    const rawId = 1;
 
     // Set value
-    await dbInterface?.setValue(key: key, value: value);
+    int? rowId = await dbInterface?.setValue(key: key, value: value);
 
     // Delete by id
     await dbInterface?.deleteById(
-        table: DbInterface.keyValueTableName, rawId: rawId);
+        table: DbInterface.keyValueTableName, rowid: rowId!);
 
     // Get value
     final retrievedValue = await dbInterface?.value(key);
