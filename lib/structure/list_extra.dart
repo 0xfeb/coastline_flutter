@@ -118,10 +118,11 @@ extension ListExtra<T> on List<T> {
 
     int? result;
     int nLength = length - a.length;
+    print("find -> nlength $nLength");
     for (int i = 0; i < nLength; ++i) {
       result = i;
       for (int j = 0; j < a.length; ++j) {
-        if (this[i] != a[j]) {
+        if (this[i + j] != a[j]) {
           result = null;
           break;
         }
@@ -137,10 +138,12 @@ extension ListExtra<T> on List<T> {
 
     int? result;
     int nLength = length - a.length;
+    print("findLast -> nlength $nLength");
+
     for (int i = nLength - 1; i >= 0; ++i) {
       result = i;
       for (int j = a.length - 1; j >= 0; ++j) {
-        if (this[i] != a[j]) {
+        if (this[j - i] != a[j]) {
           result = null;
           break;
         }
