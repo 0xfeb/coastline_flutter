@@ -68,19 +68,19 @@ extension CStr on String {
 
   String trimStringLeft(String trim) {
     if (startsWith(trim)) {
-      return substring(0, length - trim.length);
+      return substring(trim.length);
     }
     return this;
   }
 
   String trimStringRight(String trim) {
     if (endsWith(trim)) {
-      return substring(trim.length);
+      return substring(0, length - trim.length);
     }
     return this;
   }
 
   String combine(String gap, String tail) {
-    return trimStringRight(gap) + gap + trimStringLeft(tail);
+    return trimStringRight(gap) + gap + tail.trimStringLeft(gap);
   }
 }
