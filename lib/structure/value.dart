@@ -31,6 +31,10 @@ int len(dynamic v) {
     return v.length;
   }
 
+  if (v is TextEditingController) {
+    return v.text.length;
+  }
+
   return 1;
 }
 
@@ -39,18 +43,3 @@ typedef Check<KV> = bool Function(KV);
 
 // 比较工具函数
 typedef Compare<V> = bool Function(V, V);
-
-/// >>> 从组合数据中判断取得的数据 >>>
-extension PairJudge<T> on List<T> {
-  T? judge(List<bool> line) {
-    for (int i = 0; i < line.length; ++i) {
-      if (line[i]) {
-        return this[i];
-      }
-    }
-    if (length > line.length) {
-      return this.last;
-    }
-    return null;
-  }
-}
