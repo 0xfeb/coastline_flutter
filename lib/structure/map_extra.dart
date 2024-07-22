@@ -22,17 +22,17 @@ extension MapExtra on Map {
     }
 
     if (isNotEmpty(key)) {
-      for (final key in keys) {
-        if (key!(key)) {
-          return MapEntry(key, this[key]);
+      for (final entry in entries) {
+        if (key!(entry.key)) {
+          return MapEntry(entry.key, entry.value);
         }
       }
     }
 
     if (isNotEmpty(value)) {
-      for (final value in values) {
-        if (value!(value)) {
-          return MapEntry(keys.first, value);
+      for (final entry in entries) {
+        if (value!(entry.value)) {
+          return MapEntry(entry.key, entry.value);
         }
       }
     }
