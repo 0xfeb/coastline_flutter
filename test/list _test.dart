@@ -1,5 +1,3 @@
-import 'dart:core';
-
 import 'package:flutter_test/flutter_test.dart';
 
 import '../lib/structure/list_extra.dart';
@@ -83,14 +81,12 @@ void main() {
     test('indicate - get indexed list', () {
       final list = [1, 2, 3];
       List<MapEntry<int, int>> l1 = list.indicate.toList();
-      print(l1);
       List<MapEntry<int, int>> l2 = [
         MapEntry(0, 1),
         MapEntry(1, 2),
         MapEntry(2, 3)
       ];
-      print(l2);
-      expect((MapEntry(0, 1) == MapEntry(0, 1)), isTrue);
+      expect(l1.equalTo(l2), isTrue);
     });
 
     test('find - list contains the sublist', () {

@@ -2,6 +2,28 @@ import 'dart:math';
 
 import 'value.dart';
 
+extension MapEntryExtra<K, V> on MapEntry<K, V> {
+  bool equalTo(MapEntry<K, V> other) {
+    return this.key == other.key && this.value == other.value;
+  }
+}
+
+extension MapEntryListExtra<K, V> on List<MapEntry<K, V>> {
+  bool equalTo(List<MapEntry<K, V>> other) {
+    if (this.length != other.length) {
+      return false;
+    }
+
+    for (int i = 0; i < this.length; ++i) {
+      if (!this[i].equalTo(other[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
+
 extension ListExtra<T> on List<T> {
   /// >>> 混合插入两个list >>>
   List<T> mixList(List<T> next) {
@@ -138,14 +160,16 @@ extension ListExtra<T> on List<T> {
 
     int? result;
     int nLength = length - a.length;
-    print("findLast -> nlength $nLength");
 
-    for (int i = nLength - 1; i >= 0; ++i) {
+    for (int i = nLength; i >= 0; --i) {
       result = i;
-      for (int j = a.length - 1; j >= 0; ++j) {
-        if (this[j - i] != a[j]) {
+      for (int j = 0; j < a.length; ++j) {
+        if (this[j + i] != a[j]) {
           result = null;
           break;
+        }
+        if (j == a.length - 1) {
+          return result;
         }
       }
     }
