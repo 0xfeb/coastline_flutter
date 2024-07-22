@@ -41,11 +41,11 @@ extension DateTimeExtra on DateTime {
     String h = hour.digitsString(digitNumber: 2);
     String min = minute.digitsString(digitNumber: 2);
     String sec = second.digitsString(digitNumber: 2);
-    if (d > Duration(days: 3)) {
+    if (d >= Duration(days: 3)) {
       return dateTimeString;
-    } else if (d > Duration(days: 2)) {
+    } else if (d >= Duration(days: 2)) {
       return '前天 $h:$min:$sec';
-    } else if (d > Duration(days: 1)) {
+    } else if (d >= Duration(days: 1)) {
       return '昨天 $h:$min:$sec';
     } else {
       return '今天 $h:$min:$sec';
