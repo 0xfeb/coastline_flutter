@@ -11,6 +11,7 @@ void main() {
 
     setUp(() {
       token = CToken(key);
+      print(token);
     });
 
     test('verify should return true for a valid JWT', () async {
