@@ -14,15 +14,22 @@ class CFile {
   }
 
   createPath() {
-    Directory(filename).createSync(recursive: true);
+    print(Directory(filename));
+    try {
+      Directory(filename).createSync(recursive: true);
+    } catch (e) {
+      print(e);
+    }
   }
 
   createSubFile(String subname) {
-    File('$filename/$subname').createSync(recursive: true);
+    File('$filename${Platform.pathSeparator}$subname')
+        .createSync(recursive: true);
   }
 
   createSubPath(String subname) {
-    Directory('$filename/$subname').createSync(recursive: true);
+    Directory('$filename${Platform.pathSeparator}$subname')
+        .createSync(recursive: true);
   }
 
   remove() {
@@ -30,7 +37,7 @@ class CFile {
   }
 
   removeSub(String subname) {
-    File('$filename/$subname').deleteSync();
+    File('$filename${Platform.pathSeparator}$subname').deleteSync();
   }
 
   CFile get parent {
@@ -38,11 +45,11 @@ class CFile {
   }
 
   CFile subFile(String subname) {
-    return CFile('$filename/$subname');
+    return CFile('$filename${Platform.pathSeparator}$subname');
   }
 
   CFile slibing(String name) {
-    return CFile('${parent.filename}/$name');
+    return CFile('${parent.filename}${Platform.pathSeparator}$name');
   }
 
   moveTo(String dest) {
