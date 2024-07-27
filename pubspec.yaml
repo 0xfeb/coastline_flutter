@@ -37,6 +37,8 @@ dev_dependencies:
 
   sqflite_common_ffi: ^2.3.3
 
+  mockito: ^5.4.4
+
 flutter:
   # To add assets to your package, add an assets section, like this:
   # assets:
