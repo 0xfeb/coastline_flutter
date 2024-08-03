@@ -28,7 +28,6 @@ export "structure/value.dart";
 
 export "system/file.dart";
 export "system/file_path.dart";
-export "system/http.dart";
 export "system/image_extra.dart";
 export "system/image_provider_extra.dart";
 
