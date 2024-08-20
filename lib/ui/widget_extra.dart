@@ -58,6 +58,29 @@ extension WidgetExtra on Widget {
     );
   }
 
+  Container gradientBox(
+      {double? width,
+      double? height,
+      Gradient? gradient,
+      EdgeInsets? padding,
+      double borderSize = 1,
+      Color borderColor = Colors.black,
+      double? cornerRadius}) {
+    BoxDecoration decoration = BoxDecoration(
+      gradient: gradient,
+      borderRadius:
+          cornerRadius != null ? BorderRadius.circular(cornerRadius) : null,
+      border: Border.all(width: borderSize, color: borderColor),
+    );
+    return Container(
+      width: width,
+      height: height,
+      padding: padding,
+      decoration: decoration,
+      child: this,
+    );
+  }
+
   /// >>> 尺寸控件 >>>
   SizedBox sized({Size? size, double? height, double? width}) {
     return SizedBox(

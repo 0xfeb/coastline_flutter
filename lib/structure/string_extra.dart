@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/widgets.dart';
+
 extension StringExtra on String {
   /// >>> 通过gap字符串分割字符串, 从前到后分析
   (String?, String?) apartBy(String gap) {
@@ -84,7 +86,7 @@ extension CStr on String {
     return trimStringRight(gap) + gap + tail.trimStringLeft(gap);
   }
 
-  String get print {
+  String print() {
     debugPrint(this);
     return this;
   }
