@@ -83,4 +83,9 @@ extension CStr on String {
   String combine(String gap, String tail) {
     return trimStringRight(gap) + gap + tail.trimStringLeft(gap);
   }
+
+  String get print {
+    debugPrint(this);
+    return this;
+  }
 }
