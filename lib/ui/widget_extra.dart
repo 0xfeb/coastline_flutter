@@ -70,7 +70,9 @@ extension WidgetExtra on Widget {
       gradient: gradient,
       borderRadius:
           cornerRadius != null ? BorderRadius.circular(cornerRadius) : null,
-      border: Border.all(width: borderSize, color: borderColor),
+      border: borderSize == 0
+          ? null
+          : Border.all(width: borderSize, color: borderColor),
     );
     return Container(
       width: width,
