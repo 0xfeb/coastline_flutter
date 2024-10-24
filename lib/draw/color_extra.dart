@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../structure/number_extra.dart';
 import '../structure/list_extra.dart';
+import '../structure/number_extra.dart';
 
 /// >>> 几种常用色彩 >>>
 enum ColorName { red, orange, yellow, green, cyan, blue, purple, pink }
