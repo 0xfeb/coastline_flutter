@@ -64,7 +64,7 @@ class _ImageSelectorState extends State<ImageSelector> {
 
     _inBusy = true;
     print('>>>> 1');
-    PickedFile? file = await _imagePicker.getImage(source: source);
+    XFile? file = await _imagePicker.pickImage(source: source);
     print('>>>> 2');
     if (file != null) {
       setState(() => _imageFileList.add(file.path));
