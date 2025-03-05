@@ -10,6 +10,9 @@ import 'package:uuid/uuid.dart';
 import 'file_path.dart';
 
 extension ImageProviderFileExtra on ImageProvider {
+  /// 将ImageProvider转换为ui.Image对象
+  /// 
+  /// 返回一个Future<ui.Image>对象
   Future<ui.Image> _toImage() async {
     Completer<ui.Image> completer = Completer<ui.Image>();
     late ImageStreamListener listener;
@@ -23,6 +26,9 @@ extension ImageProviderFileExtra on ImageProvider {
     return completer.future;
   }
 
+  /// 获取Image对象
+  /// 
+  /// 返回一个Image对象
   Image get image {
     return Image(
       image: this,
@@ -30,7 +36,10 @@ extension ImageProviderFileExtra on ImageProvider {
     );
   }
 
-  /// >>> 存储到文件中去 >>>
+  /// 将图像保存到指定文件路径
+  /// 
+  /// [filePath] 文件路径
+  /// 返回一个Future对象
   Future saveToFile(String filePath) async {
     ui.Image image = await _toImage();
     var bytes = await (image.toByteData(format: ui.ImageByteFormat.png)
@@ -41,7 +50,10 @@ extension ImageProviderFileExtra on ImageProvider {
     file.writeAsBytesSync(ul);
   }
 
-  /// >>> 存储到特定Storage库中去 >>>
+  /// 将图像保存到特定Storage库中
+  /// 
+  /// [storageId] 存储ID，可选参数
+  /// 返回一个Future<String>对象，表示存储ID
   Future<String> saveToStorage({String? storageId}) async {
     await FilePath.setup();
     String uuid = storageId ?? Uuid().v4();

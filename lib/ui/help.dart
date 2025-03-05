@@ -3,6 +3,17 @@ import 'package:flutter/material.dart';
 import './help_item.dart';
 import './widget_extra.dart';
 
+/// 显示全屏帮助提示对话框
+///
+/// 该函数通过[showGeneralDialog]创建全屏透明对话框，使用[DrawView]绘制多个帮助项
+///
+/// @param context 构建上下文，用于对话框的创建和导航
+/// @param items 帮助项列表，每个[HelpItem]包含：
+///   - text: 显示的文字内容
+///   - arrowPoint: 箭头尖端坐标（相对屏幕比例）
+///   - endPoint: 文本终点坐标（相对屏幕比例）
+///   - color: 绘制颜色
+/// @return 通过[showGeneralDialog]返回Dialog实现，无显式返回值
 showHelp({required BuildContext context, required List<HelpItem> items}) {
   Size size = MediaQuery.of(context).size;
   List<Widget> children = [

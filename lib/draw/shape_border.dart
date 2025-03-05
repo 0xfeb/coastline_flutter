@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 import 'path_extra.dart';
 
 /// >>> 对话框边框 >>>
+/// 对话框气泡边框（带箭头）
+///
+/// 适用于聊天对话框样式的自定义边框，底部带三角形箭头
 class ChatPopBorder extends ShapeBorder {
   final double offset;
   final Size arrowSize;
   final double? position;
 
-  ChatPopBorder({
+  /// @param offset 箭头水平偏移比例（0.0~1.0）
+/// @param arrowSize 箭头尺寸（宽/高）
+/// @param position 箭头绝对定位位置（可覆盖offset参数）
+ChatPopBorder({
     this.offset = 0.8,
     this.arrowSize = const Size(10, 10),
     this.position,
@@ -32,7 +38,13 @@ class ChatPopBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path a = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
@@ -80,6 +92,9 @@ class ChatPopBorder extends ShapeBorder {
 }
 
 // todo: tagBorder
+/// 标签边框
+///
+/// 带有圆形镂空标记的标签样式边框，左侧带半圆形切口
 class TagBorder extends ShapeBorder {
   TagBorder();
 
@@ -100,7 +115,13 @@ class TagBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> pointList = [
       Offset(0, rect.height / 2),
       Offset(rect.height / 2, 0),
@@ -133,6 +154,10 @@ class TagBorder extends ShapeBorder {
 }
 
 /// >>> 电影票据类型的边框 >>>
+/// 电影票边框
+///
+/// 两侧带有半圆形切口的电影票样式边框
+/// @param cutSize 切口尺寸
 class TicketBorder extends ShapeBorder {
   final double cutSize;
 
@@ -149,7 +174,13 @@ class TicketBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path path1 = PathExtra.rect(Rect.fromLTWH(0, 0, rect.width, rect.height));
     double n = (rect.height - cutSize / 2) / (3 * cutSize / 2);
     int np = n.toInt();
@@ -180,6 +211,11 @@ class TicketBorder extends ShapeBorder {
   }
 }
 
+/// 生成随机间隔的位置列表
+///
+/// @param limit 总长度限制
+/// @param count 需要生成的间隔数量
+/// @return 包含均匀间隔位置值的列表
 List<double> _randomList(double limit, int count) {
   //Random r = Random();
   List<double> result = [0];
@@ -196,6 +232,12 @@ List<double> _randomList(double limit, int count) {
   return result;
 }
 
+/// 生成随机锯齿点集合
+///
+/// @param limit 水平方向总长度
+/// @param count 需要生成的锯齿数量
+/// @param height 锯齿垂直高度
+/// @return 包含锯齿坐标点的集合
 List<Offset> _randomPoints(
     {required double limit, required int count, double height = 10}) {
   List<double> points = _randomList(limit, count);
@@ -211,6 +253,9 @@ List<Offset> _randomPoints(
 }
 
 /// >>> 单据边框, 上下都带有锯齿 >>>
+/// 完整票据边框
+///
+/// 上下边缘均带随机锯齿效果的票据样式边框
 class FullReceiptBorder extends ShapeBorder {
   FullReceiptBorder();
 
@@ -225,7 +270,13 @@ class FullReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     List<Offset> bottomPoints = _randomPoints(limit: rect.width, count: 30)
         .reversed
@@ -252,6 +303,9 @@ class FullReceiptBorder extends ShapeBorder {
 }
 
 /// >>> 票据边框, 上部带有锯齿 >>>
+/// 顶部票据边框
+///
+/// 仅上边缘带随机锯齿效果的票据样式边框
 class TopReceiptBorder extends ShapeBorder {
   TopReceiptBorder();
 
@@ -266,7 +320,13 @@ class TopReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     points.add(Offset(rect.width, rect.height));
     points.add(Offset(0, rect.height));
@@ -290,6 +350,9 @@ class TopReceiptBorder extends ShapeBorder {
 }
 
 /// >>> 票据边框, 下方带有锯齿 >>>
+/// 底部票据边框
+///
+/// 仅下边缘带随机锯齿效果的票据样式边框
 class BottomReceiptBorder extends ShapeBorder {
   BottomReceiptBorder();
 
@@ -304,7 +367,13 @@ class BottomReceiptBorder extends ShapeBorder {
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  /// 生成外轮廓路径
+///
+/// 1. 创建圆角矩形主体
+/// 2. 根据offset/position计算箭头位置
+/// 3. 组合路径形成对话框气泡形状
+/// @return 包含箭头的气泡路径
+Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30)
         .reversed
         .map((e) => e.translate(0, rect.height - 10))

@@ -6,7 +6,27 @@ import '../structure/list_extra.dart';
 import '../structure/number_extra.dart';
 
 /// >>> 几种常用色彩 >>>
-enum ColorName { red, orange, yellow, green, cyan, blue, purple, pink }
+/// 几种常用色彩枚举
+/// 
+/// 定义常用颜色的色相基准值，用于色彩处理
+enum ColorName {
+  /// 红色 - 色相0度
+  red,
+  /// 橙色 - 色相30度
+  orange,
+  /// 黄色 - 色相60度
+  yellow,
+  /// 绿色 - 色相120度
+  green,
+  /// 青色 - 色相180度
+  cyan,
+  /// 蓝色 - 色相240度
+  blue,
+  /// 紫色 - 色相260度
+  purple,
+  /// 粉色 - 色相300度
+  pink
+}
 
 double _hueOfColor(ColorName color) {
   switch (color) {
@@ -30,6 +50,10 @@ double _hueOfColor(ColorName color) {
 }
 
 /// >>> 生成随机颜色 >>>
+/// 
+/// [saturation] 饱和度，取值范围0.0-1.0（默认0.5）
+/// [value] 明度，取值范围0.0-1.0（默认0.5）
+/// @return 返回随机生成的HSV颜色对象
 Color randomColor({double saturation = 0.5, double value = 0.5}) {
   double hue = Random().nextDouble() * 360.0;
 
@@ -38,6 +62,10 @@ Color randomColor({double saturation = 0.5, double value = 0.5}) {
 
 extension ColorExtra on Color {
   /// >>> 获取当前颜色的相对色 >>>
+  /// 
+  /// 在HSV色轮上旋转180度得到反色，保持饱和度(saturation)
+  /// 和明度(value)不变
+  /// @return 新的颜色对象
   Color get oppositeHSV {
     final hsvColor = HSVColor.fromColor(this);
     return HSVColor.fromAHSV(

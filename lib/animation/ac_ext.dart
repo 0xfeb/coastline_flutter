@@ -2,6 +2,14 @@ import 'package:flutter/widgets.dart';
 
 // 动画控制器的扩展
 extension ACExt on AnimationController {
+  /// 创建一个动画对象
+  /// 
+  /// [startValue] 动画开始值
+  /// [endValue] 动画结束值
+  /// [curve] 动画曲线
+  /// [reverseCurve] 反向动画曲线
+  /// 
+  /// 返回一个动画对象
   Animation<V> animation<V>(V startValue, V endValue, Curve curve,
       {Curve? reverseCurve}) {
     final Animation<double> curveAnm =
@@ -10,20 +18,33 @@ extension ACExt on AnimationController {
   }
 }
 
-// 需要主类提供with SingleTickerProviderStateMinin
+// 需要主类提供with SingleTickerProviderStateMixin
 class CLAnimationController {
   final AnimationController _animationController;
 
+  /// 创建一个CLAnimationController实例
+  /// 
+  /// [vsync] 提供ticker的类
+  /// [duration] 动画持续时间，默认300毫秒
   CLAnimationController(
       {required TickerProvider vsync,
       Duration duration = const Duration(milliseconds: 300)})
       : _animationController =
             AnimationController(vsync: vsync, duration: duration);
 
+  /// 释放资源
   dispose() {
     _animationController.dispose();
   }
 
+  /// 构建动画Widget
+  /// 
+  /// [startValue] 动画开始值
+  /// [endValue] 动画结束值
+  /// [builder] 构建动画的回调函数
+  /// [child] 子Widget
+  /// 
+  /// 返回一个AnimatedBuilder对象
   Widget builder<T>(
       {required T startValue,
       required T endValue,

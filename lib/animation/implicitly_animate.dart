@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 // 隐式动画, 必须在属性上设置一个随着变量变化的值, 比如judge?a:b, 然后在setState中修改judge.
 
+/// 为Align组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedAlign组件。
 extension AlignAniExt on Align {
   AnimatedAlign animate(
       {Curve curve = Curves.linear,
@@ -19,7 +26,15 @@ extension AlignAniExt on Align {
   }
 }
 
-// 如果设置width和height, 会覆盖掉原控件的width和height
+/// 为Container组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+/// [width] 容器宽度。
+/// [height] 容器高度。
+///
+/// 返回一个AnimatedContainer组件。
 extension ContainerAniExt on Container {
   AnimatedContainer animate(
       {Curve curve = Curves.linear,
@@ -44,6 +59,13 @@ extension ContainerAniExt on Container {
   }
 }
 
+/// 为DefaultTextStyle组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedDefaultTextStyle组件。
 extension DefTextStyleExt on DefaultTextStyle {
   AnimatedDefaultTextStyle animate(
       {Curve curve = Curves.linear,
@@ -65,6 +87,13 @@ extension DefTextStyleExt on DefaultTextStyle {
   }
 }
 
+/// 为Opacity组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedOpacity组件。
 extension OpacityExt on Opacity {
   AnimatedOpacity animate(
       {Curve curve = Curves.linear,
@@ -81,6 +110,13 @@ extension OpacityExt on Opacity {
   }
 }
 
+/// 为Padding组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedPadding组件。
 extension PandingExt on Padding {
   AnimatedPadding animate(
       {Curve curve = Curves.linear,
@@ -96,6 +132,13 @@ extension PandingExt on Padding {
   }
 }
 
+/// 为Positioned组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedPositioned组件。
 extension PositionedExt on Positioned {
   AnimatedPositioned animate(
       {Curve curve = Curves.linear,
@@ -116,6 +159,13 @@ extension PositionedExt on Positioned {
   }
 }
 
+/// 为Theme组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为kThemeAnimationDuration。
+/// [onEnd] 动画结束时的回调函数。
+///
+/// 返回一个AnimatedTheme组件。
 extension ThemeExt on Theme {
   AnimatedTheme animate(
       {Curve curve = Curves.linear,
@@ -131,6 +181,20 @@ extension ThemeExt on Theme {
   }
 }
 
+/// 为PhysicalModel组件添加隐式动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+/// [color] 物理模型的颜色。
+/// [borderRadius] 边框圆角半径，默认为5.0。
+/// [clipBehavior] 剪裁行为，默认为Clip.none。
+/// [elevation] 阴影高度，默认为0。
+/// [shadowColor] 阴影颜色，默认为灰色。
+/// [shape] 形状，默认为BoxShape.rectangle。
+/// [child] 子组件。
+///
+/// 返回一个AnimatedPhysicalModel组件。
 extension PhysicalModelExt on PhysicalModel {
   AnimatedPhysicalModel animate(
       {Curve curve = Curves.linear,
@@ -158,6 +222,16 @@ extension PhysicalModelExt on PhysicalModel {
   }
 }
 
+/// 为Widget添加缩放动画效果。
+///
+/// [curve] 动画曲线，默认为线性。
+/// [duration] 动画持续时间，默认为300毫秒。
+/// [onEnd] 动画结束时的回调函数。
+/// [scale] 缩放比例。
+/// [alignment] 对齐方式，默认为Alignment.center。
+/// [filterQuality] 过滤质量。
+///
+/// 返回一个AnimatedScale组件。
 extension AnimateExt on Widget {
   AnimatedScale scaleAnimation(
       {Curve curve = Curves.linear,
@@ -177,6 +251,13 @@ extension AnimateExt on Widget {
         child: this);
   }
 
+  /// 为Widget添加交叉渐变动画效果。
+  ///
+  /// [duration] 动画持续时间，单位为毫秒。
+  /// [nextChild] 下一个子组件。
+  /// [showNext] 是否显示下一个子组件。
+  ///
+  /// 返回一个AnimatedCrossFade组件。
   AnimatedCrossFade animationCrossFade({
     required int duration,
     required Widget nextChild,
@@ -191,6 +272,17 @@ extension AnimateExt on Widget {
     );
   }
 
+  /// 为Widget添加Tween动画效果。
+  ///
+  /// [begin] 动画开始值。
+  /// [end] 动画结束值。
+  /// [duration] 动画持续时间，单位为毫秒。
+  /// [curve] 动画曲线，默认为线性。
+  /// [parentBuilder] 父组件构建器。
+  /// [key] 键。
+  /// [onEnd] 动画结束时的回调函数。
+  ///
+  /// 返回一个TweenAnimationBuilder组件。
   TweenAnimationBuilder animatedParent<T>(
       {required T begin,
       required T end,
@@ -210,6 +302,16 @@ extension AnimateExt on Widget {
     );
   }
 
+  /// 为Widget添加旋转动画效果。
+  ///
+  /// [curve] 动画曲线，默认为线性。
+  /// [duration] 动画持续时间，默认为300毫秒。
+  /// [onEnd] 动画结束时的回调函数。
+  /// [degree] 旋转角度。
+  /// [alignment] 对齐方式，默认为Alignment.center。
+  /// [filterQuality] 过滤质量。
+  ///
+  /// 返回一个AnimatedRotation组件。
   AnimatedRotation rotationAnimation(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
@@ -228,6 +330,14 @@ extension AnimateExt on Widget {
         child: this);
   }
 
+  /// 为Widget添加滑动动画效果。
+  ///
+  /// [curve] 动画曲线，默认为线性。
+  /// [duration] 动画持续时间，默认为300毫秒。
+  /// [onEnd] 动画结束时的回调函数。
+  /// [offset] 滑动偏移量。
+  ///
+  /// 返回一个AnimatedSlide组件。
   AnimatedSlide moveAnimation(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
@@ -242,7 +352,15 @@ extension AnimateExt on Widget {
         child: this);
   }
 
-  // 直接通过隐式数据调整对象的size即可
+  /// 为Widget添加大小动画效果。
+  ///
+  /// [curve] 动画曲线，默认为线性。
+  /// [alignment] 对齐方式，默认为Alignment.center。
+  /// [duration] 动画持续时间，默认为300毫秒。
+  /// [reverseDuration] 反向动画持续时间。
+  /// [clipBehavior] 剪裁行为，默认为Clip.hardEdge。
+  ///
+  /// 返回一个AnimatedSize组件。
   AnimatedSize sizeAnimation(
       {Curve curve = Curves.linear,
       Alignment alignment = Alignment.center,

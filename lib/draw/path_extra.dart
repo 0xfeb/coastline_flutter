@@ -2,22 +2,49 @@ import 'package:flutter/material.dart';
 
 import 'line.dart';
 
-/// >>> 组合Path >>>
+/// 路径联合操作
+///
+/// 将两个Path对象进行并集运算
+///
+/// @param path1 第一个路径对象
+/// @param path2 第二个路径对象
+/// @return 返回合并后的新Path对象
 Path _pathUnion(Path path1, Path path2) {
   return Path.combine(PathOperation.union, path1, path2);
 }
 
-/// >>> 在Path上挖洞 >>>
+/// 路径挖洞操作
+///
+/// 从基础路径中减去另一个路径区域
+///
+/// @param path1 基础路径对象
+/// @param path2 要减去的路径区域
+/// @return 返回挖洞后的新Path对象
 Path _pathHole(Path path1, Path path2) {
   return Path.combine(PathOperation.difference, path1, path2);
 }
 
-/// >>> 矩形Path >>>
+/// 创建矩形路径
+///
+/// @param rect 矩形区域
+/// @return 返回矩形路径对象
 Path _rectPath(Rect rect) {
   return Path()..addRect(rect);
 }
 
-/// >>> 圆角矩形Path >>>
+/// 创建圆角矩形路径
+///
+/// @param rect 矩形区域
+/// @param topLeftCorner 左上角圆角半径
+/// @param topRightCorner 右上角圆角半径
+/// @param bottomLeftCorner 左下角圆角半径
+/// @param bottomRightCorner 右下角圆角半径
+/// @param allCorners 统一设置所有圆角半径
+/// @param leftCorners 同时设置左右两侧圆角半径
+/// @param rightCorners 同时设置左右两侧圆角半径
+/// @param topCorners 同时设置上下两侧圆角半径
+/// @param bottomCorners 同时设置上下两侧圆角半径
+/// @return 返回圆角矩形路径对象
 Path _rrectPath(Rect rect,
     {double? topLeftCorner,
     double? topRightCorner,

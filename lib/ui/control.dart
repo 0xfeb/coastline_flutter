@@ -3,13 +3,23 @@ import 'package:flutter/material.dart';
 import 'widget_extra.dart';
 
 /// >>> 文本条 >>>
+/// 文本条控件
+///
+/// 提供带背景色的文字展示组件，支持自定义圆角、文字大小和颜色
 class TextBar extends StatelessWidget {
   final String text;
   final Color color;
   final Color textColor;
   final double fontSize;
   final double radius;
-
+  
+  /// 创建文本条组件
+  ///
+  /// [text] 需要显示的文本内容
+  /// [color] 背景颜色（默认蓝色）
+  /// [textColor] 文字颜色（默认白色）
+  /// [fontSize] 文字尺寸（默认14）
+  /// [radius] 圆角半径（默认4）
   TextBar(
     this.text, {
     this.color = Colors.blue,

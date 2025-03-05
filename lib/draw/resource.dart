@@ -5,8 +5,15 @@ import 'package:coastline/ui/pad.dart';
 import '../draw/color_extra.dart';
 import '../ui/widget_extra.dart';
 
+/// IconData扩展方法
+///
+/// 提供图标颜色、尺寸及容器样式的快速创建方法
 extension IconDataExtra on IconData {
-  /// >>> 图标 >>>
+  /// 创建基础图标
+  ///
+  /// @param color 图标颜色
+  /// @param size 图标尺寸（默认20）
+  /// @return 返回配置好的Icon组件
   Icon icon({required Color? color, double size = 20}) {
     return Icon(
       this,
@@ -15,12 +22,18 @@ extension IconDataExtra on IconData {
     );
   }
 
-  /// >>> 图标白色 >>>
+  /// 创建白色图标
+  ///
+  /// @param size 图标尺寸（默认20）
+  /// @return 返回白色Icon组件
   Icon iconWhite({double size = 20}) {
     return icon(size: size, color: Colors.white);
   }
 
-  /// >>> 图标黑色 >>>
+  /// 创建黑色图标
+  ///
+  /// @param size 图标尺寸（默认20）
+  /// @return 返回黑色Icon组件
   Icon iconBlack({double size = 20}) {
     return icon(size: size, color: Colors.black);
   }
@@ -59,13 +72,20 @@ extension IconDataExtra on IconData {
   }
 }
 
+/// ImageProvider扩展方法
+///
+/// 提供图片展示样式的快捷配置
 extension ImageProviderExtra on ImageProvider {
-  /// >>> 图形, 宽高比等比例填充 >>>
+  /// 等比例填充图片
+  ///
+  /// @return 返回BoxFit.cover样式的Image组件
   Image get image {
     return Image(image: this, fit: BoxFit.cover);
   }
 
-  /// >>> 图形, 宽高比失衡填充  >>>
+  /// 拉伸填充图片
+  ///
+  /// @return 返回BoxFit.fill样式的Image组件
   Image get imageFill {
     return Image(image: this, fit: BoxFit.fill);
   }

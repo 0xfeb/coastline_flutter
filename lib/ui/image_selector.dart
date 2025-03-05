@@ -12,6 +12,9 @@ import './pad.dart';
 import './text_display.dart';
 import './widget_extra.dart';
 
+/// 图片选择器组件
+///
+/// 提供相机/相册选择功能，支持图片预览和删除操作
 class ImageSelector extends StatefulWidget {
   final String leadText;
   final String emptyText;
@@ -24,7 +27,19 @@ class ImageSelector extends StatefulWidget {
   final List<String> imageFileList;
   final int imageLimit;
 
-  const ImageSelector({
+  /// 创建图片选择器
+///
+/// @param leadText 顶部引导文字
+/// @param emptyText 空状态提示文字
+/// @param onUpdateFileList 图片列表更新回调
+/// @param iconColor 图标颜色（默认蓝色）
+/// @param imageHeight 图片显示高度（默认80）
+/// @param deleteTitle 删除确认对话框标题
+/// @param deleteCancel 删除取消按钮文字
+/// @param deleteContent 删除确认内容
+/// @param imageFileList 初始图片路径列表
+/// @param imageLimit 允许选择的图片最大数量（默认1）
+const ImageSelector({
     Key? key,
     required this.leadText,
     required this.emptyText,
@@ -57,7 +72,11 @@ class _ImageSelectorState extends State<ImageSelector> {
     _imageFileList = widget.imageFileList;
   }
 
-  _onChooseImage(ImageSource source) async {
+  /// 处理图片选择操作
+///
+/// @param source 图片来源（相机/相册）
+/// @return 异步操作结果
+_onChooseImage(ImageSource source) async {
     if (_inBusy == true) {
       return;
     }
@@ -74,7 +93,14 @@ class _ImageSelectorState extends State<ImageSelector> {
     _inBusy = false;
   }
 
-  Widget _subPhoto(BuildContext context) {
+  /// 构建图片展示子组件
+///
+/// 根据当前图片列表状态显示：
+/// - 空状态：显示提示文字和操作按钮
+/// - 非空状态：水平滚动图片列表
+/// @param context 构建上下文
+/// @return 图片展示区域的Widget
+Widget _subPhoto(BuildContext context) {
     if (_imageFileList.isEmpty) {
       return widget.emptyText
           .text(style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20))
@@ -118,6 +144,11 @@ class _ImageSelectorState extends State<ImageSelector> {
   }
 
   @override
+  /// 构建组件主界面
+  ///
+  /// 组合引导文字和图片展示区域
+  /// @param context 构建上下文
+  /// @return 组件整体布局
   Widget build(BuildContext context) {
     return [
       _imageFileList.length > 0

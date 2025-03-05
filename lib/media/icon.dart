@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A list of default icons used throughout the application.
 const List<IconData> DEFAULT_ICONS = [
   Icons.account_balance_wallet,
   Icons.account_box,

@@ -12,6 +12,9 @@ import './pad.dart';
 import './text_display.dart';
 import './widget_extra.dart';
 
+/// 多图片选择展示栏组件
+///
+/// 提供相机/相册多图片选择功能，支持图片预览和删除操作
 class MultiImageBarWithPicker extends StatefulWidget {
   final String leadText;
   final String emptyText;
@@ -23,7 +26,18 @@ class MultiImageBarWithPicker extends StatefulWidget {
   final Function(List<String>) onUpdateFileList;
   final List<String> imageFileList;
 
-  const MultiImageBarWithPicker({
+  /// 创建多图片选择组件
+///
+/// @param leadText 顶部引导文字
+/// @param emptyText 空状态提示文字
+/// @param onUpdateFileList 图片列表更新回调
+/// @param iconColor 操作按钮颜色（默认蓝色）
+/// @param imageHeight 图片显示高度（默认80）
+/// @param deleteTitle 删除确认对话框标题
+/// @param deleteCancel 删除取消按钮文字
+/// @param deleteContent 删除确认内容
+/// @param imageFileList 初始图片路径列表
+const MultiImageBarWithPicker({
     Key? key,
     required this.leadText,
     required this.emptyText,
@@ -55,7 +69,12 @@ class _MultiImageBarWithPickerState extends State<MultiImageBarWithPicker> {
     _imageFileList = widget.imageFileList;
   }
 
-  _onChooseImage(ImageSource source) async {
+  /// 处理图片选择操作
+///
+/// @param source 图片来源枚举（相机/相册）
+/// @return 异步操作结果
+/// 选择完成后会更新图片列表并触发回调
+_onChooseImage(ImageSource source) async {
     if (_inBusy == true) {
       return;
     }
@@ -72,7 +91,14 @@ class _MultiImageBarWithPickerState extends State<MultiImageBarWithPicker> {
     _inBusy = false;
   }
 
-  Widget _subPhoto(BuildContext context) {
+  /// 构建图片展示子组件
+///
+/// 根据当前图片列表状态显示：
+/// - 空状态：显示提示文字
+/// - 非空状态：水平滚动图片列表，带删除按钮
+/// @param context 构建上下文
+/// @return 图片展示区域Widget
+Widget _subPhoto(BuildContext context) {
     if (_imageFileList.isEmpty) {
       return widget.emptyText
           .text(style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20))
@@ -116,6 +142,12 @@ class _MultiImageBarWithPickerState extends State<MultiImageBarWithPicker> {
   }
 
   @override
+  /// 构建主界面布局
+  ///
+  /// 包含：
+  /// - 顶部操作按钮（空状态时显示）
+  /// - 图片展示区域
+  /// - 状态切换逻辑
   Widget build(BuildContext context) {
     return [
       _imageFileList.length > 0

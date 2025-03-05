@@ -3,15 +3,39 @@ import 'package:flutter/material.dart';
 import 'widget_extra.dart';
 
 /// >>> 数字输入框 >>>
+/// 数字输入框组件
+///
+/// 提供带增减按钮的数字输入控件，支持最小值/最大值限制
+/// 包含文本输入框和左右两侧的增减按钮交互
 class NumberField extends StatelessWidget {
+  /// 按钮及边框的主题颜色
   final Color color;
+
+  /// 允许输入的最小值
   final int min;
+
+  /// 允许输入的最大值
   final int max;
+
+  /// 文本编辑控制器，用于获取/设置输入值
   final TextEditingController? controller;
+
+  /// 焦点控制节点，用于管理输入框焦点状态
   final FocusNode? focus;
+
+  /// 输入文本的样式设置
   final TextStyle style;
 
-  const NumberField(
+  /// 创建数字输入框
+///
+/// @param key 控件键
+/// @param color 按钮及边框颜色（默认蓝色）
+/// @param min 最小值限制（默认0）
+/// @param max 最大值限制（默认10000）
+/// @param controller 文本编辑控制器（可选）
+/// @param focus 焦点控制节点（可选）
+/// @param style 输入文本样式（默认30号字体）
+const NumberField(
       {Key? key,
       this.color = Colors.blue,
       this.min = 0,
@@ -21,8 +45,12 @@ class NumberField extends StatelessWidget {
       this.style = const TextStyle(fontSize: 30)})
       : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
+  /// 构建输入框组件
+///
+/// @param context 构建上下文
+/// @return 包含增减按钮的数字输入框组件
+@override
+Widget build(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
       controller: controller,
@@ -41,6 +69,10 @@ class NumberField extends StatelessWidget {
             ),
             child: Icon(Icons.remove, color: Colors.white),
           ).onTap(() {
+            // 处理减少数值逻辑
+            // 1. 获取当前数值并减1
+            // 2. 校验最小值限制
+            // 3. 更新控制器数值及光标位置
             int number = min;
             bool? textNotEmpty = controller?.text.isNotEmpty;
             if (textNotEmpty == true) {
@@ -66,6 +98,10 @@ class NumberField extends StatelessWidget {
             ),
             child: Icon(Icons.add, color: Colors.white),
           ).onTap(() {
+            // 处理增加数值逻辑
+            // 1. 获取当前数值并加1
+            // 2. 校验最大值限制
+            // 3. 更新控制器数值及光标位置
             int number = max;
             bool? textNotEmpty = controller?.text.isNotEmpty;
             if (textNotEmpty == true) {

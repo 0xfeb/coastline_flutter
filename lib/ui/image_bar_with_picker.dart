@@ -10,9 +10,16 @@ import './multi_widget.dart';
 import './clip.dart';
 import '../draw/path_extra.dart';
 
+/// 带图片选择功能的图像展示栏组件
+///
+/// [onUpdate] 图片路径更新时的回调函数，接收新的图片路径
 class ImageBarWithPicker extends StatefulWidget {
   final Function(String?)? onUpdate;
 
+  /// 构造方法
+  ///
+  /// [key] 组件唯一标识符
+  /// [onUpdate] 图片路径变更回调函数
   ImageBarWithPicker({Key? key, this.onUpdate}) : super(key: key);
 
   @override
@@ -31,7 +38,11 @@ class _ImageBarWithPickerState extends State<ImageBarWithPicker> {
     return _imageFile == null ? _emptyBar() : _fullBar();
   }
 
-  loadImage() {
+  /// 加载并旋转图片文件
+  ///
+  /// 使用[FlutterExifRotation]处理图片方向，
+  /// 更新_imageFile状态并触发界面重绘
+  void loadImage() {
     if (_imagePath != null) {
       setState(() async {
         _imageFile = await FlutterExifRotation.rotateImage(path: _imagePath!);
@@ -39,6 +50,11 @@ class _ImageBarWithPickerState extends State<ImageBarWithPicker> {
     }
   }
 
+  /// 构建空状态界面
+  ///
+  /// 包含：
+  /// - 相机拍摄按钮（灰色背景）
+  /// - 相册选择按钮（三角形布局）
   Widget _emptyBar() {
     return <Positioned>[
       Icons.camera
@@ -88,6 +104,11 @@ class _ImageBarWithPickerState extends State<ImageBarWithPicker> {
           .positioned(left: 0, right: 0, top: 0, bottom: 0),
 
       //
+      /// 图片删除按钮
+      ///
+      /// 点击后：
+      /// - 清空_imagePath状态
+      /// - 触发界面回退到空状态
       Icons.remove
           .icon(size: 10, color: Colors.white)
           .box(color: Colors.red)
