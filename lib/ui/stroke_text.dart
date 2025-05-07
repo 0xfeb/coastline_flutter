@@ -20,21 +20,21 @@ class StrokeText extends StatelessWidget {
   final int? maxLines;
 
   /// 创建描边文本组件
-///
-/// @param text 显示文本内容
-/// @param strokeCap 描边端点样式（默认圆形）
-/// @param strokeJoin 描边连接样式（默认圆形）
-/// @param strokeWidth 描边宽度（默认1.0）
-/// @param strokeColor 描边颜色（默认灰色）
-/// @param style 文本样式（可选）
-/// @param textAlign 文本对齐方式（可选）
-/// @param textDirection 文本方向（可选）
-/// @param locale 区域设置（可选）
-/// @param softWrap 是否自动换行（可选）
-/// @param overflow 文本溢出处理方式（可选）
-/// @param textScaleFactor 文本缩放因子（可选）
-/// @param maxLines 最大行数（可选）
-const StrokeText(this.text,
+  ///
+  /// @param text 显示文本内容
+  /// @param strokeCap 描边端点样式（默认圆形）
+  /// @param strokeJoin 描边连接样式（默认圆形）
+  /// @param strokeWidth 描边宽度（默认1.0）
+  /// @param strokeColor 描边颜色（默认灰色）
+  /// @param style 文本样式（可选）
+  /// @param textAlign 文本对齐方式（可选）
+  /// @param textDirection 文本方向（可选）
+  /// @param locale 区域设置（可选）
+  /// @param softWrap 是否自动换行（可选）
+  /// @param overflow 文本溢出处理方式（可选）
+  /// @param textScaleFactor 文本缩放因子（可选）
+  /// @param maxLines 最大行数（可选）
+  const StrokeText(this.text,
       {Key? key,
       this.strokeCap = StrokeCap.round,
       this.strokeJoin = StrokeJoin.round,
@@ -51,9 +51,9 @@ const StrokeText(this.text,
       : super(key: key);
 
   /// 构建描边文本组件
-///
-/// @return 包含描边效果的Text组件
-@override
+  ///
+  /// @return 包含描边效果的Text组件
+  @override
   Widget build(BuildContext context) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
@@ -74,7 +74,7 @@ const StrokeText(this.text,
       locale: locale,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      textScaler: TextScaler.linear(textScaleFactor ?? 1),
       maxLines: maxLines,
     );
   }
