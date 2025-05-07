@@ -11,11 +11,11 @@ class SwitchButton extends StatefulWidget {
   final Function(int index) onSwitch;
 
   /// 创建可切换按钮
-///
-/// @param displayList 需要切换显示的组件列表
-/// @param index 初始显示索引（默认0）
-/// @param onSwitch 切换回调函数
-SwitchButton(
+  ///
+  /// @param displayList 需要切换显示的组件列表
+  /// @param index 初始显示索引（默认0）
+  /// @param onSwitch 切换回调函数
+  SwitchButton(
       {required this.displayList, this.index = 0, required this.onSwitch});
 
   @override
@@ -36,6 +36,7 @@ class _SwitchButtonState extends State<SwitchButton> {
   }
 
   @override
+
   /// 构建切换按钮界面
   ///
   /// @return 返回当前显示的组件并添加点击切换功能

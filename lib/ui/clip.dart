@@ -81,7 +81,7 @@ class _ClipPath extends CustomClipper<Path> {
 ///
 /// 为任意Widget添加多种裁剪方式的扩展方法
 extension ClipWidget on Widget {
-    /// 自定义矩形裁剪
+  /// 自定义矩形裁剪
   ///
   /// 参数:
   /// - [key]: 组件键
@@ -99,7 +99,7 @@ extension ClipWidget on Widget {
     );
   }
 
-    /// 矩形裁剪快捷方法
+  /// 矩形裁剪快捷方法
   ///
   /// 参数:
   /// - [clip]: 定义裁剪区域的函数
@@ -113,7 +113,7 @@ extension ClipWidget on Widget {
     return _clipRectCustom(clipper: clip == null ? null : _ClipRect(clip));
   }
 
-    /// 自定义圆角矩形裁剪
+  /// 自定义圆角矩形裁剪
   ///
   /// 参数:
   /// - [key]: 组件键
@@ -134,7 +134,7 @@ extension ClipWidget on Widget {
     );
   }
 
-    /// 圆角矩形裁剪快捷方法
+  /// 圆角矩形裁剪快捷方法
   ///
   /// 参数:
   /// - [clip]: 定义圆角矩形区域的函数
@@ -151,7 +151,7 @@ extension ClipWidget on Widget {
         borderRadius: borderRadius);
   }
 
-    /// 自定义圆形裁剪
+  /// 自定义圆形裁剪
   ///
   /// 参数:
   /// - [key]: 组件键
@@ -169,7 +169,7 @@ extension ClipWidget on Widget {
     );
   }
 
-    /// 圆形裁剪快捷方法
+  /// 圆形裁剪快捷方法
   ///
   /// 参数:
   /// - [clip]: 定义裁剪区域的函数
@@ -183,7 +183,7 @@ extension ClipWidget on Widget {
     return _clipRoundCustom(clipper: clip == null ? null : _ClipRound(clip));
   }
 
-    /// 自定义路径裁剪
+  /// 自定义路径裁剪
   ///
   /// 参数:
   /// - [key]: 组件键
@@ -201,7 +201,7 @@ extension ClipWidget on Widget {
     );
   }
 
-    /// 路径裁剪快捷方法
+  /// 路径裁剪快捷方法
   ///
   /// 参数:
   /// - [clip]: 定义裁剪路径的函数

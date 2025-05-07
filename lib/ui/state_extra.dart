@@ -25,11 +25,11 @@ enum LoadState {
 /// 提供数据加载和弹窗返回的便捷方法
 extension StateHelper<T> on State {
   /// 带状态管理的异步数据加载方法
-///
-/// @param onState 状态回调函数（接收LoadState参数）
-/// @param action 实际执行的异步操作
-/// @return Future<void> 异步操作结果
-loadData(Function(LoadState) onState, Function() action) async {
+  ///
+  /// @param onState 状态回调函数（接收LoadState参数）
+  /// @param action 实际执行的异步操作
+  /// @return Future<void> 异步操作结果
+  loadData(Function(LoadState) onState, Function() action) async {
     onState(LoadState.init);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       if (mounted) {
@@ -41,11 +41,11 @@ loadData(Function(LoadState) onState, Function() action) async {
   }
 
   /// 带返回值的导航弹出方法
-///
-/// @param value 要返回的值
-/// @param updateScreen 是否需要更新界面（默认false）
-/// @return void
-pop(T value, {bool updateScreen = false}) {
+  ///
+  /// @param value 要返回的值
+  /// @param updateScreen 是否需要更新界面（默认false）
+  /// @return void
+  pop(T value, {bool updateScreen = false}) {
     Navigator.of(context).pop(PopValue(value, updateScreen));
   }
 }

@@ -15,15 +15,15 @@ class TagList extends StatelessWidget {
   final Color textColor;
 
   /// 创建标签列表组件
-///
-/// @param texts 标签文本列表
-/// @param selectedTag 当前选中的标签索引（默认0）
-/// @param fontSize 标签文字大小（默认16）
-/// @param onSelectTag 标签选择回调函数
-/// @param selectedColor 选中状态背景色（默认蓝色）
-/// @param unselectedColor 未选中状态背景色（默认灰色）
-/// @param textColor 文字颜色（默认白色）
-const TagList(
+  ///
+  /// @param texts 标签文本列表
+  /// @param selectedTag 当前选中的标签索引（默认0）
+  /// @param fontSize 标签文字大小（默认16）
+  /// @param onSelectTag 标签选择回调函数
+  /// @param selectedColor 选中状态背景色（默认蓝色）
+  /// @param unselectedColor 未选中状态背景色（默认灰色）
+  /// @param textColor 文字颜色（默认白色）
+  const TagList(
       {Key? key,
       this.texts,
       this.selectedTag = 0,
@@ -35,6 +35,7 @@ const TagList(
       : super(key: key);
 
   @override
+
   /// 构建标签列表界面
   ///
   /// @return 自动换行的标签列表组件

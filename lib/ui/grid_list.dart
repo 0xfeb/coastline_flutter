@@ -21,14 +21,19 @@ import 'pad.dart';
 class GridList extends StatelessWidget {
   /// 每行显示的元素数量
   final int rowNumber;
+
   /// 当前选中项的索引
   final int selectedIndex;
+
   /// 总项目数（可选，未设置时根据布局自动计算）
   final int? count;
+
   /// 选中项变更回调函数
   final Function(int)? onSelectIndex;
+
   /// 网格间距（单位：像素）
   final double spacing;
+
   /// 子项构建器
   ///
   /// @param selected 当前项是否被选中
@@ -46,6 +51,7 @@ class GridList extends StatelessWidget {
       this.spacing = 4})
       : super(key: key);
   @override
+
   /// 构建网格布局
   ///
   /// 使用[GridView.builder]实现动态布局，通过[SliverGridDelegateWithFixedCrossAxisCount]

@@ -12,7 +12,7 @@ class TextBar extends StatelessWidget {
   final Color textColor;
   final double fontSize;
   final double radius;
-  
+
   /// 创建文本条组件
   ///
   /// [text] 需要显示的文本内容

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// 为Widget添加便捷的padding扩展方法
-/// 
+///
 /// 示例：
 /// ```dart
 /// Container().pad(all: 10)
@@ -43,7 +43,7 @@ extension WidgetPadded on Widget {
 }
 
 /// 为Sliver组件添加便捷的padding扩展方法
-/// 
+///
 /// 示例：
 /// ```dart
 /// SliverList().pad(vertical: 8)

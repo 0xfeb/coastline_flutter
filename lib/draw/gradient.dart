@@ -5,18 +5,25 @@ import 'package:flutter/material.dart';
 enum Direction {
   /// 朝向下方
   toDown,
+
   /// 朝向上方
   toUp,
+
   /// 朝向右方
   toRight,
+
   /// 朝向左方
   toLeft,
+
   /// 朝向左上
   toTopLeft,
+
   /// 朝向右上
   toTopRight,
+
   /// 朝向左下
   toBottomLeft,
+
   /// 朝向右下
   toBottomRight,
 }

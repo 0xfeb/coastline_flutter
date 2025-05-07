@@ -21,10 +21,7 @@ class PathView extends StatelessWidget {
   /// @param paint 路径的绘制样式
   /// @param child 叠加在画布上的子组件
   const PathView(
-      {Key? key,
-      required this.path,
-      required this.paint,
-      this.child})
+      {Key? key, required this.path, required this.paint, this.child})
       : super(key: key);
 
   @override
@@ -60,6 +57,7 @@ class _PathViewPainter extends CustomPainter {
   }
 
   @override
+
   /// 判断是否需要重绘
   ///
   /// 由于路径参数通过PathView组件树传递，此处固定返回false

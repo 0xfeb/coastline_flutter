@@ -17,7 +17,7 @@ class ListBuilder {
 }
 
 extension ListBuilderWidget on ListBuilder {
-    /// 构建Sliver列表布局
+  /// 构建Sliver列表布局
   ///
   /// @param count 列表项总数
   /// @param gap 列表项之间的间隔组件
@@ -38,7 +38,7 @@ extension ListBuilderWidget on ListBuilder {
     }, childCount: count));
   }
 
-    /// 构建常规列表布局
+  /// 构建常规列表布局
   ///
   /// @param count 列表项总数
   /// @param gap 列表项之间的间隔组件

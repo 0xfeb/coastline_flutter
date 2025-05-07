@@ -11,7 +11,7 @@ import 'file_path.dart';
 
 extension ImageProviderFileExtra on ImageProvider {
   /// 将ImageProvider转换为ui.Image对象
-  /// 
+  ///
   /// 返回一个Future<ui.Image>对象
   Future<ui.Image> _toImage() async {
     Completer<ui.Image> completer = Completer<ui.Image>();
@@ -27,7 +27,7 @@ extension ImageProviderFileExtra on ImageProvider {
   }
 
   /// 获取Image对象
-  /// 
+  ///
   /// 返回一个Image对象
   Image get image {
     return Image(
@@ -37,7 +37,7 @@ extension ImageProviderFileExtra on ImageProvider {
   }
 
   /// 将图像保存到指定文件路径
-  /// 
+  ///
   /// [filePath] 文件路径
   /// 返回一个Future对象
   Future saveToFile(String filePath) async {
@@ -51,7 +51,7 @@ extension ImageProviderFileExtra on ImageProvider {
   }
 
   /// 将图像保存到特定Storage库中
-  /// 
+  ///
   /// [storageId] 存储ID，可选参数
   /// 返回一个Future<String>对象，表示存储ID
   Future<String> saveToStorage({String? storageId}) async {

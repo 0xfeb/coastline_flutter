@@ -4,7 +4,7 @@ import 'text_display.dart';
 import 'widget_extra.dart';
 
 /// 为字符串添加便捷按钮创建方法
-/// 
+///
 /// 示例：
 /// ```dart
 /// '提交'.cbutton(color: Colors.green)

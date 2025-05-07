@@ -9,15 +9,15 @@ enum IntrinsicDirection {
 }
 
 /// Widget扩展方法集合
-/// 
+///
 /// 提供各种常用Widget的快捷操作和功能扩展
 extension WidgetExtra on Widget {
   /// >>> 点击控件 >>>
   /// 添加点击事件
-///
-/// @param onTap 点击回调函数
-/// @return 返回带有点击效果的InkWell组件
-InkWell onTap(Function() onTap) {
+  ///
+  /// @param onTap 点击回调函数
+  /// @return 返回带有点击效果的InkWell组件
+  InkWell onTap(Function() onTap) {
     return InkWell(
       enableFeedback: false,
       child: this,
@@ -27,12 +27,12 @@ InkWell onTap(Function() onTap) {
 
   /// >>> 按下/释放控件 >>>
   /// 添加按压事件
-///
-/// @param onHold 按下回调（可选）
-/// @param onRelease 释放回调（可选）
-/// @param onFocusRelease 焦点释放回调（可选）
-/// @return 返回带有按压事件的GestureDetector组件
-Widget onPress(
+  ///
+  /// @param onHold 按下回调（可选）
+  /// @param onRelease 释放回调（可选）
+  /// @param onFocusRelease 焦点释放回调（可选）
+  /// @return 返回带有按压事件的GestureDetector组件
+  Widget onPress(
       {Function()? onHold, Function()? onRelease, Function()? onFocusRelease}) {
     return GestureDetector(
       child: this,
@@ -49,16 +49,16 @@ Widget onPress(
 
   /// >>> 容器控件 >>>
   /// 创建带边框的容器
-///
-/// @param width 容器宽度（可选）
-/// @param height 容器高度（可选）
-/// @param color 背景颜色（可选）
-/// @param padding 内边距（可选）
-/// @param borderSize 边框粗细（默认1）
-/// @param borderColor 边框颜色（默认黑色）
-/// @param cornerRadius 圆角半径（可选）
-/// @return 返回配置完成的Container组件
-Container box(
+  ///
+  /// @param width 容器宽度（可选）
+  /// @param height 容器高度（可选）
+  /// @param color 背景颜色（可选）
+  /// @param padding 内边距（可选）
+  /// @param borderSize 边框粗细（默认1）
+  /// @param borderColor 边框颜色（默认黑色）
+  /// @param cornerRadius 圆角半径（可选）
+  /// @return 返回配置完成的Container组件
+  Container box(
       {double? width,
       double? height,
       Color? color,
@@ -82,16 +82,16 @@ Container box(
   }
 
   /// 创建渐变背景容器
-///
-/// @param width 容器宽度（可选）
-/// @param height 容器高度（可选）
-/// @param gradient 渐变效果（可选）
-/// @param padding 内边距（可选）
-/// @param borderSize 边框粗细（默认1）
-/// @param borderColor 边框颜色（默认黑色）
-/// @param cornerRadius 圆角半径（可选）
-/// @return 返回带渐变背景的Container组件
-Container gradientBox(
+  ///
+  /// @param width 容器宽度（可选）
+  /// @param height 容器高度（可选）
+  /// @param gradient 渐变效果（可选）
+  /// @param padding 内边距（可选）
+  /// @param borderSize 边框粗细（默认1）
+  /// @param borderColor 边框颜色（默认黑色）
+  /// @param cornerRadius 圆角半径（可选）
+  /// @return 返回带渐变背景的Container组件
+  Container gradientBox(
       {double? width,
       double? height,
       Gradient? gradient,
@@ -118,12 +118,12 @@ Container gradientBox(
 
   /// >>> 尺寸控件 >>>
   /// 设置固定尺寸
-///
-/// @param size 通过Size对象设置尺寸（可选）
-/// @param height 直接设置高度（可选）
-/// @param width 直接设置宽度（可选）
-/// @return 返回固定尺寸的SizedBox组件
-SizedBox sized({Size? size, double? height, double? width}) {
+  ///
+  /// @param size 通过Size对象设置尺寸（可选）
+  /// @param height 直接设置高度（可选）
+  /// @param width 直接设置宽度（可选）
+  /// @return 返回固定尺寸的SizedBox组件
+  SizedBox sized({Size? size, double? height, double? width}) {
     return SizedBox(
       width: width ?? size?.width ?? double.infinity,
       height: height ?? size?.height ?? double.infinity,
@@ -132,12 +132,12 @@ SizedBox sized({Size? size, double? height, double? width}) {
   }
 
   /// 转换为按钮
-///
-/// @param style 按钮样式（可选）
-/// @param color 按钮颜色（可选）
-/// @param onPressed 点击回调函数
-/// @return 返回ElevatedButton组件
-ElevatedButton button(
+  ///
+  /// @param style 按钮样式（可选）
+  /// @param color 按钮颜色（可选）
+  /// @param onPressed 点击回调函数
+  /// @return 返回ElevatedButton组件
+  ElevatedButton button(
       {ButtonStyle? style, Color? color, required void Function()? onPressed}) {
     return ElevatedButton(
       style: style ?? ElevatedButton.styleFrom(backgroundColor: color),

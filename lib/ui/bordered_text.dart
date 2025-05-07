@@ -18,16 +18,22 @@ class BorderedText extends StatelessWidget {
     this.strokeWidth = 6.0,
     this.strokeColor = const Color.fromRGBO(53, 0, 71, 1),
   });
+
   /// 线段末端样式（详见Paint.strokeCap）
   final StrokeCap strokeCap;
+
   /// 线段连接样式（详见Paint.strokeJoin）
   final StrokeJoin strokeJoin;
+
   /// 边框线宽（单位：逻辑像素）
   final double strokeWidth;
+
   /// 边框颜色
   final Color strokeColor;
+
   /// 要添加边框的文本组件
   final Text child;
+
   /// 构建双重文本叠加效果
   ///
   /// 1. 复制原始文本样式并应用描边绘制属性

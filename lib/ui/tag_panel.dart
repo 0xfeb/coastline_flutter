@@ -13,11 +13,11 @@ class TagPanel extends StatefulWidget {
   final List<IconData> icons;
 
   /// 创建标签面板组件
-///
-/// @param selected 初始选中索引
-/// @param onSelect 选择回调函数
-/// @param icons 图标数据列表
-const TagPanel({
+  ///
+  /// @param selected 初始选中索引
+  /// @param onSelect 选择回调函数
+  /// @param icons 图标数据列表
+  const TagPanel({
     Key? key,
     required this.selected,
     required this.onSelect,
@@ -40,6 +40,7 @@ class _TagPanelState extends State<TagPanel> {
   }
 
   @override
+
   /// 构建标签面板界面
   ///
   /// @return 返回网格布局的图标选择组件

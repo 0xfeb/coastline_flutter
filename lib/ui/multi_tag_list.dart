@@ -9,20 +9,27 @@ import '../structure/list_extra.dart';
 class MultiTagList extends StatelessWidget {
   /// 标签文本列表
   final List<String>? texts;
+
   /// 当前选中的标签索引列表
   final List<int> selectedTags;
+
   /// 标签文字大小
   final double fontSize;
+
   /// 选中状态变化回调
   ///
   /// 参数为更新后的选中索引列表
   final Function(List<int>) onSelectTags;
+
   /// 选中标签的背景颜色
   final Color selectedColor;
+
   /// 未选中标签的背景颜色
   final Color unselectedColor;
+
   /// 标签文字颜色
   final Color textColor;
+
   /// 创建多选标签列表
   ///
   /// @param texts 标签文本列表（必须非空）
@@ -42,6 +49,7 @@ class MultiTagList extends StatelessWidget {
       this.unselectedColor = Colors.grey,
       this.textColor = Colors.white})
       : super(key: key);
+
   /// 构建自动换行布局
   ///
   /// 使用[Wrap]布局实现标签的自动排列，每个标签项由[Chip]组件构成

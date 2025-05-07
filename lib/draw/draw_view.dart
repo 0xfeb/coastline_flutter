@@ -7,8 +7,10 @@ import 'package:flutter/material.dart';
 class DrawView extends StatelessWidget {
   /// 控件尺寸
   final Size size;
+
   /// 子控件（可选）
   final Widget? child;
+
   /// 绘图回调函数
   ///
   /// {@template draw_view.onPaint}
@@ -16,6 +18,7 @@ class DrawView extends StatelessWidget {
   /// 当需要重绘时会自动调用此回调
   /// {@endtemplate}
   final Function(Canvas canvas, Size size) onPaint;
+
   /// 创建绘图板控件
   ///
   /// @param size 绘图区域尺寸（必须）
@@ -53,7 +56,9 @@ class _DrawViewPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     runPaint(canvas, size);
   }
+
   @override
+
   /// 是否需要重绘
   ///
   /// 始终返回false表示不需要重绘，由外部控制刷新

@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 class Gap extends StatelessWidget {
   /// 空隙尺寸，同时作用于宽高
   final double size;
+
   /// 构造指定尺寸的空白元素
   /// @param size 空白区域的尺寸（单位：逻辑像素）
   Gap(this.size);
-  
+
   @override
+
   /// 构建布局组件
   /// @return 返回包含指定尺寸的[SizedBox]组件
   Widget build(BuildContext context) {
@@ -28,11 +30,13 @@ class Gap extends StatelessWidget {
 class SliverGap extends StatelessWidget {
   /// 空隙尺寸，同时作用于宽高
   final double size;
+
   /// 构造指定尺寸的Sliver空白元素
   /// @param size 空白区域的尺寸（单位：逻辑像素）
   SliverGap(this.size);
-  
+
   @override
+
   /// 构建Sliver布局组件
   /// @return 返回包含[Gap]的[SliverToBoxAdapter]组件
   Widget build(BuildContext context) {

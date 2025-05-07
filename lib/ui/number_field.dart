@@ -27,15 +27,15 @@ class NumberField extends StatelessWidget {
   final TextStyle style;
 
   /// 创建数字输入框
-///
-/// @param key 控件键
-/// @param color 按钮及边框颜色（默认蓝色）
-/// @param min 最小值限制（默认0）
-/// @param max 最大值限制（默认10000）
-/// @param controller 文本编辑控制器（可选）
-/// @param focus 焦点控制节点（可选）
-/// @param style 输入文本样式（默认30号字体）
-const NumberField(
+  ///
+  /// @param key 控件键
+  /// @param color 按钮及边框颜色（默认蓝色）
+  /// @param min 最小值限制（默认0）
+  /// @param max 最大值限制（默认10000）
+  /// @param controller 文本编辑控制器（可选）
+  /// @param focus 焦点控制节点（可选）
+  /// @param style 输入文本样式（默认30号字体）
+  const NumberField(
       {Key? key,
       this.color = Colors.blue,
       this.min = 0,
@@ -46,11 +46,11 @@ const NumberField(
       : super(key: key);
 
   /// 构建输入框组件
-///
-/// @param context 构建上下文
-/// @return 包含增减按钮的数字输入框组件
-@override
-Widget build(BuildContext context) {
+  ///
+  /// @param context 构建上下文
+  /// @return 包含增减按钮的数字输入框组件
+  @override
+  Widget build(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
       controller: controller,

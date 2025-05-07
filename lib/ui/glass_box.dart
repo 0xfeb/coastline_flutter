@@ -32,10 +32,10 @@ class GalssDecoration extends Decoration {
   final double height;
 
   /// 玻璃效果装饰器
-///
-/// [width] 容器宽度
-/// [height] 容器高度
-GalssDecoration({required this.width, required this.height});
+  ///
+  /// [width] 容器宽度
+  /// [height] 容器高度
+  GalssDecoration({required this.width, required this.height});
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     return GlassPainter(width: width, height: height);
@@ -49,7 +49,7 @@ GalssDecoration({required this.width, required this.height});
 /// [borderSize] 边框尺寸（默认1）
 /// [borderColor] 边框颜色（默认黑色）
 /// [cornerRadius] 圆角半径
-/// 
+///
 /// 返回带有前景玻璃效果的布局构建器
 extension GlassBox on Widget {
   LayoutBuilder glassBox(

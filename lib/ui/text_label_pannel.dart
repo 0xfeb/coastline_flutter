@@ -13,12 +13,12 @@ class TextLabelPannel extends StatefulWidget {
   final double fontSize;
 
   /// 创建文本标签面板组件
-///
-/// @param textList 可选的文本标签列表
-/// @param preforText 预设选中的文本
-/// @param onSelectLabel 标签选择回调函数
-/// @param fontSize 标签文字大小（默认14）
-const TextLabelPannel(
+  ///
+  /// @param textList 可选的文本标签列表
+  /// @param preforText 预设选中的文本
+  /// @param onSelectLabel 标签选择回调函数
+  /// @param fontSize 标签文字大小（默认14）
+  const TextLabelPannel(
       {Key? key,
       required this.textList,
       required this.preforText,
@@ -33,6 +33,7 @@ const TextLabelPannel(
 /// TextLabelPannel组件的状态类
 class _TextLabelPannelState extends State<TextLabelPannel> {
   @override
+
   /// 构建标签面板界面
   ///
   /// @return 返回自动换行的可交互文本标签列表

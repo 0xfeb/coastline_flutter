@@ -12,9 +12,9 @@ class ChatPopBorder extends ShapeBorder {
   final double? position;
 
   /// @param offset 箭头水平偏移比例（0.0~1.0）
-/// @param arrowSize 箭头尺寸（宽/高）
-/// @param position 箭头绝对定位位置（可覆盖offset参数）
-ChatPopBorder({
+  /// @param arrowSize 箭头尺寸（宽/高）
+  /// @param position 箭头绝对定位位置（可覆盖offset参数）
+  ChatPopBorder({
     this.offset = 0.8,
     this.arrowSize = const Size(10, 10),
     this.position,
@@ -38,13 +38,14 @@ ChatPopBorder({
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path a = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
@@ -115,13 +116,14 @@ class TagBorder extends ShapeBorder {
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> pointList = [
       Offset(0, rect.height / 2),
       Offset(rect.height / 2, 0),
@@ -174,13 +176,14 @@ class TicketBorder extends ShapeBorder {
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     Path path1 = PathExtra.rect(Rect.fromLTWH(0, 0, rect.width, rect.height));
     double n = (rect.height - cutSize / 2) / (3 * cutSize / 2);
     int np = n.toInt();
@@ -270,13 +273,14 @@ class FullReceiptBorder extends ShapeBorder {
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     List<Offset> bottomPoints = _randomPoints(limit: rect.width, count: 30)
         .reversed
@@ -320,13 +324,14 @@ class TopReceiptBorder extends ShapeBorder {
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30);
     points.add(Offset(rect.width, rect.height));
     points.add(Offset(0, rect.height));
@@ -367,13 +372,14 @@ class BottomReceiptBorder extends ShapeBorder {
   }
 
   @override
+
   /// 生成外轮廓路径
-///
-/// 1. 创建圆角矩形主体
-/// 2. 根据offset/position计算箭头位置
-/// 3. 组合路径形成对话框气泡形状
-/// @return 包含箭头的气泡路径
-Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+  ///
+  /// 1. 创建圆角矩形主体
+  /// 2. 根据offset/position计算箭头位置
+  /// 3. 组合路径形成对话框气泡形状
+  /// @return 包含箭头的气泡路径
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     List<Offset> points = _randomPoints(limit: rect.width, count: 30)
         .reversed
         .map((e) => e.translate(0, rect.height - 10))

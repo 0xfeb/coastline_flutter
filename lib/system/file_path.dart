@@ -42,42 +42,49 @@ class FilePath {
 
     loaded = true;
   }
+
   /// 获取数据库文件路径
   ///
   /// Returns 数据库文件的路径。
   static String get db {
     return _db;
   }
+
   /// 获取临时文件路径
   ///
   /// Returns 临时文件目录的路径。
   static String get tempPath {
     return _temp;
   }
+
   /// 获取新的临时文件路径
   ///
   /// Returns 新的临时文件路径。
   static String get tempNewFile {
     return _temp + '${Uuid().v4()}';
   }
+
   /// 获取图像文件路径
   ///
   /// Returns 图像文件目录的路径。
   static String get imagePath {
     return _image;
   }
+
   /// 获取新的图像文件路径
   ///
   /// Returns 新的图像文件路径。
   static String get imageNewFile {
     return _image + '${Uuid().v4()}';
   }
+
   /// 获取库文件路径
   ///
   /// Returns 库文件目录的路径。
   static String get libraryPath {
     return _library;
   }
+
   /// 异步获取数据库文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回数据库文件的路径。
@@ -85,6 +92,7 @@ class FilePath {
     await setup();
     return db;
   }
+
   /// 异步获取临时文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回临时文件目录的路径。
@@ -92,6 +100,7 @@ class FilePath {
     await setup();
     return tempPath;
   }
+
   /// 异步获取新的临时文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回新的临时文件路径。
@@ -99,6 +108,7 @@ class FilePath {
     await setup();
     return tempNewFile;
   }
+
   /// 异步获取图像文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回图像文件目录的路径。
@@ -106,6 +116,7 @@ class FilePath {
     await setup();
     return imagePath;
   }
+
   /// 异步获取新的图像文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回新的图像文件路径。
@@ -113,6 +124,7 @@ class FilePath {
     await setup();
     return imageNewFile;
   }
+
   /// 异步获取库文件路径
   ///
   /// Returns 一个 Future 对象，表示异步操作的结果，返回库文件目录的路径。
