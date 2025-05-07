@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the drawHelpItem method from the CanvasHelp extension, for the Dart programming language.">
+  <title>drawHelpItem method - CanvasHelp extension - help_item library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_help_item">ui\help_item.dart</a></li>
+    <li><a href="../../ui_help_item/CanvasHelp.html">CanvasHelp</a></li>
+    <li class="self-crumb">drawHelpItem method</li>
+  </ol>
+  <div class="self-name">drawHelpItem</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="ui_help_item&#47;CanvasHelp-extension-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">drawHelpItem</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype">void</span>
+<span class="name ">drawHelpItem</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="drawHelpItem-param-item"><span class="type-annotation"><a href="../../ui_help_item/HelpItem-class.html">HelpItem</a></span> <span class="parameter-name">item</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>绘制完整的帮助提示项</p>
+<p>实现步骤：</p>
+<ol>
+<li>创建基础绘制画笔</li>
+<li>绘制指示箭头</li>
+<li>生成平滑曲线路径</li>
+<li>布局并绘制文本内容</li>
+</ol>
+<p>@param item 要绘制的帮助项对象，必须包含有效的坐标和文本</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">void drawHelpItem(HelpItem item) {
+  Paint paint = Paint()
+    ..color = item.color
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 1;
+
+  &#47;&#47; 箭头方向判断（终点Y坐标小于箭头点Y坐标时为上箭头）
+  bool upArrow = item.endPoint!.dy &lt; item.arrowPoint!.dy;
+  Offset arrowPoint1 = Offset(item.arrowPoint!.dx - 5,
+      upArrow ? item.arrowPoint!.dy - 5 : item.arrowPoint!.dy + 5);
+  Offset arrowPoint2 = Offset(item.arrowPoint!.dx + 5,
+      upArrow ? item.arrowPoint!.dy - 5 : item.arrowPoint!.dy + 5);
+  this.drawLine(arrowPoint1, item.arrowPoint!, paint);
+  this.drawLine(arrowPoint2, item.arrowPoint!, paint);
+
+  &#47;&#47; 曲线控制点计算（取终点和箭头点的中间位置）
+  Offset center1 = Offset(
+      item.endPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) &#47; 2);
+  Offset center2 = Offset(
+      item.arrowPoint!.dx, (item.endPoint!.dy + item.arrowPoint!.dy) &#47; 2);
+  Line line = Line(
+      points: [item.endPoint!, center1, center2, item.arrowPoint!],
+      smoothLevel: 20);
+  Path path = PathExtra.line(line);
+
+  this.drawPath(path, paint);
+
+  &#47;&#47; 文本段落构建与布局（限制宽度为200像素）
+  ui.ParagraphBuilder pb = ui.ParagraphBuilder(ui.ParagraphStyle());
+  pb.pushStyle(ui.TextStyle(color: Colors.white, fontSize: 22));
+  pb.addText(item.text!);
+  pb.pop();
+  ui.Paragraph pg = pb.build();
+  pg.layout(ui.ParagraphConstraints(width: 200));
+  print(&#39;item ${item.text} ${pg.width}&#39;);
+  final textOffset = upArrow
+      ? Offset(max(10, item.endPoint!.dx - 10), item.endPoint!.dy - 25)
+      : Offset(max(10, item.endPoint!.dx - 10), item.endPoint!.dy);
+  print(&#39;text offset $textOffset&#39;);
+  this.drawParagraph(pg, textOffset);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_help_item">help_item</a></li>
+    <li><a href="../../ui_help_item/CanvasHelp.html">CanvasHelp</a></li>
+    <li class="self-crumb">drawHelpItem method</li>
+</ol>
+
+    <h5>CanvasHelp extension on <a href="https://api.flutter.dev/flutter/painting/Canvas-class.html">Canvas</a></h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

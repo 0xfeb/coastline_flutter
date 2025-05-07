@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the BorderedText class from the bordered_text library, for the Dart programming language.">
+  <title>BorderedText class - bordered_text library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">coastline</a></li>
+    <li><a href="../ui_bordered_text">ui\bordered_text.dart</a></li>
+    <li class="self-crumb">BorderedText class</li>
+  </ol>
+  <div class="self-name">BorderedText</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="ui_bordered_text&#47;ui_bordered_text-library-sidebar.html"
+    data-below-sidebar="ui_bordered_text&#47;BorderedText-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">BorderedText</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>为文本添加边框效果的装饰组件</p>
+<p>通过叠加两个文本实现边框效果：底层文本使用描边样式，上层保留原始文本</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a></li>
+      <li>BorderedText</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a></li>
+      <li><a href="../ui_clip/ClipWidget.html">ClipWidget</a></li>
+      <li><a href="../ui_glass_box/GlassBox.html">GlassBox</a></li>
+      <li><a href="../animation_transform/TransformExt.html">TransformExt</a></li>
+      <li><a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a></li>
+      <li><a href="../ui_pad/WidgetPadded.html">WidgetPadded</a></li>
+  </ul></dd>
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="BorderedText" class="callable">
+          <span class="name"><a href="../ui_bordered_text/BorderedText/BorderedText.html">BorderedText</a></span><span class="signature">({<span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Text-class.html">Text</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-strokeCap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/StrokeCap.html">StrokeCap</a></span> <span class="parameter-name">strokeCap</span> = <span class="default-value">StrokeCap.round</span>, </span><span class="parameter" id="-param-strokeJoin"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/StrokeJoin.html">StrokeJoin</a></span> <span class="parameter-name">strokeJoin</span> = <span class="default-value">StrokeJoin.round</span>, </span><span class="parameter" id="-param-strokeWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">strokeWidth</span> = <span class="default-value">6.0</span>, </span><span class="parameter" id="-param-strokeColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">strokeColor</span> = <span class="default-value">const Color.fromRGBO(53, 0, 71, 1)</span></span>})</span>
+        </dt>
+        <dd>
+          创建带边框的文本组件
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="bottom" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/bottom.html">bottom</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>居下 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="center" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/center.html">center</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Center-class.html">Center</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>居中控件 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="child" class="property">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Text-class.html">Text</a></span>
+  
+
+</dt>
+<dd>
+  要添加边框的文本组件
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="left" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/left.html">left</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>居左 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="leftBottom" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/leftBottom.html">leftBottom</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>左下 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="leftTop" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/leftTop.html">leftTop</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>左上 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="right" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/right.html">right</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>居右 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="rightBottom" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/rightBottom.html">rightBottom</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>右下 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="rightTop" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/rightTop.html">rightTop</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>右上 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="strokeCap" class="property">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/strokeCap.html">strokeCap</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/StrokeCap.html">StrokeCap</a></span>
+  
+
+</dt>
+<dd>
+  线段末端样式（详见Paint.strokeCap）
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="strokeColor" class="property">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/strokeColor.html">strokeColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  边框颜色
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="strokeJoin" class="property">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/strokeJoin.html">strokeJoin</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/StrokeJoin.html">StrokeJoin</a></span>
+  
+
+</dt>
+<dd>
+  线段连接样式（详见Paint.strokeJoin）
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="strokeWidth" class="property">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/strokeWidth.html">strokeWidth</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  边框线宽（单位：逻辑像素）
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="top" class="property">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/top.html">top</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>居上 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="animatedParent" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/animatedParent.html">animatedParent</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr>{<span class="parameter" id="animatedParent-param-begin"><span>required</span> <span class="type-annotation">T</span> <span class="parameter-name">begin</span>, </span><span class="parameter" id="animatedParent-param-end"><span>required</span> <span class="type-annotation">T</span> <span class="parameter-name">end</span>, </span><span class="parameter" id="animatedParent-param-duration"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="animatedParent-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="animatedParent-param-parentBuilder"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ValueWidgetBuilder.html">ValueWidgetBuilder</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> <span class="parameter-name">parentBuilder</span>, </span><span class="parameter" id="animatedParent-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="animatedParent-param-onEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onEnd</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  为Widget添加Tween动画效果。
+  
+
+</dd>
+
+        <dt id="animationCrossFade" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/animationCrossFade.html">animationCrossFade</a></span><span class="signature">(<wbr>{<span class="parameter" id="animationCrossFade-param-duration"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="animationCrossFade-param-nextChild"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">nextChild</span>, </span><span class="parameter" id="animationCrossFade-param-showNext"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showNext</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AnimatedCrossFade-class.html">AnimatedCrossFade</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  为Widget添加交叉渐变动画效果。
+  
+
+</dd>
+
+        <dt id="aspect" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/aspect.html">aspect</a></span><span class="signature">(<wbr><span class="parameter" id="aspect-param-whRate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">whRate</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AspectRatio-class.html">AspectRatio</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>宽高比(1为正方形) &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="box" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/box.html">box</a></span><span class="signature">(<wbr>{<span class="parameter" id="box-param-width"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span><span class="parameter" id="box-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="box-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">color</span>, </span><span class="parameter" id="box-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="box-param-borderSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">borderSize</span> = <span class="default-value">1</span>, </span><span class="parameter" id="box-param-borderColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">borderColor</span> = <span class="default-value">Colors.black</span>, </span><span class="parameter" id="box-param-cornerRadius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cornerRadius</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>容器控件 &gt;&gt;&gt;
+创建带边框的容器</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="build" class="callable">
+  <span class="name"><a href="../ui_bordered_text/BorderedText/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  构建双重文本叠加效果
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="button" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/button.html">button</a></span><span class="signature">(<wbr>{<span class="parameter" id="button-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ButtonStyle-class.html">ButtonStyle</a>?</span> <span class="parameter-name">style</span>, </span><span class="parameter" id="button-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">color</span>, </span><span class="parameter" id="button-param-onPressed"><span>required</span> <span class="type-annotation">void</span> <span class="parameter-name">onPressed</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/material/ElevatedButton-class.html">ElevatedButton</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  转换为按钮
+  
+
+</dd>
+
+        <dt id="card" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/card.html">card</a></span><span class="signature">(<wbr>{<span class="parameter" id="card-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="card-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">color</span> = <span class="default-value">Colors.white</span>, </span><span class="parameter" id="card-param-shadowColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">shadowColor</span> = <span class="default-value">Colors.black</span>, </span><span class="parameter" id="card-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span> = <span class="default-value">0</span>, </span><span class="parameter" id="card-param-radius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">radius</span> = <span class="default-value">4</span>, </span><span class="parameter" id="card-param-borderOnForeground"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">borderOnForeground</span> = <span class="default-value">true</span>, </span><span class="parameter" id="card-param-margin"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span> <span class="parameter-name">margin</span> = <span class="default-value">EdgeInsets.zero</span>, </span><span class="parameter" id="card-param-clipBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="card-param-semanticContainer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">semanticContainer</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/material/Card-class.html">Card</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>卡片 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="clipPath" class="callable">
+  <span class="name"><a href="../ui_clip/ClipWidget/clipPath.html">clipPath</a></span><span class="signature">(<wbr><span class="parameter" id="clipPath-param-clip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Path-class.html">Path</a></span> <span class="parameter-name">clip</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/ClipPath-class.html">ClipPath</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_clip/ClipWidget.html">ClipWidget</a> extension</span>
+      </p>
+  路径裁剪快捷方法
+  
+
+</dd>
+
+        <dt id="clipRect" class="callable">
+  <span class="name"><a href="../ui_clip/ClipWidget/clipRect.html">clipRect</a></span><span class="signature">(<wbr>{<span class="parameter" id="clipRect-param-clip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">clip</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/ClipRect-class.html">ClipRect</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_clip/ClipWidget.html">ClipWidget</a> extension</span>
+      </p>
+  矩形裁剪快捷方法
+  
+
+</dd>
+
+        <dt id="clipRound" class="callable">
+  <span class="name"><a href="../ui_clip/ClipWidget/clipRound.html">clipRound</a></span><span class="signature">(<wbr>{<span class="parameter" id="clipRound-param-clip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">clip</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/ClipOval-class.html">ClipOval</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_clip/ClipWidget.html">ClipWidget</a> extension</span>
+      </p>
+  圆形裁剪快捷方法
+  
+
+</dd>
+
+        <dt id="clipRRect" class="callable">
+  <span class="name"><a href="../ui_clip/ClipWidget/clipRRect.html">clipRRect</a></span><span class="signature">(<wbr>{<span class="parameter" id="clipRRect-param-clip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">clip</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span></span>)?, </span><span class="parameter" id="clipRRect-param-borderRadius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">borderRadius</span> = <span class="default-value">4</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/ClipRRect-class.html">ClipRRect</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_clip/ClipWidget.html">ClipWidget</a> extension</span>
+      </p>
+  圆角矩形裁剪快捷方法
+  
+
+</dd>
+
+        <dt id="constrain" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/constrain.html">constrain</a></span><span class="signature">(<wbr>{<span class="parameter" id="constrain-param-minWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minWidth</span>, </span><span class="parameter" id="constrain-param-maxWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxWidth</span>, </span><span class="parameter" id="constrain-param-minHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minHeight</span>, </span><span class="parameter" id="constrain-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/ConstrainedBox-class.html">ConstrainedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>限定尺寸 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/StatelessElement-class.html">StatelessElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="https://api.flutter.dev/flutter/widgets/StatelessElement-class.html">StatelessElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="expanded" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/expanded.html">expanded</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Expanded-class.html">Expanded</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>扩大控件 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="fit" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/fit.html">fit</a></span><span class="signature">(<wbr>{<span class="parameter" id="fit-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="fit-param-fit"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/BoxFit.html">BoxFit</a></span> <span class="parameter-name">fit</span>, </span><span class="parameter" id="fit-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.topLeft</span>, </span><span class="parameter" id="fit-param-clipBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.none</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/FittedBox-class.html">FittedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>设置内容限定模式 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="flip" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/flip.html">flip</a></span><span class="signature">(<wbr>{<span class="parameter" id="flip-param-horizontal"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">horizontal</span> = <span class="default-value">false</span>, </span><span class="parameter" id="flip-param-vertical"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">vertical</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  镜像翻转控件
+  
+
+</dd>
+
+        <dt id="glassBox" class="callable">
+  <span class="name"><a href="../ui_glass_box/GlassBox/glassBox.html">glassBox</a></span><span class="signature">(<wbr>{<span class="parameter" id="glassBox-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">color</span>, </span><span class="parameter" id="glassBox-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="glassBox-param-borderSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">borderSize</span> = <span class="default-value">1</span>, </span><span class="parameter" id="glassBox-param-borderColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">borderColor</span> = <span class="default-value">Colors.black</span>, </span><span class="parameter" id="glassBox-param-cornerRadius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cornerRadius</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/LayoutBuilder-class.html">LayoutBuilder</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_glass_box/GlassBox.html">GlassBox</a> extension</span>
+      </p>
+  
+  
+
+</dd>
+
+        <dt id="gradientBox" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/gradientBox.html">gradientBox</a></span><span class="signature">(<wbr>{<span class="parameter" id="gradientBox-param-width"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span><span class="parameter" id="gradientBox-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="gradientBox-param-gradient"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Gradient-class.html">Gradient</a>?</span> <span class="parameter-name">gradient</span>, </span><span class="parameter" id="gradientBox-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="gradientBox-param-borderSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">borderSize</span> = <span class="default-value">1</span>, </span><span class="parameter" id="gradientBox-param-borderColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">borderColor</span> = <span class="default-value">Colors.black</span>, </span><span class="parameter" id="gradientBox-param-cornerRadius"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cornerRadius</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  创建渐变背景容器
+  
+
+</dd>
+
+        <dt id="heightBox" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/heightBox.html">heightBox</a></span><span class="signature">(<wbr><span class="parameter" id="heightBox-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/SizedBox-class.html">SizedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>尺寸控件(高度) &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="hide" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/hide.html">hide</a></span><span class="signature">(<wbr>{<span class="parameter" id="hide-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="hide-param-hide"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">hide</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Offstage-class.html">Offstage</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>隐藏 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="intrinsic" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/intrinsic.html">intrinsic</a></span><span class="signature">(<wbr><span class="parameter" id="intrinsic-param-direction"><span class="type-annotation"><a href="../ui_widget_extra/IntrinsicDirection.html">IntrinsicDirection</a></span> <span class="parameter-name">direction</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+  
+
+</dd>
+
+        <dt id="move" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/move.html">move</a></span><span class="signature">(<wbr>{<span class="parameter" id="move-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="move-param-offset"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span>, </span><span class="parameter" id="move-param-transformHitTests"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">transformHitTests</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Transform-class.html">Transform</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>移动 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="move" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/move.html">move</a></span><span class="signature">(<wbr>{<span class="parameter" id="move-param-x"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">x</span> = <span class="default-value">0</span>, </span><span class="parameter" id="move-param-y"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">y</span> = <span class="default-value">0</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  平移控件位置
+  
+
+</dd>
+
+        <dt id="moveAnimation" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/moveAnimation.html">moveAnimation</a></span><span class="signature">(<wbr>{<span class="parameter" id="moveAnimation-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="moveAnimation-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="moveAnimation-param-onEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onEnd</span>, </span><span class="parameter" id="moveAnimation-param-offset"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AnimatedSlide-class.html">AnimatedSlide</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  为Widget添加滑动动画效果。
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="offset" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/offset.html">offset</a></span><span class="signature">(<wbr>{<span class="parameter" id="offset-param-x"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">x</span>, </span><span class="parameter" id="offset-param-y"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">y</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Align-class.html">Align</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>按比例配置位置(0为左或上, 1为右或下) &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="onListen" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/onListen.html">onListen</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="https://api.flutter.dev/flutter/widgets/Notification-class.html">Notification</a></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="onListen-param-onNotification"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/NotificationListenerCallback.html">NotificationListenerCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">onNotification</span>, {</span><span class="parameter" id="onListen-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/NotificationListener-class.html">NotificationListener</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>行为监控 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="onPress" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/onPress.html">onPress</a></span><span class="signature">(<wbr>{<span class="parameter" id="onPress-param-onHold"><span class="type-annotation">dynamic</span> <span class="parameter-name">onHold</span>()?, </span><span class="parameter" id="onPress-param-onRelease"><span class="type-annotation">dynamic</span> <span class="parameter-name">onRelease</span>()?, </span><span class="parameter" id="onPress-param-onFocusRelease"><span class="type-annotation">dynamic</span> <span class="parameter-name">onFocusRelease</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>按下/释放控件 &gt;&gt;&gt;
+添加按压事件</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="onTap" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/onTap.html">onTap</a></span><span class="signature">(<wbr><span class="parameter" id="onTap-param-onTap"><span class="type-annotation">dynamic</span> <span class="parameter-name">onTap</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/material/InkWell-class.html">InkWell</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>点击控件 &gt;&gt;&gt;
+添加点击事件</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="opacity" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/opacity.html">opacity</a></span><span class="signature">(<wbr><span class="parameter" id="opacity-param-opacity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">opacity</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Opacity-class.html">Opacity</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>半透明控件(0为透明, 1为不透明) &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="overflow" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/overflow.html">overflow</a></span><span class="signature">(<wbr>{<span class="parameter" id="overflow-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="overflow-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.topLeft</span>, </span><span class="parameter" id="overflow-param-minWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minWidth</span>, </span><span class="parameter" id="overflow-param-maxWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxWidth</span>, </span><span class="parameter" id="overflow-param-minHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minHeight</span>, </span><span class="parameter" id="overflow-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/OverflowBox-class.html">OverflowBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>溢出控件 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="pad" class="callable">
+  <span class="name"><a href="../ui_pad/WidgetPadded/pad.html">pad</a></span><span class="signature">(<wbr>{<span class="parameter" id="pad-param-left"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">left</span> = <span class="default-value">0</span>, </span><span class="parameter" id="pad-param-right"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">right</span> = <span class="default-value">0</span>, </span><span class="parameter" id="pad-param-top"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">top</span> = <span class="default-value">0</span>, </span><span class="parameter" id="pad-param-bottom"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">bottom</span> = <span class="default-value">0</span>, </span><span class="parameter" id="pad-param-vertical"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">vertical</span>, </span><span class="parameter" id="pad-param-all"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">all</span>, </span><span class="parameter" id="pad-param-horizon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">horizon</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Padding-class.html">Padding</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_pad/WidgetPadded.html">WidgetPadded</a> extension</span>
+      </p>
+  为Widget添加padding
+  
+
+</dd>
+
+        <dt id="positioned" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/positioned.html">positioned</a></span><span class="signature">(<wbr>{<span class="parameter" id="positioned-param-left"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">left</span>, </span><span class="parameter" id="positioned-param-right"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">right</span>, </span><span class="parameter" id="positioned-param-top"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">top</span>, </span><span class="parameter" id="positioned-param-bottom"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">bottom</span>, </span><span class="parameter" id="positioned-param-width"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span><span class="parameter" id="positioned-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="positioned-param-all"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">all</span>, </span><span class="parameter" id="positioned-param-horizon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">horizon</span>, </span><span class="parameter" id="positioned-param-vertical"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">vertical</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Positioned-class.html">Positioned</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>指定控件的位置, 适用于Stack &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="rotate" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/rotate.html">rotate</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotate-param-angle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">angle</span> = <span class="default-value">0</span>, </span><span class="parameter" id="rotate-param-basePoint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">basePoint</span> = <span class="default-value">Alignment.center</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  二维平面旋转
+  
+
+</dd>
+
+        <dt id="rotate" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/rotate.html">rotate</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotate-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="rotate-param-degree"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">degree</span>, </span><span class="parameter" id="rotate-param-origin"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">origin</span>, </span><span class="parameter" id="rotate-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span> <span class="parameter-name">alignment</span>, </span><span class="parameter" id="rotate-param-transformHitTests"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">transformHitTests</span> = <span class="default-value">true</span>, </span><span class="parameter" id="rotate-param-child"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Transform-class.html">Transform</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>转换 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="rotated" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/rotated.html">rotated</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotated-param-quarter"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">quarter</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/RotatedBox-class.html">RotatedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>旋转控件, 每次翻转90度, 顺时针 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="rotateX" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/rotateX.html">rotateX</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotateX-param-angle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">angle</span> = <span class="default-value">0</span>, </span><span class="parameter" id="rotateX-param-basePoint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">basePoint</span> = <span class="default-value">Alignment.center</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  三维X轴旋转
+  
+
+</dd>
+
+        <dt id="rotateY" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/rotateY.html">rotateY</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotateY-param-angle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">angle</span> = <span class="default-value">0</span>, </span><span class="parameter" id="rotateY-param-basePoint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">basePoint</span> = <span class="default-value">Alignment.center</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  三维Y轴旋转
+  
+
+</dd>
+
+        <dt id="rotationAnimation" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/rotationAnimation.html">rotationAnimation</a></span><span class="signature">(<wbr>{<span class="parameter" id="rotationAnimation-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="rotationAnimation-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="rotationAnimation-param-onEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onEnd</span>, </span><span class="parameter" id="rotationAnimation-param-degree"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">degree</span>, </span><span class="parameter" id="rotationAnimation-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.center</span>, </span><span class="parameter" id="rotationAnimation-param-filterQuality"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/FilterQuality.html">FilterQuality</a>?</span> <span class="parameter-name">filterQuality</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AnimatedRotation-class.html">AnimatedRotation</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  为Widget添加旋转动画效果。
+  
+
+</dd>
+
+        <dt id="scale" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/scale.html">scale</a></span><span class="signature">(<wbr>{<span class="parameter" id="scale-param-x"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">x</span> = <span class="default-value">1</span>, </span><span class="parameter" id="scale-param-y"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">y</span> = <span class="default-value">1</span>, </span><span class="parameter" id="scale-param-basePoint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">basePoint</span> = <span class="default-value">Alignment.center</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  缩放控件尺寸
+  
+
+</dd>
+
+        <dt id="scale" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/scale.html">scale</a></span><span class="signature">(<wbr>{<span class="parameter" id="scale-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="scale-param-scale"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">scale</span>, </span><span class="parameter" id="scale-param-origin"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">origin</span>, </span><span class="parameter" id="scale-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span> <span class="parameter-name">alignment</span>, </span><span class="parameter" id="scale-param-transformHitTests"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">transformHitTests</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Transform-class.html">Transform</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>缩放 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="scaleAnimation" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/scaleAnimation.html">scaleAnimation</a></span><span class="signature">(<wbr>{<span class="parameter" id="scaleAnimation-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="scaleAnimation-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="scaleAnimation-param-onEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onEnd</span>, </span><span class="parameter" id="scaleAnimation-param-scale"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">scale</span>, </span><span class="parameter" id="scaleAnimation-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.center</span>, </span><span class="parameter" id="scaleAnimation-param-filterQuality"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/FilterQuality.html">FilterQuality</a>?</span> <span class="parameter-name">filterQuality</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AnimatedScale-class.html">AnimatedScale</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  
+  
+
+</dd>
+
+        <dt id="sizeAnimation" class="callable">
+  <span class="name"><a href="../animation_implicitly_animate/AnimateExt/sizeAnimation.html">sizeAnimation</a></span><span class="signature">(<wbr>{<span class="parameter" id="sizeAnimation-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="sizeAnimation-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.center</span>, </span><span class="parameter" id="sizeAnimation-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="sizeAnimation-param-reverseDuration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">reverseDuration</span>, </span><span class="parameter" id="sizeAnimation-param-clipBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/AnimatedSize-class.html">AnimatedSize</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_implicitly_animate/AnimateExt.html">AnimateExt</a> extension</span>
+      </p>
+  为Widget添加大小动画效果。
+  
+
+</dd>
+
+        <dt id="sized" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/sized.html">sized</a></span><span class="signature">(<wbr>{<span class="parameter" id="sized-param-size"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a>?</span> <span class="parameter-name">size</span>, </span><span class="parameter" id="sized-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="sized-param-width"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/SizedBox-class.html">SizedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>尺寸控件 &gt;&gt;&gt;
+设置固定尺寸</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="skew" class="callable">
+  <span class="name"><a href="../animation_transform/TransformExt/skew.html">skew</a></span><span class="signature">(<wbr>{<span class="parameter" id="skew-param-horizontal"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">horizontal</span> = <span class="default-value">0</span>, </span><span class="parameter" id="skew-param-vertical"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">vertical</span> = <span class="default-value">0</span>, </span><span class="parameter" id="skew-param-basePoint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">basePoint</span> = <span class="default-value">Alignment.center</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../animation_transform/TransformExt.html">TransformExt</a> extension</span>
+      </p>
+  斜切变形
+  
+
+</dd>
+
+        <dt id="sliver" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/sliver.html">sliver</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>将控件Sliver化 &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="widthBox" class="callable">
+  <span class="name"><a href="../ui_widget_extra/WidgetExtra/widthBox.html">widthBox</a></span><span class="signature">(<wbr><span class="parameter" id="widthBox-param-width"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/SizedBox-class.html">SizedBox</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>,
+        provided by the <a href="../ui_widget_extra/WidgetExtra.html">WidgetExtra</a> extension</span>
+      </p>
+  
+<blockquote>
+<blockquote>
+<p>尺寸控件(宽度) &gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">coastline</a></li>
+    <li><a href="../ui_bordered_text">bordered_text</a></li>
+    <li class="self-crumb">BorderedText class</li>
+</ol>
+
+    <h5>bordered_text library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

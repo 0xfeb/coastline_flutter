@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the paint method from the GlassPainter class, for the Dart programming language.">
+  <title>paint method - GlassPainter class - glass_box library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_glass_box">ui\glass_box.dart</a></li>
+    <li><a href="../../ui_glass_box/GlassPainter-class.html">GlassPainter</a></li>
+    <li class="self-crumb">paint method</li>
+  </ol>
+  <div class="self-name">paint</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="ui_glass_box&#47;GlassPainter-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">paint</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype">void</span>
+<span class="name ">paint</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="paint-param-canvas"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Canvas-class.html">Canvas</a></span> <span class="parameter-name">canvas</span>, </span></li>
+<li><span class="parameter" id="paint-param-offset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span>, </span></li>
+<li><span class="parameter" id="paint-param-configuration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Paints the <a href="https://api.flutter.dev/flutter/painting/Decoration-class.html">Decoration</a> for which this object was created on the
+given canvas using the given configuration.</p>
+<p>The <a href="https://api.flutter.dev/flutter/painting/ImageConfiguration-class.html">ImageConfiguration</a> object passed as the third argument must, at a
+minimum, have a non-null <a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a>.</p>
+<p>If this object caches resources for painting (e.g. <a href="https://api.flutter.dev/flutter/painting/Paint-class.html">Paint</a> objects), the
+cache may be flushed when <a href="../../ui_glass_box/GlassPainter/paint.html">paint</a> is called with a new configuration. For
+this reason, it may be more efficient to call
+<a href="https://api.flutter.dev/flutter/painting/Decoration/createBoxPainter.html">Decoration.createBoxPainter</a> for each different rectangle that is being
+painted in a particular frame.</p>
+<p>For example, if a decoration's owner wants to paint a particular
+decoration once for its whole size, and once just in the bottom
+right, it might get two <a href="https://api.flutter.dev/flutter/painting/BoxPainter-class.html">BoxPainter</a> instances, one for each.
+However, when its size changes, it could continue using those
+same instances, since the previous resources would no longer be
+relevant and thus losing them would not be an issue.</p>
+<p>Implementations should paint their decorations on the canvas in a
+rectangle whose top left corner is at the given <code>offset</code> and whose size is
+given by <code>configuration.size</code>.</p>
+<p>When a <a href="https://api.flutter.dev/flutter/painting/Decoration-class.html">Decoration</a> is painted in a <a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a> or <a href="https://api.flutter.dev/flutter/widgets/DecoratedBox-class.html">DecoratedBox</a> (which
+is what <a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a> uses), the <a href="https://api.flutter.dev/flutter/painting/ImageConfiguration/textDirection.html">ImageConfiguration.textDirection</a> property
+will be populated based on the ambient <a href="https://api.flutter.dev/flutter/widgets/Directionality-class.html">Directionality</a>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+  Path path = Path()
+    ..moveTo(offset.dx, offset.dy + height * 2 &#47; 3)
+    ..conicTo(offset.dx + width &#47; 2, offset.dy + height &#47; 3,
+        offset.dx + width, offset.dy + height &#47; 3, 1)
+    ..lineTo(offset.dx + width, offset.dy + height)
+    ..lineTo(offset.dx, offset.dy + height)
+    ..close();
+
+  canvas.drawPath(
+      path,
+      Paint()
+        ..color = Color.fromARGB(50, 100, 100, 100)
+        ..strokeWidth = 2);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_glass_box">glass_box</a></li>
+    <li><a href="../../ui_glass_box/GlassPainter-class.html">GlassPainter</a></li>
+    <li class="self-crumb">paint method</li>
+</ol>
+
+    <h5>GlassPainter class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

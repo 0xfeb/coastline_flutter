@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the richText method from the RichTextList extension, for the Dart programming language.">
+  <title>richText method - RichTextList extension - rich_text library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_rich_text">ui\rich_text.dart</a></li>
+    <li><a href="../../ui_rich_text/RichTextList.html">RichTextList</a></li>
+    <li class="self-crumb">richText method</li>
+  </ol>
+  <div class="self-name">richText</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="ui_rich_text&#47;RichTextList-extension-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">richText</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/RichText-class.html">RichText</a></span>
+<span class="name ">richText</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="richText-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span></li>
+<li><span class="parameter" id="richText-param-textDirection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span></li>
+<li><span class="parameter" id="richText-param-softWrap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">softWrap</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="richText-param-overflow"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/TextOverflow.html">TextOverflow</a></span> <span class="parameter-name">overflow</span> = <span class="default-value">TextOverflow.clip</span>, </span></li>
+<li><span class="parameter" id="richText-param-textScaler"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">textScaler</span> = <span class="default-value">1.0</span>, </span></li>
+<li><span class="parameter" id="richText-param-maxLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span></li>
+<li><span class="parameter" id="richText-param-locale"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Locale-class.html">Locale</a>?</span> <span class="parameter-name">locale</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>生成RichText组件</p>
+<p>@param textAlign 文本对齐方式（默认起始对齐）
+@param textDirection 文本方向（可选）
+@param softWrap 是否自动换行（默认true）
+@param overflow 文本溢出处理方式（默认裁剪）
+@param textScaler 文本缩放比例（默认1.0）
+@param maxLines 最大行数（可选）
+@param locale 区域设置（可选）
+@return 配置完成的RichText组件</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">RichText richText({
+  TextAlign textAlign = TextAlign.start,
+  TextDirection? textDirection,
+  bool softWrap = true,
+  TextOverflow overflow = TextOverflow.clip,
+  double textScaler = 1.0,
+  int? maxLines,
+  Locale? locale,
+}) {
+  return RichText(
+    text: TextSpan(text: &#39;&#39;, children: this),
+    textAlign: textAlign,
+    textDirection: textDirection,
+    softWrap: softWrap,
+    overflow: overflow,
+    textScaler: TextScaler.linear(textScaler),
+    maxLines: maxLines,
+    locale: locale,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_rich_text">rich_text</a></li>
+    <li><a href="../../ui_rich_text/RichTextList.html">RichTextList</a></li>
+    <li class="self-crumb">richText method</li>
+</ol>
+
+    <h5>RichTextList extension on <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/painting/TextSpan-class.html">TextSpan</a></span>&gt;</span></h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

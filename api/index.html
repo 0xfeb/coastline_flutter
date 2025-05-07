@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="coastline API docs, for the Dart programming language.">
+  <title>coastline - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/0xfeb/coastline_flutter">coastline package</a></li>
+  </ol>
+  <div class="self-name">coastline</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="coatline">Coatline代码库</h1>
+<p>个人所用的Flutter简化使用库</p>
+<h1 id="">模块设计</h1>
+<h2 id="draw">draw</h2>
+<p>绘图功能集合</p>
+<h3 id="color-extra">Color Extra</h3>
+<p>色彩扩展</p>
+<blockquote>
+<p>枚举  ColorName</p>
+</blockquote>
+<p>red -- 红色<br>
+orange -- 橙色<br>
+yellow -- 黄色<br>
+green -- 绿色<br>
+cyan -- 青色<br>
+blue -- 蓝色<br>
+puple -- 紫色<br>
+pink -- 粉色</p>
+<blockquote>
+<p>函数 randomColor<br>
+生成随机颜色</p>
+</blockquote>
+<blockquote>
+<p>扩展  Color</p>
+</blockquote>
+<p>opsiteHSV / opsiteRGB  <code>[属性]</code> 相对于当前色彩的反向色彩, 获得一个新的色彩</p>
+<p>random <code>[属性]</code> 根据当前颜色的特性, 获得一个随机颜色</p>
+<p>changeHue <code>[函数]</code> 在保持亮度和明度的情况下, 修改色彩, 指定一个基本色彩<code>color[ColorName]</code>以及色彩偏移<code>offset[int:0-360]</code>, 获得一个新的色彩</p>
+<p>changeColorValue <code>[函数]</code> 增加或者减少亮度<code>offset[int]</code>, 正数为增加, 负数为减少, 最低不能低于0, 最高不能高于1, 获得一个新的色彩</p>
+<p>toLight / toDark <code>[函数]</code> 调整亮度</p>
+<p>devidedColors <code>[函数]</code> 跟当前颜色明度亮度相同的情况下, 产生一批不同色彩的颜色, 获得一个颜色列表</p>
+<h3 id="gradient">Gradient</h3>
+<p>渐变元素</p>
+<blockquote>
+<p>枚举  Direction</p>
+</blockquote>
+<p>方向指定<br>
+toDown  朝向下方<br>
+toUp  朝向上方<br>
+toRight 朝向右方<br>
+toLeft 朝向左方<br>
+toTopLeft 朝向左上<br>
+toTopRight 朝向右上<br>
+toBottomLeft 朝向左下<br>
+toBottomRight 朝向右下</p>
+<blockquote>
+<p>函数  gradient</p>
+</blockquote>
+<p>gradient <code>[函数]</code> 产生一个直线渐变色, <code>colors [List&lt;Color&gt;]</code>指定色彩列表, 用于渐变的色彩指定. <code>stops[List&lt;double&gt;: 0-1]</code>指定色彩位置. <code>direction [Direction]</code>指定色彩方向, 如果未指定, 则是从左到右.</p>
+<h3 id="resource">Resource</h3>
+<p>素材</p>
+<blockquote>
+<p>扩展 IconData</p>
+</blockquote>
+<p>icon <code>[函数]</code> 产生一个Icon元素, <code>color [Color]</code>指定Icon色彩, <code>size [double]</code>指定Icon大小, 产生一个Icon元素.</p>
+<p>iconWhite <code>[函数]</code> 产生一个白色的Icon元素.</p>
+<p>iconBlack <code>[函数]</code> 产生一个黑色的Icon元素.</p>
+<p>iconGray <code>[函数]</code> 产生一个灰色的Icon元素.</p>
+<p>iconDarkGray <code>[函数]</code> 产生一个深灰色的Icon元素.</p>
+<blockquote>
+<p>扩展 ImageProvider</p>
+</blockquote>
+<p>image <code>[属性]</code> 从Provider产生Image控件, 支持高宽比等比例伸缩.</p>
+<p>imageFill <code>[属性]</code> 从Provider产生Image控件, 支持高宽比失衡伸缩.</p>
+<h3 id="shapeborder">ShapeBorder</h3>
+<p>图形边框, 适用于ShapeDecoration中, 为Container的Decoration去配置.</p>
+<blockquote>
+<p>类 ChatPopBorder</p>
+</blockquote>
+<p>聊天泡泡边框</p>
+<p>offset <code>[属性]</code> 聊天三角的位置, 从0到1.0.</p>
+<p>arrowSize <code>[属性]</code> 三角形的尺寸.</p>
+<p>color <code>[属性]</code>  边框的色彩.</p>
+<blockquote>
+<p>类 TagBorder</p>
+</blockquote>
+<p>购物标签样式边框</p>
+<blockquote>
+<p>类  TicketBorder</p>
+</blockquote>
+<p>电影票样式边框</p>
+<blockquote>
+<p>类  FullReceiptBorder</p>
+</blockquote>
+<p>票据边框, 上下都带有锯齿</p>
+<blockquote>
+<p>类  TopReceiptBorder</p>
+</blockquote>
+<p>票据边框, 上方带有锯齿</p>
+<blockquote>
+<p>类  BottomReceiptBorder</p>
+</blockquote>
+<p>票据边框, 下方带有锯齿</p>
+<blockquote>
+<p>函数  chatPopBorder</p>
+</blockquote>
+<p>chatPopBorder <code>[生成]</code> 获得ChatPopBorder.</p>
+<blockquote>
+<p>函数 rrectBorder</p>
+</blockquote>
+<p>rrectBorder <code>[生成]</code>  获得圆角矩形边框.</p>
+<h3 id="line">Line</h3>
+<blockquote>
+<p>类 Line 多段线</p>
+</blockquote>
+<p>points <code>[属性]</code> 点列表</p>
+<p>smoothLevel <code>[属性]</code> 平滑等级, 暂时无作用</p>
+<blockquote>
+<p>类 StraightLine 直线</p>
+</blockquote>
+<p>point1 <code>[属性]</code> 点1</p>
+<p>point2 <code>[属性]</code> 点2</p>
+<p>positionInRate <code>[函数]</code> 从0到1的线中心取点</p>
+<p>positionOfOffset <code>[函数]</code> 线偏移取点, &gt;0, 从Point1这边偏移, &lt;0, 从Point2这边偏移</p>
+<h3 id="pathextra">PathExtra</h3>
+<blockquote>
+<p>函数</p>
+</blockquote>
+<p>PathExtra::union <code>[函数]</code> 合并两个Path.</p>
+<p>PathExtra::hole <code>[函数]</code> 在Path上挖洞.</p>
+<p>PathExtra::rect <code>[函数]</code> 生成矩形Path.</p>
+<p>PathExtra::rrect  <code>[函数]</code> 生成圆角矩形Path.</p>
+<p>PathExtra::cycle <code>[函数]</code> 生成圆形Path.</p>
+<p>PathExtra::triple <code>[函数]</code> 生成三角形Path.</p>
+<p>PathExtra::angleTriple <code>[函数]</code> 生成直角三角形Path.</p>
+<p>PathExtra::line <code>[函数]</code>  绘制一条线.</p>
+<p>PathExtra::smoothShape  <code>[函数]</code>   平滑的图形.</p>
+<p>PathExtra::sharpShape  <code>[函数]</code>  尖锐的图形.</p>
+<blockquote>
+<p>扩展 RectExtra</p>
+</blockquote>
+<p>path <code>[函数]</code> 直角的Rect的Path.</p>
+<p>pathWithCorner <code>[函数]</code> 带圆角的Rect的Path.</p>
+<blockquote>
+<p>扩展 LineExtra, 基于List<offset>.</offset></p>
+</blockquote>
+<p>linPath <code>[函数]</code> 绘制线条的Path.</p>
+<p>polygonPath <code>[函数]</code> 绘制图形的path.</p>
+<h3 id="draw-view">Draw View</h3>
+<blockquote>
+<p>类 DrawView<br>
+快捷绘图板控件</p>
+</blockquote>
+<p>onPaint <code>[属性]</code> 绘图函数</p>
+<p>size  <code>[属性]</code>  绘图控件的尺寸</p>
+<p>child  <code>[属性]</code>  子控件</p>
+<h3 id="path-view">Path View</h3>
+<blockquote>
+<p>类 PathView</p>
+</blockquote>
+<p>path <code>[属性]</code> 绘图路径</p>
+<p>paint <code>[属性]</code> 绘图模式</p>
+<p>child <code>[属性]</code> 子控件</p>
+<h2 id="structure">structure</h2>
+<p>数据结构集合</p>
+<h3 id="combo-data">Combo Data</h3>
+<p>组合数据集合</p>
+<blockquote>
+<p>类 Pair</p>
+</blockquote>
+<p>组合两个数据</p>
+<blockquote>
+<p>类 Triple</p>
+</blockquote>
+<p>组合三个数据</p>
+<blockquote>
+<p>类 Quad</p>
+</blockquote>
+<p>组合四个数据</p>
+<h3 id="list-extra">List Extra</h3>
+<p>数组扩展</p>
+<blockquote>
+<p>扩展  List<t></t></p>
+</blockquote>
+<p>mixList <code>[函数]</code> 将两个数组进行交叉组合, <code>next [List&lt;T&gt;]</code>为接下去的数组. 返回一个组合后的新数组.</p>
+<p>mixItem <code>[函数]</code> 将数据交叉插入数组中, <code>item [T]</code>为插入到数组中的数据, <code>around [bool]</code>指定数据是否包含到数组之外. 返回一个组合后的新数组.</p>
+<p>randomItem <code>[属性]</code> 从list获取一个随机对象.</p>
+<p>isEqualTo <code>[函数]</code> 判断本数组是否与另外一个数组相同.</p>
+<p>startWith <code>[函数]</code> 判断本数组是否由另外一个数组开头.</p>
+<p>endWith <code>[函数]</code> 判断本数组是否另外一个数组结束.</p>
+<p>indicate <code>[属性]</code> 产生一个带有序列号的数组.</p>
+<p>find / findLast <code>[函数]</code> 搜索一个子list.</p>
+<blockquote>
+<p>函数 inc</p>
+</blockquote>
+<p>产生一个序列数组, <code>length [int]</code>数组的长度, <code>start [int]</code>数组的起始数据.</p>
+<h3 id="map-extra">Map Extra</h3>
+<p>Map扩展</p>
+<blockquote>
+<p>扩展  Map</p>
+</blockquote>
+<p>findByValue <code>函数</code> 通过Value元素进行数据搜索, <code>byValue</code>为数据对比函数, 返回一个带有Key和Value的MapEntry数据.</p>
+<h3 id="number-extra">Number Extra</h3>
+<p>数字类型的扩展</p>
+<blockquote>
+<p>扩展 num</p>
+</blockquote>
+<p>limitBetween <code>函数</code> 通过<code>min[num]</code>和<code>max[num]</code>限制本数字的上下限, 返回一个新的数据. 相当于max(min(max, X), min)的结果.</p>
+<blockquote>
+<p>扩展 int</p>
+</blockquote>
+<p>digitsString <code>[函数]</code> 设定0的数量, 如果数字不够位数, 在前方添加0.</p>
+<h3 id="number-parser">Number Parser</h3>
+<p>数字分析功能</p>
+<blockquote>
+<p>扩展 String</p>
+</blockquote>
+<p>chineseNumber <code>属性</code> 通过字符串中的中文文本, 得到一个数值.</p>
+<p>mixChineseNumber <code>属性</code> 通过字符串中的中文文本, 得到一个数值, 包含阿拉伯数字.</p>
+<h3 id="string-extra">String Extra</h3>
+<p>字符串扩展</p>
+<blockquote>
+<p>扩展 String</p>
+</blockquote>
+<p>apartBy <code>函数</code> 通过<code>gap[String]</code>分割一个字符串, 得到两个字符串.</p>
+<p>apartReverseBy <code>函数</code>, 等同于apartBy, 但是是通过倒序分析.</p>
+<p>fileExits <code>属性</code> 判断文件是否存在.</p>
+<h3 id="value">Value</h3>
+<p>数据判断</p>
+<blockquote>
+<p>函数 isEmpty<br>
+判断数据<code>l [dynamic]</code>是否为空.</p>
+</blockquote>
+<blockquote>
+<p>扩展 PairJudge</p>
+</blockquote>
+<p>judge <code>函数</code> 判断后续的系列语句是否正确, 然后返回可选, 意义不明.</p>
+<h3 id="time">Time</h3>
+<p>时间处理</p>
+<blockquote>
+<p>扩展 DateTime</p>
+</blockquote>
+<blockquote>
+<p>dateTimeString <code>属性</code> 日期时间的全部显示</p>
+</blockquote>
+<blockquote>
+<p>dateString <code>属性</code> 日期显示</p>
+</blockquote>
+<blockquote>
+<p>timeString <code>属性</code> 时间显示</p>
+</blockquote>
+<blockquote>
+<p>simpleString <code>属性</code> 简化版显示日期时间</p>
+</blockquote>
+<blockquote>
+<p>扩展String</p>
+</blockquote>
+<p>dateTime <code>[属性]</code> 从文本获得时间</p>
+<h2 id="system">system</h2>
+<p>系统功能集合</p>
+<h3 id="image-extra">Image Extra</h3>
+<p>自动存储的图片扩展</p>
+<p>注意: 要使用Stoage对应的同步操作, 必须先执行好await FilePath().setup();</p>
+<blockquote>
+<p>函数 imageFromId</p>
+</blockquote>
+<p>通过Storage Id得到一个File Image. Storage ID由FileImage::Save 或者FileImage::SaveSync, FileImage::copyToStorage, FileImage::copyToStorageAsync得到.</p>
+<blockquote>
+<p>函数 imageFromIdAsync</p>
+</blockquote>
+<p>与imageFromId相同, 不过, 这个是异步的.</p>
+<blockquote>
+<p>函数 imageToStorage</p>
+</blockquote>
+<p>拷贝一个图片文件<code>sourcePath [String]</code>到Storage, 并且得到一个Storage ID.</p>
+<blockquote>
+<p>函数 imageToStorageAsync</p>
+</blockquote>
+<p>与imageToStorage相同, 异步.</p>
+<blockquote>
+<p>扩展 FileImage</p>
+</blockquote>
+<p>saveToStorage <code>函数</code> 保存图片, 保存之后, 会得到一个Storage ID.</p>
+<p>saveToStorageAsync <code>函数</code> 保存图片, 与save相同, 异步.</p>
+<h3 id="file-path">File Path</h3>
+<p>系统路径</p>
+<blockquote>
+<p>类 Path<br>
+系统路径管理工具, 单例类, 通过Path().setup()初始化.</p>
+</blockquote>
+<p>setup <code>函数</code> 初始化功能, 从系统获得基本的文件目录.</p>
+<p>temp <code>属性</code> 临时目录.</p>
+<p>tempAsync <code>属性</code> 与temp相同, 异步.</p>
+<p>db <code>属性</code> 数据库文件.</p>
+<p>dbAsync <code>属性</code> 与db相同, 异步.</p>
+<p>imageFilename <code>函数</code> 通过<code>main[String]</code>得到图像文件路径.</p>
+<p>imageFilenameAsync <code>函数</code>, 与imageFilename相同, 异步.</p>
+<h3 id="imageproviderextra">ImageProviderExtra</h3>
+<p>图片提供器的存储功能</p>
+<blockquote>
+<p>扩展  ImageProvider</p>
+</blockquote>
+<p>saveToFile <code>[函数]</code> 存储图片到特定的文件中去</p>
+<p>saveToStorage <code>[函数]</code>  存储图片到storage库中去</p>
+<h2 id="ui">ui</h2>
+<p>界面控件封装</p>
+<h3 id="clip-">Clip 对控件进行切割</h3>
+<blockquote>
+<p>扩展 Widget</p>
+</blockquote>
+<p>clipRect <code>[函数]</code> 切割成矩形</p>
+<p>clipRRect <code>[函数]</code> 切割成圆角矩形</p>
+<p>clipRound <code>[函数]</code> 切割成圆形</p>
+<p>clipPath <code>[函数]</code> 切割成Path指定的图形</p>
+<h3 id="context-extra">Context Extra</h3>
+<p>上下文的扩展</p>
+<blockquote>
+<p>类  DialogAction<br>
+对话框按钮</p>
+</blockquote>
+<p>title <code>属性</code> 按钮的标题</p>
+<p>color <code>属性</code> 按钮的色彩</p>
+<p>action <code>属性</code> 按钮点击后的反应</p>
+<p>destroy <code>生成</code>  删除按钮</p>
+<p>accept <code>生成</code>  确认按钮</p>
+<p>cancel <code>生成</code>  取消按钮</p>
+<blockquote>
+<p>扩展 BuildContext</p>
+</blockquote>
+<p>showAlert <code>函数</code> 显示对话框, <code>title [String]</code>为对话框标题, <code>subTitle [String]</code>为对话框副标题, <code>titleColor [Color]</code>标题文本颜色, <code>subTitleColor [Color]</code>副标题文本颜色, <code>titleFontSize [double]</code>标题文本大小, <code>subTitleFontSize [double]</code>副标题文本大小, <code>actions [List&lt;DialogAction&gt;]</code>按钮列表, <code>barrierDismissible[bool]</code>点击背景是否会取消对话框.</p>
+<p>showSnack <code>函数</code> 显示SnackBar, <code>color [Color]</code> SnackBar的背景色, <code>child [Widget]</code> SnackBar中的子控件.</p>
+<p>showSnackTitle <code>函数</code> 显示文本的SnackBar, <code>title[String]</code>SnackBar中的文本, <code>color [Color]</code> 背景色.</p>
+<h3 id="control">Control</h3>
+<p>组合的控件</p>
+<blockquote>
+<p>类 TextBar</p>
+</blockquote>
+<p>text <code>[属性]</code> 文本内容</p>
+<p>color <code>[属性]</code> 背景色彩</p>
+<p>textColor <code>[属性]</code> 文本色彩</p>
+<p>fontSize <code>[属性]</code> 文本字体大小</p>
+<p>radius <code>[属性]</code> 文本框的圆角大小</p>
+<blockquote>
+<p>扩展 String</p>
+</blockquote>
+<p>bar <code>[函数]</code> 从文本能得到TextBar</p>
+<blockquote>
+<p>类 IconTextBar</p>
+</blockquote>
+<p>text <code>[属性]</code> 文本内容</p>
+<p>icon <code>[属性]</code> 图标</p>
+<p>iconColor <code>[属性]</code> 图标颜色</p>
+<p>textColor <code>[属性]</code> 文本颜色</p>
+<p>iconSize <code>[属性]</code> 图标尺寸</p>
+<p>fontSize <code>[属性]</code> 文本字体大小</p>
+<p>vertical <code>[属性]</code> 是否竖排, 如果否的话, 则为横排.</p>
+<blockquote>
+<p>类 Capsule</p>
+</blockquote>
+<p>mainText <code>[属性]</code> 主文本</p>
+<p>subText <code>[属性]</code> 次文本</p>
+<p>fontSize <code>[属性]</code> 字体大小</p>
+<p>mainColor <code>[属性]</code> 主文本色彩</p>
+<p>subColor <code>[属性]</code> 次文本色彩</p>
+<p>cornerRadius <code>[属性]</code> 圆角大小</p>
+<blockquote>
+<p>类 PhotoFrame<br>
+带框图片</p>
+</blockquote>
+<p>picture <code>[属性]</code> 图片</p>
+<p>icon <code>[属性]</code> 提示图标</p>
+<p>iconSize <code>[属性]</code> 图标尺寸</p>
+<p>iconColor <code>[属性]</code> 图标色彩</p>
+<p>borderColor <code>[属性]</code> 边框色彩</p>
+<p>borderWidth <code>[属性]</code> 边框宽度</p>
+<p>alignment <code>[属性]</code> 图标在图片框的什么位置</p>
+<blockquote>
+<p>类 ColorTab<br>
+用色彩区分的Tab控件</p>
+</blockquote>
+<p>tabs <code>[属性]</code> 文本和背景色的列表</p>
+<p>selectedIndex <code>[属性]</code> 当前选中的tab</p>
+<p>textColor <code>[属性]</code> 文本色彩</p>
+<p>fontSize <code>[属性]</code> 文本字体大小</p>
+<p>colorReverse <code>[属性]</code>  色彩是否调转, 如果调转, 普通tab背景色偏白, 选中tab背景色为正常. 否则, 普通tab背景正常, 选中tab背景色偏白.</p>
+<p>onSelectTab <code>[属性]</code> 选中某个tab而执行的函数.</p>
+<h3 id="gridlist">GridList</h3>
+<p>方框列表控件</p>
+<blockquote>
+<p>类 GridList</p>
+</blockquote>
+<p>rowNumber <code>属性</code>, 横向元素数量.</p>
+<p>selectedIndex <code>属性</code>, 当前选中的Grid.</p>
+<p>count <code>[属性]</code>, 总数.</p>
+<p>onSelectIndex <code>属性</code>, 选中某个Grid之后产生的事件.</p>
+<p>spacing <code>属性</code>, 分割尺寸.</p>
+<p>itemBuilder <code>属性</code>, 建造一个具体Grid的内容.</p>
+<h3 id="imagebarwithpicker">ImageBarWithPicker</h3>
+<p>带图片选取器的图片显示</p>
+<blockquote>
+<p>类 ImageBarWithPicker</p>
+</blockquote>
+<p>onUpdate <code>[函数]</code> 当更新图片后, 执行本函数, 参数为图片文件地址.</p>
+<h3 id="multiimagebarwithpicker">MultiImageBarWithPicker</h3>
+<p>带图片选取器的多图片显示</p>
+<blockquote>
+<p>类 MultiImageBarWithPicker</p>
+</blockquote>
+<p>leadText <code>[属性]</code> 标题文本</p>
+<p>emptyText <code>[属性]</code> 空白内容显示的文本</p>
+<p>iconColor <code>[属性]</code> 图标颜色, 图标为指向拍摄和选择图片列表功能的两个图标.</p>
+<p>imageHeight <code>[属性]</code> 图片高度</p>
+<p>deleteTitle <code>[属性]</code> 删除确认对话框中删除文本</p>
+<p>deleteCancel <code>[属性]</code> 删除确认对话框中取消文本</p>
+<p>deleteContent <code>[属性]</code> 删除确认对话框中主体文本</p>
+<p>imageFileList <code>[属性]</code> 初始化的图片文件列表</p>
+<p>onUpdateFileList <code>[属性]</code> 当更新图片文件列表的时候, 执行本函数</p>
+<h3 id="mini-control">Mini Control</h3>
+<p>小型控件</p>
+<blockquote>
+<p>函数 gap   空隙函数</p>
+</blockquote>
+<p>size <code>[double]</code>, 高度和宽度.</p>
+<h3 id="numberfield">NumberField</h3>
+<p>数值输入框</p>
+<blockquote>
+<p>类 NumberField</p>
+</blockquote>
+<p>color <code>属性</code>, 前后元素的色彩.</p>
+<p>min/max <code>属性</code>, 最小和最大的数值.</p>
+<p>controller <code>属性</code>, 输入框控制器.</p>
+<p>focus <code>属性</code>, 焦点控制器.</p>
+<p>style <code>属性</code>, 文本属性.</p>
+<h3 id="pad">Pad</h3>
+<blockquote>
+<p>扩展  Widget</p>
+</blockquote>
+<p>pad <code>函数</code>, 指定一个控件的前后左右, 或者全部, 或者上下/左右.</p>
+<blockquote>
+<p>扩展  SliverWithKeepAliveWidget</p>
+</blockquote>
+<p>pad <code>函数</code>, 指定一个控件的前后左右, 或者全部, 或者上下/左右.</p>
+<h3 id="richtext">RichText</h3>
+<blockquote>
+<p>扩展 List<textspan></textspan></p>
+</blockquote>
+<p>richText <code>[函数]</code> 生成RichText<br>
+从TextSpan列表获取富文本控件. <code>list [List&lt;TextSpan&gt;]</code>文本列表, <code>textAlign [TextAlign]</code> 文本的对齐模式, <code>textDirection [TextDirection]</code> 文本的方向, <code>softWrap [bool]</code> 软换行, <code>overflow [TextOverflow]</code> 文本溢出的处理方式, <code>textScaleFactor [double]</code> 文本放大倍数, <code>maxLines [int]</code> 最大的文本行数, <code>locale [Locale]</code> 文本所属的地区设置.</p>
+<h3 id="stroketext">StrokeText</h3>
+<blockquote>
+<p>类  StrokeText<br>
+绘制一个文本的空边框</p>
+</blockquote>
+<p>strokeCap  <code>属性</code> 绘图的转角设计.</p>
+<p>strokeJoin <code>属性</code> 绘图的链接模式.</p>
+<p>strokeWidth  <code>属性</code> 绘图的线宽度.</p>
+<p>strokeColor  <code>属性</code>  线的色彩.</p>
+<p>style  <code>属性</code> 文本形式.</p>
+<p>text <code>属性</code>  文本内容.</p>
+<p>textAlign  <code>属性</code>  文本的对齐模式.</p>
+<p>textDirection   <code>属性</code>  文本的方向.</p>
+<p>locale  <code>属性</code> 文本所属地区设置.</p>
+<p>softWrap  <code>属性</code> 软换行.</p>
+<p>overflow  <code>属性</code> 文本溢出的处理方式.</p>
+<p>textScaleFactor  <code>属性</code> 文本放大倍数.</p>
+<p>maxLines  <code>属性</code> 文本最大行数.</p>
+<h3 id="taglist">TagList</h3>
+<blockquote>
+<p>类  TagList<br>
+支持自动换行的Tag列表控件.</p>
+</blockquote>
+<p>texts  <code>属性</code> 文本列表.</p>
+<p>selectedTag  <code>属性</code> 当前选中的Tag.</p>
+<p>fontSize  <code>属性</code> 文本大小.</p>
+<p>onSelectTag  <code>属性</code>  选中某个Tag之后产生的事件.</p>
+<p>selectedColor   <code>属性</code>  选中的Tag元素背景色.</p>
+<p>unselectedColor   <code>属性</code> 未选中的Tag元素背景色.</p>
+<p>textColor   <code>属性</code> 文本的色彩.</p>
+<h3 id="multitaglist">MultiTagList</h3>
+<blockquote>
+<p>类  MultiTagList<br>
+支持自动换行的Tag列表控件, 多选.</p>
+</blockquote>
+<p>texts  <code>属性</code> 文本列表.</p>
+<p>selectedTags  <code>属性</code> 当前选中的Tag列表.</p>
+<p>fontSize  <code>属性</code> 文本大小.</p>
+<p>onSelectTags  <code>属性</code>  选中某个Tag之后产生的事件.</p>
+<p>selectedColor   <code>属性</code>  选中的Tag元素背景色.</p>
+<p>unselectedColor   <code>属性</code> 未选中的Tag元素背景色.</p>
+<p>textColor   <code>属性</code> 文本的色彩.</p>
+<h3 id="taggrid">TagGrid</h3>
+<blockquote>
+<p>类  TagGrid<br>
+支持表格模式的图标表格控件.</p>
+</blockquote>
+<p>selected <code>[属性]</code> 初始化选中的图标</p>
+<p>onSelect <code>[属性]</code> 选中某个图标的时候, 执行的函数</p>
+<p>icons <code>[属性]</code> 图标列表</p>
+<h3 id="multi-widget">Multi Widget</h3>
+<p>基于多个控件列表的扩展</p>
+<blockquote>
+<p>扩展 List<t extends="" widget=""></t></p>
+</blockquote>
+<p>row <code>[函数]</code> 将控件列表生成横向排列</p>
+<p>column <code>[函数]</code> 将控件列表生成竖向排列</p>
+<p>flow <code>[函数]</code> 将控件列表生成由FlowDelegate指定的控件列表, 一般用于右键菜单类似组件</p>
+<p>listBody <code>[函数]</code> 将控件列表生成ListBody</p>
+<p>pageView <code>[函数]</code> 将控件列表生成页面列表</p>
+<p>listView <code>[函数]</code> 将控件列表生成排列列表(与row/column不同, 这个带滚动功能)</p>
+<p>gridViewByDelegate <code>[函数]</code> 将控件列表生成通过delegate生成表格</p>
+<p>gridViewByCount <code>[函数]</code> 将控件列表生成通过规划生成表格</p>
+<p>gridViewByLimit <code>[函数]</code> 将控件列表生成通过限制生成表格</p>
+<p>sliverList <code>[函数]</code> 将控件列表生成适用于ScrollView的Sliver列表</p>
+<p>wrap <code>[函数]</code> 将控件列表生成换行排列.</p>
+<blockquote>
+<p>扩展 List<t extends="" positioned=""></t></p>
+</blockquote>
+<p>stack <code>[函数]</code> 将控件列表(必须是Position), 生成Stack控件.</p>
+<blockquote>
+<p>扩展 List<t extends="" sliverwithkeepalivewidget=""></t></p>
+</blockquote>
+<p>scrollView <code>[函数]</code> 将控件列表生成一个滚动控件.</p>
+<h3 id="textdisplay">TextDisplay</h3>
+<blockquote>
+<p>扩展  String<br>
+字符串的显示扩展功能</p>
+</blockquote>
+<p>text <code>函数</code>, 从字符串得到文本控件.  属性与标准的Text控件相同.</p>
+<p>textTitle  <code>函数</code>, 从字符串得到标题文本控件. 字符大小由上级Theme指定.</p>
+<p>textSubtitle  <code>函数</code>, 从字符串得到副标题文本控件.  字符大小由上级Theme指定.</p>
+<p>textBodyBold  <code>函数</code>, 从字符串得到宽文本控件.  字符大小由上级Theme指定.</p>
+<p>textBodyNormal   <code>函数</code>, 从字符串得到标准文本控件.  字符大小由上级Theme指定.</p>
+<p>textAction  <code>函数</code>, 从字符串得到操作所用的文本控件.  字符大小由上级Theme指定.</p>
+<p>textSpan  <code>函数</code>, 从字符串得到TextSpan控件, <code>style [TextStyle]</code>为文本显示形式,  <code>onTap</code> 为点击文本的时候, 产生的事件.</p>
+<h3 id="widgetextra">WidgetExtra</h3>
+<blockquote>
+<p>扩展  Widget</p>
+</blockquote>
+<p>onTap  <code>函数</code>,  点击事件的控件.</p>
+<p>onPress   <code>函数</code>,  按下/释放事件的控件.</p>
+<p>box   <code>[函数]</code>, 生成一个Container控件.</p>
+<p>sized   <code>函数</code>, 设置尺寸大小的控件.</p>
+<p>widthed <code>函数</code>, 设置控件的宽度.</p>
+<p>heighted <code>函数</code>, 设置控件的高度.</p>
+<p>rotated   <code>函数</code>, 旋转控件.</p>
+<p>expanded  <code>函数</code>, 扩大化控件.</p>
+<p>sliver  <code>函数</code>, 将当前控件Sliver化.</p>
+<p>opacity  <code>函数</code>, 将当前控件半透明化(0为透明, 1为不透明)</p>
+<p>positioned  <code>函数</code>, 适配Stack的内部子控件.</p>
+<p>apsect  <code>函数</code>, 设定宽高比的控件.</p>
+<p>center / left / right / top / bottom / leftTop / rightTop / leftBottom / rightBottom <code>属性</code>, 位置设定控件.</p>
+<p>offset <code>函数</code>, 通过0(左或上)到1(右或下)指定位置设定控件.</p>
+<p>onListen <code>[函数]</code>, 指定监听某个通知, 当子控件发出一个通知的时候, onNotification会执行.</p>
+<p>overflow <code>[函数]</code>, 限定范围的可超过内容.</p>
+<p>constrain <code>[函数]</code>, 给出约束尺寸.</p>
+<p>rotate <code>[函数]</code>, 指定控件的旋转.</p>
+<p>scale <code>[函数]</code>, 指定控件的拉伸.</p>
+<p>move <code>[函数]</code>, 指定控件的移动.</p>
+<p>hide <code>[函数]</code>, 指定控件是否隐藏.</p>
+<p>fit <code>[函数]</code>, 指定子内容在本内容中的约束方式, 使用BoxFix限定.</p>
+<p>card <code>[函数]</code>, 展示一个卡形状.</p>
+<h3 id="help">Help</h3>
+<p>显示帮助页面</p>
+<blockquote>
+<p>函数 showHelp</p>
+</blockquote>
+<p>context <code>参数</code> 绘制对象</p>
+<p>items <code>参数</code> 各个帮助的元素, 包括文本, 带箭头的线条(两个点)</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="ac_ext">
+  <span class="name"><a href="animation_ac_ext">animation\ac_ext</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="implicitly_animate">
+  <span class="name"><a href="animation_implicitly_animate">animation\implicitly_animate</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="transform">
+  <span class="name"><a href="animation_transform">animation\transform</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="coastline">
+  <span class="name"><a href="coastline">coastline</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="db_interface">
+  <span class="name"><a href="database_db_interface">database\db_interface</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="color_extra">
+  <span class="name"><a href="draw_color_extra">draw\color_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="draw_view">
+  <span class="name"><a href="draw_draw_view">draw\draw_view</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="gradient">
+  <span class="name"><a href="draw_gradient">draw\gradient</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="line">
+  <span class="name"><a href="draw_line">draw\line</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="path_extra">
+  <span class="name"><a href="draw_path_extra">draw\path_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="path_view">
+  <span class="name"><a href="draw_path_view">draw\path_view</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="resource">
+  <span class="name"><a href="draw_resource">draw\resource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="shape_border">
+  <span class="name"><a href="draw_shape_border">draw\shape_border</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="icon">
+  <span class="name"><a href="media_icon">media\icon</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="media">
+  <span class="name"><a href="media_media">media\media</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="list_extra">
+  <span class="name"><a href="structure_list_extra">structure\list_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="map_extra">
+  <span class="name"><a href="structure_map_extra">structure\map_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="number_extra">
+  <span class="name"><a href="structure_number_extra">structure\number_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="string_extra">
+  <span class="name"><a href="structure_string_extra">structure\string_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="time">
+  <span class="name"><a href="structure_time">structure\time</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="token">
+  <span class="name"><a href="structure_token">structure\token</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="value">
+  <span class="name"><a href="structure_value">structure\value</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="file">
+  <span class="name"><a href="system_file">system\file</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="file_path">
+  <span class="name"><a href="system_file_path">system\file_path</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_extra">
+  <span class="name"><a href="system_image_extra">system\image_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_provider_extra">
+  <span class="name"><a href="system_image_provider_extra">system\image_provider_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="bordered_text">
+  <span class="name"><a href="ui_bordered_text">ui\bordered_text</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="chinese_number">
+  <span class="name"><a href="ui_chinese_number">ui\chinese_number</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="clip">
+  <span class="name"><a href="ui_clip">ui\clip</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="context_extra">
+  <span class="name"><a href="ui_context_extra">ui\context_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="control">
+  <span class="name"><a href="ui_control">ui\control</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="delay_text">
+  <span class="name"><a href="ui_delay_text">ui\delay_text</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="glass_box">
+  <span class="name"><a href="ui_glass_box">ui\glass_box</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="grid_list">
+  <span class="name"><a href="ui_grid_list">ui\grid_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="help">
+  <span class="name"><a href="ui_help">ui\help</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="help_item">
+  <span class="name"><a href="ui_help_item">ui\help_item</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_bar_with_picker">
+  <span class="name"><a href="ui_image_bar_with_picker">ui\image_bar_with_picker</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_selector">
+  <span class="name"><a href="ui_image_selector">ui\image_selector</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="list_builder">
+  <span class="name"><a href="ui_list_builder">ui\list_builder</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="mini_control">
+  <span class="name"><a href="ui_mini_control">ui\mini_control</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="multi_image_bar_with_picker">
+  <span class="name"><a href="ui_multi_image_bar_with_picker">ui\multi_image_bar_with_picker</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="multi_tag_list">
+  <span class="name"><a href="ui_multi_tag_list">ui\multi_tag_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="multi_widget">
+  <span class="name"><a href="ui_multi_widget">ui\multi_widget</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="number_field">
+  <span class="name"><a href="ui_number_field">ui\number_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="pad">
+  <span class="name"><a href="ui_pad">ui\pad</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="rich_text">
+  <span class="name"><a href="ui_rich_text">ui\rich_text</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="simple_button">
+  <span class="name"><a href="ui_simple_button">ui\simple_button</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="state_extra">
+  <span class="name"><a href="ui_state_extra">ui\state_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="stroke_text">
+  <span class="name"><a href="ui_stroke_text">ui\stroke_text</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="swtich_button">
+  <span class="name"><a href="ui_swtich_button">ui\swtich_button</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="tag_list">
+  <span class="name"><a href="ui_tag_list">ui\tag_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="tag_panel">
+  <span class="name"><a href="ui_tag_panel">ui\tag_panel</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_display">
+  <span class="name"><a href="ui_text_display">ui\text_display</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_label_pannel">
+  <span class="name"><a href="ui_text_label_pannel">ui\text_label_pannel</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widget_extra">
+  <span class="name"><a href="ui_widget_extra">ui\widget_extra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="https://github.com/0xfeb/coastline_flutter">coastline package</a></li>
+</ol>
+
+    <h5 class="hidden-xs"><span class="package-name">coastline</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="animation_ac_ext">animation\ac_ext</a></li>
+      <li><a href="animation_implicitly_animate">animation\implicitly_animate</a></li>
+      <li><a href="animation_transform">animation\transform</a></li>
+      <li><a href="coastline">coastline</a></li>
+      <li><a href="database_db_interface">database\db_interface</a></li>
+      <li><a href="draw_color_extra">draw\color_extra</a></li>
+      <li><a href="draw_draw_view">draw\draw_view</a></li>
+      <li><a href="draw_gradient">draw\gradient</a></li>
+      <li><a href="draw_line">draw\line</a></li>
+      <li><a href="draw_path_extra">draw\path_extra</a></li>
+      <li><a href="draw_path_view">draw\path_view</a></li>
+      <li><a href="draw_resource">draw\resource</a></li>
+      <li><a href="draw_shape_border">draw\shape_border</a></li>
+      <li><a href="media_icon">media\icon</a></li>
+      <li><a href="media_media">media\media</a></li>
+      <li><a href="structure_list_extra">structure\list_extra</a></li>
+      <li><a href="structure_map_extra">structure\map_extra</a></li>
+      <li><a href="structure_number_extra">structure\number_extra</a></li>
+      <li><a href="structure_string_extra">structure\string_extra</a></li>
+      <li><a href="structure_time">structure\time</a></li>
+      <li><a href="structure_token">structure\token</a></li>
+      <li><a href="structure_value">structure\value</a></li>
+      <li><a href="system_file">system\file</a></li>
+      <li><a href="system_file_path">system\file_path</a></li>
+      <li><a href="system_image_extra">system\image_extra</a></li>
+      <li><a href="system_image_provider_extra">system\image_provider_extra</a></li>
+      <li><a href="ui_bordered_text">ui\bordered_text</a></li>
+      <li><a href="ui_chinese_number">ui\chinese_number</a></li>
+      <li><a href="ui_clip">ui\clip</a></li>
+      <li><a href="ui_context_extra">ui\context_extra</a></li>
+      <li><a href="ui_control">ui\control</a></li>
+      <li><a href="ui_delay_text">ui\delay_text</a></li>
+      <li><a href="ui_glass_box">ui\glass_box</a></li>
+      <li><a href="ui_grid_list">ui\grid_list</a></li>
+      <li><a href="ui_help">ui\help</a></li>
+      <li><a href="ui_help_item">ui\help_item</a></li>
+      <li><a href="ui_image_bar_with_picker">ui\image_bar_with_picker</a></li>
+      <li><a href="ui_image_selector">ui\image_selector</a></li>
+      <li><a href="ui_list_builder">ui\list_builder</a></li>
+      <li><a href="ui_mini_control">ui\mini_control</a></li>
+      <li><a href="ui_multi_image_bar_with_picker">ui\multi_image_bar_with_picker</a></li>
+      <li><a href="ui_multi_tag_list">ui\multi_tag_list</a></li>
+      <li><a href="ui_multi_widget">ui\multi_widget</a></li>
+      <li><a href="ui_number_field">ui\number_field</a></li>
+      <li><a href="ui_pad">ui\pad</a></li>
+      <li><a href="ui_rich_text">ui\rich_text</a></li>
+      <li><a href="ui_simple_button">ui\simple_button</a></li>
+      <li><a href="ui_state_extra">ui\state_extra</a></li>
+      <li><a href="ui_stroke_text">ui\stroke_text</a></li>
+      <li><a href="ui_swtich_button">ui\swtich_button</a></li>
+      <li><a href="ui_tag_list">ui\tag_list</a></li>
+      <li><a href="ui_tag_panel">ui\tag_panel</a></li>
+      <li><a href="ui_text_display">ui\text_display</a></li>
+      <li><a href="ui_text_label_pannel">ui\text_label_pannel</a></li>
+      <li><a href="ui_widget_extra">ui\widget_extra</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

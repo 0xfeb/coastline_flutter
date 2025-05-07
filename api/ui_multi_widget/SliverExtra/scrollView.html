@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the scrollView method from the SliverExtra extension, for the Dart programming language.">
+  <title>scrollView method - SliverExtra extension - multi_widget library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_multi_widget">ui\multi_widget.dart</a></li>
+    <li><a href="../../ui_multi_widget/SliverExtra.html">SliverExtra<span class="signature">&lt;<wbr><span class="type-parameter">T extends SliverWithKeepAliveWidget</span>&gt;</span></a></li>
+    <li class="self-crumb">scrollView method</li>
+  </ol>
+  <div class="self-name">scrollView</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="ui_multi_widget&#47;SliverExtra-extension-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">scrollView</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html">CustomScrollView</a></span>
+<span class="name ">scrollView</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="scrollView-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-scrollDirection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Axis.html">Axis</a></span> <span class="parameter-name">scrollDirection</span> = <span class="default-value">Axis.vertical</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-reverse"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-controller"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-physics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">physics</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-scrollBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollBehavior-class.html">ScrollBehavior</a>?</span> <span class="parameter-name">scrollBehavior</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-shrinkWrap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shrinkWrap</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-center"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">center</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-anchor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">anchor</span> = <span class="default-value">0.0</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-cacheExtent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-semanticChildCount"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">semanticChildCount</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-dragStartBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-keyboardDismissBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a></span> <span class="parameter-name">keyboardDismissBehavior</span> = <span class="default-value">ScrollViewKeyboardDismissBehavior.onDrag</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-restorationId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span></li>
+<li><span class="parameter" id="scrollView-param-clipBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>创建自定义滚动视图</p>
+<p>@param scrollDirection 滚动方向（默认垂直方向）
+@param reverse 是否反向滚动（默认false）
+@param controller 滚动控制器（可选）
+@param physics 滚动物理效果（可选）
+@param shrinkWrap 是否根据内容收缩包裹（默认false）
+@param clipBehavior 内容裁剪方式（默认硬裁剪）
+@return 包含当前Sliver组件的CustomScrollView</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">CustomScrollView scrollView(
+    {Key? key,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    ScrollController? controller,
+    bool? primary,
+    ScrollPhysics? physics,
+    ScrollBehavior? scrollBehavior,
+    bool shrinkWrap = false,
+    Key? center,
+    double anchor = 0.0,
+    double? cacheExtent,
+    int? semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.onDrag,
+    String? restorationId,
+    Clip clipBehavior = Clip.hardEdge}) {
+  return CustomScrollView(
+    slivers: this,
+    key: key,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    primary: primary,
+    physics: physics,
+    scrollBehavior: scrollBehavior,
+    shrinkWrap: shrinkWrap,
+    center: center,
+    anchor: anchor,
+    cacheExtent: cacheExtent,
+    semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
+    restorationId: restorationId,
+    clipBehavior: clipBehavior,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">coastline</a></li>
+    <li><a href="../../ui_multi_widget">multi_widget</a></li>
+    <li><a href="../../ui_multi_widget/SliverExtra.html">SliverExtra<span class="signature">&lt;<wbr><span class="type-parameter">T extends SliverWithKeepAliveWidget</span>&gt;</span></a></li>
+    <li class="self-crumb">scrollView method</li>
+</ol>
+
+    <h5>SliverExtra extension on <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

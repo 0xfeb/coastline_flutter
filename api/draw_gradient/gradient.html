@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the gradient function from the gradient library, for the Dart programming language.">
+  <title>gradient function - gradient library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">coastline</a></li>
+    <li><a href="../draw_gradient">draw\gradient.dart</a></li>
+    <li class="self-crumb">gradient function</li>
+  </ol>
+  <div class="self-name">gradient</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="draw_gradient&#47;draw_gradient-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">gradient</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/painting/LinearGradient-class.html">LinearGradient</a></span>
+<span class="name ">gradient</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="gradient-param-colors"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>&gt;</span></span> <span class="parameter-name">colors</span>, </span></li>
+<li><span class="parameter" id="gradient-param-stops"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span>?</span> <span class="parameter-name">stops</span>, </span></li>
+<li><span class="parameter" id="gradient-param-direction"><span class="type-annotation"><a href="../draw_gradient/Direction.html">Direction</a></span> <span class="parameter-name">direction</span> = <span class="default-value">Direction.toRight</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>生成线性渐变色</p>
+<p>创建一个可配置方向的线性渐变对象</p>
+<p>@param colors 颜色数组 - 渐变色使用的颜色列表（必须）
+@param stops 渐变位置 - 颜色对应的位置数组（0.0-1.0），可选
+@param direction 渐变方向 - 使用<a href="../draw_gradient/Direction.html">Direction</a>枚举指定渐变方向，默认为向右
+@return 返回配置好的<a href="https://api.flutter.dev/flutter/painting/LinearGradient-class.html">LinearGradient</a>渐变对象</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">LinearGradient gradient(
+    {required List&lt;Color&gt; colors,
+    List&lt;double&gt;? stops,
+    Direction direction = Direction.toRight}) {
+  late AlignmentGeometry begin;
+  late AlignmentGeometry end;
+  switch (direction) {
+    case Direction.toDown:
+      begin = Alignment.topLeft;
+      end = Alignment.bottomLeft;
+      break;
+    case Direction.toUp:
+      begin = Alignment.bottomLeft;
+      end = Alignment.topLeft;
+      break;
+    case Direction.toRight:
+      begin = Alignment.topLeft;
+      end = Alignment.topRight;
+      break;
+    case Direction.toLeft:
+      begin = Alignment.topRight;
+      end = Alignment.topLeft;
+      break;
+    case Direction.toTopLeft:
+      begin = Alignment.bottomRight;
+      end = Alignment.topLeft;
+      break;
+    case Direction.toTopRight:
+      begin = Alignment.bottomLeft;
+      end = Alignment.topRight;
+      break;
+    case Direction.toBottomLeft:
+      begin = Alignment.topRight;
+      end = Alignment.bottomLeft;
+      break;
+    case Direction.toBottomRight:
+      begin = Alignment.topLeft;
+      end = Alignment.bottomRight;
+      break;
+  }
+  return LinearGradient(colors: colors, stops: stops, begin: begin, end: end);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">coastline</a></li>
+    <li><a href="../draw_gradient">gradient</a></li>
+    <li class="self-crumb">gradient function</li>
+</ol>
+
+    <h5>gradient library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    coastline
+      0.9.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
