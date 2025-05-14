@@ -147,20 +147,17 @@ extension WidgetExtra on Widget {
   }
 
   /// >>> 尺寸控件(宽度) >>>
-  SizedBox widthBox(double width) {
-    return SizedBox(
-      width: width,
-      child: this,
-    );
-  }
+  ///
+  /// @deprecated use [gap] instead
+  SizedBox widthBox(double width) => SizedBox(width: width, child: this);
 
   /// >>> 尺寸控件(高度) >>>
-  SizedBox heightBox(double height) {
-    return SizedBox(
-      height: height,
-      child: this,
-    );
-  }
+  ///
+  /// @deprecated use [gap] instead
+  SizedBox heightBox(double height) => SizedBox(height: height, child: this);
+
+  SizedBox gap({double? width, double? height}) =>
+      SizedBox(width: width, height: height, child: this);
 
   /// >>> 旋转控件, 每次翻转90度, 顺时针 >>>
   RotatedBox rotated({required int quarter}) {
@@ -423,48 +420,48 @@ extension WidgetExtra on Widget {
     );
   }
 
-  /// >>> 转换 >>>
-  Transform rotate(
-      {Key? key,
-      required double degree,
-      Offset? origin,
-      AlignmentGeometry? alignment,
-      bool transformHitTests = true,
-      Widget? child}) {
-    return Transform.rotate(
-        angle: math.pi / degree,
-        key: key,
-        origin: origin,
-        alignment: alignment,
-        transformHitTests: transformHitTests,
-        child: this);
-  }
+  // /// >>> 转换 >>>
+  // Transform rotate(
+  //     {Key? key,
+  //     required double degree,
+  //     Offset? origin,
+  //     AlignmentGeometry? alignment,
+  //     bool transformHitTests = true,
+  //     Widget? child}) {
+  //   return Transform.rotate(
+  //       angle: math.pi / degree,
+  //       key: key,
+  //       origin: origin,
+  //       alignment: alignment,
+  //       transformHitTests: transformHitTests,
+  //       child: this);
+  // }
 
-  /// >>> 缩放 >>>
-  Transform scale(
-      {Key? key,
-      required double scale,
-      Offset? origin,
-      AlignmentGeometry? alignment,
-      bool transformHitTests = true}) {
-    return Transform.scale(
-        scale: scale,
-        key: key,
-        origin: origin,
-        alignment: alignment,
-        transformHitTests: transformHitTests,
-        child: this);
-  }
+  // /// >>> 缩放 >>>
+  // Transform scale(
+  //     {Key? key,
+  //     required double scale,
+  //     Offset? origin,
+  //     AlignmentGeometry? alignment,
+  //     bool transformHitTests = true}) {
+  //   return Transform.scale(
+  //       scale: scale,
+  //       key: key,
+  //       origin: origin,
+  //       alignment: alignment,
+  //       transformHitTests: transformHitTests,
+  //       child: this);
+  // }
 
-  /// >>> 移动 >>>
-  Transform move(
-      {Key? key, required Offset offset, bool transformHitTests = true}) {
-    return Transform.translate(
-      offset: offset,
-      key: key,
-      transformHitTests: transformHitTests,
-    );
-  }
+  // /// >>> 移动 >>>
+  // Transform move(
+  //     {Key? key, required Offset offset, bool transformHitTests = true}) {
+  //   return Transform.translate(
+  //     offset: offset,
+  //     key: key,
+  //     transformHitTests: transformHitTests,
+  //   );
+  // }
 
   /// >>> 隐藏 >>>
   Offstage hide({Key? key, required bool hide}) {
