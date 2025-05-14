@@ -90,7 +90,7 @@ class CLAnimationController {
   /// [child] 子Widget
   ///
   /// 返回一个AnimatedBuilder对象
-  Widget builder<T>(
+  Widget build<T>(
       {required T startValue,
       required T endValue,
       required TransitionBuilder builder,
