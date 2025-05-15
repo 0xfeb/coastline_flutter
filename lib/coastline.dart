@@ -60,3 +60,4 @@ export "ui/text_display.dart";
 export "ui/text_label_pannel.dart";
 export "ui/widget_extra.dart";
 export "ui/glass_box.dart";
+export "ui/ui_event.dart";
