@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 // 隐式动画, 必须在属性上设置一个随着变量变化的值, 比如judge?a:b, 然后在setState中修改judge.
 
@@ -13,7 +14,7 @@ import 'package:flutter/material.dart';
 ///
 /// 返回一个AnimatedAlign组件。
 extension AlignAniExt on Widget {
-  AnimatedAlign alignmentAnimate(
+  AnimatedAlign animatedAlign(
       {Curve curve = Curves.linear,
       required Alignment animateValueForAlignment,
       Duration duration = const Duration(milliseconds: 300),
@@ -37,14 +38,26 @@ extension AlignAniExt on Widget {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
-/// [width] 容器宽度。
-/// [height] 容器高度。
+/// [width] 容器宽度, 可以用于动画。
+/// [height] 容器高度, 可以用于动画。
+/// [constraints] 容器约束条件, 可以用于动画。
+/// [padding] 内边距, 可以用于动画。
+/// [margin] 外边距, 可以用于动画。
+/// [decoration] 装饰效果, 可以用于动画。
+/// [foregroundDecoration] 前景装饰效果, 可以用于动画。
+/// [alignment] 对齐方式, 可以用于动画。
 ///
 /// 返回一个AnimatedContainer组件。
-extension ContainerAniExt on Container {
-  AnimatedContainer animate(
+extension ContainerAniExt on Widget {
+  AnimatedContainer animatedContainer(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
+      BoxConstraints? constraints,
+      EdgeInsetsGeometry? padding,
+      EdgeInsetsGeometry? margin,
+      Decoration? decoration,
+      Decoration? foregroundDecoration,
+      AlignmentGeometry? alignment,
       VoidCallback? onEnd,
       double? width,
       double? height}) {
@@ -61,7 +74,7 @@ extension ContainerAniExt on Container {
         curve: curve,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -70,26 +83,40 @@ extension ContainerAniExt on Container {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
+/// [textStyle] 文本样式, 可以用于动画。
+/// [textAlign] 文本对齐方式, 可以用于动画。
+/// [softWrap] 是否自动换行, 可以用于动画。
+/// [overflow] 文本溢出处理方式, 可以用于动画。
+/// [maxLines] 最大行数, 可以用于动画。
+/// [textWidthBasis] 文本宽度基准, 可以用于动画。
+/// [textHeightBehavior] 文本高度行为, 可以用于动画。
 ///
 /// 返回一个AnimatedDefaultTextStyle组件。
-extension DefTextStyleExt on DefaultTextStyle {
-  AnimatedDefaultTextStyle animate(
+extension DefTextStyleExt on Widget {
+  AnimatedDefaultTextStyle animatedDefaultTextStyle(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
+      TextStyle textStyle = const TextStyle(),
+      TextAlign? textAlign,
+      bool softWrap = true,
+      TextOverflow? overflow,
+      int? maxLines,
+      TextWidthBasis? textWidthBasis,
+      TextHeightBehavior? textHeightBehavior,
       VoidCallback? onEnd}) {
     return AnimatedDefaultTextStyle(
         key: key,
-        style: style,
+        style: textStyle,
         textAlign: textAlign,
         softWrap: softWrap,
-        overflow: overflow,
+        overflow: overflow ?? TextOverflow.clip,
         maxLines: maxLines,
-        textWidthBasis: textWidthBasis,
+        textWidthBasis: textWidthBasis ?? TextWidthBasis.parent,
         textHeightBehavior: textHeightBehavior,
         curve: curve,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -98,12 +125,16 @@ extension DefTextStyleExt on DefaultTextStyle {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
+/// [opacity] 透明度，范围为0.0到1.0。
+/// [alwaysIncludeSemantics] 是否总是包含语义信息。
 ///
 /// 返回一个AnimatedOpacity组件。
-extension OpacityExt on Opacity {
-  AnimatedOpacity animate(
+extension OpacityExt on Widget {
+  AnimatedOpacity animatedOpacity(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
+      required double opacity,
+      bool alwaysIncludeSemantics = false,
       VoidCallback? onEnd}) {
     return AnimatedOpacity(
         key: key,
@@ -112,7 +143,7 @@ extension OpacityExt on Opacity {
         duration: duration,
         alwaysIncludeSemantics: alwaysIncludeSemantics,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -121,12 +152,14 @@ extension OpacityExt on Opacity {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
+/// [padding] 内边距, 可以用于动画。
 ///
 /// 返回一个AnimatedPadding组件。
-extension PandingExt on Padding {
-  AnimatedPadding animate(
+extension PandingExt on Widget {
+  AnimatedPadding animatedPadding(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
+      required EdgeInsetsGeometry padding,
       VoidCallback? onEnd}) {
     return AnimatedPadding(
         key: key,
@@ -134,7 +167,7 @@ extension PandingExt on Padding {
         curve: curve,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -143,12 +176,24 @@ extension PandingExt on Padding {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
+/// [left] 左侧位置, 可以用于动画。
+/// [top] 顶部位置, 可以用于动画。
+/// [right] 右侧位置, 可以用于动画。
+/// [bottom] 底部位置, 可以用于动画。
+/// [width] 宽度, 可以用于动画。
+/// [height] 高度, 可以用于动画。
 ///
 /// 返回一个AnimatedPositioned组件。
-extension PositionedExt on Positioned {
-  AnimatedPositioned animate(
+extension PositionedExt on Widget {
+  AnimatedPositioned animatedPosition(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
+      double? left,
+      double? top,
+      double? right,
+      double? bottom,
+      double? width,
+      double? height,
       VoidCallback? onEnd}) {
     return AnimatedPositioned(
         key: key,
@@ -161,7 +206,7 @@ extension PositionedExt on Positioned {
         height: height,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -170,20 +215,22 @@ extension PositionedExt on Positioned {
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为kThemeAnimationDuration。
 /// [onEnd] 动画结束时的回调函数。
+/// [themeData] 主题数据。
 ///
 /// 返回一个AnimatedTheme组件。
-extension ThemeExt on Theme {
-  AnimatedTheme animate(
+extension ThemeExt on Widget {
+  AnimatedTheme animatedTheme(
       {Curve curve = Curves.linear,
       Duration duration = kThemeAnimationDuration,
+      required ThemeData themeData,
       VoidCallback? onEnd}) {
     return AnimatedTheme(
         key: key,
-        data: data,
+        data: themeData,
         curve: curve,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
@@ -198,11 +245,10 @@ extension ThemeExt on Theme {
 /// [elevation] 阴影高度，默认为0。
 /// [shadowColor] 阴影颜色，默认为灰色。
 /// [shape] 形状，默认为BoxShape.rectangle。
-/// [child] 子组件。
 ///
 /// 返回一个AnimatedPhysicalModel组件。
-extension PhysicalModelExt on PhysicalModel {
-  AnimatedPhysicalModel animate(
+extension PhysicalModelExt on Widget {
+  AnimatedPhysicalModel animatedPhysicalModel(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
       VoidCallback? onEnd,
@@ -211,8 +257,7 @@ extension PhysicalModelExt on PhysicalModel {
       Clip clipBehavior = Clip.none,
       double elevation = 0,
       Color shadowColor = Colors.grey,
-      BoxShape shape = BoxShape.rectangle,
-      required Widget child}) {
+      BoxShape shape = BoxShape.rectangle}) {
     return AnimatedPhysicalModel(
         key: key,
         color: color,
@@ -224,7 +269,7 @@ extension PhysicalModelExt on PhysicalModel {
         onEnd: onEnd,
         elevation: elevation,
         shadowColor: shadowColor,
-        child: child);
+        child: this);
   }
 }
 
@@ -239,7 +284,7 @@ extension PhysicalModelExt on PhysicalModel {
 ///
 /// 返回一个AnimatedScale组件。
 extension AnimateExt on Widget {
-  AnimatedScale scaleAnimation(
+  animatedScale(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
       VoidCallback? onEnd,
@@ -257,28 +302,7 @@ extension AnimateExt on Widget {
         child: this);
   }
 
-  /// 为Widget添加交叉渐变动画效果。
-  ///
-  /// [duration] 动画持续时间，单位为毫秒。
-  /// [nextChild] 下一个子组件。
-  /// [showNext] 是否显示下一个子组件。
-  ///
-  /// 返回一个AnimatedCrossFade组件。
-  AnimatedCrossFade animationCrossFade({
-    required int duration,
-    required Widget nextChild,
-    required bool showNext,
-  }) {
-    return AnimatedCrossFade(
-      duration: Duration(milliseconds: duration),
-      firstChild: this,
-      secondChild: nextChild,
-      crossFadeState:
-          showNext ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-    );
-  }
-
-  /// 为Widget添加Tween动画效果。
+  /// 为Widget添加Tween动画效果。其它隐形动画是将从当前值开始动画到目标值，而Tween动画则是从begin值开始动画到end值, 这样比起其他隐形动画更加精准控制.
   ///
   /// [begin] 动画开始值。
   /// [end] 动画结束值。
@@ -289,7 +313,7 @@ extension AnimateExt on Widget {
   /// [onEnd] 动画结束时的回调函数。
   ///
   /// 返回一个TweenAnimationBuilder组件。
-  TweenAnimationBuilder animatedParent<T>(
+  TweenAnimationBuilder animatedTween<T>(
       {required T begin,
       required T end,
       required int duration,
@@ -318,7 +342,7 @@ extension AnimateExt on Widget {
   /// [filterQuality] 过滤质量。
   ///
   /// 返回一个AnimatedRotation组件。
-  AnimatedRotation rotationAnimation(
+  AnimatedRotation animatedRotate(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
       VoidCallback? onEnd,
@@ -344,7 +368,7 @@ extension AnimateExt on Widget {
   /// [offset] 滑动偏移量。
   ///
   /// 返回一个AnimatedSlide组件。
-  AnimatedSlide moveAnimation(
+  AnimatedSlide animatedMove(
       {Curve curve = Curves.linear,
       Duration duration = const Duration(milliseconds: 300),
       VoidCallback? onEnd,
@@ -357,29 +381,83 @@ extension AnimateExt on Widget {
         onEnd: onEnd,
         child: this);
   }
+}
 
-  /// 为Widget添加大小动画效果。
+//   /// 为Widget添加大小动画效果。animatedScale是动画缩放, 这个是动画更改大小.
+//   ///
+//   /// [curve] 动画曲线，默认为线性。
+//   /// [alignment] 对齐方式，默认为Alignment.center。
+//   /// [duration] 动画持续时间，默认为300毫秒。
+//   /// [reverseDuration] 反向动画持续时间。
+//   /// [clipBehavior] 剪裁行为，默认为Clip.hardEdge。
+//   ///
+//   /// 返回一个AnimatedSize组件。
+//   AnimatedSize animatedFitChildren(
+//       {Curve curve = Curves.linear,
+//       Alignment alignment = Alignment.center,
+//       Duration duration = const Duration(milliseconds: 300),
+//       Duration? reverseDuration,
+//       Clip clipBehavior = Clip.hardEdge}) {
+//     return AnimatedSize(
+//         key: key,
+//         curve: curve,
+//         duration: duration,
+//         alignment: alignment,
+//         reverseDuration: reverseDuration,
+//         clipBehavior: clipBehavior,
+//         child: this);
+//   }
+// }
+
+extension AnimateExt2 on List<Widget> {
+  /// 为两个Widget添加交叉淡入淡出动画效果。
+  ///
+  /// [duration] 动画持续时间，默认为300毫秒。
+  /// [showNext] 是否显示第二个Widget。
+  ///
+  /// 返回一个AnimatedCrossFade组件。
+  AnimatedCrossFade animatedCrossFade({
+    Duration duration = const Duration(milliseconds: 300),
+    required bool showNext,
+  }) {
+    if (this.length < 2) {
+      throw Exception('AnimatedCrossFade need 2 children');
+    }
+
+    return AnimatedCrossFade(
+      duration: duration,
+      firstChild: this[0],
+      secondChild: this[1],
+      crossFadeState:
+          showNext ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+    );
+  }
+
+  /// 为多个Widget添加尺寸变化动画效果
   ///
   /// [curve] 动画曲线，默认为线性。
   /// [alignment] 对齐方式，默认为Alignment.center。
   /// [duration] 动画持续时间，默认为300毫秒。
   /// [reverseDuration] 反向动画持续时间。
   /// [clipBehavior] 剪裁行为，默认为Clip.hardEdge。
+  /// [index] 准备显示第几个widget。
   ///
   /// 返回一个AnimatedSize组件。
-  AnimatedSize sizeAnimation(
-      {Curve curve = Curves.linear,
-      Alignment alignment = Alignment.center,
-      Duration duration = const Duration(milliseconds: 300),
-      Duration? reverseDuration,
-      Clip clipBehavior = Clip.hardEdge}) {
+  AnimatedSize animatedFitChild({
+    Curve curve = Curves.linear,
+    Alignment alignment = Alignment.center,
+    Duration duration = const Duration(milliseconds: 300),
+    Duration? reverseDuration,
+    required int index,
+    Clip clipBehavior = Clip.hardEdge,
+  }) {
     return AnimatedSize(
-        key: key,
-        curve: curve,
-        duration: duration,
-        alignment: alignment,
-        reverseDuration: reverseDuration,
-        clipBehavior: clipBehavior,
-        child: this);
+      curve: curve,
+      duration: duration,
+      alignment: alignment,
+      reverseDuration: reverseDuration,
+      clipBehavior: clipBehavior,
+      child: this[index],
+    );
   }
 }
