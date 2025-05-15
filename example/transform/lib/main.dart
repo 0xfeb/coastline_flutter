@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Container(color: Colors.red, height: 20, width: 20)
-                .alignmentAnimate(animateValueForAlignment: _animationAlignment)
+                .animatedAlign(animateValueForAlignment: _animationAlignment)
                 .box(width: 100, height: 100, color: Colors.blue),
           ],
         ),
