@@ -7,22 +7,28 @@ import 'package:flutter/material.dart';
 /// [curve] 动画曲线，默认为线性。
 /// [duration] 动画持续时间，默认为300毫秒。
 /// [onEnd] 动画结束时的回调函数。
+/// [animateValueForAlignment] 对齐方式数值, 随着时间变动。
+/// [heightFactor] 高度因子，默认为1.0。
+/// [widthFactor] 宽度因子，默认为1.0。
 ///
 /// 返回一个AnimatedAlign组件。
-extension AlignAniExt on Align {
-  AnimatedAlign animate(
+extension AlignAniExt on Widget {
+  AnimatedAlign alignmentAnimate(
       {Curve curve = Curves.linear,
+      required Alignment animateValueForAlignment,
       Duration duration = const Duration(milliseconds: 300),
+      double heightFactor = 1.0,
+      double widthFactor = 1.0,
       VoidCallback? onEnd}) {
     return AnimatedAlign(
         key: key,
-        alignment: alignment,
+        alignment: animateValueForAlignment,
         heightFactor: heightFactor,
         widthFactor: widthFactor,
         curve: curve,
         duration: duration,
         onEnd: onEnd,
-        child: child);
+        child: this);
   }
 }
 
