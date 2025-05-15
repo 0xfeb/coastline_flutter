@@ -49,7 +49,7 @@ class DbInterface {
     });
   }
 
-  /// 销毁所有数据
+  /// 关闭数据库
   Future close() async {
     await _dbInst.close();
   }
@@ -59,7 +59,7 @@ class DbInterface {
   /// [key] 要查询的键
   ///
   /// 返回查询到的值，如果没有找到则返回null
-  Future<String?> value(String key) async {
+  Future<String?> getValue(String key) async {
     var list =
         await _dbInst.query(keyValueTableName, where: '$keyColumnName="$key"');
     if (list.isEmpty) {
@@ -87,7 +87,7 @@ class DbInterface {
   /// [arguments] 查询参数
   ///
   /// 返回查询到的第一行数据，如果没有找到则返回null
-  Future<Map<String, Object?>?> getOneObject(String query,
+  Future<Map<String, Object?>?> queryOneLine(String query,
       [List<Object?>? arguments]) async {
     List<Map<String, Object?>> items = await _dbInst.rawQuery(query, arguments);
 
@@ -104,7 +104,7 @@ class DbInterface {
   /// [arguments] 查询参数
   ///
   /// 返回查询到的所有数据
-  Future<List<Map<String, Object?>>> getObjects(String query,
+  Future<List<Map<String, Object?>>> queryLines(String query,
       [List<Object?>? arguments]) {
     return _dbInst.rawQuery(query, arguments);
   }
@@ -142,7 +142,7 @@ class DbInterface {
   /// [arguments] 插入参数
   ///
   /// 返回插入的行数
-  Future<int> rawAddObject(String action, [List<Object?>? arguments]) {
+  Future<int> insertLine(String action, [List<Object?>? arguments]) {
     return _dbInst.rawInsert(action, arguments);
   }
 
@@ -152,7 +152,7 @@ class DbInterface {
   /// [keyValues] 列名和数据的映射
   ///
   /// 返回插入的行数
-  Future<int> addObject(
+  Future<int> insertDict(
       {required String table, required Map<String, Object?> keyValues}) async {
     print(keyValues);
     List<(String, String)> kvs =
@@ -162,7 +162,7 @@ class DbInterface {
     print(kvs);
     String key = kvs.map((item) => item.$1).join(',');
     String value = kvs.map((item) => item.$2).join(',');
-    return rawUpdate('insert or replace into $table ($key) values ($value)');
+    return updateLine('insert or replace into $table ($key) values ($value)');
   }
 
   /// 更改一个数据
@@ -171,7 +171,7 @@ class DbInterface {
   /// [arguments] 更新参数
   ///
   /// 返回更新的行数
-  Future<int> rawUpdate(String action, [List<Object?>? arguments]) async {
+  Future<int> updateLine(String action, [List<Object?>? arguments]) async {
     return _dbInst.rawUpdate(action, arguments);
   }
 
@@ -182,7 +182,7 @@ class DbInterface {
   /// [keyValues] 列名和数据的映射
   ///
   /// 返回更新的行数
-  Future<int> update(
+  Future<int> updateDict(
       {required String table,
       required int rowid,
       required Map<String, Object?> keyValues}) async {
@@ -195,14 +195,14 @@ class DbInterface {
       }
     }).join(",");
     print('update $table set $action where rowid=$rowid');
-    return rawUpdate('update $table set $action where rowid=$rowid');
+    return updateLine('update $table set $action where rowid=$rowid');
   }
 
   /// 删除一个数据
   ///
   /// [action] SQL删除语句
   /// [arguments] 删除参数
-  Future rawDelete(String action, [List<Object?>? arguments]) {
+  Future deleteLine(String action, [List<Object?>? arguments]) {
     return _dbInst.rawDelete(action, arguments);
   }
 
@@ -213,7 +213,7 @@ class DbInterface {
   ///
   /// 返回删除的行数
   Future deleteById({required String table, required int rowid}) async {
-    return rawDelete('delete from $table where rowid=$rowid');
+    return deleteLine('delete from $table where rowid=$rowid');
   }
 
   /// 删除一个数据, 通过KeyValues, 指定列名和数据的合集
@@ -222,7 +222,7 @@ class DbInterface {
   /// [keyValues] 列名和数据的映射
   ///
   /// 返回删除的行数
-  Future delete(
+  Future deleteByDict(
       {required String table, required Map<String, Object?> keyValues}) async {
     String action =
         keyValues.entries.where((element) => element.value != null).map((e) {
@@ -232,6 +232,6 @@ class DbInterface {
         return '${e.key}="${e.value}"';
       }
     }).join(" and ");
-    return rawDelete('delete from $table where $action');
+    return deleteLine('delete from $table where $action');
   }
 }
