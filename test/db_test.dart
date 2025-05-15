@@ -29,7 +29,7 @@ void main() {
     await dbInterface?.setValue(key: key, value: value);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, value);
   });
 
@@ -46,7 +46,7 @@ void main() {
     // Get one object
     final query =
         'SELECT * FROM ${DbInterface.keyValueTableName} WHERE ${DbInterface.keyColumnName} = ?';
-    final result = await dbInterface?.getOneObject(query, [key]);
+    final result = await dbInterface?.queryOneLine(query, [key]);
 
     expect(result, isNotNull);
     expect(result![DbInterface.keyColumnName], key);
@@ -68,7 +68,7 @@ void main() {
 
     // Get objects
     final query = 'SELECT * FROM ${DbInterface.keyValueTableName}';
-    final results = await dbInterface!.getObjects(query);
+    final results = await dbInterface!.queryLines(query);
 
     expect(results, isNotEmpty);
     expect(results.length, 3);
@@ -117,7 +117,7 @@ void main() {
     await dbInterface?.execute(sql, [key, value]);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, value);
   });
 
@@ -131,10 +131,10 @@ void main() {
     // Raw add object
     final sql =
         'INSERT or replace INTO ${DbInterface.keyValueTableName} (${DbInterface.keyColumnName}, ${DbInterface.valueColumnName}) VALUES (?, ?)';
-    await dbInterface?.rawAddObject(sql, [key, value]);
+    await dbInterface?.insertLine(sql, [key, value]);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, value);
   });
 
@@ -153,11 +153,11 @@ void main() {
         'CREATE TABLE if not exists $table (key1 TEXT, key2 INTEGER)');
 
     // Add object
-    await dbInterface?.addObject(table: table, keyValues: keyValues);
+    await dbInterface?.insertDict(table: table, keyValues: keyValues);
 
     // Get objects
     final query = 'SELECT * FROM $table';
-    final results = await dbInterface!.getObjects(query);
+    final results = await dbInterface!.queryLines(query);
 
     expect(results, isNotEmpty);
     expect(results.first['key1'], 'value1');
@@ -178,10 +178,10 @@ void main() {
     // Raw update
     final sql =
         'UPDATE ${DbInterface.keyValueTableName} SET ${DbInterface.valueColumnName} = ? WHERE ${DbInterface.keyColumnName} = ?';
-    await dbInterface?.rawUpdate(sql, [newValue, key]);
+    await dbInterface?.updateLine(sql, [newValue, key]);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, newValue);
   });
 
@@ -199,13 +199,13 @@ void main() {
     print("rowid -> ${rowId}");
 
     // Update
-    await dbInterface?.update(
+    await dbInterface?.updateDict(
         table: DbInterface.keyValueTableName,
         rowid: rowId,
         keyValues: {DbInterface.valueColumnName: newValue});
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, newValue);
   });
 
@@ -222,10 +222,10 @@ void main() {
     // Raw delete
     final sql =
         'DELETE FROM ${DbInterface.keyValueTableName} WHERE ${DbInterface.keyColumnName} = ?';
-    await dbInterface?.rawDelete(sql, [key]);
+    await dbInterface?.deleteLine(sql, [key]);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, isNull);
   });
 
@@ -244,7 +244,7 @@ void main() {
         table: DbInterface.keyValueTableName, rowid: rowId!);
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, isNull);
   });
 
@@ -259,12 +259,12 @@ void main() {
     await dbInterface?.setValue(key: key, value: value);
 
     // Delete
-    await dbInterface?.delete(
+    await dbInterface?.deleteByDict(
         table: DbInterface.keyValueTableName,
         keyValues: {DbInterface.keyColumnName: key});
 
     // Get value
-    final retrievedValue = await dbInterface?.value(key);
+    final retrievedValue = await dbInterface?.getValue(key);
     expect(retrievedValue, isNull);
   });
 }
