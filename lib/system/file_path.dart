@@ -15,13 +15,13 @@ class FilePath {
   /// 初始化路径的环境
   ///
   /// 该方法用于设置应用程序的文件路径，包括数据库路径、图像路径、库路径和临时路径。
-  /// 如果环境变量 `FLUTTER_TEST` 设置为 `true`，则使用 `HOME` 环境变量作为库路径。
+  /// 如果环境变量 `FLUTTER_TEST` 设置为 `true`，则使用 `FLUTTER_TEST_HOME` 环境变量作为库路径。
   /// 否则，根据平台类型（iOS、macOS、Android）获取相应的目录路径。
   static setup() async {
     if (loaded) return;
 
     if (Platform.environment['FLUTTER_TEST'] == "true") {
-      String? home = Platform.environment['HOME'];
+      String? home = Platform.environment['FLUTTER_TEST_HOME'];
       _library = home!;
     } else {
       if (Platform.isIOS || Platform.isMacOS) {
