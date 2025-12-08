@@ -43,7 +43,25 @@ ui/
 
 ## 主要功能
 
-UI模块提供了以下几类核心功能：
+UI模块提供了以下几类核心功能，其中大部分支持**逆向控件表示**这一核心设计理念：
+
+### 逆向控件表示
+
+UI模块的核心设计理念是**逆向控件表示**，即将传统的`Widget(value)`方式转换为更直观的`value.widget()`方式：
+
+**传统方式：**
+```dart
+Text("Hello World");
+Icon(Icons.home);
+```
+
+**Coastline方式：**
+```dart
+"Hello World".text();
+Icons.home.icon();
+```
+
+这种方式更加符合自然语言表达习惯，也使得链式调用更加流畅。
 
 ### Widget扩展方法
 
@@ -90,7 +108,7 @@ UI模块包含了多种预构建的自定义控件，可直接用于界面开发
 
 文本相关的扩展和组件：
 
-- TextDisplay扩展：提供多种文本样式的快捷创建方法
+- TextDisplay扩展：提供多种文本样式的快捷创建方法（支持逆向表示）
 - ChineseNumber：中文数字处理
 - RichText：富文本组件
 
@@ -185,6 +203,97 @@ void showSnackTitle(String title, {Color color = Colors.grey})
 参数：
 - `title`：要显示的文本内容
 - `color`：背景颜色（默认灰色）
+
+### 文本显示扩展 (TextDisplay)
+
+TextDisplay扩展提供了对String类的扩展，支持通过逆向表示方式创建各种样式的文本控件。
+
+#### `text`
+
+将字符串转换为基础Text组件：
+
+```dart
+Text text({
+  Key? key,
+  TextStyle? style,
+  StrutStyle? strutStyle,
+  TextAlign? textAlign,
+  TextDirection? textDirection,
+  Locale? locale,
+  bool? softWrap,
+  TextOverflow? overflow,
+  double? textScaleFactor,
+  int? maxLines,
+  String? semanticsLabel,
+  TextWidthBasis? textWidthBasis,
+  TextHeightBehavior? textHeightBehavior
+})
+```
+
+参数：
+- `style`：文本样式（可选）
+- `textAlign`：文本对齐方式（可选）
+- `overflow`：文本溢出处理方式（可选）
+- `maxLines`：最大行数（可选）
+- 其他参数：与Flutter原生Text组件相同
+
+返回值：配置完成的Text组件
+
+#### `textTitle`
+
+将字符串转换为标题样式的文本组件：
+
+```dart
+Text textTitle({
+  Key? key,
+  required BuildContext context,
+  StrutStyle? strutStyle,
+  TextAlign? textAlign,
+  TextDirection? textDirection,
+  Locale? locale,
+  bool? softWrap,
+  TextOverflow? overflow,
+  double? textScaleFactor,
+  int? maxLines,
+  String? semanticsLabel,
+  TextWidthBasis? textWidthBasis,
+  TextHeightBehavior? textHeightBehavior
+})
+```
+
+参数：
+- `context`：构建上下文（必须）
+- 其他参数：与text()方法相同
+
+返回值：使用主题标题样式的Text组件
+
+#### `textSubtitle`
+
+将字符串转换为子标题样式的文本组件：
+
+```dart
+Text textSubtitle({
+  Key? key,
+  required BuildContext context,
+  StrutStyle? strutStyle,
+  TextAlign? textAlign,
+  TextDirection? textDirection,
+  Locale? locale,
+  bool? softWrap,
+  TextOverflow? overflow,
+  double? textScaleFactor,
+  int? maxLines,
+  String? semanticsLabel,
+  TextWidthBasis? textWidthBasis,
+  TextHeightBehavior? textHeightBehavior
+})
+```
+
+参数：
+- `context`：构建上下文（必须）
+- 其他参数：与text()方法相同
+
+返回值：使用主题子标题样式的Text组件
 
 ### 自定义控件
 
@@ -281,7 +390,7 @@ ClipOval clipRound({Rect Function(Size)? clip})
 ### Widget扩展方法示例
 
 ```dart
-// 创建一个带点击事件的蓝色容器
+// 创建一个带点击事件的蓝色容器（传统方式）
 Container(
   child: Text('点击我'),
 )
@@ -290,8 +399,33 @@ Container(
     print('容器被点击了');
   });
 
-// 创建一个渐变背景的按钮
+// 创建一个带点击事件的蓝色容器（逆向表示）
+Container(
+  child: '点击我'.text(),
+)
+  .box(color: Colors.blue, cornerRadius: 8)
+  .onTap(() {
+    print('容器被点击了');
+  });
+
+// 创建一个渐变背景的按钮（传统方式）
 Text('提交')
+  .text(color: Colors.white)
+  .gradientBox(
+    gradient: LinearGradient(
+      colors: [Colors.blue, Colors.green],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    padding: EdgeInsets.all(12),
+    cornerRadius: 8,
+  )
+  .onTap(() {
+    // 处理提交逻辑
+  });
+
+// 创建一个渐变背景的按钮（逆向表示）
+'提交'.text()
   .text(color: Colors.white)
   .gradientBox(
     gradient: LinearGradient(
