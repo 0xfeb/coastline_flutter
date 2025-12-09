@@ -1,6 +1,6 @@
 name: coastline
-description: Flutter tools for fast usage.
-version: 1.0.0
+description: flutter开发控件集合
+version: 1.0.1
 homepage: https://github.com/0xfeb/coastline_flutter
 environment:
     sdk: '>=3.3.0 <4.0.0'

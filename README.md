@@ -46,7 +46,7 @@ Coastline 中的大部分 UI 控件和功能都支持这种逆向表示方式，
 
 ```yaml
 dependencies:
-  coastline: ^0.9.0
+  coastline: ^1.0.1
 ```
 
 然后运行以下命令获取依赖：
@@ -274,8 +274,27 @@ Widget 扩展：
 
 - 类名：使用大驼峰命名法（PascalCase）
 - 函数名：使用小驼峰命名法（camelCase）
-- 扩展方法：使用小驼峰命名法（camelCase）
-- 常量：使用全大写加下划线（UPPER_CASE_WITH_UNDERSCORES）
+
+## 文档资源
+
+### API文档
+
+可以通过以下链接直接访问完整的API文档：
+
+[Coastline API文档入口](./api/index.html)
+
+### 模块文档
+
+以下是各功能模块的详细文档：
+
+- [动画模块（Animation）](./doc/animation.md)
+- [色彩扩展模块（Color Extra）](./doc/color_extra.md)
+- [数据库模块（Database）](./doc/database.md)
+- [绘图模块（Draw）](./doc/draw.md)
+- [媒体模块（Media）](./doc/media.md)
+- [数据结构模块（Structure）](./doc/structure.md)
+- [系统模块（System）](./doc/system.md)
+- [UI模块（UI）](./doc/ui.md)
 
 ## 贡献指南
 
